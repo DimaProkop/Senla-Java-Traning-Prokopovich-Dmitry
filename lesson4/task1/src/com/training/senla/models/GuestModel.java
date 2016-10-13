@@ -10,6 +10,7 @@ public class GuestModel {
     private String name;
     private Date startDate;
     private Date finalDate;
+    private RoomModel roomModel;
 
     public GuestModel() {
 
@@ -52,5 +53,13 @@ public class GuestModel {
 
     public void setFinalDate(Date finalDate) {
         this.finalDate = finalDate;
+    }
+
+    public RoomModel getRoomModel() {
+        return roomModel;
+    }
+
+    public void setRoomModel(RoomModel roomModel) {
+        this.roomModel = roomModel;
     }
 }
