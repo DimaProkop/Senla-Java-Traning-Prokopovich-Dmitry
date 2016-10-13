@@ -11,6 +11,9 @@ import java.util.List;
  * Created by prokop on 13.10.16.
  */
 public class HotelModelServiceImpl implements HotelModelService {
+
+
+
     @Override
     public List<GuestModel> getGuests() {
         return null;

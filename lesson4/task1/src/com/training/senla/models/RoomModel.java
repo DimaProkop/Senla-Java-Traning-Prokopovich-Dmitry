@@ -18,12 +18,12 @@ public class RoomModel {
     private int rating;
     private Date startDate;
     private Date finalDate;
-    private List<GuestModel> oldGuests;
+    private List<GuestModel> guests;
 
     public RoomModel() {
     }
 
-    public RoomModel(int roomId, int price, int capacity, RoomStatus status, RoomsSection section, int rating, Date startDate, Date finalDate, List<GuestModel> oldGuests) {
+    public RoomModel(int roomId, int price, int capacity, RoomStatus status, RoomsSection section, int rating, Date startDate, Date finalDate, List<GuestModel> guests) {
         this.roomId = roomId;
         this.price = price;
         this.capacity = capacity;
@@ -32,7 +32,7 @@ public class RoomModel {
         this.rating = rating;
         this.startDate = startDate;
         this.finalDate = finalDate;
-        this.oldGuests = oldGuests;
+        this.guests = guests;
     }
 
     public int getRoomId() {
@@ -99,11 +99,11 @@ public class RoomModel {
         this.finalDate = finalDate;
     }
 
-    public List<GuestModel> getOldGuests() {
-        return oldGuests;
+    public List<GuestModel> getGuests() {
+        return guests;
     }
 
-    public void setOldGuests(List<GuestModel> oldGuests) {
-        this.oldGuests = oldGuests;
+    public void setGuests(List<GuestModel> guests) {
+        this.guests = guests;
     }
 }
