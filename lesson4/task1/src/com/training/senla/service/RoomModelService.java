@@ -1,9 +1,10 @@
-package com.training.senla.services;
+package com.training.senla.service;
 
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
-import com.training.senla.models.RoomModel;
+import com.training.senla.model.RoomModel;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -24,8 +25,8 @@ public interface RoomModelService {
     List<RoomModel> getSortedByCapacity(RoomStatus status);
     List<RoomModel> getSortedByRating(RoomStatus status);
     int getCountFreeRooms();
-    List<RoomModel> getReleasedInFuture(Date date);
+    List<RoomModel> getReleasedInFuture(LocalDate date);
     List<RoomModel> getLatestGuests(int count);
-    List<Integer> getPriceBySection(RoomsSection section);
+    List<Double> getPriceBySection(RoomsSection section);
 
 }

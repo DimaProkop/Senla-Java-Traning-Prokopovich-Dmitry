@@ -1,26 +1,27 @@
-package com.training.senla.models;
+package com.training.senla.model;
 
 import com.training.senla.enums.ServicesSection;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
  * Created by prokop on 13.10.16.
  */
 public class ServiceModel {
-    private int serviceId;
+    private int serviceId=0;
     private String name;
-    private int price;
+    private double price;
     private ServicesSection section;
-    private Date startDate;
-    private Date finalDate;
+    private LocalDate startDate;
+    private LocalDate finalDate;
 
     public ServiceModel() {
 
     }
 
-    public ServiceModel(int serviceId, String name, int price, ServicesSection section, Date startDate, Date finalDate) {
-        this.serviceId = serviceId;
+    public ServiceModel(int serviceId, String name, double price, ServicesSection section, LocalDate startDate, LocalDate finalDate) {
+        this.serviceId = serviceId++;
         this.name = name;
         this.price = price;
         this.section = section;
@@ -44,11 +45,11 @@ public class ServiceModel {
         this.name = name;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -60,19 +61,19 @@ public class ServiceModel {
         this.section = section;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Date getFinalDate() {
+    public LocalDate getFinalDate() {
         return finalDate;
     }
 
-    public void setFinalDate(Date finalDate) {
+    public void setFinalDate(LocalDate finalDate) {
         this.finalDate = finalDate;
     }
 }

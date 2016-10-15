@@ -1,7 +1,7 @@
-package com.training.senla.services;
+package com.training.senla.service;
 
-import com.training.senla.models.GuestModel;
-import com.training.senla.models.RoomModel;
+import com.training.senla.model.GuestModel;
+import com.training.senla.model.RoomModel;
 
 import java.util.List;
 
@@ -16,6 +16,6 @@ public interface GuestModelService {
     List<GuestModel> getAll();
     List<GuestModel> getSortedByFinalDate();
     List<GuestModel> getSortedByName();
-    int getSumByRoom(RoomModel roomModel);
+    double getSumByRoom(RoomModel roomModel);
     int getCount();
 }

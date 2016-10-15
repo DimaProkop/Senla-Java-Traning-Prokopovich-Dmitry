@@ -1,11 +1,12 @@
-package com.training.senla.services.impl;
+package com.training.senla.service.impl;
 
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
-import com.training.senla.models.RoomModel;
+import com.training.senla.model.RoomModel;
 import com.training.senla.repository.RoomModelRepository;
-import com.training.senla.services.RoomModelService;
+import com.training.senla.service.RoomModelService;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -16,83 +17,87 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     private RoomModelRepository roomModelRepository;
 
+    public RoomModelServiceImpl(RoomModelRepository roomModelRepository) {
+        this.roomModelRepository = roomModelRepository;
+    }
+
     @Override
     public void setRoom(RoomModel roomModel) {
-
+        roomModelRepository.setRoom(roomModel);
     }
 
     @Override
     public RoomModel getRoom(int id) {
-        return null;
+        return roomModelRepository.getRoom(id);
     }
 
     @Override
     public void update(RoomModel roomModel) {
-
+        roomModelRepository.update(roomModel);
     }
 
     @Override
     public void delete(RoomModel roomModel) {
-
+        roomModelRepository.delete(roomModel);
     }
 
     @Override
     public List<RoomModel> getAll() {
-        return null;
+        return roomModelRepository.getAll();
     }
 
     @Override
     public List<RoomModel> getSortedByPrice() {
-        return null;
+        return roomModelRepository.getSortedByPrice();
     }
 
     @Override
     public List<RoomModel> getSortedByCapacity() {
-        return null;
+        return roomModelRepository.getSortedByCapacity();
     }
 
     @Override
     public List<RoomModel> getSortedByRating() {
-        return null;
+        return roomModelRepository.getSortedByRating();
     }
 
     @Override
     public List<RoomModel> getAll(RoomStatus status) {
-        return null;
+        return roomModelRepository.getAll(status);
     }
 
     @Override
     public List<RoomModel> getSortedByPrice(RoomStatus status) {
-        return null;
+        return roomModelRepository.getSortedByPrice(status);
     }
 
     @Override
     public List<RoomModel> getSortedByCapacity(RoomStatus status) {
-        return null;
+        return getSortedByCapacity(status);
     }
 
     @Override
     public List<RoomModel> getSortedByRating(RoomStatus status) {
-        return null;
+        return getSortedByRating(status);
     }
 
     @Override
     public int getCountFreeRooms() {
-        return 0;
+        return roomModelRepository.getCountFreeRooms();
     }
 
     @Override
-    public List<RoomModel> getReleasedInFuture(Date date) {
-        return null;
+    public List<RoomModel> getReleasedInFuture(LocalDate date) {
+        return getReleasedInFuture(date);
     }
 
     @Override
     public List<RoomModel> getLatestGuests(int count) {
-        return null;
+        return roomModelRepository.getLatestGuests(count);
     }
 
     @Override
-    public List<Integer> getPriceBySection(RoomsSection section) {
-        return null;
+    public List<Double> getPriceBySection(RoomsSection section) {
+        return getPriceBySection(section);
     }
 }

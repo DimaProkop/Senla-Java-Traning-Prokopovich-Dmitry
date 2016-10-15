@@ -1,8 +1,9 @@
-package com.training.senla.models;
+package com.training.senla.model;
 
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -10,24 +11,24 @@ import java.util.List;
  * Created by prokop on 13.10.16.
  */
 public class RoomModel {
-    private int roomId;
-    private int price;
+    private int roomId=0;
+    private double price;
     private int capacity;
     private RoomStatus status;
     private RoomsSection section;
     private int rating;
-    private Date startDate;
-    private Date finalDate;
+    private LocalDate startDate;
+    private LocalDate finalDate;
     private List<GuestModel> guests;
 
     public RoomModel() {
     }
 
-    public RoomModel(int roomId, int price, int capacity, RoomStatus status, RoomsSection section, int rating, Date startDate, Date finalDate, List<GuestModel> guests) {
-        this.roomId = roomId;
+    public RoomModel(int roomId, double price, int capacity, RoomsSection section, int rating, LocalDate startDate, LocalDate finalDate, List<GuestModel> guests) {
+        this.roomId = roomId++;
         this.price = price;
         this.capacity = capacity;
-        this.status = status;
+        this.status = RoomStatus.FREE;
         this.section = section;
         this.rating = rating;
         this.startDate = startDate;
@@ -43,11 +44,11 @@ public class RoomModel {
         this.roomId = roomId;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -83,19 +84,19 @@ public class RoomModel {
         this.rating = rating;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Date getFinalDate() {
+    public LocalDate getFinalDate() {
         return finalDate;
     }
 
-    public void setFinalDate(Date finalDate) {
+    public void setFinalDate(LocalDate finalDate) {
         this.finalDate = finalDate;
     }
 

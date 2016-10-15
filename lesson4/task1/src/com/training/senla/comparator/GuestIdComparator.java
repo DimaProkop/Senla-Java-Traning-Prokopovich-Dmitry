@@ -1,7 +1,7 @@
-package com.training.senla.comparators;
+package com.training.senla.comparator;
 
 import java.util.Comparator;
-import com.training.senla.models.GuestModel;
+import com.training.senla.model.GuestModel;
 
 /**
  * Created by prokop on 13.10.16.

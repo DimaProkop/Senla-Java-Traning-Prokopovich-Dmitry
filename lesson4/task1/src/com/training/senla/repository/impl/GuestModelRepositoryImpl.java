@@ -1,9 +1,11 @@
 package com.training.senla.repository.impl;
 
-import com.training.senla.models.GuestModel;
-import com.training.senla.models.RoomModel;
+import com.training.senla.comparator.Comparator;
+import com.training.senla.model.GuestModel;
+import com.training.senla.model.RoomModel;
 import com.training.senla.repository.GuestModelRepository;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -12,6 +14,7 @@ import java.util.List;
 public class GuestModelRepositoryImpl implements GuestModelRepository {
 
     private List<GuestModel> guestModels;
+
 
     public GuestModelRepositoryImpl(List<GuestModel> guestModels) {
         this.guestModels = guestModels;
@@ -23,7 +26,7 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
                 return i;
             }
         }
-        return 0;
+        return -1;
     }
 
     @Override
@@ -42,32 +45,36 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
     }
 
     @Override
-    public void delete(GuestModel guestModel) {
-
+    public void delete(GuestModel guestMode) {
+        this.guestModels.remove(getGuestIndexById(guestMode.getGuestId()));
     }
 
     @Override
     public List<GuestModel> getAll() {
-        return null;
+        Collections.sort(this.guestModels, Comparator.GUEST_ID_COMPARATOR);
+        return this.guestModels;
     }
 
     @Override
     public List<GuestModel> getSortedByFinalDate() {
-        return null;
+        Collections.sort(this.guestModels, Comparator.GUEST_ROOM_DATA_COMPARATOR);
+        return this.guestModels;
     }
 
     @Override
     public List<GuestModel> getSortedByName() {
-        return null;
+        Collections.sort(this.guestModels, Comparator.GUEST_NAME_COMPARATOR);
+        return this.guestModels;
     }
 
     @Override
-    public int getSumByRoom(RoomModel roomModel) {
-        return 0;
+    public double getSumByRoom(RoomModel roomModel) {
+        int timeDiff = Math.abs(roomModel.getFinalDate().getDayOfYear()- roomModel.getStartDate().getDayOfYear());
+        return timeDiff * roomModel.getPrice();
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return this.guestModels.size();
     }
 }

@@ -1,4 +1,4 @@
-package com.training.senla.models;
+package com.training.senla.model;
 
 import java.util.List;
 

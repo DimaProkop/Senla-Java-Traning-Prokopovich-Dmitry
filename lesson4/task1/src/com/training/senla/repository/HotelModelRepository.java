@@ -1,15 +1,15 @@
-package com.training.senla.services;
+package com.training.senla.repository;
 
-import com.training.senla.models.GuestModel;
-import com.training.senla.models.RoomModel;
-import com.training.senla.models.ServiceModel;
+import com.training.senla.model.GuestModel;
+import com.training.senla.model.RoomModel;
+import com.training.senla.model.ServiceModel;
 
 import java.util.List;
 
 /**
  * Created by prokop on 13.10.16.
  */
-public interface HotelModelService {
+public interface HotelModelRepository {
     List<GuestModel> getGuests();
     void setGuests(List<GuestModel> guests);
     List<RoomModel> getRooms();

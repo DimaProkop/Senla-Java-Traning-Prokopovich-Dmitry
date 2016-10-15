@@ -1,6 +1,6 @@
-package com.training.senla.comparators;
+package com.training.senla.comparator;
 
-import com.training.senla.models.ServiceModel;
+import com.training.senla.model.ServiceModel;
 
 import java.util.Comparator;
 

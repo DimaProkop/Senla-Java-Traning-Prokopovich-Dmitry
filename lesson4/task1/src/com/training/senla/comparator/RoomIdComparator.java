@@ -1,6 +1,6 @@
-package com.training.senla.comparators;
+package com.training.senla.comparator;
 
-import com.training.senla.models.RoomModel;
+import com.training.senla.model.RoomModel;
 
 import java.util.Comparator;
 
