@@ -1,4 +1,4 @@
-package com.training.senla.util;
+package com.training.senla.util.converter;
 
 /**
  * Created by prokop on 15.10.16.

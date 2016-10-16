@@ -18,6 +18,7 @@ import com.training.senla.service.impl.RoomModelServiceImpl;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -27,43 +28,12 @@ import java.util.List;
 
 public class Main {
 
-    private static String ConvertToStringGuests(GuestModel guestModel) {
-        StringBuilder builder = new StringBuilder();
-        builder.append(String.valueOf(guestModel.getGuestId()));
-        builder.append(";");
-        builder.append(String.valueOf(guestModel.getName()));
-        builder.append(";");
-        builder.append(String.valueOf(guestModel.getStartDate()));
-        builder.append(";");
-        builder.append(String.valueOf(guestModel.getFinalDate()));
-        builder.append(";");
-        builder.append(String.valueOf(guestModel.getRoomModel().getRoomId()));
-        builder.append(";");
-        return builder.toString();
-    }
-
-    private static String ConvertToStringRooms(RoomModel roomModel) {
-        StringBuilder builder = new StringBuilder();
-        builder.append(String.valueOf(roomModel.getRoomId()));
-        builder.append(";");
-        builder.append(String.valueOf(roomModel.getPrice()));
-        builder.append(";");
-        builder.append(String.valueOf(roomModel.getCapacity()));
-        builder.append(";");
-        builder.append(String.valueOf(roomModel.getRating()));
-        builder.append(";");
-        builder.append(String.valueOf(roomModel.getSection()));
-        builder.append(";");
-        builder.append(String.valueOf(roomModel.getStatus()));
-        builder.append(";");
-        return builder.toString();
-    }
-
 
     public static void main(String[] args) throws IOException {
 
 
         LocalDate today = LocalDate.now();
+        LocalDate f = LocalDate.of(2021, 6, 6);
         LocalDate future = LocalDate.of(2016, Month.OCTOBER, 20);
         LocalDate future1 = LocalDate.of(2019, Month.AUGUST, 6);
         LocalDate future2 = LocalDate.of(2025, Month.AUGUST, 6);
@@ -96,8 +66,5 @@ public class Main {
         System.out.println(guestModelService.getSumByRoom(roomModel, guestModel));
 
         roomModelService.evictGuest(guestModel);
-
-        System.out.println(guestModelService.getAll().size());
-
     }
 }
