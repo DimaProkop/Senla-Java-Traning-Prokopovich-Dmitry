@@ -9,6 +9,7 @@ import com.training.senla.repository.ServiceModelRepository;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by prokop on 13.10.16.
@@ -59,20 +60,23 @@ public class ServiceModelRepositoryImpl implements ServiceModelRepository {
 
     @Override
     public List<ServiceModel> getAll() {
-        Collections.sort(this.serviceModels, Comparator.SERVICE_ID_COMPARATOR);
-        return this.serviceModels;
+        return this.serviceModels.stream()
+                .sorted(Comparator.SERVICE_ID_COMPARATOR)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<ServiceModel> getSortedByPrice() {
-        Collections.sort(this.serviceModels, Comparator.SERVICE_PRICE_COMPARATOR);
-        return this.serviceModels;
+        return this.serviceModels.stream()
+                .sorted(Comparator.SERVICE_PRICE_COMPARATOR)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<ServiceModel> getSortedByDate(LocalDate date) {
-        Collections.sort(this.serviceModels, Comparator.SERVICE_DATE_COMPARATOR);
-        return this.serviceModels;
+        return this.serviceModels.stream()
+                .sorted(Comparator.SERVICE_DATE_COMPARATOR)
+                .collect(Collectors.toList());
     }
 
     @Override

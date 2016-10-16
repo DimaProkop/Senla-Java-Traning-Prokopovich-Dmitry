@@ -1,6 +1,5 @@
 package com.training.senla;
 
-import com.danco.training.TextFileWorker;
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
 import com.training.senla.enums.ServicesSection;
@@ -11,7 +10,6 @@ import com.training.senla.model.ServiceModel;
 import com.training.senla.repository.impl.GuestModelRepositoryImpl;
 import com.training.senla.repository.impl.RegistrationModelRepositoryImpl;
 import com.training.senla.repository.impl.RoomModelRepositoryImpl;
-import com.training.senla.repository.impl.ServiceModelRepositoryImpl;
 import com.training.senla.service.GuestModelService;
 import com.training.senla.service.RoomModelService;
 import com.training.senla.service.impl.GuestModelServiceImpl;
@@ -22,7 +20,6 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 /**
  * Created by prokop on 12.10.16.
  */
@@ -87,13 +84,20 @@ public class Main {
 
         GuestModelService guestModelService = new GuestModelServiceImpl( new GuestModelRepositoryImpl(guests));
         guestModelService.setGuest(guestModel);
+        guestModelService.setGuest(guestModel1);
+
+        roomModel.setStatus(RoomStatus.MAINTAINED);
 
         RoomModelService roomModelService = new RoomModelServiceImpl( new RoomModelRepositoryImpl(roomModels), new GuestModelRepositoryImpl(guests), new RegistrationModelRepositoryImpl(registrationModels));
         roomModelService.setRoom(roomModel);
         roomModelService.addGuest(guestModel, roomModel);
+        roomModelService.addGuest(guestModel1, roomModel);
 
         System.out.println(guestModelService.getSumByRoom(roomModel, guestModel));
 
+        roomModelService.evictGuest(guestModel);
+
+        System.out.println(guestModelService.getAll().size());
 
     }
 }

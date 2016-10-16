@@ -25,7 +25,7 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
         this.roomModels = roomModels;
     }
 
-    private int getGuestIndexById(int id) {
+    private int getRoomIndexById(int id) {
         for (int i = 0; i < this.roomModels.size(); i++) {
             if(this.roomModels.get(i).getRoomId() == id) {
                 return i;
@@ -42,22 +42,36 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
 
     @Override
     public RoomModel getRoom(int id) {
-        return this.roomModels.get(getGuestIndexById(id));
+        return this.roomModels.get(getRoomIndexById(id));
     }
 
     @Override
     public void update(RoomModel roomModel) {
-        this.roomModels.set(getGuestIndexById(roomModel.getRoomId()), roomModel);
+        this.roomModels.set(getRoomIndexById(roomModel.getRoomId()), roomModel);
     }
 
     @Override
     public void delete(RoomModel roomModel) {
-        this.roomModels.remove(getGuestIndexById(roomModel.getRoomId()));
+        this.roomModels.remove(getRoomIndexById(roomModel.getRoomId()));
     }
 
     @Override
     public void setAll(List<RoomModel> roomModels) {
         this.roomModels.addAll(roomModels);
+    }
+
+    @Override
+    public void addGuest(GuestModel guestModel, RoomModel roomModel) {
+        for(RoomModel room : this.roomModels) {
+            room.getGuests().add(guestModel);
+        }
+    }
+
+    @Override
+    public void evictGuest(GuestModel guestModel) {
+        for (RoomModel roomModel : this.roomModels) {
+            roomModel.getGuests().remove(guestModel.getGuestId());
+        }
     }
 
     @Override
@@ -138,7 +152,7 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
     }
 
     @Override
-    public List<Integer> getPriceBySection(RoomsSection section) {
+    public List<Double> getPriceBySection(RoomsSection section) {
         return null;
     }
 }

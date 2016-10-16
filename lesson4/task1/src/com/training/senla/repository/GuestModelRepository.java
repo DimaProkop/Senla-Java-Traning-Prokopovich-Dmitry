@@ -2,6 +2,7 @@ package com.training.senla.repository;
 
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RoomModel;
+import com.training.senla.model.ServiceModel;
 
 import java.util.List;
 
@@ -14,6 +15,8 @@ public interface GuestModelRepository {
     void update(GuestModel guestModel);
     void delete(GuestModel guestModel);
     void setAll(List<GuestModel> guestModels);
+    List<ServiceModel> getServicesByPrice(GuestModel guestModel);
+    List<ServiceModel> getServicesByDate(GuestModel guestModel);
     List<GuestModel> getAll();
     List<GuestModel> getSortedByFinalDate();
     List<GuestModel> getSortedByName();

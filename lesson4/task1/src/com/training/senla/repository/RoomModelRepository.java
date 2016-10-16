@@ -2,6 +2,7 @@ package com.training.senla.repository;
 
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
+import com.training.senla.model.GuestModel;
 import com.training.senla.model.RoomModel;
 
 import java.time.LocalDate;
@@ -17,6 +18,8 @@ public interface RoomModelRepository {
     void update(RoomModel roomModel);
     void delete(RoomModel roomModel);
     void setAll(List<RoomModel> roomModels);
+    void addGuest(GuestModel guestModel, RoomModel roomModel);
+    void evictGuest(GuestModel guestModel);
     List<RoomModel> getAll();
     List<RoomModel> getSortedByPrice();
     List<RoomModel> getSortedByCapacity();
@@ -28,5 +31,5 @@ public interface RoomModelRepository {
     int getCountFreeRooms();
     List<RoomModel> getReleasedInFuture(LocalDate date);
     List<RoomModel> getLatestGuests(int count);
-    List<Integer> getPriceBySection(RoomsSection section);
+    List<Double> getPriceBySection(RoomsSection section);
 }

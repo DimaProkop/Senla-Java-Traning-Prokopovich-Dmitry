@@ -62,7 +62,7 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     @Override
     public void evictGuest(GuestModel guestModel) {
-        registrationModelRepository.setFinalDate(guestModel);
+        //registrationModelRepository.setFinalDate(guestModel);
         guestModelRepository.delete(guestModel);
     }
 
@@ -113,7 +113,7 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     @Override
     public List<RoomModel> getReleasedInFuture(LocalDate date) {
-        return getReleasedInFuture(date);
+        return roomModelRepository.getReleasedInFuture(date);
     }
 
     @Override
@@ -123,6 +123,6 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     @Override
     public List<Double> getPriceBySection(RoomsSection section) {
-        return getPriceBySection(section);
+        return roomModelRepository.getPriceBySection(section);
     }
 }
