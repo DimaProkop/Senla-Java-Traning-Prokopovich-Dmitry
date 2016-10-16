@@ -1,7 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Java template
 *.class
-
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
@@ -15,4 +14,3 @@ hs_err_pid*
 
 .gitignore
 .idea/
-Senla-Java-Traning-Prokopovich-Dmitry.iml
