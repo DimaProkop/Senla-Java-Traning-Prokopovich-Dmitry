@@ -12,8 +12,6 @@ import java.util.List;
  */
 public class GuestModelServiceImpl implements GuestModelService {
 
-    public static Integer currentId;
-
     private GuestModelRepository guestModelRepository;
 
     public GuestModelServiceImpl(GuestModelRepository guestModelRepository) {
@@ -41,6 +39,11 @@ public class GuestModelServiceImpl implements GuestModelService {
     }
 
     @Override
+    public void setAll(List<GuestModel> guestModels) {
+        guestModelRepository.setAll(guestModels);
+    }
+
+    @Override
     public List<GuestModel> getAll() {
         return guestModelRepository.getAll();
     }
@@ -56,8 +59,8 @@ public class GuestModelServiceImpl implements GuestModelService {
     }
 
     @Override
-    public double getSumByRoom(RoomModel roomModel) {
-        return guestModelRepository.getSumByRoom(roomModel);
+    public double getSumByRoom(RoomModel roomModel, GuestModel guestModel) {
+        return guestModelRepository.getSumByRoom(roomModel, guestModel);
     }
 
     @Override

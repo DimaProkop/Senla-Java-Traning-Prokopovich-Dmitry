@@ -9,7 +9,7 @@ import java.util.Date;
  * Created by prokop on 13.10.16.
  */
 public class ServiceModel {
-    private int serviceId=0;
+    private int serviceId;
     private String name;
     private double price;
     private ServicesSection section;
@@ -20,8 +20,7 @@ public class ServiceModel {
 
     }
 
-    public ServiceModel(int serviceId, String name, double price, ServicesSection section, LocalDate startDate, LocalDate finalDate) {
-        this.serviceId = serviceId++;
+    public ServiceModel(String name, double price, ServicesSection section, LocalDate startDate, LocalDate finalDate) {
         this.name = name;
         this.price = price;
         this.section = section;

@@ -2,7 +2,11 @@ package com.training.senla.service.impl;
 
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
+import com.training.senla.model.GuestModel;
+import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
+import com.training.senla.repository.GuestModelRepository;
+import com.training.senla.repository.RegistrationModelRepository;
 import com.training.senla.repository.RoomModelRepository;
 import com.training.senla.service.RoomModelService;
 
@@ -16,9 +20,13 @@ import java.util.List;
 public class RoomModelServiceImpl implements RoomModelService {
 
     private RoomModelRepository roomModelRepository;
+    private GuestModelRepository guestModelRepository;
+    private RegistrationModelRepository registrationModelRepository;
 
-    public RoomModelServiceImpl(RoomModelRepository roomModelRepository) {
+    public RoomModelServiceImpl(RoomModelRepository roomModelRepository, GuestModelRepository guestModelRepository, RegistrationModelRepository registrationModelRepository) {
         this.roomModelRepository = roomModelRepository;
+        this.guestModelRepository = guestModelRepository;
+        this.registrationModelRepository = registrationModelRepository;
     }
 
     @Override
@@ -39,6 +47,23 @@ public class RoomModelServiceImpl implements RoomModelService {
     @Override
     public void delete(RoomModel roomModel) {
         roomModelRepository.delete(roomModel);
+    }
+
+    @Override
+    public void setAll(List<RoomModel> roomModels) {
+        roomModelRepository.setAll(roomModels);
+    }
+
+    @Override
+    public void addGuest(GuestModel guestModel, RoomModel roomModel) {
+        //guestModelRepository.setGuest(guestModel);
+        registrationModelRepository.addRecord(new RegistrationModel(guestModel.getGuestId(), roomModel.getRoomId(), guestModel.getStartDate(), guestModel.getFinalDate()));
+    }
+
+    @Override
+    public void evictGuest(GuestModel guestModel) {
+        registrationModelRepository.setFinalDate(guestModel);
+        guestModelRepository.delete(guestModel);
     }
 
     @Override
@@ -73,12 +98,12 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     @Override
     public List<RoomModel> getSortedByCapacity(RoomStatus status) {
-        return getSortedByCapacity(status);
+        return roomModelRepository.getSortedByCapacity(status);
     }
 
     @Override
     public List<RoomModel> getSortedByRating(RoomStatus status) {
-        return getSortedByRating(status);
+        return roomModelRepository.getSortedByRating(status);
     }
 
     @Override

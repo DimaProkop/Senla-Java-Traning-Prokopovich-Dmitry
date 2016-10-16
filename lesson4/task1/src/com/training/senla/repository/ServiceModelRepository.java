@@ -1,6 +1,7 @@
 package com.training.senla.repository;
 
 import com.training.senla.enums.ServicesSection;
+import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 
 import java.time.LocalDate;
@@ -14,6 +15,7 @@ public interface ServiceModelRepository {
     ServiceModel getService(int id);
     void update(ServiceModel serviceModel);
     void delete(ServiceModel serviceModel);
+    void setAll(List<ServiceModel> serviceModels);
     List<ServiceModel> getAll();
     List<ServiceModel> getSortedByPrice();
     List<ServiceModel> getSortedByDate(LocalDate date);

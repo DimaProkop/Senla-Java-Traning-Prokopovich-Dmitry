@@ -7,8 +7,8 @@ import java.util.List;
 /**
  * Created by prokop on 13.10.16.
  */
-public class GuestModel {
-    private int guestId=0;
+public class GuestModel implements Cloneable{
+    private int guestId;
     private String name;
     private LocalDate startDate;
     private LocalDate finalDate;
@@ -19,12 +19,11 @@ public class GuestModel {
 
     }
 
-    public GuestModel(int guestId, String name, LocalDate startDate, LocalDate finalDate, RoomModel roomModel, List<ServiceModel> serviceModelList) {
-        this.guestId = guestId++;
+    public GuestModel(String name, LocalDate startDate, List<ServiceModel> serviceModelList) {
         this.name = name;
         this.startDate = startDate;
-        this.finalDate = finalDate;
-        this.roomModel = roomModel;
+        this.finalDate = null;
+        this.roomModel = null;
         this.serviceModelList = serviceModelList;
     }
 

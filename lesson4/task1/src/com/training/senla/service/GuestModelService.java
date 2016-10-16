@@ -13,9 +13,10 @@ public interface GuestModelService {
     GuestModel getGuest(int id);
     void update(GuestModel guestModel);
     void delete(GuestModel guestModel);
+    void setAll(List<GuestModel> guestModels);
     List<GuestModel> getAll();
     List<GuestModel> getSortedByFinalDate();
     List<GuestModel> getSortedByName();
-    double getSumByRoom(RoomModel roomModel);
+    double getSumByRoom(RoomModel roomModel, GuestModel guestModel);
     int getCount();
 }

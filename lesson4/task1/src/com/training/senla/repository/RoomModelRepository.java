@@ -16,6 +16,7 @@ public interface RoomModelRepository {
     RoomModel getRoom(int id);
     void update(RoomModel roomModel);
     void delete(RoomModel roomModel);
+    void setAll(List<RoomModel> roomModels);
     List<RoomModel> getAll();
     List<RoomModel> getSortedByPrice();
     List<RoomModel> getSortedByCapacity();

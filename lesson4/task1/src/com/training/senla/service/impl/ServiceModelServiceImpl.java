@@ -1,6 +1,7 @@
 package com.training.senla.service.impl;
 
 import com.training.senla.enums.ServicesSection;
+import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 import com.training.senla.repository.ServiceModelRepository;
 import com.training.senla.service.ServiceModelService;
@@ -37,6 +38,11 @@ public class ServiceModelServiceImpl implements ServiceModelService {
     @Override
     public void delete(ServiceModel serviceModel) {
         serviceModelRepository.delete(serviceModel);
+    }
+
+    @Override
+    public void setAll(List<ServiceModel> serviceModels) {
+        serviceModelRepository.setAll(serviceModels);
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.training.senla.repository.impl;
 
 import com.training.senla.comparator.Comparator;
 import com.training.senla.enums.ServicesSection;
+import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 import com.training.senla.repository.ServiceModelRepository;
 
@@ -15,6 +16,7 @@ import java.util.List;
 public class ServiceModelRepositoryImpl implements ServiceModelRepository {
 
     private List<ServiceModel> serviceModels;
+    public static int currentId=1;
 
     public ServiceModelRepositoryImpl(List<ServiceModel> serviceModels) {
         this.serviceModels = serviceModels;
@@ -31,6 +33,7 @@ public class ServiceModelRepositoryImpl implements ServiceModelRepository {
 
     @Override
     public void setService(ServiceModel serviceModel) {
+        serviceModel.setServiceId(currentId++);
         this.serviceModels.add(serviceModel);
     }
 
@@ -47,6 +50,11 @@ public class ServiceModelRepositoryImpl implements ServiceModelRepository {
     @Override
     public void delete(ServiceModel serviceModel) {
         this.serviceModels.remove(getServiceIndexById(serviceModel.getServiceId()));
+    }
+
+    @Override
+    public void setAll(List<ServiceModel> serviceModels) {
+        this.serviceModels.addAll(serviceModels);
     }
 
     @Override

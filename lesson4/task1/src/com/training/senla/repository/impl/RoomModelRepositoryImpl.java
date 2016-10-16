@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 public class RoomModelRepositoryImpl implements RoomModelRepository {
 
     private List<RoomModel> roomModels;
+    private static int currentId=1;
 
     public RoomModelRepositoryImpl(List<RoomModel> roomModels) {
         this.roomModels = roomModels;
@@ -35,6 +36,7 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
 
     @Override
     public void setRoom(RoomModel roomModel) {
+        roomModel.setRoomId(currentId++);
         this.roomModels.add(roomModel);
     }
 
@@ -54,74 +56,80 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
     }
 
     @Override
+    public void setAll(List<RoomModel> roomModels) {
+        this.roomModels.addAll(roomModels);
+    }
+
+    @Override
     public List<RoomModel> getAll() {
-        Collections.sort(this.roomModels, Comparator.ROOM_ID_COMPARATOR);
-        return this.roomModels;
+        return this.roomModels.stream()
+                .sorted(Comparator.ROOM_ID_COMPARATOR)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<RoomModel> getSortedByPrice() {
-        Collections.sort(this.roomModels, Comparator.ROOM_PRICE_COMPARATOR);
-        return this.roomModels;
+        return this.roomModels.stream()
+                .sorted(Comparator.ROOM_PRICE_COMPARATOR)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<RoomModel> getSortedByCapacity() {
-        Collections.sort(this.roomModels, Comparator.ROOM_CAPACITRY_COMPARATOR);
-        return this.roomModels;
+        return this.roomModels.stream()
+                .sorted(Comparator.ROOM_CAPACITRY_COMPARATOR)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<RoomModel> getSortedByRating() {
-        Collections.sort(this.roomModels, Comparator.ROOM_RATING_COMPARATOR);
-        return this.roomModels;
+        return this.roomModels.stream()
+                .sorted(Comparator.ROOM_RATING_COMPARATOR)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<RoomModel> getAll(RoomStatus status) {
-        Collections.sort(this.roomModels.stream()
+        return this.roomModels.stream()
                 .filter(x -> x.getStatus().equals(status))
-                .collect(Collectors.toList()), Comparator.ROOM_ID_COMPARATOR);
-        return this.roomModels;
+                .sorted(Comparator.ROOM_ID_COMPARATOR)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<RoomModel> getSortedByPrice(RoomStatus status) {
-        Collections.sort(this.roomModels.stream()
+        return this.roomModels.stream()
                 .filter(x -> x.getStatus().equals(status))
-                .collect(Collectors.toList()), Comparator.ROOM_PRICE_COMPARATOR);
-        return this.roomModels;
+                .sorted(Comparator.ROOM_PRICE_COMPARATOR)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<RoomModel> getSortedByCapacity(RoomStatus status) {
-        Collections.sort(this.roomModels.stream()
+        return this.roomModels.stream()
                 .filter(x -> x.getStatus().equals(status))
-                .collect(Collectors.toList()), Comparator.ROOM_CAPACITRY_COMPARATOR);
-        return this.roomModels;
+                .sorted(Comparator.ROOM_CAPACITRY_COMPARATOR)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<RoomModel> getSortedByRating(RoomStatus status) {
-        Collections.sort(this.roomModels.stream()
+        return this.roomModels.stream()
                 .filter(x -> x.getStatus().equals(status))
-                .collect(Collectors.toList()), Comparator.ROOM_RATING_COMPARATOR);
-        return this.roomModels;
+                .sorted(Comparator.ROOM_RATING_COMPARATOR)
+                .collect(Collectors.toList());
     }
 
     @Override
     public int getCountFreeRooms() {
-        Collections.sort(this.roomModels.stream()
-                .filter(x -> x.getStatus().equals(RoomStatus.FREE))
-                .collect(Collectors.toList()), Comparator.ROOM_RATING_COMPARATOR);
-        return this.roomModels.size();
+                return this.roomModels.stream()
+                        .filter(x -> x.getStatus().equals(RoomStatus.FREE))
+                        .collect(Collectors.toList()).size();
     }
 
     @Override
     public List<RoomModel> getReleasedInFuture(LocalDate date) {
-        return this.roomModels.stream()
-                .filter(x->x.getFinalDate().getDayOfYear()<date.getDayOfYear())
-                .collect(Collectors.toList());
+                return null;
     }
 
     @Override

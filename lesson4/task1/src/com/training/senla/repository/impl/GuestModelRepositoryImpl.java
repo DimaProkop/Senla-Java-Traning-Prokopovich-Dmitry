@@ -5,6 +5,7 @@ import com.training.senla.model.GuestModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.repository.GuestModelRepository;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -14,7 +15,7 @@ import java.util.List;
 public class GuestModelRepositoryImpl implements GuestModelRepository {
 
     private List<GuestModel> guestModels;
-
+    public static int currentId=1;
 
     public GuestModelRepositoryImpl(List<GuestModel> guestModels) {
         this.guestModels = guestModels;
@@ -31,6 +32,7 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
 
     @Override
     public void setGuest(GuestModel guestModel) {
+        guestModel.setGuestId(currentId++);
         this.guestModels.add(guestModel);
     }
 
@@ -47,6 +49,11 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
     @Override
     public void delete(GuestModel guestMode) {
         this.guestModels.remove(getGuestIndexById(guestMode.getGuestId()));
+    }
+
+    @Override
+    public void setAll(List<GuestModel> guestModels) {
+        this.guestModels.addAll(guestModels);
     }
 
     @Override
@@ -68,8 +75,8 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
     }
 
     @Override
-    public double getSumByRoom(RoomModel roomModel) {
-        int timeDiff = Math.abs(roomModel.getFinalDate().getDayOfYear()- roomModel.getStartDate().getDayOfYear());
+    public double getSumByRoom(RoomModel roomModel, GuestModel guestModel) {
+        int timeDiff = Math.abs(guestModel.getFinalDate().getDayOfYear()- guestModel.getStartDate().getDayOfYear());
         return timeDiff * roomModel.getPrice();
     }
 

@@ -11,28 +11,23 @@ import java.util.List;
  * Created by prokop on 13.10.16.
  */
 public class RoomModel {
-    private int roomId=0;
+    private int roomId;
     private double price;
     private int capacity;
     private RoomStatus status;
     private RoomsSection section;
     private int rating;
-    private LocalDate startDate;
-    private LocalDate finalDate;
     private List<GuestModel> guests;
 
     public RoomModel() {
     }
 
-    public RoomModel(int roomId, double price, int capacity, RoomsSection section, int rating, LocalDate startDate, LocalDate finalDate, List<GuestModel> guests) {
-        this.roomId = roomId++;
+    public RoomModel(double price, int capacity, RoomsSection section, int rating, List<GuestModel> guests) {
         this.price = price;
         this.capacity = capacity;
         this.status = RoomStatus.FREE;
         this.section = section;
         this.rating = rating;
-        this.startDate = startDate;
-        this.finalDate = finalDate;
         this.guests = guests;
     }
 
@@ -82,22 +77,6 @@ public class RoomModel {
 
     public void setRating(int rating) {
         this.rating = rating;
-    }
-
-    public LocalDate getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
-    }
-
-    public LocalDate getFinalDate() {
-        return finalDate;
-    }
-
-    public void setFinalDate(LocalDate finalDate) {
-        this.finalDate = finalDate;
     }
 
     public List<GuestModel> getGuests() {

@@ -2,6 +2,7 @@ package com.training.senla.service;
 
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
+import com.training.senla.model.GuestModel;
 import com.training.senla.model.RoomModel;
 
 import java.time.LocalDate;
@@ -16,6 +17,9 @@ public interface RoomModelService {
     RoomModel getRoom(int id);
     void update(RoomModel roomModel);
     void delete(RoomModel roomModel);
+    void setAll(List<RoomModel> roomModels);
+    void addGuest(GuestModel guestModel, RoomModel roomModel);
+    void evictGuest(GuestModel guestModel);
     List<RoomModel> getAll();
     List<RoomModel> getSortedByPrice();
     List<RoomModel> getSortedByCapacity();
