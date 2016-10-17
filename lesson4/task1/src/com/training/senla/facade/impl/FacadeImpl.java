@@ -21,7 +21,6 @@ public class FacadeImpl implements Facade{
     private ServiceModelService serviceModelService;
 
 
-
     @Override
     public GuestModel getGuest(int id) {
         return guestModelService.getGuest(id);

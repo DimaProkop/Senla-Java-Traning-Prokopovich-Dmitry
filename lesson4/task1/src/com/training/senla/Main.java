@@ -15,11 +15,15 @@ import com.training.senla.repository.impl.RegistrationModelRepositoryImpl;
 import com.training.senla.repository.impl.RoomModelRepositoryImpl;
 import com.training.senla.repository.impl.ServiceModelRepositoryImpl;
 import com.training.senla.service.GuestModelService;
+import com.training.senla.service.RegistrationModelService;
 import com.training.senla.service.RoomModelService;
 import com.training.senla.service.ServiceModelService;
 import com.training.senla.service.impl.GuestModelServiceImpl;
+import com.training.senla.service.impl.RegistrationModelServiceImpl;
 import com.training.senla.service.impl.RoomModelServiceImpl;
 import com.training.senla.service.impl.ServiceModelServiceImpl;
+import com.training.senla.util.io.importer.Importer;
+import com.training.senla.util.io.importer.impl.ImporterImpl;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -42,9 +46,10 @@ public class Main {
     private final static String FILE_PATH = "/home/prokop/Senla-Java-Traning-Prokopovich-Dmitry/lesson4/task1/resource/main.txt";
     public static TextFileWorker textFileWorker = new TextFileWorker(FILE_PATH);
 
-
     public static void main(String[] args) throws IOException {
 
+        //Facade facade = new FacadeImpl(new GuestModelServiceImpl(new GuestModelRepositoryImpl(new ArrayList<>())), new RoomModelServiceImpl(new RoomModelRepositoryImpl(new ArrayList<>()), new GuestModelRepositoryImpl(new ArrayList<>()), new RegistrationModelRepositoryImpl(new ArrayList<>())), new RegistrationModelServiceImpl(new RegistrationModelRepositoryImpl(new ArrayList<>())), new ServiceModelServiceImpl(new ServiceModelRepositoryImpl(new ArrayList<>())));
+        Facade facade = new FacadeImpl();
 //        ServiceModel serviceModel = new ServiceModel("shower", 8.1, ServicesSection.MANDATORY, LocalDate.now(), LocalDate.of(2017, 6, 6));
 //        ServiceModel serviceModel1 = new ServiceModel("food", 23.5, ServicesSection.FOOD, LocalDate.now(), LocalDate.of(2018, 11, 15));
 //        List<ServiceModel> serviceModels = new ArrayList<>();
@@ -62,17 +67,16 @@ public class Main {
 //
 //        textFileWorker.writeToFile(textvalues);
 
+        Importer importer = new ImporterImpl(facade);
 
-        String[] params = textFileWorker.readFromFile();
+        List<ServiceModel> serviceModels = importer.importServices();
 
-        for (int i = 0; i < params.length; i++) {
-            String str = Arrays.toString(params);
-            String[] p = str.split(";");
-            for (int j = 0; j < p.length; j++) {
-                System.out.println(p[j].replace("[", "").replace("]", "").replace(", ", ""));
-            }
-
+        for(ServiceModel serviceModel : serviceModels) {
+            System.out.println(serviceModel.getName());
         }
+
+
+
     }
 
 

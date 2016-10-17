@@ -47,7 +47,7 @@ public class ImporterImpl implements Importer {
     public List<RegistrationModel> importRegistrations() {
         List<RegistrationModel> registrations = new ArrayList<>();
         for(String line : data) {
-            if(GuestValidator(line)) {
+            if(RegistrationValidator(line)) {
                 registrations.add(convertStringToRegistration(line));
             }
         }
@@ -58,7 +58,7 @@ public class ImporterImpl implements Importer {
     public List<RoomModel> importRooms() {
         List<RoomModel> rooms = new ArrayList<>();
         for(String line : data) {
-            if(GuestValidator(line)) {
+            if(RoomValidator(line)) {
                 rooms.add(convertStringToRoom(line));
             }
         }
@@ -69,7 +69,7 @@ public class ImporterImpl implements Importer {
     public List<ServiceModel> importServices() {
         List<ServiceModel> services = new ArrayList<>();
         for(String line : data) {
-            if(GuestValidator(line)) {
+            if(ServiceValidator(line)) {
                 services.add(convertStringToService(line));
             }
         }
