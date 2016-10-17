@@ -22,28 +22,10 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        //Facade facade = new FacadeImpl(new GuestModelServiceImpl(new GuestModelRepositoryImpl(new ArrayList<>())), new RoomModelServiceImpl(new RoomModelRepositoryImpl(new ArrayList<>()), new GuestModelRepositoryImpl(new ArrayList<>()), new RegistrationModelRepositoryImpl(new ArrayList<>())), new RegistrationModelServiceImpl(new RegistrationModelRepositoryImpl(new ArrayList<>())), new ServiceModelServiceImpl(new ServiceModelRepositoryImpl(new ArrayList<>())));
         Facade facade = new FacadeImpl();
-//        ServiceModel serviceModel = new ServiceModel("shower", 8.1, ServicesSection.MANDATORY, LocalDate.now(), LocalDate.of(2017, 6, 6));
-//        ServiceModel serviceModel1 = new ServiceModel("food", 23.5, ServicesSection.FOOD, LocalDate.now(), LocalDate.of(2018, 11, 15));
-//        List<ServiceModel> serviceModels = new ArrayList<>();
-//        serviceModels.add(serviceModel);
-//        serviceModels.add(serviceModel1);
-//        ServiceModelService serviceModelService = new ServiceModelServiceImpl(new ServiceModelRepositoryImpl(serviceModels));
-//        serviceModelService.setService(serviceModel);
-//        serviceModelService.setService(serviceModel1);
-//        Facade facade = new FacadeImpl();
-//        String[] textvalues = new String[serviceModels.size()];
-//
-//        for (int i = 0; i < serviceModels.size(); i++) {
-//            textvalues[i] = ServiceToString(serviceModels.get(i));
-//        }
-//
-//        textFileWorker.writeToFile(textvalues);
 
-        Importer importer = new ImporterImpl(facade);
 
-        List<ServiceModel> serviceModels = importer.importServices();
+        List<ServiceModel> serviceModels = facade.importServices();
 
         for(ServiceModel serviceModel : serviceModels) {
             System.out.println(serviceModel.getName());

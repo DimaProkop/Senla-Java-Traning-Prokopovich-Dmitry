@@ -11,7 +11,9 @@ import com.training.senla.service.RegistrationModelService;
 import com.training.senla.service.RoomModelService;
 import com.training.senla.service.ServiceModelService;
 import com.training.senla.util.io.exporter.Exporter;
+import com.training.senla.util.io.exporter.impl.ExporterImpl;
 import com.training.senla.util.io.importer.Importer;
+import com.training.senla.util.io.importer.impl.ImporterImpl;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -28,6 +30,21 @@ public class FacadeImpl implements Facade{
 
     private Importer importer;
     private Exporter exporter;
+
+    private static FacadeImpl facade;
+
+    public static Facade getState()
+    {
+        if (facade == null){
+            facade = new FacadeImpl();
+        }
+        return facade;
+    }
+
+    public FacadeImpl() {
+        this.exporter = new ExporterImpl();
+
+    }
 
     @Override
     public GuestModel getGuest(int id) {
@@ -144,21 +161,33 @@ public class FacadeImpl implements Facade{
 
     @Override
     public List<GuestModel> importGuests() {
+        if(this.importer == null) {
+            this.importer = new ImporterImpl(FacadeImpl.getState());
+        }
         return importer.importGuests();
     }
 
     @Override
     public List<RegistrationModel> importRegistrations() {
+        if(this.importer == null) {
+            this.importer = new ImporterImpl(FacadeImpl.getState());
+        }
         return importer.importRegistrations();
     }
 
     @Override
     public List<RoomModel> importRooms() {
+        if(this.importer == null) {
+            this.importer = new ImporterImpl(FacadeImpl.getState());
+        }
         return importer.importRooms();
     }
 
     @Override
     public List<ServiceModel> importServices() {
+        if(this.importer == null) {
+            this.importer = new ImporterImpl(FacadeImpl.getState());
+        }
         return importer.importServices();
     }
 
