@@ -4,6 +4,9 @@ import com.danco.training.TextFileWorker;
 import com.training.senla.facade.Facade;
 import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.model.ServiceModel;
+import com.training.senla.repository.impl.ServiceModelRepositoryImpl;
+import com.training.senla.service.ServiceModelService;
+import com.training.senla.service.impl.ServiceModelServiceImpl;
 import com.training.senla.util.io.importer.Importer;
 import com.training.senla.util.io.importer.impl.ImporterImpl;
 
@@ -29,6 +32,7 @@ public class Main {
 
         for(ServiceModel serviceModel : serviceModels) {
             System.out.println(serviceModel.getName());
+            facade.getService(serviceModel.getServiceId()).getPrice();
         }
 
 
