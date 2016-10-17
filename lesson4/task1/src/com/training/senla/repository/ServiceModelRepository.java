@@ -15,7 +15,6 @@ public interface ServiceModelRepository {
     ServiceModel getService(int id);
     void update(ServiceModel serviceModel);
     void delete(ServiceModel serviceModel);
-    void setAll(List<ServiceModel> serviceModels);
     List<ServiceModel> getAll();
     List<ServiceModel> getSortedByPrice();
     List<ServiceModel> getSortedByDate(LocalDate date);

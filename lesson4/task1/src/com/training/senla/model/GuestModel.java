@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by prokop on 13.10.16.
  */
-public class GuestModel implements Cloneable{
+public class GuestModel{
     private int guestId;
     private String name;
     private LocalDate startDate;

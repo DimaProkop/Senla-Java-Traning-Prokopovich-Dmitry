@@ -54,11 +54,6 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
     }
 
     @Override
-    public void setAll(List<GuestModel> guestModels) {
-        this.guestModels.addAll(guestModels);
-    }
-
-    @Override
     public List<ServiceModel> getServicesByDate(GuestModel guestModel) {
         return this.guestModels.get(guestModel.getGuestId()).getServiceModelList().stream()
                 .sorted(Comparator.SERVICE_DATE_COMPARATOR)

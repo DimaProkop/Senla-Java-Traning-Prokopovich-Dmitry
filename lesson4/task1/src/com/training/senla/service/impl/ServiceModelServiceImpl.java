@@ -41,11 +41,6 @@ public class ServiceModelServiceImpl implements ServiceModelService {
     }
 
     @Override
-    public void setAll(List<ServiceModel> serviceModels) {
-        serviceModelRepository.setAll(serviceModels);
-    }
-
-    @Override
     public List<ServiceModel> getAll() {
         return serviceModelRepository.getAll();
     }

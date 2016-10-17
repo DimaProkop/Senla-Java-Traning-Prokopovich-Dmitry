@@ -11,4 +11,5 @@ import java.time.LocalDate;
 public interface RegistrationModelService {
     void addRecord(RegistrationModel registrationModel);
     void setFinalDate(GuestModel guestModel);
+    RegistrationModel getRegistration(int id);
 }

@@ -15,6 +15,15 @@ public class RegistrationModelRepositoryImpl implements RegistrationModelReposit
     private List<RegistrationModel> registrationModelList;
     public static int currentId=1;
 
+    private int getRegistrationIndexById(int id) {
+        for (int i = 0; i < this.registrationModelList.size(); i++) {
+            if(this.registrationModelList.get(i).getGuestId() == id) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public RegistrationModelRepositoryImpl(List<RegistrationModel> registrationModelList) {
         this.registrationModelList = registrationModelList;
     }
@@ -28,5 +37,10 @@ public class RegistrationModelRepositoryImpl implements RegistrationModelReposit
     @Override
     public void setFinalDate(GuestModel guestModel) {
         registrationModelList.get(guestModel.getGuestId()).setFinalDate(guestModel.getFinalDate());
+    }
+
+    @Override
+    public RegistrationModel getRegistration(int id) {
+        return registrationModelList.get(getRegistrationIndexById(id));
     }
 }

@@ -40,11 +40,6 @@ public class GuestModelServiceImpl implements GuestModelService {
     }
 
     @Override
-    public void setAll(List<GuestModel> guestModels) {
-        guestModelRepository.setAll(guestModels);
-    }
-
-    @Override
     public List<ServiceModel> getServicesByPrice(GuestModel guestModel) {
         return guestModelRepository.getServicesByPrice(guestModel);
     }

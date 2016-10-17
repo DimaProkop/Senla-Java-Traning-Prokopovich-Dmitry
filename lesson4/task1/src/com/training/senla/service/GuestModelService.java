@@ -14,7 +14,6 @@ public interface GuestModelService {
     GuestModel getGuest(int id);
     void update(GuestModel guestModel);
     void delete(GuestModel guestModel);
-    void setAll(List<GuestModel> guestModels);
     List<ServiceModel> getServicesByPrice(GuestModel guestModel);
     List<ServiceModel> getServicesByDate(GuestModel guestModel);
     List<GuestModel> getAll();

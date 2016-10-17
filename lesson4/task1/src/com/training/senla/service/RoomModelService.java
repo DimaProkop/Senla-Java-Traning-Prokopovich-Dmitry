@@ -17,7 +17,6 @@ public interface RoomModelService {
     RoomModel getRoom(int id);
     void update(RoomModel roomModel);
     void delete(RoomModel roomModel);
-    void setAll(List<RoomModel> roomModels);
     void addGuest(GuestModel guestModel, RoomModel roomModel);
     void evictGuest(GuestModel guestModel);
     List<RoomModel> getAll();

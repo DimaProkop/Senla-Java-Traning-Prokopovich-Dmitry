@@ -22,7 +22,7 @@ public class ExporterImpl implements Exporter {
     public void exportGuests(List<GuestModel> guests) {
         String[] values = new String[guests.size()];
         for (int i = 0; i < values.length; i++) {
-            values[i] = ConvertGuestToString(guests.get(i));
+            values[i] = convertGuestToString(guests.get(i));
         }
         textFileWorker.writeToFile(values);
     }
@@ -31,7 +31,7 @@ public class ExporterImpl implements Exporter {
     public void exportRegistrations(List<RegistrationModel> registrations) {
         String[] values = new String[registrations.size()];
         for (int i = 0; i < values.length; i++) {
-            values[i] = ConvertRegistrationToString(registrations.get(i));
+            values[i] = convertRegistrationToString(registrations.get(i));
         }
         textFileWorker.writeToFile(values);
     }
@@ -40,7 +40,7 @@ public class ExporterImpl implements Exporter {
     public void exportRooms(List<RoomModel> rooms) {
         String[] values = new String[rooms.size()];
         for (int i = 0; i < values.length; i++) {
-            values[i] = ConvertRoomToString(rooms.get(i));
+            values[i] = convertRoomToString(rooms.get(i));
         }
         textFileWorker.writeToFile(values);
     }
@@ -49,13 +49,14 @@ public class ExporterImpl implements Exporter {
     public void exportServices(List<ServiceModel> services) {
         String[] values = new String[services.size()];
         for (int i = 0; i < values.length; i++) {
-            values[i] = ConvertServiceToString(services.get(i));
+            values[i] = convertServiceToString(services.get(i));
         }
         textFileWorker.writeToFile(values);
     }
 
-    private String ConvertGuestToString(GuestModel guestModel) {
+    private String convertGuestToString(GuestModel guestModel) {
         StringBuilder builder = new StringBuilder();
+        builder.append("G");
         builder.append(String.valueOf(guestModel.getGuestId()));
         builder.append(";");
         builder.append(String.valueOf(guestModel.getName()));
@@ -74,8 +75,9 @@ public class ExporterImpl implements Exporter {
         return builder.toString();
     }
 
-    private String ConvertRoomToString(RoomModel roomModel) {
+    private String convertRoomToString(RoomModel roomModel) {
         StringBuilder builder = new StringBuilder();
+        builder.append("R");
         builder.append(String.valueOf(roomModel.getRoomId()));
         builder.append(";");
         builder.append(String.valueOf(roomModel.getPrice()));
@@ -96,8 +98,9 @@ public class ExporterImpl implements Exporter {
         return builder.toString();
     }
 
-    private String ConvertServiceToString(ServiceModel serviceModel) {
+    private String convertServiceToString(ServiceModel serviceModel) {
         StringBuilder builder = new StringBuilder();
+        builder.append("S");
         builder.append(String.valueOf(serviceModel.getServiceId()));
         builder.append(";");
         builder.append(String.valueOf(serviceModel.getName()));
@@ -113,8 +116,9 @@ public class ExporterImpl implements Exporter {
         return builder.toString();
     }
 
-    private String ConvertRegistrationToString(RegistrationModel registrationModel) {
+    private String convertRegistrationToString(RegistrationModel registrationModel) {
         StringBuilder builder = new StringBuilder();
+        builder.append("T");
         builder.append(String.valueOf(registrationModel.getRegistrationId()));
         builder.append(";");
         builder.append(String.valueOf(registrationModel.getGuestId()));

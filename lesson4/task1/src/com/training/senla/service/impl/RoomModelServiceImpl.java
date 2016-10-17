@@ -50,11 +50,6 @@ public class RoomModelServiceImpl implements RoomModelService {
     }
 
     @Override
-    public void setAll(List<RoomModel> roomModels) {
-        roomModelRepository.setAll(roomModels);
-    }
-
-    @Override
     public void addGuest(GuestModel guestModel, RoomModel roomModel) {
         //guestModelRepository.setGuest(guestModel);
         registrationModelRepository.addRecord(new RegistrationModel(guestModel.getGuestId(), roomModel.getRoomId(), guestModel.getStartDate(), guestModel.getFinalDate()));

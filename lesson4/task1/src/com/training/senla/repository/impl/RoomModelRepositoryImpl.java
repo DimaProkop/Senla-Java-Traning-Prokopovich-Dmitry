@@ -56,11 +56,6 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
     }
 
     @Override
-    public void setAll(List<RoomModel> roomModels) {
-        this.roomModels.addAll(roomModels);
-    }
-
-    @Override
     public void addGuest(GuestModel guestModel, RoomModel roomModel) {
         for(RoomModel room : this.roomModels) {
             room.getGuests().add(guestModel);

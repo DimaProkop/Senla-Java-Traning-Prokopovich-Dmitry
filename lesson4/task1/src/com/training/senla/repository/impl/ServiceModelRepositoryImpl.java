@@ -54,11 +54,6 @@ public class ServiceModelRepositoryImpl implements ServiceModelRepository {
     }
 
     @Override
-    public void setAll(List<ServiceModel> serviceModels) {
-        this.serviceModels.addAll(serviceModels);
-    }
-
-    @Override
     public List<ServiceModel> getAll() {
         return this.serviceModels.stream()
                 .sorted(Comparator.SERVICE_ID_COMPARATOR)
