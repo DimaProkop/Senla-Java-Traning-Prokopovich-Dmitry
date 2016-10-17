@@ -13,11 +13,18 @@ import java.util.List;
  */
 public interface ServiceModelService {
     void setService(ServiceModel serviceModel);
+
     ServiceModel getService(int id);
+
     void update(ServiceModel serviceModel);
+
     void delete(ServiceModel serviceModel);
+
     List<ServiceModel> getAll();
+
     List<ServiceModel> getSortedByPrice();
+
     List<ServiceModel> getSortedByDate(LocalDate date);
+
     List<Double> getPriceBySection(ServicesSection section);
 }

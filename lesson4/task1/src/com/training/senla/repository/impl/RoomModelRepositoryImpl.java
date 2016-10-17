@@ -8,6 +8,7 @@ import com.training.senla.model.RoomModel;
 import com.training.senla.repository.RoomModelRepository;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -138,7 +139,14 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
 
     @Override
     public List<RoomModel> getReleasedInFuture(LocalDate date) {
-                return null;
+        List<RoomModel> freeRooms = new ArrayList<>();
+        for (RoomModel roomModel : this.roomModels) {
+            freeRooms.addAll(roomModel.getGuests().stream()
+                    .filter(guestModel -> guestModel.getFinalDate().getDayOfYear() < date.getDayOfYear())
+                    .map(guestModel -> roomModel)
+                    .collect(Collectors.toList()));
+        }
+        return freeRooms;
     }
 
     @Override

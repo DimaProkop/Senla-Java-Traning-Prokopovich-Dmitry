@@ -11,14 +11,24 @@ import java.util.List;
  */
 public interface GuestModelRepository {
     void setGuest(GuestModel guestModel);
+
     GuestModel getGuest(int id);
+
     void update(GuestModel guestModel);
+
     void delete(GuestModel guestModel);
+
     List<ServiceModel> getServicesByPrice(GuestModel guestModel);
+
     List<ServiceModel> getServicesByDate(GuestModel guestModel);
+
     List<GuestModel> getAll();
+
     List<GuestModel> getSortedByFinalDate();
+
     List<GuestModel> getSortedByName();
+
     double getSumByRoom(RoomModel roomModel, GuestModel guestModel);
+
     int getCount();
 }

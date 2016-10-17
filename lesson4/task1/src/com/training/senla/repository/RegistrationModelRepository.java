@@ -10,6 +10,8 @@ import java.time.LocalDate;
  */
 public interface RegistrationModelRepository {
     void addRecord(RegistrationModel registrationModel);
+
     void setFinalDate(GuestModel guestModel);
+
     RegistrationModel getRegistration(int id);
 }
