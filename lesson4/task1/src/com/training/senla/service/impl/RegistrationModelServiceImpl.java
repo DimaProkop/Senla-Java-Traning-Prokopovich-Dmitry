@@ -35,7 +35,7 @@ public class RegistrationModelServiceImpl implements RegistrationModelService{
 
     @Override
     public List<RegistrationModel> getAll() {
-        return null;
+        return registrationModelRepository.getAll();
     }
 
 }

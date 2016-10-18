@@ -27,6 +27,8 @@ public interface Facade {
 
     void setService(ServiceModel service);
 
+    List<GuestModel> getAllGuests();
+
     List<RoomModel> getAllRooms();
 
     List<RoomModel> getAllFreeRooms();
@@ -45,6 +47,8 @@ public interface Facade {
 
     List<Double> getPricesService();
 
+    List<ServiceModel> getAllServices();
+
     List<Double> getPricesRoom();
 
     void registerGuest(GuestModel guestModel, RoomModel roomModel, LocalDate startDate, LocalDate finalDate);
@@ -56,6 +60,8 @@ public interface Facade {
     void changeServicePrice(ServiceModel serviceModel, double price);
 
     void changeRoomPrice(RoomModel roomModel, double price);
+
+    List<RegistrationModel> getAllRegistrations();
 
     //imports
     List<GuestModel> importGuests();

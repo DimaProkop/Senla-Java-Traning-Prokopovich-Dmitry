@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 public class RoomModelRepositoryImpl implements RoomModelRepository {
 
     private List<RoomModel> roomModels;
-    private static int currentId=1;
+    public static int currentId=1;
 
     public RoomModelRepositoryImpl(List<RoomModel> roomModels) {
         this.roomModels = roomModels;
@@ -28,7 +28,7 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
 
     private int getRoomIndexById(int id) {
         for (int i = 0; i < this.roomModels.size(); i++) {
-            if(this.roomModels.get(i).getRoomId() == id) {
+            if(this.roomModels.get(i).getId() == id) {
                 return i;
             }
         }
@@ -37,7 +37,7 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
 
     @Override
     public void setRoom(RoomModel roomModel) {
-        roomModel.setRoomId(currentId++);
+        roomModel.setId(currentId++);
         this.roomModels.add(roomModel);
     }
 
@@ -48,26 +48,12 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
 
     @Override
     public void update(RoomModel roomModel) {
-        this.roomModels.set(getRoomIndexById(roomModel.getRoomId()), roomModel);
+        this.roomModels.set(getRoomIndexById(roomModel.getId()), roomModel);
     }
 
     @Override
     public void delete(RoomModel roomModel) {
-        this.roomModels.remove(getRoomIndexById(roomModel.getRoomId()));
-    }
-
-    @Override
-    public void registerGuest(GuestModel guestModel, RoomModel roomModel, LocalDate startDate, LocalDate finalDate) {
-        for(RoomModel room : this.roomModels) {
-            room.getGuests().add(guestModel);
-        }
-    }
-
-    @Override
-    public void evictGuest(GuestModel guestModel) {
-        for (RoomModel roomModel : this.roomModels) {
-            roomModel.getGuests().remove(guestModel.getGuestId());
-        }
+        this.roomModels.remove(getRoomIndexById(roomModel.getId()));
     }
 
     @Override

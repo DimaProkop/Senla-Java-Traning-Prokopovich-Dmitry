@@ -20,20 +20,24 @@ public class ConverterImpl implements Converter{
 
     private Validator validator;
 
+    public ConverterImpl() {
+        this.validator = new Validator();
+    }
+
     //Converters from string to object
 
     @Override
     public String convertGuestToString(GuestModel guestModel) {
         StringBuilder builder = new StringBuilder();
         builder.append("G");
-        builder.append(String.valueOf(guestModel.getGuestId()));
+        builder.append(String.valueOf(guestModel.getId()));
         builder.append(";");
         builder.append(String.valueOf(guestModel.getName()));
         builder.append(";");
-        builder.append(String.valueOf(guestModel.getRoomModel().getRoomId()));
+        builder.append(String.valueOf(guestModel.getRoomModel().getId()));
         builder.append(";");
         for (ServiceModel serviceModel : guestModel.getServiceModelList()) {
-            builder.append(serviceModel.getServiceId());
+            builder.append(serviceModel.getId());
             builder.append(",");
         }
         builder.append(";");
@@ -44,7 +48,7 @@ public class ConverterImpl implements Converter{
     public String convertRoomToString(RoomModel roomModel) {
         StringBuilder builder = new StringBuilder();
         builder.append("R");
-        builder.append(String.valueOf(roomModel.getRoomId()));
+        builder.append(String.valueOf(roomModel.getId()));
         builder.append(";");
         builder.append(String.valueOf(roomModel.getPrice()));
         builder.append(";");
@@ -57,7 +61,7 @@ public class ConverterImpl implements Converter{
         builder.append(String.valueOf(roomModel.getRating()));
         builder.append(";");
         for (GuestModel guestModel : roomModel.getGuests()) {
-            builder.append(guestModel.getGuestId());
+            builder.append(guestModel.getId());
             builder.append(",");
         }
         builder.append(";");
@@ -68,7 +72,7 @@ public class ConverterImpl implements Converter{
     public String convertServiceToString(ServiceModel serviceModel) {
         StringBuilder builder = new StringBuilder();
         builder.append("S");
-        builder.append(String.valueOf(serviceModel.getServiceId()));
+        builder.append(String.valueOf(serviceModel.getId()));
         builder.append(";");
         builder.append(String.valueOf(serviceModel.getName()));
         builder.append(";");
@@ -87,7 +91,7 @@ public class ConverterImpl implements Converter{
     public String convertRegistrationToString(RegistrationModel registrationModel) {
         StringBuilder builder = new StringBuilder();
         builder.append("T");
-        builder.append(String.valueOf(registrationModel.getRegistrationId()));
+        builder.append(String.valueOf(registrationModel.getId()));
         builder.append(";");
         builder.append(String.valueOf(registrationModel.getGuestId()));
         builder.append(";");
@@ -106,7 +110,7 @@ public class ConverterImpl implements Converter{
     public GuestModel convertStringToGuest(String string, Facade facade) {
         GuestModel guestModel = new GuestModel();
         String[] params = string.split(";");
-        guestModel.setGuestId(Integer.parseInt(params[0].replace("[", "").replace("]", "").replace(", ", "").replace("S", "")));
+        guestModel.setId(Integer.parseInt(params[0].replace("[", "").replace("]", "").replace(", ", "").replace("S", "")));
         guestModel.setName(params[1]);
         guestModel.setRoomModel(facade.getRoom(Integer.parseInt(params[2])));
         String[] values = params[3].split(",");
@@ -119,7 +123,7 @@ public class ConverterImpl implements Converter{
     public RoomModel convertStringToRoom(String string, Facade facade) {
         RoomModel roomModel = new RoomModel();
         String[] params = string.split(";");
-        roomModel.setRoomId(Integer.parseInt(params[0].replace("[", "").replace("]", "").replace(", ", "").replace("R", "")));
+        roomModel.setId(Integer.parseInt(params[0].replace("[", "").replace("]", "").replace(", ", "").replace("R", "")));
         roomModel.setPrice(Double.parseDouble(params[1]));
         roomModel.setCapacity(Integer.parseInt(params[2]));
         roomModel.setStatus(validator.RoomStatusValidator(params[3]));
@@ -135,7 +139,7 @@ public class ConverterImpl implements Converter{
     public ServiceModel convertStringToService(String string) {
         ServiceModel serviceModel = new ServiceModel();
         String[] params = string.split(";");
-        serviceModel.setServiceId(Integer.parseInt(params[0].replace("[", "").replace("]", "").replace(", ", "").replace("S", "")));
+        serviceModel.setId(Integer.parseInt(params[0].replace("[", "").replace("]", "").replace(", ", "").replace("S", "")));
         serviceModel.setName(params[1]);
         serviceModel.setPrice(Double.parseDouble(params[2]));
         serviceModel.setSection(validator.ServiceSectionValidator(params[3]));
@@ -148,7 +152,7 @@ public class ConverterImpl implements Converter{
     public RegistrationModel convertStringToRegistration(String string) {
         RegistrationModel registrationModel = new RegistrationModel();
         String[] params = string.split(";");
-        registrationModel.setRegistrationId(Integer.parseInt(params[0].replace("[", "").replace("]", "").replace(", ", "").replace("T", "")));
+        registrationModel.setId(Integer.parseInt(params[0].replace("[", "").replace("]", "").replace(", ", "").replace("T", "")));
         registrationModel.setGuestId(Integer.parseInt(params[1]));
         registrationModel.setRoomId(Integer.parseInt(params[2]));
         registrationModel.setStartDate(LocalDate.parse(params[3]));

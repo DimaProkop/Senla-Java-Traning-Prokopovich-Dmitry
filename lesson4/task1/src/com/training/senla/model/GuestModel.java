@@ -7,8 +7,7 @@ import java.util.List;
 /**
  * Created by prokop on 13.10.16.
  */
-public class GuestModel{
-    private int guestId;
+public class GuestModel extends BaseModel{
     private String name;
     private RoomModel roomModel;
     private List<ServiceModel> serviceModelList;
@@ -21,14 +20,6 @@ public class GuestModel{
         this.name = name;
         this.roomModel = null;
         this.serviceModelList = serviceModelList;
-    }
-
-    public int getGuestId() {
-        return guestId;
-    }
-
-    public void setGuestId(int guestId) {
-        this.guestId = guestId;
     }
 
     public String getName() {

@@ -21,10 +21,6 @@ public interface RoomModelRepository {
 
     void delete(RoomModel roomModel);
 
-    void registerGuest(GuestModel guestModel, RoomModel roomModel, LocalDate startDate, LocalDate finalDate);
-
-    void evictGuest(GuestModel guestModel);
-
     List<RoomModel> getAll();
 
     List<RoomModel> getSortedByPrice();

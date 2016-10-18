@@ -1,6 +1,8 @@
 package com.training.senla.service.impl;
 
+import com.training.senla.comparator.Comparator;
 import com.training.senla.model.GuestModel;
+import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 import com.training.senla.repository.GuestModelRepository;
@@ -8,6 +10,7 @@ import com.training.senla.repository.RegistrationModelRepository;
 import com.training.senla.service.GuestModelService;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by prokop on 13.10.16.
@@ -59,9 +62,11 @@ public class GuestModelServiceImpl implements GuestModelService {
 
     @Override
     public List<GuestModel> getSortedByFinalDate() {
-        registrationModelRepository.getAll().stream()
-                .filter(x->x.getFinalDate())
-        return guestModelRepository.getSortedByFinalDate();
+        List<Integer> newList = registrationModelRepository.getAll().stream()
+                .map(RegistrationModel::getGuestId)
+                .collect(Collectors.toList());
+
+        return null;
     }
 
     @Override
@@ -71,7 +76,7 @@ public class GuestModelServiceImpl implements GuestModelService {
 
     @Override
     public double getSumByRoom(RoomModel roomModel, GuestModel guestModel) {
-        return guestModelRepository.getSumByRoom(roomModel, guestModel);
+        return 0;
     }
 
     @Override

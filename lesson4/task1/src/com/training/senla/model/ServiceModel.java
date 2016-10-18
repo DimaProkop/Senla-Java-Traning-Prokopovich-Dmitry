@@ -8,8 +8,7 @@ import java.util.Date;
 /**
  * Created by prokop on 13.10.16.
  */
-public class ServiceModel {
-    private int serviceId;
+public class ServiceModel extends BaseModel{
     private String name;
     private double price;
     private ServicesSection section;
@@ -26,14 +25,6 @@ public class ServiceModel {
         this.section = section;
         this.startDate = startDate;
         this.finalDate = finalDate;
-    }
-
-    public int getServiceId() {
-        return serviceId;
-    }
-
-    public void setServiceId(int serviceId) {
-        this.serviceId = serviceId;
     }
 
     public String getName() {

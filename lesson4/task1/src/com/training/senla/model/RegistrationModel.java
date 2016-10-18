@@ -6,8 +6,7 @@ import java.util.List;
 /**
  * Created by prokop on 13.10.16.
  */
-public class RegistrationModel {
-    private int registrationId;
+public class RegistrationModel extends BaseModel{
     private int guestId;
     private int roomId;
     private LocalDate startDate;
@@ -21,14 +20,6 @@ public class RegistrationModel {
         this.roomId = roomId;
         this.startDate = startDate;
         this.finalDate = finalDate;
-    }
-
-    public int getRegistrationId() {
-        return registrationId;
-    }
-
-    public void setRegistrationId(int registrationId) {
-        this.registrationId = registrationId;
     }
 
     public int getGuestId() {

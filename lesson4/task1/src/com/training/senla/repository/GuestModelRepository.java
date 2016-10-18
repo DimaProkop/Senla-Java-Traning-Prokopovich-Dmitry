@@ -24,11 +24,7 @@ public interface GuestModelRepository {
 
     List<GuestModel> getAll();
 
-    List<GuestModel> getSortedByFinalDate();
-
     List<GuestModel> getSortedByName();
-
-    double getSumByRoom(RoomModel roomModel, GuestModel guestModel);
 
     int getCount();
 }

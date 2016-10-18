@@ -7,6 +7,7 @@ import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 import com.training.senla.util.converter.Converter;
+import com.training.senla.util.converter.impl.ConverterImpl;
 import com.training.senla.util.io.importer.Importer;
 
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class ImporterImpl implements Importer {
     public ImporterImpl(Facade facade) {
         this.facade = facade;
         this.data = textFileWorker.readFromFile();
+        this.converter = new ConverterImpl();
     }
 
     @Override
