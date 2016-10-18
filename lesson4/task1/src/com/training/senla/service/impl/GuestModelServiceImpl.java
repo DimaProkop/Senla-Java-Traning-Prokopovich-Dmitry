@@ -4,6 +4,7 @@ import com.training.senla.model.GuestModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 import com.training.senla.repository.GuestModelRepository;
+import com.training.senla.repository.RegistrationModelRepository;
 import com.training.senla.service.GuestModelService;
 
 import java.util.List;
@@ -14,9 +15,11 @@ import java.util.List;
 public class GuestModelServiceImpl implements GuestModelService {
 
     private GuestModelRepository guestModelRepository;
+    private RegistrationModelRepository registrationModelRepository;
 
-    public GuestModelServiceImpl(GuestModelRepository guestModelRepository) {
+    public GuestModelServiceImpl(GuestModelRepository guestModelRepository, RegistrationModelRepository registrationModelRepository) {
         this.guestModelRepository = guestModelRepository;
+        this.registrationModelRepository = registrationModelRepository;
     }
 
     @Override
@@ -56,6 +59,8 @@ public class GuestModelServiceImpl implements GuestModelService {
 
     @Override
     public List<GuestModel> getSortedByFinalDate() {
+        registrationModelRepository.getAll().stream()
+                .filter(x->x.getFinalDate())
         return guestModelRepository.getSortedByFinalDate();
     }
 

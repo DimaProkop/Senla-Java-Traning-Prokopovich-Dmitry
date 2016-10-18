@@ -10,8 +10,6 @@ import java.util.List;
 public class GuestModel{
     private int guestId;
     private String name;
-    private LocalDate startDate;
-    private LocalDate finalDate;
     private RoomModel roomModel;
     private List<ServiceModel> serviceModelList;
 
@@ -19,10 +17,8 @@ public class GuestModel{
 
     }
 
-    public GuestModel(String name, LocalDate startDate, List<ServiceModel> serviceModelList) {
+    public GuestModel(String name, List<ServiceModel> serviceModelList) {
         this.name = name;
-        this.startDate = startDate;
-        this.finalDate = null;
         this.roomModel = null;
         this.serviceModelList = serviceModelList;
     }
@@ -41,22 +37,6 @@ public class GuestModel{
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public LocalDate getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
-    }
-
-    public LocalDate getFinalDate() {
-        return finalDate;
-    }
-
-    public void setFinalDate(LocalDate finalDate) {
-        this.finalDate = finalDate;
     }
 
     public RoomModel getRoomModel() {

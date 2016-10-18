@@ -47,7 +47,7 @@ public interface Facade {
 
     List<Double> getPricesRoom();
 
-    void addGuest(GuestModel guestModel, RoomModel roomModel);
+    void registerGuest(GuestModel guestModel, RoomModel roomModel, LocalDate startDate, LocalDate finalDate);
 
     void evictGuest(GuestModel guestModel);
 

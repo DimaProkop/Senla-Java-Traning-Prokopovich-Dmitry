@@ -132,8 +132,8 @@ public class FacadeImpl implements Facade{
     }
 
     @Override
-    public void addGuest(GuestModel guestModel, RoomModel roomModel) {
-        roomModelService.addGuest(guestModel, roomModel);
+    public void registerGuest(GuestModel guestModel, RoomModel roomModel, LocalDate startDate, LocalDate finalDate) {
+        roomModelService.registerGuest(guestModel, roomModel, startDate, finalDate);
     }
 
     @Override

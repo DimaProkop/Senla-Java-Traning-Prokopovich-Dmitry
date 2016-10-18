@@ -21,7 +21,7 @@ public interface RoomModelRepository {
 
     void delete(RoomModel roomModel);
 
-    void addGuest(GuestModel guestModel, RoomModel roomModel);
+    void registerGuest(GuestModel guestModel, RoomModel roomModel, LocalDate startDate, LocalDate finalDate);
 
     void evictGuest(GuestModel guestModel);
 
@@ -43,8 +43,6 @@ public interface RoomModelRepository {
     List<RoomModel> getSortedByRating(RoomStatus status);
 
     int getCountFreeRooms();
-
-    List<RoomModel> getReleasedInFuture(LocalDate date);
 
     List<RoomModel> getLatestGuests(int count);
 

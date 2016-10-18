@@ -57,7 +57,7 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
     }
 
     @Override
-    public void addGuest(GuestModel guestModel, RoomModel roomModel) {
+    public void registerGuest(GuestModel guestModel, RoomModel roomModel, LocalDate startDate, LocalDate finalDate) {
         for(RoomModel room : this.roomModels) {
             room.getGuests().add(guestModel);
         }
@@ -135,18 +135,6 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
                 return this.roomModels.stream()
                         .filter(x -> x.getStatus().equals(RoomStatus.FREE))
                         .collect(Collectors.toList()).size();
-    }
-
-    @Override
-    public List<RoomModel> getReleasedInFuture(LocalDate date) {
-        List<RoomModel> freeRooms = new ArrayList<>();
-        for (RoomModel roomModel : this.roomModels) {
-            freeRooms.addAll(roomModel.getGuests().stream()
-                    .filter(guestModel -> guestModel.getFinalDate().getDayOfYear() < date.getDayOfYear())
-                    .map(guestModel -> roomModel)
-                    .collect(Collectors.toList()));
-        }
-        return freeRooms;
     }
 
     @Override

@@ -5,6 +5,8 @@ import com.training.senla.model.RegistrationModel;
 import com.training.senla.repository.RegistrationModelRepository;
 import com.training.senla.service.RegistrationModelService;
 
+import java.util.List;
+
 /**
  * Created by prokop on 16.10.16.
  */
@@ -29,6 +31,11 @@ public class RegistrationModelServiceImpl implements RegistrationModelService{
     @Override
     public RegistrationModel getRegistration(int id) {
         return registrationModelRepository.getRegistration(id);
+    }
+
+    @Override
+    public List<RegistrationModel> getAll() {
+        return null;
     }
 
 }
