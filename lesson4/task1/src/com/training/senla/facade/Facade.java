@@ -1,5 +1,6 @@
 package com.training.senla.facade;
 
+import com.danco.training.TextFileWorker;
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RegistrationModel;
@@ -13,6 +14,8 @@ import java.util.List;
  * Created by prokop on 13.10.16.
  */
 public interface Facade {
+    void init(TextFileWorker textFileWorker);
+
     GuestModel getGuest(int id);
 
     void setGuest(GuestModel guest);
@@ -54,8 +57,6 @@ public interface Facade {
     void registerGuest(GuestModel guestModel, RoomModel roomModel, LocalDate startDate, LocalDate finalDate);
 
     void evictGuest(GuestModel guestModel);
-
-    void setStatusRoom(RoomModel room);
 
     void changeServicePrice(ServiceModel serviceModel, double price);
 

@@ -67,10 +67,10 @@ public class Initializer {
         serviceModelService = new ServiceModelServiceImpl(serviceModelRepository);
     }
 
-    public void getDataObjects() {
+    public void fillDataObjects() {
         this.serviceModels = importer.importServices();
-        this.guestModels = importer.importGuests();
         this.roomModels = importer.importRooms();
+        this.guestModels = importer.importGuests();
         this.registrationModels = importer.importRegistrations();
     }
 

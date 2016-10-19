@@ -46,6 +46,16 @@ public class GuestModelServiceImpl implements GuestModelService {
     }
 
     @Override
+    public void addService(GuestModel guestModel, ServiceModel serviceModel) {
+        guestModel.addService(serviceModel);
+    }
+
+    @Override
+    public void removeService(GuestModel guestModel, ServiceModel serviceModel) {
+        guestModel.removeService(serviceModel);
+    }
+
+    @Override
     public List<ServiceModel> getServicesByPrice(GuestModel guestModel) {
         return guestModelRepository.getServicesByPrice(guestModel);
     }

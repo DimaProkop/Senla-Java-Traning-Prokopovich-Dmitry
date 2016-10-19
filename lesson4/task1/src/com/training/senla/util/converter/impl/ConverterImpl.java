@@ -34,6 +34,9 @@ public class ConverterImpl implements Converter{
         builder.append(";");
         builder.append(String.valueOf(guestModel.getName()));
         builder.append(";");
+        if(guestModel.getRoomModel() == null) {
+            builder.append("");
+        }
         builder.append(String.valueOf(guestModel.getRoomModel().getId()));
         builder.append(";");
         for (ServiceModel serviceModel : guestModel.getServiceModelList()) {
@@ -59,11 +62,6 @@ public class ConverterImpl implements Converter{
         builder.append(String.valueOf(roomModel.getSection()));
         builder.append(";");
         builder.append(String.valueOf(roomModel.getRating()));
-        builder.append(";");
-        for (GuestModel guestModel : roomModel.getGuests()) {
-            builder.append(guestModel.getId());
-            builder.append(",");
-        }
         builder.append(";");
         return builder.toString();
     }
@@ -112,7 +110,11 @@ public class ConverterImpl implements Converter{
         String[] params = string.split(";");
         guestModel.setId(Integer.parseInt(params[0].replace("[", "").replace("]", "").replace(", ", "").replace("S", "")));
         guestModel.setName(params[1]);
+        if("".equals(params[2])) {
+            guestModel.setRoomModel(null);
+        }
         guestModel.setRoomModel(facade.getRoom(Integer.parseInt(params[2])));
+        getRoomById(guestModel.getRoomModel().getId(),facade).addGuest(guestModel);
         String[] values = params[3].split(",");
         List<ServiceModel> serviceModels = getServicesById(values, facade);
         guestModel.setServiceModelList(serviceModels);
@@ -129,9 +131,7 @@ public class ConverterImpl implements Converter{
         roomModel.setStatus(validator.RoomStatusValidator(params[3]));
         roomModel.setSection(validator.RoomSectionValidator(params[4]));
         roomModel.setRating(Integer.parseInt(params[5]));
-        String[] values = params[6].split(",");
-        List<GuestModel> guestModels = getGuestsById(values, facade);
-        roomModel.setGuests(guestModels);
+        roomModel.setGuests(null);
         return roomModel;
     }
 
@@ -170,11 +170,12 @@ public class ConverterImpl implements Converter{
         return serviceModels;
     }
 
-    private List<GuestModel> getGuestsById(String[] guests, Facade facade) {
-        List<GuestModel> guestModels = new ArrayList<>();
-        for(String id : guests) {
-            guestModels.add(facade.getGuest(Integer.parseInt(id)));
+    private RoomModel getRoomById(int id, Facade facade) {
+        for(RoomModel room : facade.getAllRooms()) {
+            if(room.getId() == id) {
+                return room;
+            }
         }
-        return guestModels;
+        return null;
     }
 }

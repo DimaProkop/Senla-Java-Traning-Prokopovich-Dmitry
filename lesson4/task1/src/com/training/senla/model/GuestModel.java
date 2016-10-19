@@ -1,6 +1,7 @@
 package com.training.senla.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -16,10 +17,10 @@ public class GuestModel extends BaseModel{
 
     }
 
-    public GuestModel(String name, List<ServiceModel> serviceModelList) {
+    public GuestModel(String name) {
         this.name = name;
         this.roomModel = null;
-        this.serviceModelList = serviceModelList;
+        this.serviceModelList = new ArrayList<>();
     }
 
     public String getName() {
@@ -44,5 +45,25 @@ public class GuestModel extends BaseModel{
 
     public void setServiceModelList(List<ServiceModel> serviceModelList) {
         this.serviceModelList = serviceModelList;
+    }
+
+    public void addService(ServiceModel serviceModel) {
+        if(serviceModelList != null) {
+            serviceModelList = new ArrayList<>();
+        }
+        serviceModelList.add(serviceModel);
+    }
+
+    public void removeService(ServiceModel serviceModel) {
+        if(serviceModelList == null) {
+            System.out.print("нету сервисов");
+        }
+        for (int i = 0; i < serviceModelList.size(); i++) {
+            if (serviceModelList.get(i).getId() == serviceModel.getId()) {
+                serviceModelList.remove(i);
+                return;
+            }
+        }
+        System.out.println("сервис не найден");
     }
 }

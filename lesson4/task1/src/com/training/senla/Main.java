@@ -1,12 +1,19 @@
 package com.training.senla;
 
+import com.danco.training.TextFileWorker;
+import com.training.senla.enums.RoomStatus;
+import com.training.senla.enums.RoomsSection;
 import com.training.senla.enums.ServicesSection;
 import com.training.senla.facade.Facade;
 import com.training.senla.facade.impl.FacadeImpl;
+import com.training.senla.model.GuestModel;
+import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by prokop on 12.10.16.
@@ -15,15 +22,32 @@ import java.time.LocalDate;
 
 public class Main {
 
+    private final static String FILE_PATH = "/home/prokop/Senla-Java-Traning-Prokopovich-Dmitry/lesson4/task1/resource/main.txt";
+
     public static void main(String[] args) throws IOException {
-
+        TextFileWorker textFileWorker = new TextFileWorker(FILE_PATH);
         Facade facade = new FacadeImpl();
+        facade.init(textFileWorker);
 
-        ServiceModel serviceModel = new ServiceModel("cyka", 54.34, ServicesSection.PLACE, LocalDate.now(), LocalDate.of(2017, 6, 6));
+        ServiceModel serviceModel = new ServiceModel("Shower", 54.34, ServicesSection.MANDATORY, LocalDate.now(), LocalDate.of(2017, 6, 6));
         facade.setService(serviceModel);
 
-        for(ServiceModel service : facade.getAllServices()) {
-            System.out.println(service.getId());
+        RoomModel roomModel = new RoomModel(200.5, 3, RoomsSection.LUKS, 5);
+
+        RoomModel roomModel1 = new RoomModel(63.1, 2, RoomsSection.STANDART, 3);
+
+        facade.setRoom(roomModel);
+        facade.setRoom(roomModel1);
+
+        List<RoomModel> rooms = new ArrayList<>();
+        rooms.add(roomModel);
+        rooms.add(roomModel1);
+
+        facade.exportRooms(rooms);
+
+        for(RoomModel room: facade.getAllRooms()) {
+            System.out.println(room.getStatus());
+            System.out.println(room.getPrice());
         }
 
 

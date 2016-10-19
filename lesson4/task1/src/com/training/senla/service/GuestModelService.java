@@ -18,6 +18,10 @@ public interface GuestModelService {
 
     void delete(GuestModel guestModel);
 
+    void addService(GuestModel guestModel, ServiceModel serviceModel);
+
+    void removeService(GuestModel guestModel, ServiceModel serviceModel);
+
     List<ServiceModel> getServicesByPrice(GuestModel guestModel);
 
     List<ServiceModel> getServicesByDate(GuestModel guestModel);

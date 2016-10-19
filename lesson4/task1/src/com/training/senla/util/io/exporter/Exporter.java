@@ -12,7 +12,10 @@ import java.util.List;
  */
 public interface Exporter {
     void exportGuests(List<GuestModel> guests);
+
     void exportRegistrations(List<RegistrationModel> registrations);
+
     void exportRooms(List<RoomModel> rooms);
+
     void exportServices(List<ServiceModel> services);
 }

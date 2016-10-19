@@ -1,5 +1,6 @@
 package com.training.senla.facade.impl;
 
+import com.danco.training.TextFileWorker;
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.facade.Facade;
 import com.training.senla.model.GuestModel;
@@ -44,11 +45,12 @@ public class FacadeImpl implements Facade{
         return facade;
     }
 
-    public FacadeImpl() {
+    public void init(TextFileWorker textFileWorker) {
         this.importer = new ImporterImpl(facade);
-        this.exporter = new ExporterImpl();
+        this.importer.loadData(textFileWorker);
+        this.exporter = new ExporterImpl(textFileWorker);
         this.initializer = new Initializer(importer);
-        this.initializer.getDataObjects();
+        this.initializer.fillDataObjects();
         this.initializer.fillServices();
         this.fillServicesFromInitializer();
     }
@@ -165,11 +167,6 @@ public class FacadeImpl implements Facade{
         roomModelService.evictGuest(guestModel);
     }
 
-    @Override
-    public void setStatusRoom(RoomModel room) {
-        room.setStatus(RoomStatus.MAINTAINED);
-        roomModelService.update(room);
-    }
 
     @Override
     public void changeServicePrice(ServiceModel serviceModel, double price) {

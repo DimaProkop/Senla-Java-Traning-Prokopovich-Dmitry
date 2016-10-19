@@ -17,25 +17,31 @@ import java.util.List;
  * Created by prokop on 16.10.16.
  */
 public class ImporterImpl implements Importer {
-
-    private final static String FILE_PATH = "/home/prokop/Senla-Java-Traning-Prokopovich-Dmitry/lesson4/task1/resource/main.txt";
-    private TextFileWorker textFileWorker = new TextFileWorker(FILE_PATH);
     private String[] data;
 
     private Facade facade;
     private Converter converter;
 
+    public ImporterImpl() {
+    }
+
     public ImporterImpl(Facade facade) {
         this.facade = facade;
-        this.data = textFileWorker.readFromFile();
         this.converter = new ConverterImpl();
+    }
+
+    public void loadData(TextFileWorker textFileWorker) {
+        this.data = textFileWorker.readFromFile();
     }
 
     @Override
     public List<GuestModel> importGuests() {
         List<GuestModel> guests = new ArrayList<>();
+        if(data.length == 0 || "".equals(data[0])) {
+            return guests;
+        }
         for(String line : data) {
-            if(isGuest(line)) {
+            if(isModel(line, "G")) {
                 guests.add(converter.convertStringToGuest(line, facade));
             }
         }
@@ -45,8 +51,11 @@ public class ImporterImpl implements Importer {
     @Override
     public List<RegistrationModel> importRegistrations() {
         List<RegistrationModel> registrations = new ArrayList<>();
+        if(data.length == 0 || "".equals(data[0])) {
+            return registrations;
+        }
         for(String line : data) {
-            if(isRegistation(line)) {
+            if(isModel(line, "T")) {
                 registrations.add(converter.convertStringToRegistration(line));
             }
         }
@@ -56,8 +65,11 @@ public class ImporterImpl implements Importer {
     @Override
     public List<RoomModel> importRooms() {
         List<RoomModel> rooms = new ArrayList<>();
+        if(data.length == 0 || "".equals(data[0])) {
+            return rooms;
+        }
         for(String line : data) {
-            if(isRoom(line)) {
+            if(isModel(line, "R")) {
                 rooms.add(converter.convertStringToRoom(line, facade));
             }
         }
@@ -67,8 +79,11 @@ public class ImporterImpl implements Importer {
     @Override
     public List<ServiceModel> importServices() {
         List<ServiceModel> services = new ArrayList<>();
+        if(data.length == 0 || "".equals(data[0])) {
+            return services;
+        }
         for(String line : data) {
-            if(isService(line)) {
+            if(isModel(line, "S")) {
                 services.add(converter.convertStringToService(line));
             }
         }
@@ -78,43 +93,8 @@ public class ImporterImpl implements Importer {
 
 
 
-    private boolean isGuest(String string) {
+    private boolean isModel(String string, String token) {
         String[] values = string.split(";");
-        for (String value : values) {
-            if (value.replace("[", "").replace("]", "").replace(", ", "").charAt(0) == 'G') {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean isRoom(String string) {
-        String[] values = string.split(";");
-        for (String value : values) {
-            if (value.replace("[", "").replace("]", "").replace(", ", "").charAt(0) == 'R') {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean isService(String string) {
-        String[] values = string.split(";");
-        for (String value : values) {
-            if (value.replace("[", "").replace("]", "").replace(", ", "").charAt(0) == 'S') {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean isRegistation(String string) {
-        String[] values = string.split(";");
-        for (String value : values) {
-            if (value.replace("[", "").replace("]", "").replace(", ", "").charAt(0) == 'T') {
-                return true;
-            }
-        }
-        return false;
+        return values[0].contains(token);
     }
 }

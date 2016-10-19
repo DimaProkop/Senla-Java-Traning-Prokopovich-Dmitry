@@ -22,13 +22,13 @@ public class RoomModel extends BaseModel{
     public RoomModel() {
     }
 
-    public RoomModel(double price, int capacity, RoomsSection section, int rating, List<GuestModel> guests) {
+    public RoomModel(double price, int capacity, RoomsSection section, int rating) {
         this.price = price;
         this.capacity = capacity;
         this.status = RoomStatus.FREE;
         this.section = section;
         this.rating = rating;
-        this.guests = guests;
+        this.guests = new ArrayList<>();
     }
 
     public double getPrice() {
@@ -94,7 +94,7 @@ public class RoomModel extends BaseModel{
     }
 
     public void removeGuest(GuestModel guestModel) {
-        if(guests != null) {
+        if(guests == null) {
             System.out.print("нету гостей");
         }
         for (int i = 0; i < guests.size(); i++) {

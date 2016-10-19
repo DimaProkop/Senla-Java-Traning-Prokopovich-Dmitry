@@ -5,6 +5,7 @@ import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 import com.training.senla.util.converter.Converter;
+import com.training.senla.util.converter.impl.ConverterImpl;
 import com.training.senla.util.io.exporter.Exporter;
 
 import com.danco.training.TextFileWorker;
@@ -16,10 +17,13 @@ import java.util.List;
  */
 public class ExporterImpl implements Exporter {
 
-    private final static String FILE_PATH = "/home/prokop/Senla-Java-Traning-Prokopovich-Dmitry/lesson4/task1/resource/main.txt";
-    private TextFileWorker textFileWorker = new TextFileWorker(FILE_PATH);
-
+    private TextFileWorker textFileWorker;
     private Converter converter;
+
+    public ExporterImpl(TextFileWorker textFileWorker) {
+        this.converter = new ConverterImpl();
+        this.textFileWorker = textFileWorker;
+    }
 
     @Override
     public void exportGuests(List<GuestModel> guests) {

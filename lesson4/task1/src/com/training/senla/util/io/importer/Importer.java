@@ -1,5 +1,6 @@
 package com.training.senla.util.io.importer;
 
+import com.danco.training.TextFileWorker;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
@@ -12,7 +13,12 @@ import java.util.List;
  */
 public interface Importer {
     List<GuestModel> importGuests();
+
     List<RegistrationModel> importRegistrations();
+
     List<RoomModel> importRooms();
+
     List<ServiceModel> importServices();
+
+    void loadData(TextFileWorker textFileWorker);
 }
