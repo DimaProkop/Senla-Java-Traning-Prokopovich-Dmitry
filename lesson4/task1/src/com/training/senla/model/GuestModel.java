@@ -56,7 +56,7 @@ public class GuestModel extends BaseModel{
 
     public void removeService(ServiceModel serviceModel) {
         if(serviceModelList == null) {
-            System.out.print("нету сервисов");
+            System.out.print("Services is empty");
         }
         for (int i = 0; i < serviceModelList.size(); i++) {
             if (serviceModelList.get(i).getId() == serviceModel.getId()) {
@@ -64,6 +64,6 @@ public class GuestModel extends BaseModel{
                 return;
             }
         }
-        System.out.println("сервис не найден");
+        System.out.println("Service not found");
     }
 }

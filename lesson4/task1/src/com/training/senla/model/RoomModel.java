@@ -81,7 +81,7 @@ public class RoomModel extends BaseModel{
 
     public void addGuest(GuestModel guestModel) {
         if(guestModel.getRoomModel()!=null) {
-            System.out.println("есть у его уже комната..");
+            System.out.println("Guest room is already");
         }
         if(guests != null) {
             guests = new ArrayList<>();
@@ -89,13 +89,13 @@ public class RoomModel extends BaseModel{
         if(guests.size()<capacity){
             guests.add(guestModel);
         }else {
-            System.out.println("переполнена");
+            System.out.println("Is full");
         }
     }
 
     public void removeGuest(GuestModel guestModel) {
         if(guests == null) {
-            System.out.print("нету гостей");
+            System.out.print("Guests is empty");
         }
         for (int i = 0; i < guests.size(); i++) {
             if (guests.get(i).getId() == guestModel.getId()) {
@@ -103,6 +103,6 @@ public class RoomModel extends BaseModel{
                 return;
             }
         }
-        System.out.println("гость не найден");
+        System.out.println("Guest not found");
     }
 }
