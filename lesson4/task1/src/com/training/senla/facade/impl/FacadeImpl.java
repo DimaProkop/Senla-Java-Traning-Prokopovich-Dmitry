@@ -45,7 +45,9 @@ public class FacadeImpl implements Facade{
         return facade;
     }
 
+    @Override
     public void init(TextFileWorker textFileWorker) {
+        getState();
         this.importer = new ImporterImpl(facade);
         this.importer.loadData(textFileWorker);
         this.exporter = new ExporterImpl(textFileWorker);

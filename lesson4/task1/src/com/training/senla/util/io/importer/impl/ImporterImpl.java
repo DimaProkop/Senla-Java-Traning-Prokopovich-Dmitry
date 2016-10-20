@@ -11,7 +11,10 @@ import com.training.senla.util.converter.impl.ConverterImpl;
 import com.training.senla.util.io.importer.Importer;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Created by prokop on 16.10.16.
@@ -21,6 +24,9 @@ public class ImporterImpl implements Importer {
 
     private Facade facade;
     private Converter converter;
+
+    private Map<Integer, RoomModel> roomsMap;
+    private Map<Integer, ServiceModel> servicesMap;
 
     public ImporterImpl() {
     }
@@ -42,7 +48,7 @@ public class ImporterImpl implements Importer {
         }
         for(String line : data) {
             if(isModel(line, "G")) {
-                guests.add(converter.convertStringToGuest(line, facade));
+                guests.add(converter.convertStringToGuest(line, roomsMap, servicesMap));
             }
         }
         return guests;
@@ -65,26 +71,33 @@ public class ImporterImpl implements Importer {
     @Override
     public List<RoomModel> importRooms() {
         List<RoomModel> rooms = new ArrayList<>();
+        roomsMap = new HashMap<>();
         if(data.length == 0 || "".equals(data[0])) {
             return rooms;
         }
         for(String line : data) {
             if(isModel(line, "R")) {
-                rooms.add(converter.convertStringToRoom(line, facade));
+                RoomModel room = converter.convertStringToRoom(line, facade);
+                rooms.add(room);
+                roomsMap.put(room.getId(), room);
             }
         }
+
         return rooms;
     }
 
     @Override
     public List<ServiceModel> importServices() {
         List<ServiceModel> services = new ArrayList<>();
+        servicesMap = new HashMap<>();
         if(data.length == 0 || "".equals(data[0])) {
             return services;
         }
         for(String line : data) {
             if(isModel(line, "S")) {
-                services.add(converter.convertStringToService(line));
+                ServiceModel service = converter.convertStringToService(line);
+                services.add(service);
+                servicesMap.put(service.getId(), service);
             }
         }
         return services;

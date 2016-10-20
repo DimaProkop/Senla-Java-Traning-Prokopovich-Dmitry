@@ -83,7 +83,7 @@ public class RoomModel extends BaseModel{
         if(guestModel.getRoomModel()!=null) {
             System.out.println("Guest room is already");
         }
-        if(guests != null) {
+        if(guests == null) {
             guests = new ArrayList<>();
         }
         if(guests.size()<capacity){
