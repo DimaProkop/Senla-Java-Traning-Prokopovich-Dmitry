@@ -1,12 +1,16 @@
 package com.training.senla.service.impl;
 
+import com.training.senla.comparator.Comparator;
 import com.training.senla.model.GuestModel;
+import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 import com.training.senla.repository.GuestModelRepository;
+import com.training.senla.repository.RegistrationModelRepository;
 import com.training.senla.service.GuestModelService;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by prokop on 13.10.16.
@@ -14,9 +18,11 @@ import java.util.List;
 public class GuestModelServiceImpl implements GuestModelService {
 
     private GuestModelRepository guestModelRepository;
+    private RegistrationModelRepository registrationModelRepository;
 
-    public GuestModelServiceImpl(GuestModelRepository guestModelRepository) {
+    public GuestModelServiceImpl(GuestModelRepository guestModelRepository, RegistrationModelRepository registrationModelRepository) {
         this.guestModelRepository = guestModelRepository;
+        this.registrationModelRepository = registrationModelRepository;
     }
 
     @Override
@@ -40,6 +46,16 @@ public class GuestModelServiceImpl implements GuestModelService {
     }
 
     @Override
+    public void addService(GuestModel guestModel, ServiceModel serviceModel) {
+        guestModel.addService(serviceModel);
+    }
+
+    @Override
+    public void removeService(GuestModel guestModel, ServiceModel serviceModel) {
+        guestModel.removeService(serviceModel);
+    }
+
+    @Override
     public List<ServiceModel> getServicesByPrice(GuestModel guestModel) {
         return guestModelRepository.getServicesByPrice(guestModel);
     }
@@ -56,7 +72,11 @@ public class GuestModelServiceImpl implements GuestModelService {
 
     @Override
     public List<GuestModel> getSortedByFinalDate() {
-        return guestModelRepository.getSortedByFinalDate();
+        List<Integer> newList = registrationModelRepository.getAll().stream()
+                .map(RegistrationModel::getGuestId)
+                .collect(Collectors.toList());
+
+        return null;
     }
 
     @Override
@@ -66,7 +86,7 @@ public class GuestModelServiceImpl implements GuestModelService {
 
     @Override
     public double getSumByRoom(RoomModel roomModel, GuestModel guestModel) {
-        return guestModelRepository.getSumByRoom(roomModel, guestModel);
+        return 0;
     }
 
     @Override

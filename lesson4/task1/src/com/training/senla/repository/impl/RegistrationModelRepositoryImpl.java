@@ -30,17 +30,22 @@ public class RegistrationModelRepositoryImpl implements RegistrationModelReposit
 
     @Override
     public void addRecord(RegistrationModel registrationModel) {
-        registrationModel.setRegistrationId(currentId++);
+        registrationModel.setId(currentId++);
         registrationModelList.add(registrationModel);
     }
 
     @Override
     public void setFinalDate(GuestModel guestModel) {
-        registrationModelList.get(guestModel.getGuestId()).setFinalDate(guestModel.getFinalDate());
+        registrationModelList.get(guestModel.getId()).setFinalDate(LocalDate.now());
     }
 
     @Override
     public RegistrationModel getRegistration(int id) {
         return registrationModelList.get(getRegistrationIndexById(id));
+    }
+
+    @Override
+    public List<RegistrationModel> getAll() {
+        return this.registrationModelList;
     }
 }

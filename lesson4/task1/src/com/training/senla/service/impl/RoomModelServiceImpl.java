@@ -11,8 +11,8 @@ import com.training.senla.repository.RoomModelRepository;
 import com.training.senla.service.RoomModelService;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by prokop on 13.10.16.
@@ -50,14 +50,14 @@ public class RoomModelServiceImpl implements RoomModelService {
     }
 
     @Override
-    public void addGuest(GuestModel guestModel, RoomModel roomModel) {
-        //guestModelRepository.setGuest(guestModel);
-        registrationModelRepository.addRecord(new RegistrationModel(guestModel.getGuestId(), roomModel.getRoomId(), guestModel.getStartDate(), guestModel.getFinalDate()));
+    public void registerGuest(GuestModel guestModel, RoomModel roomModel, LocalDate startDate, LocalDate finalDate) {
+        roomModel.addGuest(guestModel);
+        guestModel.setRoomModel(roomModel);
+        registrationModelRepository.addRecord(new RegistrationModel(guestModel.getId(), roomModel.getId(), startDate, finalDate));
     }
 
     @Override
     public void evictGuest(GuestModel guestModel) {
-        //registrationModelRepository.setFinalDate(guestModel);
         guestModelRepository.delete(guestModel);
     }
 
@@ -108,7 +108,13 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     @Override
     public List<RoomModel> getReleasedInFuture(LocalDate date) {
-        return roomModelRepository.getReleasedInFuture(date);
+        List<Integer> roomIds = registrationModelRepository.getAll().stream()
+                .filter(x->x.getFinalDate().getDayOfYear() < date.getDayOfYear())
+                .map(RegistrationModel::getRoomId)
+                .distinct()
+                .collect(Collectors.toList());
+
+        return null;
     }
 
     @Override

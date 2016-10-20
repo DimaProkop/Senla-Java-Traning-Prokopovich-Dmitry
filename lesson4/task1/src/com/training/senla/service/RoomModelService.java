@@ -6,7 +6,6 @@ import com.training.senla.model.GuestModel;
 import com.training.senla.model.RoomModel;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,7 +20,7 @@ public interface RoomModelService {
 
     void delete(RoomModel roomModel);
 
-    void addGuest(GuestModel guestModel, RoomModel roomModel);
+    void registerGuest(GuestModel guestModel, RoomModel roomModel, LocalDate startDate, LocalDate finalDate);
 
     void evictGuest(GuestModel guestModel);
 

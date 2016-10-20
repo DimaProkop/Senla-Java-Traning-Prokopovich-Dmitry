@@ -10,6 +10,6 @@ import java.util.Comparator;
 public class ServiceIdComparator implements Comparator<ServiceModel> {
     @Override
     public int compare(ServiceModel serviceModel, ServiceModel t1) {
-        return Integer.compare(serviceModel.getServiceId(), t1.getServiceId());
+        return Integer.compare(serviceModel.getId(), t1.getId());
     }
 }

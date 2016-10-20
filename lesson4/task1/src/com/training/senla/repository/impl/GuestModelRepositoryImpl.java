@@ -25,7 +25,7 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
 
     private int getGuestIndexById(int id) {
         for (int i = 0; i < this.guestModels.size(); i++) {
-            if(this.guestModels.get(i).getGuestId() == id) {
+            if(this.guestModels.get(i).getId() == id) {
                 return i;
             }
         }
@@ -34,7 +34,7 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
 
     @Override
     public void setGuest(GuestModel guestModel) {
-        guestModel.setGuestId(currentId++);
+        guestModel.setId(currentId++);
         this.guestModels.add(guestModel);
     }
 
@@ -45,24 +45,24 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
 
     @Override
     public void update(GuestModel guestModel) {
-        this.guestModels.set(getGuestIndexById(guestModel.getGuestId()), guestModel);
+        this.guestModels.set(getGuestIndexById(guestModel.getId()), guestModel);
     }
 
     @Override
     public void delete(GuestModel guestMode) {
-        this.guestModels.remove(getGuestIndexById(guestMode.getGuestId()));
+        this.guestModels.remove(getGuestIndexById(guestMode.getId()));
     }
 
     @Override
     public List<ServiceModel> getServicesByDate(GuestModel guestModel) {
-        return this.guestModels.get(guestModel.getGuestId()).getServiceModelList().stream()
+        return this.guestModels.get(guestModel.getId()).getServiceModelList().stream()
                 .sorted(Comparator.SERVICE_DATE_COMPARATOR)
                 .collect(Collectors.toList());
     }
 
     @Override
     public List<ServiceModel> getServicesByPrice(GuestModel guestModel) {
-        return this.guestModels.get(guestModel.getGuestId()).getServiceModelList().stream()
+        return this.guestModels.get(guestModel.getId()).getServiceModelList().stream()
                 .sorted(Comparator.SERVICE_PRICE_COMPARATOR)
                 .collect(Collectors.toList());
     }
@@ -75,23 +75,10 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
     }
 
     @Override
-    public List<GuestModel> getSortedByFinalDate() {
-        return this.guestModels.stream()
-                .sorted(Comparator.GUEST_ROOM_DATA_COMPARATOR)
-                .collect(Collectors.toList());
-    }
-
-    @Override
     public List<GuestModel> getSortedByName() {
         return this.guestModels.stream()
                 .sorted(Comparator.GUEST_NAME_COMPARATOR)
                 .collect(Collectors.toList());
-    }
-
-    @Override
-    public double getSumByRoom(RoomModel roomModel, GuestModel guestModel) {
-        int timeDiff = Math.abs(guestModel.getFinalDate().getDayOfYear()- guestModel.getStartDate().getDayOfYear());
-        return timeDiff * roomModel.getPrice();
     }
 
     @Override

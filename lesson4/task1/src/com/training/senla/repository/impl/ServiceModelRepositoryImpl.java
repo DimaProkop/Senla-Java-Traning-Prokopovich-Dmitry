@@ -25,7 +25,7 @@ public class ServiceModelRepositoryImpl implements ServiceModelRepository {
 
     private int getServiceIndexById(int id) {
         for (int i = 0; i < this.serviceModels.size(); i++) {
-            if(this.serviceModels.get(i).getServiceId() == id) {
+            if(this.serviceModels.get(i).getId() == id) {
                 return i;
             }
         }
@@ -34,7 +34,7 @@ public class ServiceModelRepositoryImpl implements ServiceModelRepository {
 
     @Override
     public void setService(ServiceModel serviceModel) {
-        serviceModel.setServiceId(currentId++);
+        serviceModel.setId(currentId++);
         this.serviceModels.add(serviceModel);
     }
 
@@ -45,12 +45,12 @@ public class ServiceModelRepositoryImpl implements ServiceModelRepository {
 
     @Override
     public void update(ServiceModel serviceModel) {
-        this.serviceModels.set(getServiceIndexById(serviceModel.getServiceId()), serviceModel);
+        this.serviceModels.set(getServiceIndexById(serviceModel.getId()), serviceModel);
     }
 
     @Override
     public void delete(ServiceModel serviceModel) {
-        this.serviceModels.remove(getServiceIndexById(serviceModel.getServiceId()));
+        this.serviceModels.remove(getServiceIndexById(serviceModel.getId()));
     }
 
     @Override

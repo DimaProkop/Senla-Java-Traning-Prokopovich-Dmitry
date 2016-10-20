@@ -1,5 +1,6 @@
 package com.training.senla.facade.impl;
 
+import com.danco.training.TextFileWorker;
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.facade.Facade;
 import com.training.senla.model.GuestModel;
@@ -10,6 +11,7 @@ import com.training.senla.service.GuestModelService;
 import com.training.senla.service.RegistrationModelService;
 import com.training.senla.service.RoomModelService;
 import com.training.senla.service.ServiceModelService;
+import com.training.senla.util.initializer.Initializer;
 import com.training.senla.util.io.exporter.Exporter;
 import com.training.senla.util.io.exporter.impl.ExporterImpl;
 import com.training.senla.util.io.importer.Importer;
@@ -28,6 +30,8 @@ public class FacadeImpl implements Facade{
     private RegistrationModelService registrationModelService;
     private ServiceModelService serviceModelService;
 
+    private Initializer initializer;
+
     private Importer importer;
     private Exporter exporter;
 
@@ -41,9 +45,21 @@ public class FacadeImpl implements Facade{
         return facade;
     }
 
-    public FacadeImpl() {
-        this.exporter = new ExporterImpl();
+    public void init(TextFileWorker textFileWorker) {
+        this.importer = new ImporterImpl(facade);
+        this.importer.loadData(textFileWorker);
+        this.exporter = new ExporterImpl(textFileWorker);
+        this.initializer = new Initializer(importer);
+        this.initializer.fillDataObjects();
+        this.initializer.fillServices();
+        this.fillServicesFromInitializer();
+    }
 
+    private void fillServicesFromInitializer() {
+        this.guestModelService = this.initializer.getGuestModelService();
+        this.roomModelService = this.initializer.getRoomModelService();
+        this.registrationModelService = this.initializer.getRegistrationModelService();
+        this.serviceModelService = this.initializer.getServiceModelService();
     }
 
     @Override
@@ -79,6 +95,11 @@ public class FacadeImpl implements Facade{
     @Override
     public void setService(ServiceModel service) {
         serviceModelService.setService(service);
+    }
+
+    @Override
+    public List<GuestModel> getAllGuests() {
+        return guestModelService.getAll();
     }
 
     @Override
@@ -127,13 +148,18 @@ public class FacadeImpl implements Facade{
     }
 
     @Override
+    public List<ServiceModel> getAllServices() {
+        return serviceModelService.getAll();
+    }
+
+    @Override
     public List<Double> getPricesRoom() {
         return null;
     }
 
     @Override
-    public void addGuest(GuestModel guestModel, RoomModel roomModel) {
-        roomModelService.addGuest(guestModel, roomModel);
+    public void registerGuest(GuestModel guestModel, RoomModel roomModel, LocalDate startDate, LocalDate finalDate) {
+        roomModelService.registerGuest(guestModel, roomModel, startDate, finalDate);
     }
 
     @Override
@@ -141,11 +167,6 @@ public class FacadeImpl implements Facade{
         roomModelService.evictGuest(guestModel);
     }
 
-    @Override
-    public void setStatusRoom(RoomModel room) {
-        room.setStatus(RoomStatus.MAINTAINED);
-        roomModelService.update(room);
-    }
 
     @Override
     public void changeServicePrice(ServiceModel serviceModel, double price) {
@@ -157,6 +178,11 @@ public class FacadeImpl implements Facade{
     public void changeRoomPrice(RoomModel roomModel, double price) {
         roomModel.setPrice(price);
         roomModelService.update(roomModel);
+    }
+
+    @Override
+    public List<RegistrationModel> getAllRegistrations() {
+        return registrationModelService.getAll();
     }
 
     @Override
@@ -193,21 +219,26 @@ public class FacadeImpl implements Facade{
 
     @Override
     public void exportGuests(List<GuestModel> guests) {
-        exporter.exportGuests(guests);
+        exporter.exportGuests(this.guestModelService.getAll());
     }
 
     @Override
     public void exportRegistrations(List<RegistrationModel> registrations) {
-        exporter.exportRegistrations(registrations);
+        exporter.exportRegistrations(this.registrationModelService.getAll());
     }
 
     @Override
     public void exportRooms(List<RoomModel> rooms) {
-        exporter.exportRooms(rooms);
+        exporter.exportRooms(this.roomModelService.getAll());
     }
 
     @Override
     public void exportServices(List<ServiceModel> services) {
-        exporter.exportServices(services);
+        exporter.exportServices(this.serviceModelService.getAll());
+    }
+
+    @Override
+    public void exportAll() {
+        exporter.exportAll(this.getAllServices(), this.getAllRooms(), this.getAllGuests(), this.getAllRegistrations());
     }
 }

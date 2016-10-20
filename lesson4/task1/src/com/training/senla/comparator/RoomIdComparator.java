@@ -10,6 +10,6 @@ import java.util.Comparator;
 public class RoomIdComparator implements Comparator<RoomModel>{
     @Override
     public int compare(RoomModel roomModel, RoomModel t1) {
-        return Integer.compare(roomModel.getRoomId(), t1.getRoomId());
+        return Integer.compare(roomModel.getId(), t1.getCapacity());
     }
 }

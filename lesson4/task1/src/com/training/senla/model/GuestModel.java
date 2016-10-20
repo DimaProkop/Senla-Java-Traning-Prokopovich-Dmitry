@@ -1,17 +1,15 @@
 package com.training.senla.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 /**
  * Created by prokop on 13.10.16.
  */
-public class GuestModel{
-    private int guestId;
+public class GuestModel extends BaseModel{
     private String name;
-    private LocalDate startDate;
-    private LocalDate finalDate;
     private RoomModel roomModel;
     private List<ServiceModel> serviceModelList;
 
@@ -19,20 +17,10 @@ public class GuestModel{
 
     }
 
-    public GuestModel(String name, LocalDate startDate, List<ServiceModel> serviceModelList) {
+    public GuestModel(String name) {
         this.name = name;
-        this.startDate = startDate;
-        this.finalDate = null;
         this.roomModel = null;
-        this.serviceModelList = serviceModelList;
-    }
-
-    public int getGuestId() {
-        return guestId;
-    }
-
-    public void setGuestId(int guestId) {
-        this.guestId = guestId;
+        this.serviceModelList = new ArrayList<>();
     }
 
     public String getName() {
@@ -41,22 +29,6 @@ public class GuestModel{
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public LocalDate getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
-    }
-
-    public LocalDate getFinalDate() {
-        return finalDate;
-    }
-
-    public void setFinalDate(LocalDate finalDate) {
-        this.finalDate = finalDate;
     }
 
     public RoomModel getRoomModel() {
@@ -73,5 +45,25 @@ public class GuestModel{
 
     public void setServiceModelList(List<ServiceModel> serviceModelList) {
         this.serviceModelList = serviceModelList;
+    }
+
+    public void addService(ServiceModel serviceModel) {
+        if(serviceModelList != null) {
+            serviceModelList = new ArrayList<>();
+        }
+        serviceModelList.add(serviceModel);
+    }
+
+    public void removeService(ServiceModel serviceModel) {
+        if(serviceModelList == null) {
+            System.out.print("Services is empty");
+        }
+        for (int i = 0; i < serviceModelList.size(); i++) {
+            if (serviceModelList.get(i).getId() == serviceModel.getId()) {
+                serviceModelList.remove(i);
+                return;
+            }
+        }
+        System.out.println("Service not found");
     }
 }

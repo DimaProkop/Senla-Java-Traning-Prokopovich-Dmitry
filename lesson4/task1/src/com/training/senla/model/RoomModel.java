@@ -4,14 +4,14 @@ import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 /**
  * Created by prokop on 13.10.16.
  */
-public class RoomModel {
-    private int roomId;
+public class RoomModel extends BaseModel{
     private double price;
     private int capacity;
     private RoomStatus status;
@@ -22,21 +22,13 @@ public class RoomModel {
     public RoomModel() {
     }
 
-    public RoomModel(double price, int capacity, RoomsSection section, int rating, List<GuestModel> guests) {
+    public RoomModel(double price, int capacity, RoomsSection section, int rating) {
         this.price = price;
         this.capacity = capacity;
         this.status = RoomStatus.FREE;
         this.section = section;
         this.rating = rating;
-        this.guests = guests;
-    }
-
-    public int getRoomId() {
-        return roomId;
-    }
-
-    public void setRoomId(int roomId) {
-        this.roomId = roomId;
+        this.guests = new ArrayList<>();
     }
 
     public double getPrice() {
@@ -85,5 +77,32 @@ public class RoomModel {
 
     public void setGuests(List<GuestModel> guests) {
         this.guests = guests;
+    }
+
+    public void addGuest(GuestModel guestModel) {
+        if(guestModel.getRoomModel()!=null) {
+            System.out.println("Guest room is already");
+        }
+        if(guests != null) {
+            guests = new ArrayList<>();
+        }
+        if(guests.size()<capacity){
+            guests.add(guestModel);
+        }else {
+            System.out.println("Is full");
+        }
+    }
+
+    public void removeGuest(GuestModel guestModel) {
+        if(guests == null) {
+            System.out.print("Guests is empty");
+        }
+        for (int i = 0; i < guests.size(); i++) {
+            if (guests.get(i).getId() == guestModel.getId()) {
+                guests.remove(i);
+                return;
+            }
+        }
+        System.out.println("Guest not found");
     }
 }

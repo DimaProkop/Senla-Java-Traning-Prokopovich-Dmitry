@@ -9,6 +9,6 @@ import com.training.senla.model.GuestModel;
 public class GuestIdComparator implements Comparator<GuestModel>{
     @Override
     public int compare(GuestModel guestModel, GuestModel t1) {
-        return Integer.compare(guestModel.getGuestId(), t1.getGuestId());
+        return Integer.compare(guestModel.getId(), t1.getId());
     }
 }
