@@ -81,4 +81,6 @@ public interface Facade {
     void exportRooms(List<RoomModel> rooms);
 
     void exportServices(List<ServiceModel> services);
+
+    void exportAll();
 }

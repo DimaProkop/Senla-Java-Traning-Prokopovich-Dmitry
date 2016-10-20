@@ -236,4 +236,9 @@ public class FacadeImpl implements Facade{
     public void exportServices(List<ServiceModel> services) {
         exporter.exportServices(this.serviceModelService.getAll());
     }
+
+    @Override
+    public void exportAll() {
+        exporter.exportAll(this.getAllServices(), this.getAllRooms(), this.getAllGuests(), this.getAllRegistrations());
+    }
 }

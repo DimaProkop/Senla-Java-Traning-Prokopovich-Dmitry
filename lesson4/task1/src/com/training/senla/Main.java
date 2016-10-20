@@ -1,19 +1,15 @@
 package com.training.senla;
 
 import com.danco.training.TextFileWorker;
-import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
 import com.training.senla.enums.ServicesSection;
 import com.training.senla.facade.Facade;
 import com.training.senla.facade.impl.FacadeImpl;
-import com.training.senla.model.GuestModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by prokop on 12.10.16.
@@ -39,11 +35,8 @@ public class Main {
         facade.setRoom(roomModel);
         facade.setRoom(roomModel1);
 
-        List<RoomModel> rooms = new ArrayList<>();
-        rooms.add(roomModel);
-        rooms.add(roomModel1);
+        facade.exportAll();
 
-        facade.exportRooms(rooms);
 
         for(RoomModel room: facade.getAllRooms()) {
             System.out.println(room.getStatus());

@@ -10,7 +10,9 @@ import com.training.senla.util.io.exporter.Exporter;
 
 import com.danco.training.TextFileWorker;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by prokop on 16.10.16.
@@ -58,6 +60,18 @@ public class ExporterImpl implements Exporter {
         for (int i = 0; i < values.length; i++) {
             values[i] = converter.convertServiceToString(services.get(i));
         }
+        textFileWorker.writeToFile(values);
+    }
+
+    @Override
+    public void exportAll(List<ServiceModel> services, List<RoomModel> rooms, List<GuestModel> guests, List<RegistrationModel> registrations) {
+        List<String> strings = new ArrayList<>();
+        strings.addAll(services.stream().map(service -> converter.convertServiceToString(service)).collect(Collectors.toList()));
+        strings.addAll(rooms.stream().map(room -> converter.convertRoomToString(room)).collect(Collectors.toList()));
+        strings.addAll(guests.stream().map(guest -> converter.convertGuestToString(guest)).collect(Collectors.toList()));
+        strings.addAll(registrations.stream().map(registration -> converter.convertRegistrationToString(registration)).collect(Collectors.toList()));
+        String[] values = new String[strings.size()];
+        values = strings.toArray(values);
         textFileWorker.writeToFile(values);
     }
 }

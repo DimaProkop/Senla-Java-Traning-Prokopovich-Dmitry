@@ -18,4 +18,6 @@ public interface Exporter {
     void exportRooms(List<RoomModel> rooms);
 
     void exportServices(List<ServiceModel> services);
+
+    void exportAll(List<ServiceModel> services, List<RoomModel> rooms, List<GuestModel> guests, List<RegistrationModel> registrations);
 }
