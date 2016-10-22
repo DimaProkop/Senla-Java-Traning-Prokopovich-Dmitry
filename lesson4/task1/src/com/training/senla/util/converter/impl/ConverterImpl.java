@@ -1,6 +1,5 @@
 package com.training.senla.util.converter.impl;
 
-import com.training.senla.facade.Facade;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
@@ -35,13 +34,8 @@ public class ConverterImpl implements Converter{
         builder.append(";");
         builder.append(String.valueOf(guestModel.getName()));
         builder.append(";");
-<<<<<<< HEAD
-        if(guestModel.getRoomModel() != null) {
-            builder.append("");
-=======
         if(guestModel.getRoomModel() == null) {
             builder.append(" ");
->>>>>>> lesson4
         } else {
             builder.append(String.valueOf(guestModel.getRoomModel().getId()));
         }
@@ -125,19 +119,10 @@ public class ConverterImpl implements Converter{
         if(" ".equals(params[2])) {
             guestModel.setRoomModel(null);
         } else {
-<<<<<<< HEAD
-            roomsMap.values().stream()
-                    .filter(roomModel -> roomModel.getId() == Integer.parseInt(params[2]))
-                    .forEach(guestModel::setRoomModel);
-            guestModel.getRoomModel().addGuest(guestModel);
-        }
-        if("".equals(params[3])) {
-=======
             guestModel.setRoomModel(roomsMap.get(Integer.parseInt(params[2])));
             guestModel.getRoomModel().addGuest(guestModel);
         }
         if(" ".equals(params[3])) {
->>>>>>> lesson4
             guestModel.setServiceModelList(null);
         } else {
             String[] values = params[3].split(",");
@@ -190,15 +175,8 @@ public class ConverterImpl implements Converter{
 
     private List<ServiceModel> getServicesById(String[] services, Map<Integer, ServiceModel> servicesMap) {
         List<ServiceModel> serviceModels = new ArrayList<>();
-<<<<<<< HEAD
-        for (int i = 0; i < services.length; i++) {
-            if(servicesMap.get(i).getId() == Integer.parseInt(services[i])) {
-                serviceModels.add(servicesMap.get(i));
-            }
-=======
         for (String id : services) {
             serviceModels.add(servicesMap.get(Integer.parseInt(id)));
->>>>>>> lesson4
         }
         return serviceModels;
     }

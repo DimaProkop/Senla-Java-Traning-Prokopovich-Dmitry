@@ -35,20 +35,9 @@ public class FacadeImpl implements Facade{
     private Importer importer;
     private Exporter exporter;
 
-    private static FacadeImpl facade;
-
-    public static Facade getState()
-    {
-        if (facade == null){
-            facade = new FacadeImpl();
-        }
-        return facade;
-    }
-
     @Override
     public void init(TextFileWorker textFileWorker) {
-        getState();
-        this.importer = new ImporterImpl(facade);
+        this.importer = new ImporterImpl();
         this.importer.loadData(textFileWorker);
         this.exporter = new ExporterImpl(textFileWorker);
         this.initializer = new Initializer(importer);
@@ -190,7 +179,7 @@ public class FacadeImpl implements Facade{
     @Override
     public List<GuestModel> importGuests() {
         if(this.importer == null) {
-            this.importer = new ImporterImpl(FacadeImpl.getState());
+            this.importer = new ImporterImpl();
         }
         return importer.importGuests();
     }
@@ -198,7 +187,7 @@ public class FacadeImpl implements Facade{
     @Override
     public List<RegistrationModel> importRegistrations() {
         if(this.importer == null) {
-            this.importer = new ImporterImpl(FacadeImpl.getState());
+            this.importer = new ImporterImpl();
         }
         return importer.importRegistrations();
     }
@@ -206,7 +195,7 @@ public class FacadeImpl implements Facade{
     @Override
     public List<RoomModel> importRooms() {
         if(this.importer == null) {
-            this.importer = new ImporterImpl(FacadeImpl.getState());
+            this.importer = new ImporterImpl();
         }
         return importer.importRooms();
     }
@@ -214,7 +203,7 @@ public class FacadeImpl implements Facade{
     @Override
     public List<ServiceModel> importServices() {
         if(this.importer == null) {
-            this.importer = new ImporterImpl(FacadeImpl.getState());
+            this.importer = new ImporterImpl();
         }
         return importer.importServices();
     }

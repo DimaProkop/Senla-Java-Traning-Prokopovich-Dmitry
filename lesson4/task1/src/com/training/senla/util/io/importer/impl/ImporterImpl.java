@@ -1,7 +1,6 @@
 package com.training.senla.util.io.importer.impl;
 
 import com.danco.training.TextFileWorker;
-import com.training.senla.facade.Facade;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
@@ -14,29 +13,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-<<<<<<< HEAD
-import java.util.stream.Collectors;
-=======
->>>>>>> lesson4
 
 /**
  * Created by prokop on 16.10.16.
  */
 public class ImporterImpl implements Importer {
     private String[] data;
-    private Map<Integer, RoomModel> roomsMap;
-    private Map<Integer, ServiceModel> servicesMap;
-    private Facade facade;
     private Converter converter;
 
     private Map<Integer, RoomModel> roomsMap;
     private Map<Integer, ServiceModel> servicesMap;
 
     public ImporterImpl() {
-    }
-
-    public ImporterImpl(Facade facade) {
-        this.facade = facade;
         this.converter = new ConverterImpl();
     }
 
@@ -81,11 +69,7 @@ public class ImporterImpl implements Importer {
         }
         for(String line : data) {
             if(isModel(line, "R")) {
-<<<<<<< HEAD
-                RoomModel room = converter.convertStringToRoom(line, facade);
-=======
                 RoomModel room = converter.convertStringToRoom(line);
->>>>>>> lesson4
                 rooms.add(room);
                 roomsMap.put(room.getId(), room);
             }
@@ -110,9 +94,6 @@ public class ImporterImpl implements Importer {
         }
         return services;
     }
-
-
-
 
     private boolean isModel(String string, String token) {
         String[] values = string.split(";");
