@@ -48,7 +48,7 @@ public class GuestModel extends BaseModel{
     }
 
     public void addService(ServiceModel serviceModel) {
-        if(serviceModelList != null) {
+        if(serviceModelList == null) {
             serviceModelList = new ArrayList<>();
         }
         serviceModelList.add(serviceModel);

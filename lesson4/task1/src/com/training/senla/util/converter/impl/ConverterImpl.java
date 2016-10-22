@@ -35,15 +35,25 @@ public class ConverterImpl implements Converter{
         builder.append(";");
         builder.append(String.valueOf(guestModel.getName()));
         builder.append(";");
+<<<<<<< HEAD
         if(guestModel.getRoomModel() != null) {
             builder.append("");
+=======
+        if(guestModel.getRoomModel() == null) {
+            builder.append(" ");
+>>>>>>> lesson4
         } else {
             builder.append(String.valueOf(guestModel.getRoomModel().getId()));
         }
         builder.append(";");
-        for (ServiceModel serviceModel : guestModel.getServiceModelList()) {
-            builder.append(serviceModel.getId());
-            builder.append(",");
+        if(guestModel.getServiceModelList() == null) {
+            builder.append(" ");
+        } else {
+            for (ServiceModel serviceModel : guestModel.getServiceModelList()) {
+                builder.append(serviceModel.getId());
+                builder.append(",");
+            }
+            builder.deleteCharAt(builder.length()-1);
         }
         builder.append(";");
         return builder.toString();
@@ -112,15 +122,22 @@ public class ConverterImpl implements Converter{
         String[] params = string.split(";");
         guestModel.setId(Integer.parseInt(params[0].replace("[", "").replace("]", "").replace(", ", "").replace("G", "")));
         guestModel.setName(params[1]);
-        if("".equals(params[2])) {
+        if(" ".equals(params[2])) {
             guestModel.setRoomModel(null);
         } else {
+<<<<<<< HEAD
             roomsMap.values().stream()
                     .filter(roomModel -> roomModel.getId() == Integer.parseInt(params[2]))
                     .forEach(guestModel::setRoomModel);
             guestModel.getRoomModel().addGuest(guestModel);
         }
         if("".equals(params[3])) {
+=======
+            guestModel.setRoomModel(roomsMap.get(Integer.parseInt(params[2])));
+            guestModel.getRoomModel().addGuest(guestModel);
+        }
+        if(" ".equals(params[3])) {
+>>>>>>> lesson4
             guestModel.setServiceModelList(null);
         } else {
             String[] values = params[3].split(",");
@@ -131,7 +148,7 @@ public class ConverterImpl implements Converter{
     }
 
     @Override
-    public RoomModel convertStringToRoom(String string, Facade facade) {
+    public RoomModel convertStringToRoom(String string) {
         RoomModel roomModel = new RoomModel();
         String[] params = string.split(";");
         roomModel.setId(Integer.parseInt(params[0].replace("[", "").replace("]", "").replace(", ", "").replace("R", "")));
@@ -173,10 +190,15 @@ public class ConverterImpl implements Converter{
 
     private List<ServiceModel> getServicesById(String[] services, Map<Integer, ServiceModel> servicesMap) {
         List<ServiceModel> serviceModels = new ArrayList<>();
+<<<<<<< HEAD
         for (int i = 0; i < services.length; i++) {
             if(servicesMap.get(i).getId() == Integer.parseInt(services[i])) {
                 serviceModels.add(servicesMap.get(i));
             }
+=======
+        for (String id : services) {
+            serviceModels.add(servicesMap.get(Integer.parseInt(id)));
+>>>>>>> lesson4
         }
         return serviceModels;
     }

@@ -22,7 +22,7 @@ public interface Converter {
 
     GuestModel convertStringToGuest(String string, Map<Integer, RoomModel> roomsMap, Map<Integer, ServiceModel> servicesMap);
 
-    RoomModel convertStringToRoom(String string, Facade facade);
+    RoomModel convertStringToRoom(String string);
 
     ServiceModel convertStringToService(String string);
 

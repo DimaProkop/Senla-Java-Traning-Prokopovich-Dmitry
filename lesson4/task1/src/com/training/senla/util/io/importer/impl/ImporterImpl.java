@@ -14,14 +14,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+<<<<<<< HEAD
 import java.util.stream.Collectors;
+=======
+>>>>>>> lesson4
 
 /**
  * Created by prokop on 16.10.16.
  */
 public class ImporterImpl implements Importer {
     private String[] data;
-
+    private Map<Integer, RoomModel> roomsMap;
+    private Map<Integer, ServiceModel> servicesMap;
     private Facade facade;
     private Converter converter;
 
@@ -77,7 +81,11 @@ public class ImporterImpl implements Importer {
         }
         for(String line : data) {
             if(isModel(line, "R")) {
+<<<<<<< HEAD
                 RoomModel room = converter.convertStringToRoom(line, facade);
+=======
+                RoomModel room = converter.convertStringToRoom(line);
+>>>>>>> lesson4
                 rooms.add(room);
                 roomsMap.put(room.getId(), room);
             }
