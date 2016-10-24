@@ -18,8 +18,7 @@ import java.time.LocalDate;
 
 public class Main {
 
-    private final static String FILE_PATH = "/home/prokop/Senla-Java-Traning-Prokopovich-Dmitry/lesson4/task1/resource/main.txt";
-
+    private final static String FILE_PATH = "/home/prokop/Senla-Java-Traning-Prokopovich-Dmitry/lesson5/facade/resource/main.txt";
     public static void main(String[] args) throws IOException {
         TextFileWorker textFileWorker = new TextFileWorker(FILE_PATH);
         Facade facade = new FacadeImpl();
