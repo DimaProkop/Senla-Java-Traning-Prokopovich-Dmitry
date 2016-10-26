@@ -187,6 +187,12 @@ public class FacadeImpl implements Facade{
     }
 
     @Override
+    public void changeRoomStatus(RoomModel roomModel) {
+        roomModel.setStatus(RoomStatus.MAINTAINED);
+        roomModelService.update(roomModel);
+    }
+
+    @Override
     public List<RegistrationModel> getAllRegistrations() {
         return registrationModelService.getAll();
     }

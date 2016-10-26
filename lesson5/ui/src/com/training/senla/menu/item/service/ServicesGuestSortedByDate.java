@@ -1,4 +1,4 @@
-package com.training.senla.menu.item;
+package com.training.senla.menu.item.service;
 
 /**
  * Created by prokop on 26.10.16.

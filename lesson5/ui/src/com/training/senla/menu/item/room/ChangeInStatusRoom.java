@@ -1,9 +1,10 @@
-package com.training.senla.menu.item;
+package com.training.senla.menu.item.room;
 
 import com.training.senla.facade.Facade;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.RoomModel;
+import com.training.senla.print.PrintModel;
 import com.training.senla.reader.Reader;
 
 /**
@@ -18,7 +19,8 @@ public class ChangeInStatusRoom extends Item{
     public Menu execute() {
         int roomId = Reader.getInt("Input room ID: ");
         RoomModel room = facade.getRoom(roomId);
-
+        facade.changeRoomStatus(room);
+        PrintModel.printMessage("Room is maintained.");
         return this.menu;
     }
 }

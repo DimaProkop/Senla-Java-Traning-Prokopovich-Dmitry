@@ -14,6 +14,7 @@ import java.io.IOException;
 public class Main {
     private final static String FILE_PATH = "/home/prokop/Senla-Java-Traning-Prokopovich-Dmitry/lesson5/facade/resource/main.txt";
     public static void main(String[] args) throws IOException {
+
         //facade
         TextFileWorker textFileWorker = new TextFileWorker(FILE_PATH);
         Facade facade = new FacadeImpl();

@@ -24,18 +24,6 @@ public class Main {
         Facade facade = new FacadeImpl();
         facade.init(textFileWorker);
 
-        ServiceModel serviceModel = new ServiceModel("Shower", 54.34, ServicesSection.MANDATORY, LocalDate.now(), LocalDate.of(2017, 6, 6));
-        facade.setService(serviceModel);
-
-        RoomModel roomModel = new RoomModel(200.5, 3, RoomsSection.LUKS, 5);
-
-        RoomModel roomModel1 = new RoomModel(63.1, 2, RoomsSection.STANDART, 3);
-
-        facade.setRoom(roomModel);
-        facade.setRoom(roomModel1);
-
-        facade.exportAll();
-
 
         for(RoomModel room: facade.getAllRooms()) {
             System.out.println(room.getStatus());

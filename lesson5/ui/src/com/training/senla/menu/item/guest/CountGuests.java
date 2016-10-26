@@ -1,4 +1,4 @@
-package com.training.senla.menu.item;
+package com.training.senla.menu.item.guest;
 
 import com.training.senla.facade.Facade;
 import com.training.senla.menu.Item;
@@ -8,14 +8,14 @@ import com.training.senla.print.PrintModel;
 /**
  * Created by prokop on 26.10.16.
  */
-public class CountFreeRooms extends Item {
-    public CountFreeRooms(Menu menu, Facade facade) {
-        super("Count free rooms", menu, facade);
+public class CountGuests extends Item {
+    public CountGuests(Menu menu, Facade facade) {
+        super("Count guests", menu, facade);
     }
 
     @Override
     public Menu execute() {
-        int count = facade.getCountFreeRooms();
+        int count = facade.getCountGuests();
         PrintModel.printMessage(String.valueOf(count));
         return this.menu;
     }

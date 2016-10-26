@@ -1,4 +1,4 @@
-package com.training.senla.menu.item;
+package com.training.senla.menu.item.room;
 
 import com.training.senla.enums.RoomsSection;
 import com.training.senla.facade.Facade;

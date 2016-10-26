@@ -1,4 +1,4 @@
-package com.training.senla.menu.item;
+package com.training.senla.menu.item.room;
 
 import com.training.senla.facade.Facade;
 import com.training.senla.menu.Item;
@@ -11,14 +11,14 @@ import java.util.List;
 /**
  * Created by prokop on 26.10.16.
  */
-public class RoomsSortedByPrice extends Item{
-    public RoomsSortedByPrice(Menu menu, Facade facade) {
-        super("Rooms sorted by price", menu, facade);
+public class RoomsSortedByCapacity extends Item{
+    public RoomsSortedByCapacity(Menu menu, Facade facade) {
+        super("Rooms sorted by capacity", menu, facade);
     }
 
     @Override
     public Menu execute() {
-        List<RoomModel> rooms = facade.getSortedByPrice();
+        List<RoomModel> rooms = facade.getSortedByCapacity();
         PrintModel.printRooms(rooms);
         return this.menu;
     }

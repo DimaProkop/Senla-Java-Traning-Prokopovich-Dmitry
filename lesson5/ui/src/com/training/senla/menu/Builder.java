@@ -2,6 +2,12 @@ package com.training.senla.menu;
 
 import com.training.senla.facade.Facade;
 import com.training.senla.menu.item.*;
+import com.training.senla.menu.item.guest.*;
+import com.training.senla.menu.item.registration.AllRegistrationsItem;
+import com.training.senla.menu.item.room.*;
+import com.training.senla.menu.item.service.AllServicesItem;
+import com.training.senla.menu.item.service.ChangePriceInService;
+import com.training.senla.menu.item.service.NewServiceItem;
 
 /**
  * Created by prokop on 24.10.16.
@@ -42,6 +48,7 @@ public class Builder {
         room.addItem(new RoomsSortedByPrice(room, facade));
         room.addItem(new RoomsSortedByCapacity(room, facade));
         room.addItem(new RoomsSortedByRating(room, facade));
+        room.addItem(new RoomsByFutureDate(room, facade));
         room.addItem(new OptionItem("Previous", main));
 
         service.addItem(new NewServiceItem(service, facade));

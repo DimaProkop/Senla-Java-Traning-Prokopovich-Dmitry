@@ -1,4 +1,4 @@
-package com.training.senla.menu.item;
+package com.training.senla.menu.item.service;
 
 import com.sun.org.apache.regexp.internal.RE;
 import com.training.senla.enums.ServicesSection;

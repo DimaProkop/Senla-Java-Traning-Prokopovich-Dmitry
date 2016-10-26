@@ -80,9 +80,6 @@ public class RoomModel extends BaseModel{
     }
 
     public void addGuest(GuestModel guestModel) {
-        if(guestModel.getRoomModel()!=null) {
-            System.out.println("Guest room is already");
-        }
         if(guests == null) {
             guests = new ArrayList<>();
         }

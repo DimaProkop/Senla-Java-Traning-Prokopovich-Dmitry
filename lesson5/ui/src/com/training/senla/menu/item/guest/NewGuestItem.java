@@ -1,4 +1,4 @@
-package com.training.senla.menu.item;
+package com.training.senla.menu.item.guest;
 
 import com.training.senla.facade.Facade;
 import com.training.senla.menu.Item;

@@ -5,14 +5,19 @@ import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 import com.training.senla.repository.ServiceModelRepository;
 import com.training.senla.service.ServiceModelService;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by prokop on 13.10.16.
  */
 public class ServiceModelServiceImpl implements ServiceModelService {
+
+    private static final Logger LOG = LogManager.getLogger(ServiceModelServiceImpl.class);
 
     private ServiceModelRepository serviceModelRepository;
 
@@ -22,41 +27,83 @@ public class ServiceModelServiceImpl implements ServiceModelService {
 
     @Override
     public void setService(ServiceModel serviceModel) {
-        serviceModelRepository.setService(serviceModel);
+        try {
+            serviceModelRepository.setService(serviceModel);
+        } catch (Exception e) {
+            LOG.error(e.getMessage());
+        }
     }
 
     @Override
     public ServiceModel getService(int id) {
-        return serviceModelRepository.getService(id);
+        ServiceModel service = null;
+        try {
+            service = serviceModelRepository.getService(id);
+        } catch (Exception e) {
+            LOG.error(e.getMessage());
+        }
+        return service;
     }
 
     @Override
     public void update(ServiceModel serviceModel) {
-        serviceModelRepository.update(serviceModel);
+        try {
+            serviceModelRepository.update(serviceModel);
+        } catch (Exception e) {
+            LOG.error(e.getMessage());
+        }
     }
 
     @Override
     public void delete(ServiceModel serviceModel) {
-        serviceModelRepository.delete(serviceModel);
+        try {
+            serviceModelRepository.delete(serviceModel);
+        } catch (Exception e) {
+            LOG.error(e.getMessage());
+        }
     }
 
     @Override
     public List<ServiceModel> getAll() {
-        return serviceModelRepository.getAll();
+        List<ServiceModel> services = null;
+        try {
+            services = serviceModelRepository.getAll();
+        } catch (Exception e) {
+            LOG.error(e.getMessage());
+        }
+        return services;
     }
 
     @Override
     public List<ServiceModel> getSortedByPrice() {
-        return serviceModelRepository.getSortedByPrice();
+        List<ServiceModel> services = null;
+        try {
+            services = serviceModelRepository.getSortedByPrice();
+        } catch (Exception e) {
+            LOG.error(e.getMessage());
+        }
+        return services;
     }
 
     @Override
     public List<ServiceModel> getSortedByDate(LocalDate date) {
-        return serviceModelRepository.getSortedByDate(date);
+        List<ServiceModel> services = null;
+        try {
+            services = serviceModelRepository.getSortedByDate(date);
+        } catch (Exception e) {
+            LOG.error(e.getMessage());
+        }
+        return services;
     }
 
     @Override
     public List<Double> getPriceBySection(ServicesSection section) {
-        return serviceModelRepository.getPriceBySection(section);
+        List<Double> prices = null;
+        try {
+            prices =  serviceModelRepository.getPriceBySection(section);
+        } catch (Exception e) {
+            LOG.error(e.getMessage());
+        }
+        return prices;
     }
 }
