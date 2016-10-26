@@ -5,16 +5,21 @@ import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 
 /**
- * Created by prokop on 24.10.16.
+ * Created by prokop on 26.10.16.
  */
-public class AddRoomItem extends Item{
+public class OptionItem extends Item {
 
-    public AddRoomItem() {
+
+    public OptionItem(Menu menu) {
+        super(menu.getName(), menu);
     }
 
+    public OptionItem(String name, Menu menu) {
+        super(name, menu);
+
+    }
     @Override
     public Menu execute() {
-        //..
         return this.menu;
     }
 }

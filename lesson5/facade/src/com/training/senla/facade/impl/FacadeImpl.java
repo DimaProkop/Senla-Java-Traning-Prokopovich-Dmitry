@@ -99,6 +99,21 @@ public class FacadeImpl implements Facade{
     }
 
     @Override
+    public List<RoomModel> getSortedByPrice() {
+        return roomModelService.getSortedByPrice();
+    }
+
+    @Override
+    public List<RoomModel> getSortedByCapacity() {
+        return roomModelService.getSortedByCapacity();
+    }
+
+    @Override
+    public List<RoomModel> getSortedByRating() {
+        return roomModelService.getSortedByRating();
+    }
+
+    @Override
     public List<RoomModel> getAllFreeRooms() {
         return roomModelService.getAll(RoomStatus.FREE);
     }

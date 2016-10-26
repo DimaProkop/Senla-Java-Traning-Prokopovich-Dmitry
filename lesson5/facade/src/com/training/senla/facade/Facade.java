@@ -34,6 +34,12 @@ public interface Facade {
 
     List<RoomModel> getAllRooms();
 
+    List<RoomModel> getSortedByPrice();
+
+    List<RoomModel> getSortedByCapacity();
+
+    List<RoomModel> getSortedByRating();
+
     List<RoomModel> getAllFreeRooms();
 
     List<GuestModel> getGuestsRoom();

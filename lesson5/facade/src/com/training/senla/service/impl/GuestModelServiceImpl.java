@@ -86,7 +86,14 @@ public class GuestModelServiceImpl implements GuestModelService {
 
     @Override
     public double getSumByRoom(RoomModel roomModel, GuestModel guestModel) {
-        return 0;
+        double sum = 0;
+        for (int i = 0; i < registrationModelRepository.getAll().size(); i++) {
+            if(registrationModelRepository.getAll().get(i).getGuestId() == guestModel.getId()) {
+                int count = registrationModelRepository.getAll().get(i).getFinalDate().getDayOfYear() - registrationModelRepository.getAll().get(i).getStartDate().getDayOfYear();
+                sum = count * roomModel.getPrice();
+            }
+        }
+        return sum;
     }
 
     @Override

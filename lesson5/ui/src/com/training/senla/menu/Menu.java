@@ -1,5 +1,6 @@
 package com.training.senla.menu;
 
+import java.util.ArrayList;
 import java.util.List;
 /**
  * Created by prokop on 24.10.16.
@@ -7,14 +8,14 @@ import java.util.List;
 public class Menu{
     private String name;
     private List<Item> child;
-    private List<Item> parent;
-
-    public void addItem(Item item) {
-        child.add(item);
-    }
 
     public Menu(String name) {
         this.name = name;
+        this.child = new ArrayList<>();
+    }
+
+    public void addItem(Item item) {
+        child.add(item);
     }
 
     public String getName() {
@@ -31,13 +32,5 @@ public class Menu{
 
     public void setChild(List<Item> child) {
         this.child = child;
-    }
-
-    public List<Item> getParent() {
-        return parent;
-    }
-
-    public void setParent(List<Item> parent) {
-        this.parent = parent;
     }
 }

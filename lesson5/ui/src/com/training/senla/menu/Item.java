@@ -11,6 +11,17 @@ public abstract class Item {
     protected Menu menu;
     protected Facade facade;
 
+    public Item(String name, Menu menu) {
+        this.name = name;
+        this.menu = menu;
+    }
+
+    public Item(String name, Menu menu, Facade facade) {
+        this.name = name;
+        this.menu = menu;
+        this.facade = facade;
+    }
+
     public abstract Menu execute();
 
     public String getName() {
