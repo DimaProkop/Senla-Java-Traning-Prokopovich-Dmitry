@@ -1,5 +1,8 @@
 package com.training.senla.model;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,6 +12,8 @@ import java.util.List;
  * Created by prokop on 13.10.16.
  */
 public class GuestModel extends BaseModel{
+    private static final Logger LOG = LogManager.getLogger(GuestModel.class);
+
     private String name;
     private RoomModel roomModel;
     private List<ServiceModel> serviceModelList;
@@ -51,19 +56,28 @@ public class GuestModel extends BaseModel{
         if(serviceModelList == null) {
             serviceModelList = new ArrayList<>();
         }
-        serviceModelList.add(serviceModel);
+        try {
+            serviceModelList.add(serviceModel);
+        } catch (Exception e) {
+            LOG.error(e);
+        }
+
     }
 
     public void removeService(ServiceModel serviceModel) {
         if(serviceModelList == null) {
-            System.out.print("Services is empty");
+            LOG.info("Services is empty");
         }
-        for (int i = 0; i < serviceModelList.size(); i++) {
-            if (serviceModelList.get(i).getId() == serviceModel.getId()) {
-                serviceModelList.remove(i);
-                return;
+        try {
+            for (int i = 0; i < serviceModelList.size(); i++) {
+                if (serviceModelList.get(i).getId() == serviceModel.getId()) {
+                    serviceModelList.remove(i);
+                    return;
+                }
             }
+        } catch (Exception e) {
+            LOG.error(e);
+            LOG.info("Service not found");
         }
-        System.out.println("Service not found");
     }
 }

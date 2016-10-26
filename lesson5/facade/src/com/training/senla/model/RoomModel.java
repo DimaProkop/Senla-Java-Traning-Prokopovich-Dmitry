@@ -2,6 +2,8 @@ package com.training.senla.model;
 
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -12,6 +14,8 @@ import java.util.List;
  * Created by prokop on 13.10.16.
  */
 public class RoomModel extends BaseModel{
+    private static final Logger LOG = LogManager.getLogger(GuestModel.class);
+
     private double price;
     private int capacity;
     private RoomStatus status;
@@ -83,23 +87,32 @@ public class RoomModel extends BaseModel{
         if(guests == null) {
             guests = new ArrayList<>();
         }
-        if(guests.size()<capacity){
-            guests.add(guestModel);
-        }else {
-            System.out.println("Is full");
+        try {
+            if(guests.size()<capacity){
+                guests.add(guestModel);
+            }else {
+                LOG.info("Is full");
+            }
+        } catch (Exception e) {
+            LOG.error(e);
         }
+
     }
 
     public void removeGuest(GuestModel guestModel) {
         if(guests == null) {
-            System.out.print("Guests is empty");
+            LOG.info("Guests is empty");
         }
-        for (int i = 0; i < guests.size(); i++) {
-            if (guests.get(i).getId() == guestModel.getId()) {
-                guests.remove(i);
-                return;
+        try {
+            for (int i = 0; i < guests.size(); i++) {
+                if (guests.get(i).getId() == guestModel.getId()) {
+                    guests.remove(i);
+                    return;
+                }
             }
+        } catch (Exception e) {
+            LOG.error(e);
+            LOG.info("Guest not found");
         }
-        System.out.println("Guest not found");
     }
 }
