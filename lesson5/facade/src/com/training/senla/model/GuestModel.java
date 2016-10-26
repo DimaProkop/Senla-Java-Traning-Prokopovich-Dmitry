@@ -25,7 +25,7 @@ public class GuestModel extends BaseModel{
     public GuestModel(String name) {
         this.name = name;
         this.roomModel = null;
-        this.serviceModelList = new ArrayList<>();
+        this.serviceModelList = null;
     }
 
     public String getName() {
