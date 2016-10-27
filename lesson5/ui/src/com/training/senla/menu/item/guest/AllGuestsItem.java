@@ -5,6 +5,8 @@ import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.GuestModel;
 import com.training.senla.print.PrintModel;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.util.List;
 
@@ -12,6 +14,7 @@ import java.util.List;
  * Created by prokop on 24.10.16.
  */
 public class AllGuestsItem extends Item {
+    private static final Logger LOG = LogManager.getLogger(AllGuestsItem.class);
 
     public AllGuestsItem(Menu menu, Facade facade) {
         super("All guest", menu, facade);
@@ -19,8 +22,16 @@ public class AllGuestsItem extends Item {
 
     @Override
     public Menu execute() {
-        List<GuestModel> guests = facade.getAllGuests();
-        PrintModel.printGuests(guests);
+        try {
+            List<GuestModel> guests = facade.getAllGuests();
+            if (guests == null || guests.size() == 0) {
+                PrintModel.printMessage("Guests not found.");
+            } else {
+                PrintModel.printGuests(guests);
+            }
+        }catch (Exception e) {
+            LOG.error(e.getMessage());
+        }
         return this.menu;
     }
 }

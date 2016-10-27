@@ -1,6 +1,7 @@
 package com.training.senla.print;
 
 import com.training.senla.model.GuestModel;
+import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 
@@ -13,7 +14,7 @@ public class PrintModel {
 
     public static void printGuest(GuestModel guest) {
         System.out.printf("id:    name:      room:     services(size):\n");
-        System.out.printf("%d    %s      %d     %d", guest.getId(), guest.getName(), guest.getRoomModel().getId(), guest.getServiceModelList().size());
+        System.out.printf("%d    %s      %d     %d\n", guest.getId(), guest.getName(), guest.getRoomModel().getId(), guest.getServiceModelList().size());
     }
 
     public static void printGuests(List<GuestModel> guests) {
@@ -31,11 +32,20 @@ public class PrintModel {
 
     public static void printService(ServiceModel service) {
         System.out.printf("id:    name:      price:      section:        startDate:      finalDate:\n");
-        System.out.printf("%d    %s      %f      %s        %s     %s      %s", service.getId(), service.getName(), service.getPrice(), service.getSection().toString(), service.getStartDate().toString(), service.getFinalDate().toString());
+        System.out.printf("%d    %s      %f    %s      %s      %s\n", service.getId(), service.getName(), service.getPrice(), service.getSection().toString(), service.getStartDate().toString(), service.getFinalDate().toString());
     }
 
     public static void printServices(List<ServiceModel> services) {
         services.forEach(PrintModel::printService);
+    }
+
+    public static void printRegistration(RegistrationModel registration) {
+        System.out.printf("id:   guestId:    roomId:    startDate:      finalDate:\n");
+        System.out.printf("%d   %d    %d    %s      %s\n", registration.getId(), registration.getGuestId(), registration.getRoomId());
+    }
+
+    public static void printRegistrations(List<RegistrationModel> registrations) {
+        registrations.forEach(PrintModel::printRegistration);
     }
 
     public static void printMessage(String message) {

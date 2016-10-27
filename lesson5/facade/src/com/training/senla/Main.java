@@ -25,10 +25,6 @@ public class Main {
         Facade facade = new FacadeImpl();
         facade.init(textFileWorker);
 
-        ServiceModel serviceModel = new ServiceModel("smth", 23.3, ServicesSection.MANDATORY, LocalDate.now(), LocalDate.of(2020, 5, 5));
-        GuestModel guestModel = new GuestModel("Dima");
-        guestModel.removeService(serviceModel);
-
 
         for(RoomModel room: facade.getAllRooms()) {
             System.out.println(room.getStatus());

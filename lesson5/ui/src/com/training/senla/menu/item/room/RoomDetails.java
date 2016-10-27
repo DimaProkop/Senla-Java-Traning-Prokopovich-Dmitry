@@ -6,11 +6,14 @@ import com.training.senla.menu.Menu;
 import com.training.senla.model.RoomModel;
 import com.training.senla.print.PrintModel;
 import com.training.senla.reader.Reader;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 /**
  * Created by prokop on 26.10.16.
  */
 public class RoomDetails extends Item{
+    private static final Logger LOG = LogManager.getLogger(RoomDetails.class);
 
     public RoomDetails(Menu menu, Facade facade) {
         super("Details room", menu, facade);
@@ -19,8 +22,16 @@ public class RoomDetails extends Item{
     @Override
     public Menu execute() {
         int roomId = Reader.getInt("Input room ID: ");
-        RoomModel room = facade.getRoom(roomId);
-        PrintModel.printRoom(room);
+        try {
+            RoomModel room = facade.getRoom(roomId);
+            if(room == null) {
+                PrintModel.printMessage("Room not found.");
+            }else {
+                PrintModel.printRoom(room);
+            }
+        }catch (Exception e) {
+            LOG.error(e.getMessage());
+        }
         return this.menu;
     }
 }
