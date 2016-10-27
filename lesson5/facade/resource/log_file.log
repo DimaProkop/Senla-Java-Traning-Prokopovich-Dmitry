@@ -1,0 +1,3 @@
+2016-10-27 01:48:11,576 [main] INFO  (GuestModel.java:69) - Services is empty
+2016-10-27 01:48:11,580 [main] ERROR (GuestModel.java:79) - java.lang.NullPointerException 
+2016-10-27 01:48:11,582 [main] INFO  (GuestModel.java:80) - Service not found 

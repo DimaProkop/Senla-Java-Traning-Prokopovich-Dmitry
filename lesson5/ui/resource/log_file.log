@@ -1,0 +1,10 @@
+2016-10-27 02:48:44,857 [main] ERROR (Reader.java:74) - For input string: "df" 
+2016-10-27 02:48:49,566 [main] ERROR (Reader.java:89) - java.lang.NumberFormatException: For input string: "ddf" 
+2016-10-27 02:50:02,145 [main] ERROR (RoomModelServiceImpl.java:52) - -1 
+2016-10-27 02:50:34,968 [main] ERROR (Reader.java:74) - For input string: "adsfdsf" 
+2016-10-27 02:59:22,168 [main] ERROR (Reader.java:89) - java.lang.NumberFormatException: For input string: "ыв" 
+2016-10-27 03:08:42,827 [main] ERROR (Reader.java:92) - java.time.DateTimeException: Invalid value for DayOfMonth (valid values 1 - 28/31): 43 
+2016-10-27 03:08:53,629 [main] ERROR (Reader.java:92) - java.time.DateTimeException: Invalid value for MonthOfYear (valid values 1 - 12): 21 
+2016-10-27 03:52:26,844 [main] ERROR (AllRegistrationsItem.java:32) - Format specifier '%s' 
+2016-10-27 03:55:20,912 [main] ERROR (AllRegistrationsItem.java:32) - Format specifier '%s' 
+2016-10-27 03:55:20,919 [main] ERROR (Reader.java:33) - java.util.NoSuchElementException 
