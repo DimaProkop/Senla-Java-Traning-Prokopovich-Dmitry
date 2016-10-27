@@ -57,7 +57,7 @@ public class Builder {
         service.addItem(new OptionItem("Previous", main));
 
         registration.addItem(new AllRegistrationsItem(registration, facade));
-        service.addItem(new OptionItem("Previous", main));
+        registration.addItem(new OptionItem("Previous", main));
         return main;
     }
 }

@@ -13,8 +13,8 @@ import java.util.List;
 public class PrintModel {
 
     public static void printGuest(GuestModel guest) {
-        System.out.printf("id:    name:      room:     services(size):\n");
-        System.out.printf("%d    %s      %d     %d\n", guest.getId(), guest.getName(), guest.getRoomModel().getId(), guest.getServiceModelList().size());
+        System.out.printf("id:    name:      room:\n");
+        System.out.printf("%d       %s        %d\n", guest.getId(), guest.getName(), guest.getRoomModel().getId());
     }
 
     public static void printGuests(List<GuestModel> guests) {
@@ -22,8 +22,8 @@ public class PrintModel {
     }
 
     public static void printRoom(RoomModel room) {
-        System.out.printf("id:    price:      capacity:  status:       section:       rating:\n");
-        System.out.printf("%d    %f      %d  %s       %s       %d\n", room.getId(), room.getPrice(), room.getCapacity(), room.getStatus().toString(), room.getSection().toString(), room.getRating());
+        System.out.printf("id:    price:      capacity:    status:       section:       rating:\n");
+        System.out.printf("%d    %f      %d          %s          %s          %d\n", room.getId(), room.getPrice(), room.getCapacity(), room.getStatus().toString(), room.getSection().toString(), room.getRating());
     }
 
     public static void printRooms(List<RoomModel> rooms) {
@@ -41,7 +41,7 @@ public class PrintModel {
 
     public static void printRegistration(RegistrationModel registration) {
         System.out.printf("id:   guestId:    roomId:    startDate:      finalDate:\n");
-        System.out.printf("%d   %d    %d    %s      %s\n", registration.getId(), registration.getGuestId(), registration.getRoomId());
+        System.out.printf("%d   %d    %d    %s      %s\n", registration.getId(), registration.getGuestId(), registration.getRoomId(), registration.getStartDate().toString(), registration.getFinalDate().toString());
     }
 
     public static void printRegistrations(List<RegistrationModel> registrations) {
