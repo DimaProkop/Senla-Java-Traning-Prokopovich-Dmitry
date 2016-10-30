@@ -14,21 +14,21 @@ import java.util.List;
  * Created by prokop on 13.10.16.
  */
 public interface Facade {
-    void init(TextFileWorker textFileWorker);
+    void init(String path);
 
     GuestModel getGuest(int id);
 
-    void setGuest(GuestModel guest);
+    void addGuest(GuestModel guest);
 
     RoomModel getRoom(int id);
 
-    void setRoom(RoomModel room);
+    void addRoom(RoomModel room);
 
     RegistrationModel getRegistration(int id);
 
     ServiceModel getService(int id);
 
-    void setService(ServiceModel service);
+    void addService(ServiceModel service);
 
     List<GuestModel> getAllGuests();
 

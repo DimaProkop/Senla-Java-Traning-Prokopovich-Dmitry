@@ -22,9 +22,9 @@ public class ExporterImpl implements Exporter {
     private TextFileWorker textFileWorker;
     private Converter converter;
 
-    public ExporterImpl(TextFileWorker textFileWorker) {
+    public ExporterImpl(String path) {
         this.converter = new ConverterImpl();
-        this.textFileWorker = textFileWorker;
+        this.textFileWorker = new TextFileWorker(path);
     }
 
     @Override

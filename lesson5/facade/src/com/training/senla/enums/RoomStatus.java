@@ -6,5 +6,14 @@ package com.training.senla.enums;
 public enum  RoomStatus {
     MAINTAINED,
     FREE,
-    BUSY
+    BUSY;
+
+    public static RoomStatus isExist(String string) {
+        for(RoomStatus status : RoomStatus.values()) {
+            if(status.toString().equals(string)) {
+                return status;
+            }
+        }
+        return null;
+    }
 }

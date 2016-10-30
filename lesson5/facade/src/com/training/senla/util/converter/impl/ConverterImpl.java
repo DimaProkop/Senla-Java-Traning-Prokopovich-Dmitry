@@ -1,5 +1,8 @@
 package com.training.senla.util.converter.impl;
 
+import com.training.senla.enums.RoomStatus;
+import com.training.senla.enums.RoomsSection;
+import com.training.senla.enums.ServicesSection;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
@@ -17,11 +20,7 @@ import java.util.Map;
  */
 public class ConverterImpl implements Converter{
 
-
-    private Validator validator;
-
     public ConverterImpl() {
-        this.validator = new Validator();
     }
 
     //Converters from string to object
@@ -139,8 +138,8 @@ public class ConverterImpl implements Converter{
         roomModel.setId(Integer.parseInt(params[0].replace("[", "").replace("]", "").replace(", ", "").replace("R", "")));
         roomModel.setPrice(Double.parseDouble(params[1]));
         roomModel.setCapacity(Integer.parseInt(params[2]));
-        roomModel.setStatus(validator.RoomStatusValidator(params[3]));
-        roomModel.setSection(validator.RoomSectionValidator(params[4]));
+        roomModel.setStatus(RoomStatus.isExist(params[3]));
+        roomModel.setSection(RoomsSection.isExist(params[4]));
         roomModel.setRating(Integer.parseInt(params[5]));
         roomModel.setGuests(null);
         return roomModel;
@@ -153,7 +152,7 @@ public class ConverterImpl implements Converter{
         serviceModel.setId(Integer.parseInt(params[0].replace("[", "").replace("]", "").replace(", ", "").replace("S", "")));
         serviceModel.setName(params[1]);
         serviceModel.setPrice(Double.parseDouble(params[2]));
-        serviceModel.setSection(validator.ServiceSectionValidator(params[3]));
+        serviceModel.setSection(ServicesSection.isExist(params[3]));
         serviceModel.setStartDate(LocalDate.parse(params[4]));
         serviceModel.setFinalDate(LocalDate.parse(params[5]));
         return serviceModel;

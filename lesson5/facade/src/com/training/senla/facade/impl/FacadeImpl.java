@@ -36,13 +36,11 @@ public class FacadeImpl implements Facade{
     private Exporter exporter;
 
     @Override
-    public void init(TextFileWorker textFileWorker) {
+    public void init(String path) {
         this.importer = new ImporterImpl();
-        this.importer.loadData(textFileWorker);
-        this.exporter = new ExporterImpl(textFileWorker);
+        this.importer.loadData(path);
+        this.exporter = new ExporterImpl(path);
         this.initializer = new Initializer(importer);
-        this.initializer.fillDataObjects();
-        this.initializer.fillServices();
         this.fillServicesFromInitializer();
     }
 
@@ -59,7 +57,7 @@ public class FacadeImpl implements Facade{
     }
 
     @Override
-    public void setGuest(GuestModel guest) {
+    public void addGuest(GuestModel guest) {
         guestModelService.setGuest(guest);
     }
 
@@ -69,7 +67,7 @@ public class FacadeImpl implements Facade{
     }
 
     @Override
-    public void setRoom(RoomModel room) {
+    public void addRoom(RoomModel room) {
         roomModelService.setRoom(room);
     }
 
@@ -84,7 +82,7 @@ public class FacadeImpl implements Facade{
     }
 
     @Override
-    public void setService(ServiceModel service) {
+    public void addService(ServiceModel service) {
         serviceModelService.setService(service);
     }
 

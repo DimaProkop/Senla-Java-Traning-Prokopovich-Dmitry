@@ -40,6 +40,8 @@ public class Initializer {
 
     public Initializer(Importer importer) {
         this.importer = importer;
+        this.fillDataObjects();
+        this.fillServices();
     }
 
     private int findMaxId(List<? extends BaseModel> list) {

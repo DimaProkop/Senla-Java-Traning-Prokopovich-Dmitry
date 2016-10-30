@@ -28,7 +28,8 @@ public class ImporterImpl implements Importer {
         this.converter = new ConverterImpl();
     }
 
-    public void loadData(TextFileWorker textFileWorker) {
+    public void loadData(String path) {
+        TextFileWorker textFileWorker = new TextFileWorker(path);
         this.data = textFileWorker.readFromFile();
     }
 
