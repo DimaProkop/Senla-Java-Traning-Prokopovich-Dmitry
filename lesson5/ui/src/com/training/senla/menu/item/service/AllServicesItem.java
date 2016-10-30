@@ -1,6 +1,5 @@
 package com.training.senla.menu.item.service;
 
-import com.training.senla.facade.Facade;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.ServiceModel;
@@ -16,8 +15,8 @@ import java.util.List;
 public class AllServicesItem extends Item{
     private static final Logger LOG = LogManager.getLogger(AllServicesItem.class);
 
-    public AllServicesItem(Menu menu, Facade facade) {
-        super("All services", menu, facade);
+    public AllServicesItem(Menu menu) {
+        super("All services", menu);
     }
 
     @Override

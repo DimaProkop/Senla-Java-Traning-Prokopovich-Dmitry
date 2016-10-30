@@ -1,6 +1,8 @@
 package com.training.senla.menu;
 
+import com.training.senla.Main;
 import com.training.senla.facade.Facade;
+import com.training.senla.facade.impl.FacadeImpl;
 
 /**
  * Created by prokop on 24.10.16.
@@ -14,12 +16,10 @@ public abstract class Item {
     public Item(String name, Menu menu) {
         this.name = name;
         this.menu = menu;
-    }
-
-    public Item(String name, Menu menu, Facade facade) {
-        this.name = name;
-        this.menu = menu;
-        this.facade = facade;
+        if(this.facade == null) {
+            this.facade = new FacadeImpl();
+            facade.init(Main.FILE_PATH);
+        }
     }
 
     public abstract Menu execute();

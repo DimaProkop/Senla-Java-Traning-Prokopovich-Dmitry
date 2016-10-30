@@ -34,15 +34,6 @@ public class RegistrationModelServiceImpl implements RegistrationModelService{
     }
 
     @Override
-    public void setFinalDate(GuestModel guestModel) {
-        try {
-            registrationModelRepository.setFinalDate(guestModel);
-        } catch (Exception e) {
-            LOG.error(e.getMessage());
-        }
-    }
-
-    @Override
     public RegistrationModel getRegistration(int id) {
         RegistrationModel registration = null;
         try {

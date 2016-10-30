@@ -1,6 +1,5 @@
 package com.training.senla.menu.item.room;
 
-import com.training.senla.facade.Facade;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.RoomModel;
@@ -10,7 +9,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,13 +17,13 @@ import java.util.List;
  */
 public class RoomsByFutureDate extends Item{
     private static final Logger LOG = LogManager.getLogger(RoomsByFutureDate.class);
-    public RoomsByFutureDate(Menu menu, Facade facade) {
-        super("Rooms by future date", menu, facade);
+    public RoomsByFutureDate(Menu menu) {
+        super("Rooms by future date", menu);
     }
 
     @Override
     public Menu execute() {
-        LocalDate date = Reader.getDate("Input date: ");
+        Date date = Reader.getDate("Input date - (dd-mm-yyyy): ");
         try {
             List<RoomModel> rooms = facade.getReleasedRoomsInFuture(date);
             if (rooms == null) {

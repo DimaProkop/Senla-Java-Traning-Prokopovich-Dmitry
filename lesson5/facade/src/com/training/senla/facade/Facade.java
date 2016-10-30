@@ -8,6 +8,7 @@ import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -48,7 +49,7 @@ public interface Facade {
 
     int getCountGuests();
 
-    List<RoomModel> getReleasedRoomsInFuture(LocalDate date);
+    List<RoomModel> getReleasedRoomsInFuture(Date date);
 
     double getSumPaymentRoom(GuestModel guestModel, RoomModel roomModel);
 
@@ -60,7 +61,7 @@ public interface Facade {
 
     List<Double> getPricesRoom();
 
-    void registerGuest(GuestModel guestModel, RoomModel roomModel, LocalDate startDate, LocalDate finalDate);
+    void registerGuest(GuestModel guestModel, RoomModel roomModel, Date startDate, Date finalDate);
 
     void evictGuest(GuestModel guestModel);
 

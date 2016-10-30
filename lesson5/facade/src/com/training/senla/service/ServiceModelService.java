@@ -24,7 +24,7 @@ public interface ServiceModelService {
 
     List<ServiceModel> getSortedByPrice();
 
-    List<ServiceModel> getSortedByDate(LocalDate date);
+    List<ServiceModel> getSortedByDate(Date date);
 
     List<Double> getPriceBySection(ServicesSection section);
 }

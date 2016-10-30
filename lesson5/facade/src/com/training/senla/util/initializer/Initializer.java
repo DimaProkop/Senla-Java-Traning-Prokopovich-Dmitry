@@ -54,7 +54,7 @@ public class Initializer {
         return maxId;
     }
 
-    public void fillServices() {
+    private void fillServices() {
         GuestModelRepositoryImpl.currentId = findMaxId(this.guestModels)+1;
         RoomModelRepositoryImpl.currentId = findMaxId(this.roomModels)+1;
         RegistrationModelRepositoryImpl.currentId = findMaxId(this.registrationModels)+1;
@@ -69,7 +69,7 @@ public class Initializer {
         serviceModelService = new ServiceModelServiceImpl(serviceModelRepository);
     }
 
-    public void fillDataObjects() {
+    private void fillDataObjects() {
         this.serviceModels = importer.importServices();
         this.roomModels = importer.importRooms();
         this.guestModels = importer.importGuests();

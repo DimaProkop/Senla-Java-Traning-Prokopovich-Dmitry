@@ -1,6 +1,5 @@
 package com.training.senla.facade.impl;
 
-import com.danco.training.TextFileWorker;
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.facade.Facade;
 import com.training.senla.model.GuestModel;
@@ -18,6 +17,7 @@ import com.training.senla.util.io.importer.Importer;
 import com.training.senla.util.io.importer.impl.ImporterImpl;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -132,7 +132,7 @@ public class FacadeImpl implements Facade{
     }
 
     @Override
-    public List<RoomModel> getReleasedRoomsInFuture(LocalDate date) {
+    public List<RoomModel> getReleasedRoomsInFuture(Date date) {
         return roomModelService.getReleasedInFuture(date);
     }
 
@@ -162,7 +162,7 @@ public class FacadeImpl implements Facade{
     }
 
     @Override
-    public void registerGuest(GuestModel guestModel, RoomModel roomModel, LocalDate startDate, LocalDate finalDate) {
+    public void registerGuest(GuestModel guestModel, RoomModel roomModel, Date startDate, Date finalDate) {
         roomModelService.registerGuest(guestModel, roomModel, startDate, finalDate);
     }
 

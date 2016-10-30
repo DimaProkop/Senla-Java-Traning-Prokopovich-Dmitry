@@ -1,6 +1,5 @@
 package com.training.senla.menu.item.room;
 
-import com.training.senla.facade.Facade;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.print.PrintModel;
@@ -12,8 +11,8 @@ import org.apache.log4j.Logger;
  */
 public class CountFreeRooms extends Item {
     private static final Logger LOG = LogManager.getLogger(CountFreeRooms.class);
-    public CountFreeRooms(Menu menu, Facade facade) {
-        super("Count free rooms", menu, facade);
+    public CountFreeRooms(Menu menu) {
+        super("Count free rooms", menu);
     }
 
     @Override

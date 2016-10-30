@@ -8,10 +8,9 @@ import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 import com.training.senla.util.converter.Converter;
-import com.training.senla.util.validator.Validator;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -19,6 +18,7 @@ import java.util.Map;
  * Created by prokop on 18.10.16.
  */
 public class ConverterImpl implements Converter{
+    private final String SEPARATOR = ";";
 
     public ConverterImpl() {
     }
@@ -30,15 +30,15 @@ public class ConverterImpl implements Converter{
         StringBuilder builder = new StringBuilder();
         builder.append("G");
         builder.append(String.valueOf(guestModel.getId()));
-        builder.append(";");
+        builder.append(SEPARATOR);
         builder.append(String.valueOf(guestModel.getName()));
-        builder.append(";");
+        builder.append(SEPARATOR);
         if(guestModel.getRoomModel() == null) {
             builder.append(" ");
         } else {
             builder.append(String.valueOf(guestModel.getRoomModel().getId()));
         }
-        builder.append(";");
+        builder.append(SEPARATOR);
         if(guestModel.getServiceModelList() == null) {
             builder.append(" ");
         } else {
@@ -48,7 +48,7 @@ public class ConverterImpl implements Converter{
             }
             builder.deleteCharAt(builder.length()-1);
         }
-        builder.append(";");
+        builder.append(SEPARATOR);
         return builder.toString();
     }
 
@@ -57,17 +57,17 @@ public class ConverterImpl implements Converter{
         StringBuilder builder = new StringBuilder();
         builder.append("R");
         builder.append(String.valueOf(roomModel.getId()));
-        builder.append(";");
+        builder.append(SEPARATOR);
         builder.append(String.valueOf(roomModel.getPrice()));
-        builder.append(";");
+        builder.append(SEPARATOR);
         builder.append(String.valueOf(roomModel.getCapacity()));
-        builder.append(";");
+        builder.append(SEPARATOR);
         builder.append(String.valueOf(roomModel.getStatus()));
-        builder.append(";");
+        builder.append(SEPARATOR);
         builder.append(String.valueOf(roomModel.getSection()));
-        builder.append(";");
+        builder.append(SEPARATOR);
         builder.append(String.valueOf(roomModel.getRating()));
-        builder.append(";");
+        builder.append(SEPARATOR);
         return builder.toString();
     }
 
@@ -76,17 +76,17 @@ public class ConverterImpl implements Converter{
         StringBuilder builder = new StringBuilder();
         builder.append("S");
         builder.append(String.valueOf(serviceModel.getId()));
-        builder.append(";");
+        builder.append(SEPARATOR);
         builder.append(String.valueOf(serviceModel.getName()));
-        builder.append(";");
+        builder.append(SEPARATOR);
         builder.append(String.valueOf(serviceModel.getPrice()));
-        builder.append(";");
+        builder.append(SEPARATOR);
         builder.append(String.valueOf(serviceModel.getSection()));
-        builder.append(";");
+        builder.append(SEPARATOR);
         builder.append(String.valueOf(serviceModel.getStartDate()));
-        builder.append(";");
+        builder.append(SEPARATOR);
         builder.append(String.valueOf(serviceModel.getFinalDate()));
-        builder.append(";");
+        builder.append(SEPARATOR);
         return builder.toString();
     }
 
@@ -95,15 +95,15 @@ public class ConverterImpl implements Converter{
         StringBuilder builder = new StringBuilder();
         builder.append("T");
         builder.append(String.valueOf(registrationModel.getId()));
-        builder.append(";");
+        builder.append(SEPARATOR);
         builder.append(String.valueOf(registrationModel.getGuestId()));
-        builder.append(";");
+        builder.append(SEPARATOR);
         builder.append(String.valueOf(registrationModel.getRoomId()));
-        builder.append(";");
+        builder.append(SEPARATOR);
         builder.append(String.valueOf(registrationModel.getStartDate()));
-        builder.append(";");
+        builder.append(SEPARATOR);
         builder.append(String.valueOf(registrationModel.getFinalDate()));
-        builder.append(";");
+        builder.append(SEPARATOR);
         return builder.toString();
     }
 
@@ -112,7 +112,7 @@ public class ConverterImpl implements Converter{
     @Override
     public GuestModel convertStringToGuest(String string, Map<Integer, RoomModel> roomsMap, Map<Integer, ServiceModel> servicesMap) {
         GuestModel guestModel = new GuestModel();
-        String[] params = string.split(";");
+        String[] params = string.split(SEPARATOR);
         guestModel.setId(Integer.parseInt(params[0].replace("[", "").replace("]", "").replace(", ", "").replace("G", "")));
         guestModel.setName(params[1]);
         if(" ".equals(params[2])) {
@@ -134,7 +134,7 @@ public class ConverterImpl implements Converter{
     @Override
     public RoomModel convertStringToRoom(String string) {
         RoomModel roomModel = new RoomModel();
-        String[] params = string.split(";");
+        String[] params = string.split(SEPARATOR);
         roomModel.setId(Integer.parseInt(params[0].replace("[", "").replace("]", "").replace(", ", "").replace("R", "")));
         roomModel.setPrice(Double.parseDouble(params[1]));
         roomModel.setCapacity(Integer.parseInt(params[2]));
@@ -145,28 +145,34 @@ public class ConverterImpl implements Converter{
         return roomModel;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public ServiceModel convertStringToService(String string) {
         ServiceModel serviceModel = new ServiceModel();
-        String[] params = string.split(";");
+        String[] params = string.split(SEPARATOR);
         serviceModel.setId(Integer.parseInt(params[0].replace("[", "").replace("]", "").replace(", ", "").replace("S", "")));
         serviceModel.setName(params[1]);
         serviceModel.setPrice(Double.parseDouble(params[2]));
         serviceModel.setSection(ServicesSection.isExist(params[3]));
-        serviceModel.setStartDate(LocalDate.parse(params[4]));
-        serviceModel.setFinalDate(LocalDate.parse(params[5]));
+        String[] startDates = params[4].split("-");
+        serviceModel.setStartDate(new Date(Integer.parseInt(startDates[0]), Integer.parseInt(startDates[1]), Integer.parseInt(startDates[2])));
+        String[] finalDates = params[5].split("-");
+        serviceModel.setFinalDate(new Date(Integer.parseInt(finalDates[0]), Integer.parseInt(finalDates[1]), Integer.parseInt(finalDates[2])));
         return serviceModel;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public RegistrationModel convertStringToRegistration(String string) {
         RegistrationModel registrationModel = new RegistrationModel();
-        String[] params = string.split(";");
+        String[] params = string.split(SEPARATOR);
         registrationModel.setId(Integer.parseInt(params[0].replace("[", "").replace("]", "").replace(", ", "").replace("T", "")));
         registrationModel.setGuestId(Integer.parseInt(params[1]));
         registrationModel.setRoomId(Integer.parseInt(params[2]));
-        registrationModel.setStartDate(LocalDate.parse(params[3]));
-        registrationModel.setFinalDate(LocalDate.parse(params[4]));
+        String[] startDates = params[3].split("-");
+        registrationModel.setStartDate(new Date(Integer.parseInt(startDates[0]), Integer.parseInt(startDates[1]), Integer.parseInt(startDates[2])));
+        String[] finalDates = params[4].split("-");
+        registrationModel.setFinalDate(new Date(Integer.parseInt(finalDates[0]), Integer.parseInt(finalDates[1]), Integer.parseInt(finalDates[2])));
         return registrationModel;
     }
 

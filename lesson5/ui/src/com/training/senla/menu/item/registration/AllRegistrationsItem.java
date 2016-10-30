@@ -1,6 +1,5 @@
 package com.training.senla.menu.item.registration;
 
-import com.training.senla.facade.Facade;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.RegistrationModel;
@@ -15,8 +14,8 @@ import java.util.List;
  */
 public class AllRegistrationsItem extends Item{
     private static final Logger LOG = LogManager.getLogger(AllRegistrationsItem.class);
-    public AllRegistrationsItem(Menu menu, Facade facade) {
-        super("All registrations", menu, facade);
+    public AllRegistrationsItem(Menu menu) {
+        super("All registrations", menu);
     }
 
     @Override

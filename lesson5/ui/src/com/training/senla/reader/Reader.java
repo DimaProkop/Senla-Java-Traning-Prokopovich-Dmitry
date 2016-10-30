@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.varia.StringMatchFilter;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -77,36 +78,16 @@ public class Reader {
         return number;
     }
 
-    public static LocalDate getDate(String message) {
+    @SuppressWarnings("deprecation")
+    public static Date getDate(String message) {
         System.out.println(message);
-        int day = 0;
-        int month = 0;
-        int year = 0;
-        LocalDate date = null;
+        Date date = null;
         try {
-            day = getPartOfDate("Input day: ");
-            month = getPartOfDate("Input month: ");
-            year = getPartOfDate("Input year: ");
-            date = LocalDate.of(year, month, day);
+            String[] parts = scanner.next().split("-");
+            date = new Date(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]), Integer.parseInt(parts[2]));
         }catch (Exception e) {
             LOG.error(e);
         }
         return date;
-    }
-
-    private static int getPartOfDate(String message) {
-        int partDate = 0;
-        boolean flag = true;
-        while (flag) {
-            try {
-                System.out.print(message);
-                String part = scanner.next();
-                partDate = Integer.parseInt(part);
-                flag = false;
-            }catch (InputMismatchException | NumberFormatException e) {
-                System.out.println("Incorrect!");
-            }
-        }
-        return partDate;
     }
 }

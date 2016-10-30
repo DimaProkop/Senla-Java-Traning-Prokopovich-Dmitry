@@ -1,6 +1,5 @@
 package com.training.senla.menu.item.guest;
 
-import com.training.senla.facade.Facade;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.GuestModel;
@@ -14,8 +13,8 @@ import org.apache.log4j.Logger;
  */
 public class GuestEviction extends Item{
         private static final Logger LOG = LogManager.getLogger(GuestEviction.class);
-    public GuestEviction(Menu menu, Facade facade) {
-        super("Evict guest", menu, facade);
+    public GuestEviction(Menu menu) {
+        super("Evict guest", menu);
     }
 
     @Override

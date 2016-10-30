@@ -1,6 +1,5 @@
 package com.training.senla.menu.item.guest;
 
-import com.training.senla.facade.Facade;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.GuestModel;
@@ -9,8 +8,7 @@ import com.training.senla.print.PrintModel;
 import com.training.senla.reader.Reader;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-
-import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * Created by prokop on 26.10.16.
@@ -18,8 +16,8 @@ import java.time.LocalDate;
 public class SettlementGuest extends Item{
     private static final Logger LOG = LogManager.getLogger(SettlementGuest.class);
 
-    public SettlementGuest(Menu menu, Facade facade) {
-        super("Register guest", menu, facade);
+    public SettlementGuest(Menu menu) {
+        super("Register guest", menu);
     }
 
     @Override
@@ -32,8 +30,8 @@ public class SettlementGuest extends Item{
             if(guest == null || room == null) {
                 PrintModel.printMessage("Guest or room not fount");
             } else {
-                LocalDate startDate = Reader.getDate("Input start date: ");
-                LocalDate finalDate = Reader.getDate("Input final date: ");
+                Date startDate = Reader.getDate("Input start date - (dd-mm-yyyy): ");
+                Date finalDate = Reader.getDate("Input final date - (dd-mm-yyyy): ");
                 facade.registerGuest(guest, room, startDate, finalDate);
                 PrintModel.printMessage("Guest settled.");
             }
