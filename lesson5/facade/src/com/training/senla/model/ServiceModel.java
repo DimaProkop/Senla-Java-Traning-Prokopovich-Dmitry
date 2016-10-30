@@ -12,14 +12,14 @@ public class ServiceModel extends BaseModel{
     private String name;
     private double price;
     private ServicesSection section;
-    private LocalDate startDate;
-    private LocalDate finalDate;
+    private Date startDate;
+    private Date finalDate;
 
     public ServiceModel() {
 
     }
 
-    public ServiceModel(String name, double price, ServicesSection section, LocalDate startDate, LocalDate finalDate) {
+    public ServiceModel(String name, double price, ServicesSection section, Date startDate, Date finalDate) {
         this.name = name;
         this.price = price;
         this.section = section;
@@ -51,19 +51,19 @@ public class ServiceModel extends BaseModel{
         this.section = section;
     }
 
-    public LocalDate getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDate getFinalDate() {
+    public Date getFinalDate() {
         return finalDate;
     }
 
-    public void setFinalDate(LocalDate finalDate) {
+    public void setFinalDate(Date finalDate) {
         this.finalDate = finalDate;
     }
 }

@@ -1,6 +1,5 @@
 package com.training.senla.menu.item;
 
-import com.training.senla.facade.Facade;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 
