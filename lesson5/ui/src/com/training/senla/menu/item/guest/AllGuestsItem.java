@@ -1,6 +1,5 @@
 package com.training.senla.menu.item.guest;
 
-import com.training.senla.facade.Facade;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.GuestModel;
@@ -16,8 +15,8 @@ import java.util.List;
 public class AllGuestsItem extends Item {
     private static final Logger LOG = LogManager.getLogger(AllGuestsItem.class);
 
-    public AllGuestsItem(Menu menu, Facade facade) {
-        super("All guest", menu, facade);
+    public AllGuestsItem(Menu menu) {
+        super("All guest", menu);
     }
 
     @Override

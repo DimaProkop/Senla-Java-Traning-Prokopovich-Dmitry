@@ -5,6 +5,7 @@ import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -23,7 +24,7 @@ public interface ServiceModelRepository {
 
     List<ServiceModel> getSortedByPrice();
 
-    List<ServiceModel> getSortedByDate(LocalDate date);
+    List<ServiceModel> getSortedByDate(Date date);
 
     List<Double> getPriceBySection(ServicesSection section);
 }

@@ -157,7 +157,7 @@ public class GuestModelServiceImpl implements GuestModelService {
         try {
             for (int i = 0; i < registrationModelRepository.getAll().size(); i++) {
                 if(registrationModelRepository.getAll().get(i).getGuestId() == guestModel.getId()) {
-                    int count = registrationModelRepository.getAll().get(i).getFinalDate().getDayOfYear() - registrationModelRepository.getAll().get(i).getStartDate().getDayOfYear();
+                    int count = registrationModelRepository.getAll().get(i).getFinalDate().getDay() - registrationModelRepository.getAll().get(i).getStartDate().getDay();
                     sum = count * roomModel.getPrice();
                 }
             }

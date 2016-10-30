@@ -6,6 +6,7 @@ import com.training.senla.enums.RoomsSection;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.repository.RoomModelRepository;
+import com.training.senla.storage.Storage;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -19,16 +20,15 @@ import java.util.stream.Collectors;
  */
 public class RoomModelRepositoryImpl implements RoomModelRepository {
 
-    private List<RoomModel> roomModels;
     public static int currentId=1;
 
     public RoomModelRepositoryImpl(List<RoomModel> roomModels) {
-        this.roomModels = roomModels;
+        Storage.rooms = roomModels;
     }
 
     private int getRoomIndexById(int id) {
-        for (int i = 0; i < this.roomModels.size(); i++) {
-            if(this.roomModels.get(i).getId() == id) {
+        for (int i = 0; i < Storage.rooms.size(); i++) {
+            if(Storage.rooms.get(i).getId() == id) {
                 return i;
             }
         }
@@ -38,55 +38,55 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
     @Override
     public void setRoom(RoomModel roomModel) {
         roomModel.setId(currentId++);
-        this.roomModels.add(roomModel);
+        Storage.rooms.add(roomModel);
     }
 
     @Override
     public RoomModel getRoom(int id) {
-        return this.roomModels.get(getRoomIndexById(id));
+        return Storage.rooms.get(getRoomIndexById(id));
     }
 
     @Override
     public void update(RoomModel roomModel) {
-        this.roomModels.set(getRoomIndexById(roomModel.getId()), roomModel);
+        Storage.rooms.set(getRoomIndexById(roomModel.getId()), roomModel);
     }
 
     @Override
     public void delete(RoomModel roomModel) {
-        this.roomModels.remove(getRoomIndexById(roomModel.getId()));
+        Storage.rooms.remove(getRoomIndexById(roomModel.getId()));
     }
 
     @Override
     public List<RoomModel> getAll() {
-        return this.roomModels.stream()
+        return Storage.rooms.stream()
                 .sorted(Comparator.ROOM_ID_COMPARATOR)
                 .collect(Collectors.toList());
     }
 
     @Override
     public List<RoomModel> getSortedByPrice() {
-        return this.roomModels.stream()
+        return Storage.rooms.stream()
                 .sorted(Comparator.ROOM_PRICE_COMPARATOR)
                 .collect(Collectors.toList());
     }
 
     @Override
     public List<RoomModel> getSortedByCapacity() {
-        return this.roomModels.stream()
+        return Storage.rooms.stream()
                 .sorted(Comparator.ROOM_CAPACITRY_COMPARATOR)
                 .collect(Collectors.toList());
     }
 
     @Override
     public List<RoomModel> getSortedByRating() {
-        return this.roomModels.stream()
+        return Storage.rooms.stream()
                 .sorted(Comparator.ROOM_RATING_COMPARATOR)
                 .collect(Collectors.toList());
     }
 
     @Override
     public List<RoomModel> getAll(RoomStatus status) {
-        return this.roomModels.stream()
+        return Storage.rooms.stream()
                 .filter(x -> x.getStatus().equals(status))
                 .sorted(Comparator.ROOM_ID_COMPARATOR)
                 .collect(Collectors.toList());
@@ -94,7 +94,7 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
 
     @Override
     public List<RoomModel> getSortedByPrice(RoomStatus status) {
-        return this.roomModels.stream()
+        return Storage.rooms.stream()
                 .filter(x -> x.getStatus().equals(status))
                 .sorted(Comparator.ROOM_PRICE_COMPARATOR)
                 .collect(Collectors.toList());
@@ -102,7 +102,7 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
 
     @Override
     public List<RoomModel> getSortedByCapacity(RoomStatus status) {
-        return this.roomModels.stream()
+        return Storage.rooms.stream()
                 .filter(x -> x.getStatus().equals(status))
                 .sorted(Comparator.ROOM_CAPACITRY_COMPARATOR)
                 .collect(Collectors.toList());
@@ -110,7 +110,7 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
 
     @Override
     public List<RoomModel> getSortedByRating(RoomStatus status) {
-        return this.roomModels.stream()
+        return Storage.rooms.stream()
                 .filter(x -> x.getStatus().equals(status))
                 .sorted(Comparator.ROOM_RATING_COMPARATOR)
                 .collect(Collectors.toList());
@@ -118,14 +118,14 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
 
     @Override
     public int getCountFreeRooms() {
-                return this.roomModels.stream()
+                return Storage.rooms.stream()
                         .filter(x -> x.getStatus().equals(RoomStatus.FREE))
                         .collect(Collectors.toList()).size();
     }
 
     @Override
     public List<RoomModel> getLatestGuests(int count) {
-        return this.roomModels;
+        return Storage.rooms;
     }
 
     @Override

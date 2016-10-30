@@ -1,6 +1,5 @@
 package com.training.senla.menu.item.room;
 
-import com.training.senla.facade.Facade;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.RoomModel;
@@ -15,8 +14,8 @@ import java.util.List;
  */
 public class AllRoomsItem extends Item{
     private static final Logger LOG = LogManager.getLogger(AllRoomsItem.class);
-    public AllRoomsItem(Menu menu, Facade facade) {
-        super("All rooms", menu, facade);
+    public AllRoomsItem(Menu menu) {
+        super("All rooms", menu);
     }
 
     @Override

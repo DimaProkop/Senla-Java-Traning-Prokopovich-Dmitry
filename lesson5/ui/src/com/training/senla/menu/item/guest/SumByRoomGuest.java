@@ -1,6 +1,5 @@
 package com.training.senla.menu.item.guest;
 
-import com.training.senla.facade.Facade;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.GuestModel;
@@ -16,8 +15,8 @@ import org.apache.log4j.Logger;
 public class SumByRoomGuest extends Item {
     private static final Logger LOG = LogManager.getLogger(SumByRoomGuest.class);
 
-    public SumByRoomGuest(Menu menu, Facade facade) {
-        super("Sum for room guest", menu, facade);
+    public SumByRoomGuest(Menu menu) {
+        super("Sum for room guest", menu);
     }
 
     @Override

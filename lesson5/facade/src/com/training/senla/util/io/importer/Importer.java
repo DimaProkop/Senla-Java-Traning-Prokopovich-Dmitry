@@ -20,5 +20,5 @@ public interface Importer {
 
     List<ServiceModel> importServices();
 
-    void loadData(TextFileWorker textFileWorker);
+    void loadData(String path);
 }

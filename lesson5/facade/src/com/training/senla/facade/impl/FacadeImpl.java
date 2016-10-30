@@ -1,6 +1,5 @@
 package com.training.senla.facade.impl;
 
-import com.danco.training.TextFileWorker;
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.facade.Facade;
 import com.training.senla.model.GuestModel;
@@ -18,6 +17,7 @@ import com.training.senla.util.io.importer.Importer;
 import com.training.senla.util.io.importer.impl.ImporterImpl;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -36,13 +36,11 @@ public class FacadeImpl implements Facade{
     private Exporter exporter;
 
     @Override
-    public void init(TextFileWorker textFileWorker) {
+    public void init(String path) {
         this.importer = new ImporterImpl();
-        this.importer.loadData(textFileWorker);
-        this.exporter = new ExporterImpl(textFileWorker);
+        this.importer.loadData(path);
+        this.exporter = new ExporterImpl(path);
         this.initializer = new Initializer(importer);
-        this.initializer.fillDataObjects();
-        this.initializer.fillServices();
         this.fillServicesFromInitializer();
     }
 
@@ -59,7 +57,7 @@ public class FacadeImpl implements Facade{
     }
 
     @Override
-    public void setGuest(GuestModel guest) {
+    public void addGuest(GuestModel guest) {
         guestModelService.setGuest(guest);
     }
 
@@ -69,7 +67,7 @@ public class FacadeImpl implements Facade{
     }
 
     @Override
-    public void setRoom(RoomModel room) {
+    public void addRoom(RoomModel room) {
         roomModelService.setRoom(room);
     }
 
@@ -84,7 +82,7 @@ public class FacadeImpl implements Facade{
     }
 
     @Override
-    public void setService(ServiceModel service) {
+    public void addService(ServiceModel service) {
         serviceModelService.setService(service);
     }
 
@@ -134,7 +132,7 @@ public class FacadeImpl implements Facade{
     }
 
     @Override
-    public List<RoomModel> getReleasedRoomsInFuture(LocalDate date) {
+    public List<RoomModel> getReleasedRoomsInFuture(Date date) {
         return roomModelService.getReleasedInFuture(date);
     }
 
@@ -164,7 +162,7 @@ public class FacadeImpl implements Facade{
     }
 
     @Override
-    public void registerGuest(GuestModel guestModel, RoomModel roomModel, LocalDate startDate, LocalDate finalDate) {
+    public void registerGuest(GuestModel guestModel, RoomModel roomModel, Date startDate, Date finalDate) {
         roomModelService.registerGuest(guestModel, roomModel, startDate, finalDate);
     }
 

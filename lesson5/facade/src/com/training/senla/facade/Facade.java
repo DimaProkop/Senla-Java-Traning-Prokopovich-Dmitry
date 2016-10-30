@@ -8,27 +8,28 @@ import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 /**
  * Created by prokop on 13.10.16.
  */
 public interface Facade {
-    void init(TextFileWorker textFileWorker);
+    void init(String path);
 
     GuestModel getGuest(int id);
 
-    void setGuest(GuestModel guest);
+    void addGuest(GuestModel guest);
 
     RoomModel getRoom(int id);
 
-    void setRoom(RoomModel room);
+    void addRoom(RoomModel room);
 
     RegistrationModel getRegistration(int id);
 
     ServiceModel getService(int id);
 
-    void setService(ServiceModel service);
+    void addService(ServiceModel service);
 
     List<GuestModel> getAllGuests();
 
@@ -48,7 +49,7 @@ public interface Facade {
 
     int getCountGuests();
 
-    List<RoomModel> getReleasedRoomsInFuture(LocalDate date);
+    List<RoomModel> getReleasedRoomsInFuture(Date date);
 
     double getSumPaymentRoom(GuestModel guestModel, RoomModel roomModel);
 
@@ -60,7 +61,7 @@ public interface Facade {
 
     List<Double> getPricesRoom();
 
-    void registerGuest(GuestModel guestModel, RoomModel roomModel, LocalDate startDate, LocalDate finalDate);
+    void registerGuest(GuestModel guestModel, RoomModel roomModel, Date startDate, Date finalDate);
 
     void evictGuest(GuestModel guestModel);
 

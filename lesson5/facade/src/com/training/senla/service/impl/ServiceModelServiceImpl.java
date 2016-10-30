@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -86,7 +87,7 @@ public class ServiceModelServiceImpl implements ServiceModelService {
     }
 
     @Override
-    public List<ServiceModel> getSortedByDate(LocalDate date) {
+    public List<ServiceModel> getSortedByDate(Date date) {
         List<ServiceModel> services = null;
         try {
             services = serviceModelRepository.getSortedByDate(date);

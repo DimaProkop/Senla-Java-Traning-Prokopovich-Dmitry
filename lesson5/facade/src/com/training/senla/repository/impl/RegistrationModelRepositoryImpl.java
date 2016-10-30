@@ -1,10 +1,9 @@
 package com.training.senla.repository.impl;
 
-import com.training.senla.model.GuestModel;
 import com.training.senla.model.RegistrationModel;
 import com.training.senla.repository.RegistrationModelRepository;
+import com.training.senla.storage.Storage;
 
-import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -12,12 +11,11 @@ import java.util.List;
  */
 public class RegistrationModelRepositoryImpl implements RegistrationModelRepository {
 
-    private List<RegistrationModel> registrationModelList;
     public static int currentId=1;
 
     private int getRegistrationIndexById(int id) {
-        for (int i = 0; i < this.registrationModelList.size(); i++) {
-            if(this.registrationModelList.get(i).getGuestId() == id) {
+        for (int i = 0; i < Storage.registrations.size(); i++) {
+            if(Storage.registrations.get(i).getGuestId() == id) {
                 return i;
             }
         }
@@ -25,27 +23,22 @@ public class RegistrationModelRepositoryImpl implements RegistrationModelReposit
     }
 
     public RegistrationModelRepositoryImpl(List<RegistrationModel> registrationModelList) {
-        this.registrationModelList = registrationModelList;
+        Storage.registrations = registrationModelList;
     }
 
     @Override
     public void addRecord(RegistrationModel registrationModel) {
         registrationModel.setId(currentId++);
-        registrationModelList.add(registrationModel);
-    }
-
-    @Override
-    public void setFinalDate(GuestModel guestModel) {
-        registrationModelList.get(guestModel.getId()).setFinalDate(LocalDate.now());
+        Storage.registrations.add(registrationModel);
     }
 
     @Override
     public RegistrationModel getRegistration(int id) {
-        return registrationModelList.get(getRegistrationIndexById(id));
+        return Storage.registrations.get(getRegistrationIndexById(id));
     }
 
     @Override
     public List<RegistrationModel> getAll() {
-        return this.registrationModelList;
+        return Storage.registrations;
     }
 }

@@ -1,6 +1,5 @@
 package com.training.senla.menu.item.room;
 
-import com.training.senla.facade.Facade;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.RoomModel;
@@ -15,8 +14,8 @@ import java.util.List;
  */
 public class RoomsSortedByCapacity extends Item{
     private static final Logger LOG = LogManager.getLogger(RoomsSortedByCapacity.class);
-    public RoomsSortedByCapacity(Menu menu, Facade facade) {
-        super("Rooms sorted by capacity", menu, facade);
+    public RoomsSortedByCapacity(Menu menu) {
+        super("Rooms sorted by capacity", menu);
     }
 
     @Override

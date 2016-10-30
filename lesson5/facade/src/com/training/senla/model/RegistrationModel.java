@@ -1,6 +1,7 @@
 package com.training.senla.model;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -9,13 +10,13 @@ import java.util.List;
 public class RegistrationModel extends BaseModel{
     private int guestId;
     private int roomId;
-    private LocalDate startDate;
-    private LocalDate finalDate;
+    private Date startDate;
+    private Date finalDate;
 
     public RegistrationModel() {
     }
 
-    public RegistrationModel(int guestId, int roomId, LocalDate startDate, LocalDate finalDate) {
+    public RegistrationModel(int guestId, int roomId, Date startDate, Date finalDate) {
         this.guestId = guestId;
         this.roomId = roomId;
         this.startDate = startDate;
@@ -38,19 +39,19 @@ public class RegistrationModel extends BaseModel{
         this.roomId = roomId;
     }
 
-    public LocalDate getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDate getFinalDate() {
+    public Date getFinalDate() {
         return finalDate;
     }
 
-    public void setFinalDate(LocalDate finalDate) {
+    public void setFinalDate(Date finalDate) {
         this.finalDate = finalDate;
     }
 }

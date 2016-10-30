@@ -1,9 +1,7 @@
 package com.training.senla.repository;
 
-import com.training.senla.model.GuestModel;
 import com.training.senla.model.RegistrationModel;
 
-import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -11,8 +9,6 @@ import java.util.List;
  */
 public interface RegistrationModelRepository {
     void addRecord(RegistrationModel registrationModel);
-
-    void setFinalDate(GuestModel guestModel);
 
     RegistrationModel getRegistration(int id);
 

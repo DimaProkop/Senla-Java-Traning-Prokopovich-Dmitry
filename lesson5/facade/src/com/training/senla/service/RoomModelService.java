@@ -6,6 +6,7 @@ import com.training.senla.model.GuestModel;
 import com.training.senla.model.RoomModel;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,7 +21,7 @@ public interface RoomModelService {
 
     void delete(RoomModel roomModel);
 
-    void registerGuest(GuestModel guestModel, RoomModel roomModel, LocalDate startDate, LocalDate finalDate);
+    void registerGuest(GuestModel guestModel, RoomModel roomModel, Date startDate, Date finalDate);
 
     void evictGuest(GuestModel guestModel);
 
@@ -43,7 +44,7 @@ public interface RoomModelService {
 
     int getCountFreeRooms();
 
-    List<RoomModel> getReleasedInFuture(LocalDate date);
+    List<RoomModel> getReleasedInFuture(Date date);
 
     List<RoomModel> getLatestGuests(int count);
 

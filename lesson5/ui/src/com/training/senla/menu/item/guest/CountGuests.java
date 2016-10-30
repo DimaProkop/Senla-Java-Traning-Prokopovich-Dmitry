@@ -1,6 +1,5 @@
 package com.training.senla.menu.item.guest;
 
-import com.training.senla.facade.Facade;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.print.PrintModel;
@@ -12,8 +11,8 @@ import org.apache.log4j.Logger;
  */
 public class CountGuests extends Item {
     private static final Logger LOG = LogManager.getLogger(CountGuests.class);
-    public CountGuests(Menu menu, Facade facade) {
-        super("Count guests", menu, facade);
+    public CountGuests(Menu menu) {
+        super("Count guests", menu);
     }
 
     @Override

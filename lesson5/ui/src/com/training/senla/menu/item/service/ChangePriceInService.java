@@ -1,6 +1,5 @@
 package com.training.senla.menu.item.service;
 
-import com.training.senla.facade.Facade;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.ServiceModel;
@@ -14,8 +13,8 @@ import org.apache.log4j.Logger;
  */
 public class ChangePriceInService extends Item {
     private static final Logger LOG = LogManager.getLogger(ChangePriceInService.class);
-    public ChangePriceInService(Menu menu, Facade facade) {
-        super("Change price in service", menu, facade);
+    public ChangePriceInService(Menu menu) {
+        super("Change price in service", menu);
     }
 
     @Override

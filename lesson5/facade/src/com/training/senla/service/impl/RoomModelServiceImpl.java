@@ -14,6 +14,7 @@ import org.apache.log4j.Logger;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -73,7 +74,7 @@ public class RoomModelServiceImpl implements RoomModelService {
     }
 
     @Override
-    public void registerGuest(GuestModel guestModel, RoomModel roomModel, LocalDate startDate, LocalDate finalDate) {
+    public void registerGuest(GuestModel guestModel, RoomModel roomModel, Date startDate, Date finalDate) {
         try {
             roomModel.addGuest(guestModel);
             guestModel.setRoomModel(roomModel);
@@ -192,11 +193,11 @@ public class RoomModelServiceImpl implements RoomModelService {
     }
 
     @Override
-    public List<RoomModel> getReleasedInFuture(LocalDate date) {
+    public List<RoomModel> getReleasedInFuture(Date date) {
         List<RoomModel> rooms = new ArrayList<>();
         try {
             List<Integer> roomIds = registrationModelRepository.getAll().stream()
-                    .filter(x->x.getFinalDate().getDayOfYear() < date.getDayOfYear())
+                    .filter(x->x.getFinalDate().getTime() < date.getTime())
                     .map(RegistrationModel::getRoomId)
                     .distinct()
                     .collect(Collectors.toList());

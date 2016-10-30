@@ -1,6 +1,5 @@
 package com.training.senla.menu.item.room;
 
-import com.training.senla.facade.Facade;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.RoomModel;
@@ -14,8 +13,8 @@ import org.apache.log4j.Logger;
  */
 public class ChangeInStatusRoom extends Item{
     private static final Logger LOG = LogManager.getLogger(ChangeInStatusRoom.class);
-    public ChangeInStatusRoom(Menu menu, Facade facade) {
-        super("Change status room", menu, facade);
+    public ChangeInStatusRoom(Menu menu) {
+        super("Change status room", menu);
     }
 
     @Override
