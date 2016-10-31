@@ -1,5 +1,6 @@
 package com.training.senla.menu.item.guest;
 
+import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.GuestModel;
@@ -22,7 +23,7 @@ public class NewGuestItem extends Item {
         String name = Reader.getString("Input guest name: ");
         try {
             GuestModel guest = new GuestModel(name);
-            facade.addGuest(guest);
+            FacadeImpl.getInstance().addGuest(guest);
             PrintModel.printMessage("Guest created.");
         }catch (Exception e) {
             LOG.error(e.getMessage());

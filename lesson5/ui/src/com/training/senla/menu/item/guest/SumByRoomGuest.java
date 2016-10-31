@@ -1,5 +1,6 @@
 package com.training.senla.menu.item.guest;
 
+import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.GuestModel;
@@ -24,12 +25,12 @@ public class SumByRoomGuest extends Item {
         int roomId = Reader.getInt("Input room ID: ");
         int guestId = Reader.getInt("Input guest ID:");
         try {
-            GuestModel guest = facade.getGuest(guestId);
-            RoomModel room = facade.getRoom(roomId);
+            GuestModel guest = FacadeImpl.getInstance().getGuest(guestId);
+            RoomModel room = FacadeImpl.getInstance().getRoom(roomId);
             if(guest == null || room == null) {
                 PrintModel.printMessage("Guest or room not found");
             }else {
-                double sum = facade.getSumPaymentRoom(guest, room);
+                double sum = FacadeImpl.getInstance().getSumPaymentRoom(guest, room);
                 PrintModel.printMessage("Sum: " + String.valueOf(sum));
             }
         }catch (Exception e) {

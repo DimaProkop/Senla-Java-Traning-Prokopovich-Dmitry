@@ -12,7 +12,7 @@ public class Main {
     public final static String FILE_PATH = "/home/prokop/Senla-Java-Traning-Prokopovich-Dmitry/lesson5/facade/resource/main.txt";
     public static void main(String[] args) throws IOException {
         //ui
-        Builder builder = new Builder();
+        Builder builder = new Builder(FILE_PATH);
         Launcher launcher = new Launcher();
         launcher.start(builder.buildMenu());
     }

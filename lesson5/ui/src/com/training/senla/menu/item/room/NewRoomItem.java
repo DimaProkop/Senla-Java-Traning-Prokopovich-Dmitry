@@ -1,6 +1,7 @@
 package com.training.senla.menu.item.room;
 
 import com.training.senla.enums.RoomsSection;
+import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.RoomModel;
@@ -28,7 +29,7 @@ public class NewRoomItem extends Item{
             RoomsSection section = RoomsSection.isExist(strSection.toUpperCase());
             int rating = Reader.getInt("Input rating: ");
             RoomModel room = new RoomModel(price, capacity, section, rating);
-            facade.addRoom(room);
+            FacadeImpl.getInstance().addRoom(room);
             PrintModel.printMessage("Room created.");
         }catch (Exception e) {
             LOG.error(e.getMessage());

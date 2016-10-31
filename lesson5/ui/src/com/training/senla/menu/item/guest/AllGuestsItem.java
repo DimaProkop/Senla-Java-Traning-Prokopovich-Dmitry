@@ -1,5 +1,7 @@
 package com.training.senla.menu.item.guest;
 
+import com.training.senla.facade.Facade;
+import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.GuestModel;
@@ -22,7 +24,7 @@ public class AllGuestsItem extends Item {
     @Override
     public Menu execute() {
         try {
-            List<GuestModel> guests = facade.getAllGuests();
+            List<GuestModel> guests = FacadeImpl.getInstance().getAllGuests();
             if (guests == null || guests.size() == 0) {
                 PrintModel.printMessage("Guests not found.");
             } else {

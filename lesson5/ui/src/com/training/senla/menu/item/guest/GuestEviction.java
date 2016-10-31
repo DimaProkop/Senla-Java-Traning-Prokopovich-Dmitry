@@ -1,5 +1,6 @@
 package com.training.senla.menu.item.guest;
 
+import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.GuestModel;
@@ -21,11 +22,11 @@ public class GuestEviction extends Item{
     public Menu execute() {
         int guestId = Reader.getInt("Input guest ID: ");
         try {
-            GuestModel guest = facade.getGuest(guestId);
+            GuestModel guest = FacadeImpl.getInstance().getGuest(guestId);
             if(guest == null) {
                 PrintModel.printMessage("Guest not found");
             }else {
-                facade.evictGuest(guest);
+                FacadeImpl.getInstance().evictGuest(guest);
                 PrintModel.printMessage("Guest evicted.");
             }
         }catch (Exception e) {

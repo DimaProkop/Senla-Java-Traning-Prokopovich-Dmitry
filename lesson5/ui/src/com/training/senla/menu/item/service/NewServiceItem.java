@@ -1,6 +1,7 @@
 package com.training.senla.menu.item.service;
 
 import com.training.senla.enums.ServicesSection;
+import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.ServiceModel;
@@ -30,7 +31,7 @@ public class NewServiceItem extends Item {
             Date startDate = Reader.getDate("Input start date - (dd-mm-yyyy): ");
             Date finalDate = Reader.getDate("Input final date - (dd-mm-yyyy): ");
             ServiceModel service = new ServiceModel(name, price, section, startDate, finalDate);
-            facade.addService(service);
+            FacadeImpl.getInstance().addService(service);
             PrintModel.printMessage("Service created.");
         }catch (Exception e) {
             LOG.error(e.getMessage());

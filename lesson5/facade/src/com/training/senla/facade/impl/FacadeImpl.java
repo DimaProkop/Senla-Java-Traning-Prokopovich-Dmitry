@@ -35,6 +35,15 @@ public class FacadeImpl implements Facade{
     private Importer importer;
     private Exporter exporter;
 
+    private static Facade facade;
+
+    public static Facade getInstance() {
+        if(facade == null) {
+            facade = new FacadeImpl();
+        }
+        return facade;
+    }
+
     @Override
     public void init(String path) {
         this.importer = new ImporterImpl();

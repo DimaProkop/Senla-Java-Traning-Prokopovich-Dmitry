@@ -1,5 +1,6 @@
 package com.training.senla.menu.item.service;
 
+import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.ServiceModel;
@@ -22,7 +23,7 @@ public class AllServicesItem extends Item{
     @Override
     public Menu execute() {
         try {
-            List<ServiceModel> services = facade.getAllServices();
+            List<ServiceModel> services = FacadeImpl.getInstance().getAllServices();
             if(services == null) {
                 PrintModel.printMessage("Services not found.");
             }else {

@@ -1,5 +1,6 @@
 package com.training.senla.menu.item.guest;
 
+import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.print.PrintModel;
@@ -18,7 +19,7 @@ public class CountGuests extends Item {
     @Override
     public Menu execute() {
         try {
-            int count = facade.getCountGuests();
+            int count = FacadeImpl.getInstance().getCountGuests();
             if(count == 0) {
                 PrintModel.printMessage("Guests not found.");
             }else {

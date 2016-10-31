@@ -1,5 +1,6 @@
 package com.training.senla.menu.item.room;
 
+import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.RoomModel;
@@ -21,7 +22,7 @@ public class RoomsSortedByCapacity extends Item{
     @Override
     public Menu execute() {
         try {
-            List<RoomModel> rooms = facade.getSortedByCapacity();
+            List<RoomModel> rooms = FacadeImpl.getInstance().getSortedByCapacity();
             if(rooms == null) {
                 PrintModel.printMessage("Rooms not found.");
             }else {

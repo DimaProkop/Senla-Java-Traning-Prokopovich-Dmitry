@@ -1,5 +1,6 @@
 package com.training.senla.menu.item.room;
 
+import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.RoomModel;
@@ -25,7 +26,7 @@ public class RoomsByFutureDate extends Item{
     public Menu execute() {
         Date date = Reader.getDate("Input date - (dd-mm-yyyy): ");
         try {
-            List<RoomModel> rooms = facade.getReleasedRoomsInFuture(date);
+            List<RoomModel> rooms = FacadeImpl.getInstance().getReleasedRoomsInFuture(date);
             if (rooms == null) {
                 PrintModel.printMessage("All rooms are occupied on this date.");
             }else {

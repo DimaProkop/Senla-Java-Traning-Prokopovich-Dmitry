@@ -20,10 +20,21 @@ import java.util.stream.Collectors;
  */
 public class RoomModelRepositoryImpl implements RoomModelRepository {
 
-    public static int currentId=1;
+    private int currentId=1;
+
+    public void calcCurrentId() {
+        int maxId = 0;
+        for (RoomModel room : Storage.rooms) {
+            if(room.getId() > maxId) {
+                maxId = room.getId();
+            }
+        }
+        currentId = maxId + 1;
+    }
 
     public RoomModelRepositoryImpl(List<RoomModel> roomModels) {
         Storage.rooms = roomModels;
+        calcCurrentId();
     }
 
     private int getRoomIndexById(int id) {

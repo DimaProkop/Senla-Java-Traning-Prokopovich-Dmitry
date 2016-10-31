@@ -44,21 +44,7 @@ public class Initializer {
         this.fillServices();
     }
 
-    private int findMaxId(List<? extends BaseModel> list) {
-        int maxId = 0;
-        for (BaseModel value : list) {
-            if(value.getId() > maxId) {
-                maxId = value.getId();
-            }
-        }
-        return maxId;
-    }
-
     private void fillServices() {
-        GuestModelRepositoryImpl.currentId = findMaxId(this.guestModels)+1;
-        RoomModelRepositoryImpl.currentId = findMaxId(this.roomModels)+1;
-        RegistrationModelRepositoryImpl.currentId = findMaxId(this.registrationModels)+1;
-        ServiceModelRepositoryImpl.currentId = findMaxId(this.serviceModels)+1;
         GuestModelRepository guestModelRepository = new GuestModelRepositoryImpl(this.guestModels);
         RoomModelRepository roomModelRepository = new RoomModelRepositoryImpl(this.roomModels);
         RegistrationModelRepository registrationModelRepository = new RegistrationModelRepositoryImpl(this.registrationModels);

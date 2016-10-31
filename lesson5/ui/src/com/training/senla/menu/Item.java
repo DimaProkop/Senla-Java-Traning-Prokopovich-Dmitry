@@ -11,15 +11,10 @@ public abstract class Item {
 
     protected String name;
     protected Menu menu;
-    protected Facade facade;
 
     public Item(String name, Menu menu) {
         this.name = name;
         this.menu = menu;
-        if(this.facade == null) {
-            this.facade = new FacadeImpl();
-            facade.init(Main.FILE_PATH);
-        }
     }
 
     public abstract Menu execute();

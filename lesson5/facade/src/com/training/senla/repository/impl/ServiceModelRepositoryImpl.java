@@ -18,10 +18,21 @@ import java.util.stream.Collectors;
  */
 public class ServiceModelRepositoryImpl implements ServiceModelRepository {
 
-    public static int currentId=1;
+    private int currentId=1;
+
+    public void calcCurrentId() {
+        int maxId = 0;
+        for (ServiceModel service : Storage.services) {
+            if(service.getId() > maxId) {
+                maxId = service.getId();
+            }
+        }
+        currentId = maxId + 1;
+    }
 
     public ServiceModelRepositoryImpl(List<ServiceModel> serviceModels) {
         Storage.services = serviceModels;
+        calcCurrentId();
     }
 
     private int getServiceIndexById(int id) {

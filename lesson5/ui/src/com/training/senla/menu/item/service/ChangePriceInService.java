@@ -1,5 +1,6 @@
 package com.training.senla.menu.item.service;
 
+import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.ServiceModel;
@@ -21,12 +22,12 @@ public class ChangePriceInService extends Item {
     public Menu execute() {
         int serviceId = Reader.getInt("Input service ID: ");
         try {
-            ServiceModel service = facade.getService(serviceId);
+            ServiceModel service = FacadeImpl.getInstance().getService(serviceId);
             if(service == null) {
                 PrintModel.printMessage("Service not found.");
             }else {
                 double value = Reader.getDouble("Input new price for service: ");
-                facade.changeServicePrice(service, value);
+                FacadeImpl.getInstance().changeServicePrice(service, value);
             }
         }catch (Exception e) {
             LOG.error(e.getMessage());

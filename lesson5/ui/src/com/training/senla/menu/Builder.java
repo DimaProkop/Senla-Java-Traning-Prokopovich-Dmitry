@@ -1,6 +1,7 @@
 package com.training.senla.menu;
 
 import com.training.senla.facade.Facade;
+import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.menu.item.*;
 import com.training.senla.menu.item.guest.*;
 import com.training.senla.menu.item.registration.AllRegistrationsItem;
@@ -13,6 +14,10 @@ import com.training.senla.menu.item.service.NewServiceItem;
  * Created by prokop on 24.10.16.
  */
 public class Builder {
+
+    public Builder(String path) {
+        FacadeImpl.getInstance().init(path);
+    }
 
     public Menu buildMenu() {
         Menu main = new Menu("<<<<< MAIN >>>>>");
@@ -39,6 +44,7 @@ public class Builder {
         room.addItem(new AllRoomsItem(room));
         room.addItem(new RoomDetails(room));
         room.addItem(new ChangePriceInRoom(room));
+        room.addItem(new ChangeInStatusRoom(room));
         room.addItem(new CountFreeRooms(room));
         room.addItem(new RoomsSortedByPrice(room));
         room.addItem(new RoomsSortedByCapacity(room));

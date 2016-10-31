@@ -1,5 +1,6 @@
 package com.training.senla.menu.item.room;
 
+import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.RoomModel;
@@ -21,11 +22,11 @@ public class ChangeInStatusRoom extends Item{
     public Menu execute() {
         int roomId = Reader.getInt("Input room ID: ");
         try {
-            RoomModel room = facade.getRoom(roomId);
+            RoomModel room = FacadeImpl.getInstance().getRoom(roomId);
             if(room == null) {
                 PrintModel.printMessage("Room not found.");
             }else {
-                facade.changeRoomStatus(room);
+                FacadeImpl.getInstance().changeRoomStatus(room);
                 PrintModel.printMessage("Room is maintained.");
             }
         }catch (Exception e) {

@@ -14,7 +14,7 @@ public class PrintModel {
 
     public static void printGuest(GuestModel guest) {
         System.out.printf("id:    name:      room:\n");
-        System.out.printf("%d       %s        %d\n", guest.getId(), guest.getName(), guest.getRoomModel().getId());
+        System.out.printf("%d       %s        %d\n", guest.getId(), guest.getName(), guest.getRoomModel() == null ? "does't have room\n" : guest.getRoomModel().getId());
     }
 
     public static void printGuests(List<GuestModel> guests) {

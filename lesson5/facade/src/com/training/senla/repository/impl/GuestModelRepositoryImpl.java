@@ -17,10 +17,21 @@ import java.util.stream.Collectors;
  */
 public class GuestModelRepositoryImpl implements GuestModelRepository {
 
-    public static int currentId=1;
+    private int currentId=1;
+
+    public void calcCurrentId() {
+        int maxId = 0;
+        for (GuestModel guest : Storage.guests) {
+            if(guest.getId() > maxId) {
+                maxId = guest.getId();
+            }
+        }
+        currentId = maxId + 1;
+    }
 
     public GuestModelRepositoryImpl(List<GuestModel> guestModels) {
-         Storage.guests = guestModels;
+        Storage.guests = guestModels;
+        calcCurrentId();
     }
 
     private int getGuestIndexById(int id) {

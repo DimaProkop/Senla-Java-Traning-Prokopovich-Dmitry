@@ -151,6 +151,7 @@ public class GuestModelServiceImpl implements GuestModelService {
         return guests;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public double getSumByRoom(RoomModel roomModel, GuestModel guestModel) {
         double sum = 0;

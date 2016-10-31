@@ -1,5 +1,6 @@
 package com.training.senla.menu.item.registration;
 
+import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.model.RegistrationModel;
@@ -21,7 +22,7 @@ public class AllRegistrationsItem extends Item{
     @Override
     public Menu execute() {
         try {
-            List<RegistrationModel> registrations = facade.getAllRegistrations();
+            List<RegistrationModel> registrations = FacadeImpl.getInstance().getAllRegistrations();
             if(registrations == null || registrations.size() == 0) {
                 PrintModel.printMessage("Registrations not found.");
             }else {
