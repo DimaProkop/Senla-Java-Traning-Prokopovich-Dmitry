@@ -31,3 +31,17 @@
 2016-10-31 15:27:10,646 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
 2016-10-31 15:54:02,214 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
 2016-10-31 16:23:35,112 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
+2016-11-01 00:04:15,608 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
+2016-11-01 00:07:58,348 [main] ERROR (GuestModelServiceImpl.java:49) - -1 
+2016-11-01 00:09:06,987 [main] ERROR (GuestModelServiceImpl.java:49) - -1 
+2016-11-01 00:09:44,643 [main] ERROR (GuestModelServiceImpl.java:49) - -1 
+2016-11-01 00:20:55,588 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
+2016-11-01 00:21:11,595 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
+2016-11-01 00:21:27,859 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
+2016-11-01 00:21:37,624 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
+2016-11-01 00:22:06,800 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
+2016-11-01 00:24:38,938 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
+2016-11-01 00:25:27,475 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
+2016-11-01 00:29:50,796 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
+2016-11-01 00:37:16,627 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
+2016-11-01 00:37:16,628 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 

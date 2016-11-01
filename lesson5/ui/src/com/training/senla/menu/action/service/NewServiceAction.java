@@ -1,9 +1,8 @@
-package com.training.senla.menu.item.service;
+package com.training.senla.menu.action.service;
 
 import com.training.senla.enums.ServicesSection;
 import com.training.senla.facade.impl.FacadeImpl;
-import com.training.senla.menu.Item;
-import com.training.senla.menu.Menu;
+import com.training.senla.menu.action.Action;
 import com.training.senla.model.ServiceModel;
 import com.training.senla.print.PrintModel;
 import com.training.senla.reader.Reader;
@@ -15,14 +14,11 @@ import java.util.Date;
 /**
  * Created by prokop on 26.10.16.
  */
-public class NewServiceItem extends Item {
-    private static final Logger LOG = LogManager.getLogger(NewServiceItem.class);
-    public NewServiceItem(Menu menu) {
-        super("Add new service", menu);
-    }
+public class NewServiceAction implements Action {
+    private static final Logger LOG = LogManager.getLogger(NewServiceAction.class);
 
     @Override
-    public Menu execute() {
+    public void execute() {
         try {
             String name = Reader.getString("Input service name: ");
             double price = Reader.getDouble("Input price: ");
@@ -36,6 +32,5 @@ public class NewServiceItem extends Item {
         }catch (Exception e) {
             LOG.error(e.getMessage());
         }
-        return this.menu;
     }
 }

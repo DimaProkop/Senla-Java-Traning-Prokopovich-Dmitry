@@ -1,9 +1,8 @@
-package com.training.senla.menu.item.room;
+package com.training.senla.menu.action.room;
 
 import com.training.senla.enums.RoomsSection;
 import com.training.senla.facade.impl.FacadeImpl;
-import com.training.senla.menu.Item;
-import com.training.senla.menu.Menu;
+import com.training.senla.menu.action.Action;
 import com.training.senla.model.RoomModel;
 import com.training.senla.print.PrintModel;
 import com.training.senla.reader.Reader;
@@ -13,15 +12,11 @@ import org.apache.log4j.Logger;
 /**
  * Created by prokop on 24.10.16.
  */
-public class NewRoomItem extends Item{
-    private static final Logger LOG = LogManager.getLogger(NewRoomItem.class);
-
-    public NewRoomItem(Menu menu) {
-        super("Add new room", menu);
-    }
+public class NewRoomAction implements Action{
+    private static final Logger LOG = LogManager.getLogger(NewRoomAction.class);
 
     @Override
-    public Menu execute() {
+    public void execute() {
         try {
             double price = Reader.getDouble("Input price: ");
             int capacity = Reader.getInt("Input capacity: ");
@@ -34,6 +29,5 @@ public class NewRoomItem extends Item{
         }catch (Exception e) {
             LOG.error(e.getMessage());
         }
-        return this.menu;
     }
 }

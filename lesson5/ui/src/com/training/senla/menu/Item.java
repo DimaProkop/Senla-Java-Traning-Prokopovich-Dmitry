@@ -1,23 +1,21 @@
 package com.training.senla.menu;
 
-import com.training.senla.Main;
-import com.training.senla.facade.Facade;
-import com.training.senla.facade.impl.FacadeImpl;
+import com.training.senla.menu.action.Action;
 
 /**
  * Created by prokop on 24.10.16.
  */
-public abstract class Item {
+public class Item {
 
     protected String name;
     protected Menu menu;
+    private Action action;
 
-    public Item(String name, Menu menu) {
+    public Item(String name, Menu menu, Action action) {
         this.name = name;
         this.menu = menu;
+        this.action = action;
     }
-
-    public abstract Menu execute();
 
     public String getName() {
         return name;
@@ -33,5 +31,13 @@ public abstract class Item {
 
     public void setMenu(Menu menu) {
         this.menu = menu;
+    }
+
+    public Action getAction() {
+        return action;
+    }
+
+    public void setAction(Action action) {
+        this.action = action;
     }
 }

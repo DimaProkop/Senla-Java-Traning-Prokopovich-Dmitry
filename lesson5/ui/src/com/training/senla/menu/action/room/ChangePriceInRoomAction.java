@@ -1,8 +1,7 @@
-package com.training.senla.menu.item.room;
+package com.training.senla.menu.action.room;
 
 import com.training.senla.facade.impl.FacadeImpl;
-import com.training.senla.menu.Item;
-import com.training.senla.menu.Menu;
+import com.training.senla.menu.action.Action;
 import com.training.senla.model.RoomModel;
 import com.training.senla.print.PrintModel;
 import com.training.senla.reader.Reader;
@@ -12,26 +11,22 @@ import org.apache.log4j.Logger;
 /**
  * Created by prokop on 26.10.16.
  */
-public class RoomDetails extends Item{
-    private static final Logger LOG = LogManager.getLogger(RoomDetails.class);
-
-    public RoomDetails(Menu menu) {
-        super("Details room", menu);
-    }
+public class ChangePriceInRoomAction implements Action {
+    private static final Logger LOG = LogManager.getLogger(ChangePriceInRoomAction.class);
 
     @Override
-    public Menu execute() {
+    public void execute() {
         int roomId = Reader.getInt("Input room ID: ");
         try {
             RoomModel room = FacadeImpl.getInstance().getRoom(roomId);
             if(room == null) {
                 PrintModel.printMessage("Room not found.");
             }else {
-                PrintModel.printRoom(room);
+                double value = Reader.getDouble("Input new price for room: ");
+                FacadeImpl.getInstance().changeRoomPrice(room, value);
             }
         }catch (Exception e) {
             LOG.error(e.getMessage());
         }
-        return this.menu;
     }
 }

@@ -89,6 +89,7 @@ public class RoomModel extends BaseModel{
         }
         try {
             if(guests.size()<capacity){
+                setStatus(guests.size()+1==capacity ? RoomStatus.BUSY : RoomStatus.FREE);
                 guests.add(guestModel);
             }else {
                 LOG.info("Is full");
@@ -107,6 +108,7 @@ public class RoomModel extends BaseModel{
             for (int i = 0; i < guests.size(); i++) {
                 if (guests.get(i).getId() == guestModel.getId()) {
                     guests.remove(i);
+                    setStatus(RoomStatus.FREE);
                     return;
                 }
             }

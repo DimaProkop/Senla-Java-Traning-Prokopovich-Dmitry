@@ -1,9 +1,7 @@
-package com.training.senla.menu.item.guest;
+package com.training.senla.menu.action.guest;
 
-import com.training.senla.facade.Facade;
 import com.training.senla.facade.impl.FacadeImpl;
-import com.training.senla.menu.Item;
-import com.training.senla.menu.Menu;
+import com.training.senla.menu.action.Action;
 import com.training.senla.model.GuestModel;
 import com.training.senla.print.PrintModel;
 import org.apache.log4j.LogManager;
@@ -14,15 +12,11 @@ import java.util.List;
 /**
  * Created by prokop on 24.10.16.
  */
-public class AllGuestsItem extends Item {
-    private static final Logger LOG = LogManager.getLogger(AllGuestsItem.class);
-
-    public AllGuestsItem(Menu menu) {
-        super("All guest", menu);
-    }
+public class AllGuestsAction implements Action{
+    private static final Logger LOG = LogManager.getLogger(AllGuestsAction.class);
 
     @Override
-    public Menu execute() {
+    public void execute() {
         try {
             List<GuestModel> guests = FacadeImpl.getInstance().getAllGuests();
             if (guests == null || guests.size() == 0) {
@@ -33,6 +27,5 @@ public class AllGuestsItem extends Item {
         }catch (Exception e) {
             LOG.error(e.getMessage());
         }
-        return this.menu;
     }
 }

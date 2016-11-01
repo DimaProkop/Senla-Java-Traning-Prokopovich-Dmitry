@@ -1,8 +1,7 @@
-package com.training.senla.menu.item.service;
+package com.training.senla.menu.action.service;
 
 import com.training.senla.facade.impl.FacadeImpl;
-import com.training.senla.menu.Item;
-import com.training.senla.menu.Menu;
+import com.training.senla.menu.action.Action;
 import com.training.senla.model.ServiceModel;
 import com.training.senla.print.PrintModel;
 import com.training.senla.reader.Reader;
@@ -12,14 +11,11 @@ import org.apache.log4j.Logger;
 /**
  * Created by prokop on 26.10.16.
  */
-public class ChangePriceInService extends Item {
-    private static final Logger LOG = LogManager.getLogger(ChangePriceInService.class);
-    public ChangePriceInService(Menu menu) {
-        super("Change price in service", menu);
-    }
+public class ChangePriceInServiceAction implements Action {
+    private static final Logger LOG = LogManager.getLogger(ChangePriceInServiceAction.class);
 
     @Override
-    public Menu execute() {
+    public void execute() {
         int serviceId = Reader.getInt("Input service ID: ");
         try {
             ServiceModel service = FacadeImpl.getInstance().getService(serviceId);
@@ -32,6 +28,5 @@ public class ChangePriceInService extends Item {
         }catch (Exception e) {
             LOG.error(e.getMessage());
         }
-        return this.menu;
     }
 }

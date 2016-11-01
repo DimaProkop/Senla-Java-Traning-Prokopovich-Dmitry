@@ -1,29 +1,24 @@
-package com.training.senla.menu.item.room;
+package com.training.senla.menu.action.room;
 
 import com.training.senla.facade.impl.FacadeImpl;
-import com.training.senla.menu.Item;
-import com.training.senla.menu.Menu;
+import com.training.senla.menu.action.Action;
 import com.training.senla.model.RoomModel;
 import com.training.senla.print.PrintModel;
 import com.training.senla.reader.Reader;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
 /**
  * Created by prokop on 26.10.16.
  */
-public class RoomsByFutureDate extends Item{
-    private static final Logger LOG = LogManager.getLogger(RoomsByFutureDate.class);
-    public RoomsByFutureDate(Menu menu) {
-        super("Rooms by future date", menu);
-    }
+public class RoomsByFutureDateAction implements Action{
+    private static final Logger LOG = LogManager.getLogger(RoomsByFutureDateAction.class);
 
     @Override
-    public Menu execute() {
+    public void execute() {
         Date date = Reader.getDate("Input date - (dd-mm-yyyy): ");
         try {
             List<RoomModel> rooms = FacadeImpl.getInstance().getReleasedRoomsInFuture(date);
@@ -35,6 +30,5 @@ public class RoomsByFutureDate extends Item{
         }catch (Exception e) {
             LOG.error(e.getMessage());
         }
-        return this.menu;
     }
 }

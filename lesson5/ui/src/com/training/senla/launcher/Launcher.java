@@ -17,7 +17,8 @@ public class Launcher {
             PrintMenu.print(menu);
             int level = Reader.getInt("Level: ");
             Item item = menu.getChild().get(level - 1);
-            menu = item.execute();
+            item.getAction().execute();
+            menu = item.getMenu();
         }
     }
 }

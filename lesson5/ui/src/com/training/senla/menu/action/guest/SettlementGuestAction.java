@@ -1,28 +1,24 @@
-package com.training.senla.menu.item.guest;
+package com.training.senla.menu.action.guest;
 
 import com.training.senla.facade.impl.FacadeImpl;
-import com.training.senla.menu.Item;
-import com.training.senla.menu.Menu;
+import com.training.senla.menu.action.Action;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.print.PrintModel;
 import com.training.senla.reader.Reader;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+
 import java.util.Date;
 
 /**
  * Created by prokop on 26.10.16.
  */
-public class SettlementGuest extends Item{
-    private static final Logger LOG = LogManager.getLogger(SettlementGuest.class);
-
-    public SettlementGuest(Menu menu) {
-        super("Register guest", menu);
-    }
+public class SettlementGuestAction implements Action{
+    private static final Logger LOG = LogManager.getLogger(SettlementGuestAction.class);
 
     @Override
-    public Menu execute() {
+    public void execute() {
         int guestId = Reader.getInt("Input guest id: ");
         int roomId = Reader.getInt("Input room id: ");
         try {
@@ -39,6 +35,5 @@ public class SettlementGuest extends Item{
         }catch (Exception e) {
             LOG.error(e.getMessage());
         }
-        return this.menu;
     }
 }

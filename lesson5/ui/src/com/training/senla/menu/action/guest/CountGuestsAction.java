@@ -1,8 +1,7 @@
-package com.training.senla.menu.item.guest;
+package com.training.senla.menu.action.guest;
 
 import com.training.senla.facade.impl.FacadeImpl;
-import com.training.senla.menu.Item;
-import com.training.senla.menu.Menu;
+import com.training.senla.menu.action.Action;
 import com.training.senla.print.PrintModel;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -10,14 +9,11 @@ import org.apache.log4j.Logger;
 /**
  * Created by prokop on 26.10.16.
  */
-public class CountGuests extends Item {
-    private static final Logger LOG = LogManager.getLogger(CountGuests.class);
-    public CountGuests(Menu menu) {
-        super("Count guests", menu);
-    }
+public class CountGuestsAction implements Action {
+    private static final Logger LOG = LogManager.getLogger(CountGuestsAction.class);
 
     @Override
-    public Menu execute() {
+    public void execute() {
         try {
             int count = FacadeImpl.getInstance().getCountGuests();
             if(count == 0) {
@@ -28,6 +24,5 @@ public class CountGuests extends Item {
         }catch (Exception e) {
             LOG.error(e.getMessage());
         }
-        return this.menu;
     }
 }

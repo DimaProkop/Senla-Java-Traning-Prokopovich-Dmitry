@@ -1,8 +1,7 @@
-package com.training.senla.menu.item.guest;
+package com.training.senla.menu.action.guest;
 
 import com.training.senla.facade.impl.FacadeImpl;
-import com.training.senla.menu.Item;
-import com.training.senla.menu.Menu;
+import com.training.senla.menu.action.Action;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.print.PrintModel;
@@ -13,15 +12,11 @@ import org.apache.log4j.Logger;
 /**
  * Created by prokop on 26.10.16.
  */
-public class SumByRoomGuest extends Item {
-    private static final Logger LOG = LogManager.getLogger(SumByRoomGuest.class);
-
-    public SumByRoomGuest(Menu menu) {
-        super("Sum for room guest", menu);
-    }
+public class SumByRoomGuestAction implements Action {
+    private static final Logger LOG = LogManager.getLogger(SumByRoomGuestAction.class);
 
     @Override
-    public Menu execute() {
+    public void execute() {
         int roomId = Reader.getInt("Input room ID: ");
         int guestId = Reader.getInt("Input guest ID:");
         try {
@@ -36,6 +31,5 @@ public class SumByRoomGuest extends Item {
         }catch (Exception e) {
             LOG.error(e.getMessage());
         }
-        return this.menu;
     }
 }
