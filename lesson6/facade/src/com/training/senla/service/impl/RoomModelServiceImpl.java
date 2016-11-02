@@ -9,6 +9,7 @@ import com.training.senla.repository.GuestModelRepository;
 import com.training.senla.repository.RegistrationModelRepository;
 import com.training.senla.repository.RoomModelRepository;
 import com.training.senla.service.RoomModelService;
+import com.training.senla.storage.Storage;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -91,6 +92,18 @@ public class RoomModelServiceImpl implements RoomModelService {
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
+    }
+
+    @Override
+    public RoomModel cloneRoom(int id) {
+        RoomModel room = roomModelRepository.getRoom(id);
+        RoomModel clone = null;
+        try {
+            clone = (RoomModel) room.clone();
+        } catch (CloneNotSupportedException e) {
+            LOG.error(e);
+        }
+        return clone;
     }
 
     @Override

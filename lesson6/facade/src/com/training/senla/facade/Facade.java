@@ -45,6 +45,8 @@ public interface Facade {
 
     List<GuestModel> getGuestsRoom();
 
+    void updateRoom(RoomModel roomModel);
+
     int getCountFreeRooms();
 
     int getCountGuests();
@@ -70,6 +72,8 @@ public interface Facade {
     void changeRoomPrice(RoomModel roomModel, double price);
 
     boolean changeRoomStatus(RoomModel roomModel);
+
+    RoomModel cloneRoom(int id);
 
     List<RegistrationModel> getAllRegistrations();
 

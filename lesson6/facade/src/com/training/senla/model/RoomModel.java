@@ -5,15 +5,13 @@ import com.training.senla.enums.RoomsSection;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
  * Created by prokop on 13.10.16.
  */
-public class RoomModel extends BaseModel{
+public class RoomModel extends BaseModel implements Cloneable{
     private static final Logger LOG = LogManager.getLogger(GuestModel.class);
 
     private double price;
@@ -116,5 +114,10 @@ public class RoomModel extends BaseModel{
             LOG.error(e);
             LOG.info("Guest not found");
         }
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }

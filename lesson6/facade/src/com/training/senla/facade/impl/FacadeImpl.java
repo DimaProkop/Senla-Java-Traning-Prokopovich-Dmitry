@@ -132,6 +132,11 @@ public class FacadeImpl implements Facade{
     }
 
     @Override
+    public void updateRoom(RoomModel roomModel) {
+        roomModelService.update(roomModel);
+    }
+
+    @Override
     public int getCountFreeRooms() {
         return roomModelService.getCountFreeRooms();
     }
@@ -202,6 +207,11 @@ public class FacadeImpl implements Facade{
             return true;
         }
         return false;
+    }
+
+    @Override
+    public RoomModel cloneRoom(int id) {
+        return roomModelService.cloneRoom(id);
     }
 
     @Override

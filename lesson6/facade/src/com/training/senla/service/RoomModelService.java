@@ -25,6 +25,8 @@ public interface RoomModelService {
 
     void evictGuest(GuestModel guestModel);
 
+    RoomModel cloneRoom(int id);
+
     List<RoomModel> getAll();
 
     List<RoomModel> getSortedByPrice();
