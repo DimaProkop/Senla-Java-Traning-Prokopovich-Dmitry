@@ -1,5 +1,6 @@
 package com.training.senla.facade.impl;
 
+import com.training.senla.ClassSetting;
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.facade.Facade;
 import com.training.senla.model.GuestModel;
@@ -16,7 +17,6 @@ import com.training.senla.util.io.exporter.impl.ExporterImpl;
 import com.training.senla.util.io.importer.Importer;
 import com.training.senla.util.io.importer.impl.ImporterImpl;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -46,6 +46,7 @@ public class FacadeImpl implements Facade{
 
     @Override
     public void init(String path) {
+        ClassSetting.init();
         this.importer = new ImporterImpl();
         this.importer.loadData(path);
         this.exporter = new ExporterImpl(path);
@@ -194,9 +195,13 @@ public class FacadeImpl implements Facade{
     }
 
     @Override
-    public void changeRoomStatus(RoomModel roomModel) {
-        roomModel.setStatus(RoomStatus.MAINTAINED);
-        roomModelService.update(roomModel);
+    public boolean changeRoomStatus(RoomModel roomModel) {
+        if(ClassSetting.setupRoomStatus()) {
+            roomModel.setStatus(RoomStatus.MAINTAINED);
+            roomModelService.update(roomModel);
+            return true;
+        }
+        return false;
     }
 
     @Override

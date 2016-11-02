@@ -43,7 +43,7 @@ public class Builder {
         room.addItem(new Item("All rooms", room, new AllRoomsAction()));
         room.addItem(new Item("Room detail", room, new RoomDetailsAction()));
         room.addItem(new Item("Change price in room", room, new ChangePriceInRoomAction()));
-        room.addItem(new Item("Change status in room", room, new ChangeInStatusRoomAction()));
+        room.addItem(new Item("Change status in room", room, new ChangeStatusRoomAction()));
         room.addItem(new Item("Count free rooms", room, new CountFreeRoomsAction()));
         room.addItem(new Item("Rooms sorted by price", room, new RoomsSortedByPriceAction()));
         room.addItem(new Item("Rooms sorted by capacity", room, new RoomsSortedByCapacityAction()));

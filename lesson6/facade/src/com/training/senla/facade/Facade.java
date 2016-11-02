@@ -69,7 +69,7 @@ public interface Facade {
 
     void changeRoomPrice(RoomModel roomModel, double price);
 
-    void changeRoomStatus(RoomModel roomModel);
+    boolean changeRoomStatus(RoomModel roomModel);
 
     List<RegistrationModel> getAllRegistrations();
 
