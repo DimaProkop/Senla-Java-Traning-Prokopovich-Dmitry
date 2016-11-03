@@ -1,0 +1,5 @@
+2016-10-27 01:48:11,576 [main] INFO  (GuestModel.java:69) - Services is empty
+2016-10-27 01:48:11,580 [main] ERROR (GuestModel.java:79) - java.lang.NullPointerException 
+2016-10-27 01:48:11,582 [main] INFO  (GuestModel.java:80) - Service not found 
+2016-11-03 05:37:55,571 [main] ERROR (DataServiceImpl.java:35) - java.io.EOFException 
+2016-11-03 05:37:55,575 [main] ERROR (ConverterImpl.java:43) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
