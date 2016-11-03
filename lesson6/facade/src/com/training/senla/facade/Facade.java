@@ -1,13 +1,10 @@
 package com.training.senla.facade;
 
-import com.danco.training.TextFileWorker;
-import com.training.senla.enums.RoomStatus;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -15,7 +12,7 @@ import java.util.List;
  * Created by prokop on 13.10.16.
  */
 public interface Facade {
-    void init(String path);
+    void init();
 
     GuestModel getGuest(int id);
 
@@ -87,13 +84,13 @@ public interface Facade {
     List<ServiceModel> importServices();
 
     //exports
-    void exportGuests(List<GuestModel> guests);
+    void exportGuests();
 
-    void exportRegistrations(List<RegistrationModel> registrations);
+    void exportRegistrations();
 
-    void exportRooms(List<RoomModel> rooms);
+    void exportRooms();
 
-    void exportServices(List<ServiceModel> services);
+    void exportServices();
 
     void exportAll();
 }

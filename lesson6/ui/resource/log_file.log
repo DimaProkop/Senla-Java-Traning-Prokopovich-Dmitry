@@ -45,3 +45,5 @@
 2016-11-01 00:29:50,796 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
 2016-11-01 00:37:16,627 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
 2016-11-01 00:37:16,628 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2016-11-03 05:36:59,376 [main] ERROR (DataServiceImpl.java:35) - java.io.StreamCorruptedException: invalid stream header: 787E7200 
+2016-11-03 05:36:59,380 [main] ERROR (ConverterImpl.java:43) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 

@@ -5,14 +5,16 @@ import com.training.senla.enums.RoomsSection;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by prokop on 13.10.16.
  */
-public class RoomModel extends BaseModel implements Cloneable{
+public class RoomModel extends BaseModel implements Cloneable, Serializable{
     private static final Logger LOG = LogManager.getLogger(GuestModel.class);
+    private static final long serialVersionUID = 3950254982747535717L;
 
     private double price;
     private int capacity;

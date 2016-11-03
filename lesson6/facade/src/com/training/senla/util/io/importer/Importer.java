@@ -1,6 +1,5 @@
 package com.training.senla.util.io.importer;
 
-import com.danco.training.TextFileWorker;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
@@ -20,5 +19,5 @@ public interface Importer {
 
     List<ServiceModel> importServices();
 
-    void loadData(String path);
+    void importAll();
 }

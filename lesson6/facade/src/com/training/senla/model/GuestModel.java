@@ -3,16 +3,17 @@ package com.training.senla.model;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import java.time.LocalDate;
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
  * Created by prokop on 13.10.16.
  */
-public class GuestModel extends BaseModel{
+public class GuestModel extends BaseModel implements Serializable{
+
     private static final Logger LOG = LogManager.getLogger(GuestModel.class);
+    private static final long serialVersionUID = -4477116269261501412L;
 
     private String name;
     private RoomModel roomModel;

@@ -40,4 +40,15 @@ public class ClassSetting {
         }
         return answer;
     }
+
+    public static String getPathToFile() {
+        String answer = "";
+        try {
+            properties.load(stream);
+            answer = String.valueOf(properties.getProperty("path.to.file"));
+        } catch (IOException e) {
+            System.out.print("File not found");
+        }
+        return answer;
+    }
 }

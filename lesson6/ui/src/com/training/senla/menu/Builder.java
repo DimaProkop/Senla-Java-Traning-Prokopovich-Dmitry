@@ -14,8 +14,8 @@ import com.training.senla.menu.action.service.NewServiceAction;
  */
 public class Builder {
 
-    public Builder(String path) {
-        FacadeImpl.getInstance().init(path);
+    public Builder() {
+        FacadeImpl.getInstance().init();
     }
 
     public Menu buildMenu() {

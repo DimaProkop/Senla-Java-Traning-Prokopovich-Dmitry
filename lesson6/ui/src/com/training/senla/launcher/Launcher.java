@@ -1,5 +1,6 @@
 package com.training.senla.launcher;
 
+import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.menu.Item;
 import com.training.senla.menu.Menu;
 import com.training.senla.print.PrintMenu;
@@ -20,5 +21,6 @@ public class Launcher {
             item.getAction().execute();
             menu = item.getMenu();
         }
+        FacadeImpl.getInstance().exportAll();
     }
 }

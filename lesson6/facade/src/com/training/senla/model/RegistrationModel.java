@@ -1,5 +1,6 @@
 package com.training.senla.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
@@ -7,7 +8,9 @@ import java.util.List;
 /**
  * Created by prokop on 13.10.16.
  */
-public class RegistrationModel extends BaseModel{
+public class RegistrationModel extends BaseModel implements Serializable{
+    private static final long serialVersionUID = -7389885297471547150L;
+
     private int guestId;
     private int roomId;
     private Date startDate;

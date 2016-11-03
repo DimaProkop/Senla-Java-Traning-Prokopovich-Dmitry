@@ -17,7 +17,12 @@ import com.training.senla.service.impl.GuestModelServiceImpl;
 import com.training.senla.service.impl.RegistrationModelServiceImpl;
 import com.training.senla.service.impl.RoomModelServiceImpl;
 import com.training.senla.service.impl.ServiceModelServiceImpl;
+import com.training.senla.storage.Storage;
+import com.training.senla.util.converter.Converter;
+import com.training.senla.util.converter.impl.ConverterImpl;
 import com.training.senla.util.io.importer.Importer;
+import com.training.senla.util.service.DataService;
+import com.training.senla.util.service.impl.DataServiceImpl;
 
 import java.util.List;
 
@@ -25,30 +30,26 @@ import java.util.List;
  * Created by prokop on 15.10.16.
  */
 public class Initializer {
-
-    private List<GuestModel> guestModels;
-    private List<RoomModel> roomModels;
-    private List<RegistrationModel> registrationModels;
-    private List<ServiceModel> serviceModels;
-
     private GuestModelService guestModelService;
     private RoomModelService roomModelService;
     private RegistrationModelService registrationModelService;
     private ServiceModelService serviceModelService;
 
-    private Importer importer;
+    private Converter converter;
+    private DataService dataService;
 
-    public Initializer(Importer importer) {
-        this.importer = importer;
+    public Initializer() {
+        this.dataService = new DataServiceImpl();
+        this.converter = new ConverterImpl();
         this.fillDataObjects();
         this.fillServices();
     }
 
     private void fillServices() {
-        GuestModelRepository guestModelRepository = new GuestModelRepositoryImpl(this.guestModels);
-        RoomModelRepository roomModelRepository = new RoomModelRepositoryImpl(this.roomModels);
-        RegistrationModelRepository registrationModelRepository = new RegistrationModelRepositoryImpl(this.registrationModels);
-        ServiceModelRepository serviceModelRepository = new ServiceModelRepositoryImpl(this.serviceModels);
+        GuestModelRepository guestModelRepository = new GuestModelRepositoryImpl(Storage.guests);
+        RoomModelRepository roomModelRepository = new RoomModelRepositoryImpl(Storage.rooms);
+        RegistrationModelRepository registrationModelRepository = new RegistrationModelRepositoryImpl(Storage.registrations);
+        ServiceModelRepository serviceModelRepository = new ServiceModelRepositoryImpl(Storage.services);
         guestModelService = new GuestModelServiceImpl(guestModelRepository, registrationModelRepository);
         roomModelService = new RoomModelServiceImpl(roomModelRepository, guestModelRepository, registrationModelRepository);
         registrationModelService = new RegistrationModelServiceImpl(registrationModelRepository);
@@ -56,10 +57,8 @@ public class Initializer {
     }
 
     private void fillDataObjects() {
-        this.serviceModels = importer.importServices();
-        this.roomModels = importer.importRooms();
-        this.guestModels = importer.importGuests();
-        this.registrationModels = importer.importRegistrations();
+        List<Object> data = dataService.loadData();
+        converter.convertDataToModel(data);
     }
 
     public GuestModelService getGuestModelService() {

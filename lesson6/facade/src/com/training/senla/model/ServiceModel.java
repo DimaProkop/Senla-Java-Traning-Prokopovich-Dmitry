@@ -2,13 +2,16 @@ package com.training.senla.model;
 
 import com.training.senla.enums.ServicesSection;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 
 /**
  * Created by prokop on 13.10.16.
  */
-public class ServiceModel extends BaseModel{
+public class ServiceModel extends BaseModel implements Serializable{
+    private static final long serialVersionUID = 1069546016452590380L;
+
     private String name;
     private double price;
     private ServicesSection section;

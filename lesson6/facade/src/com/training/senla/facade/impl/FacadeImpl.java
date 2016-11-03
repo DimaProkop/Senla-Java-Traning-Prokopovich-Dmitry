@@ -11,6 +11,8 @@ import com.training.senla.service.GuestModelService;
 import com.training.senla.service.RegistrationModelService;
 import com.training.senla.service.RoomModelService;
 import com.training.senla.service.ServiceModelService;
+import com.training.senla.util.converter.Converter;
+import com.training.senla.util.converter.impl.ConverterImpl;
 import com.training.senla.util.initializer.Initializer;
 import com.training.senla.util.io.exporter.Exporter;
 import com.training.senla.util.io.exporter.impl.ExporterImpl;
@@ -45,12 +47,11 @@ public class FacadeImpl implements Facade{
     }
 
     @Override
-    public void init(String path) {
+    public void init() {
         ClassSetting.init();
         this.importer = new ImporterImpl();
-        this.importer.loadData(path);
-        this.exporter = new ExporterImpl(path);
-        this.initializer = new Initializer(importer);
+        this.exporter = new ExporterImpl();
+        this.initializer = new Initializer();
         this.fillServicesFromInitializer();
     }
 
@@ -252,27 +253,27 @@ public class FacadeImpl implements Facade{
     }
 
     @Override
-    public void exportGuests(List<GuestModel> guests) {
-        exporter.exportGuests(this.guestModelService.getAll());
+    public void exportGuests() {
+        exporter.exportGuests();
     }
 
     @Override
-    public void exportRegistrations(List<RegistrationModel> registrations) {
-        exporter.exportRegistrations(this.registrationModelService.getAll());
+    public void exportRegistrations() {
+        exporter.exportRegistrations();
     }
 
     @Override
-    public void exportRooms(List<RoomModel> rooms) {
-        exporter.exportRooms(this.roomModelService.getAll());
+    public void exportRooms() {
+        exporter.exportRooms();
     }
 
     @Override
-    public void exportServices(List<ServiceModel> services) {
-        exporter.exportServices(this.serviceModelService.getAll());
+    public void exportServices() {
+        exporter.exportServices();
     }
 
     @Override
     public void exportAll() {
-        exporter.exportAll(this.getAllServices(), this.getAllRooms(), this.getAllGuests(), this.getAllRegistrations());
+        exporter.exportAll();
     }
 }
