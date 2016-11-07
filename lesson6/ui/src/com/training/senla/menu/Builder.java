@@ -3,6 +3,8 @@ package com.training.senla.menu;
 import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.menu.action.*;
 import com.training.senla.menu.action.guest.*;
+import com.training.senla.menu.action.io.exporter.*;
+import com.training.senla.menu.action.io.importer.*;
 import com.training.senla.menu.action.registration.AllRegistrationsAction;
 import com.training.senla.menu.action.room.*;
 import com.training.senla.menu.action.service.AllServicesAction;
@@ -24,11 +26,15 @@ public class Builder {
         Menu room = new Menu("ROOM");
         Menu service = new Menu("SERVICE");
         Menu registration = new Menu("REGISTRATION");
+        Menu io = new Menu("Import/Export");
+        Menu importer = new Menu("Import model");
+        Menu exporter = new Menu("Export model");
 
         main.addItem(new Item("____GUEST____", guest, new OptionAction()));
         main.addItem(new Item("____ROOM____", room, new OptionAction()));
         main.addItem(new Item("____SERVICE____", service, new OptionAction()));
         main.addItem(new Item("____REGISTRATION____", registration, new OptionAction()));
+        main.addItem(new Item("____I/E____", io, new OptionAction()));
         main.addItem(new Item("Exit", null, new OptionAction()));
 
         guest.addItem(new Item("Add new guest", guest, new NewGuestAction()));
@@ -59,6 +65,26 @@ public class Builder {
 
         registration.addItem(new Item("All registrations", registration, new AllRegistrationsAction()));
         registration.addItem(new Item("Previous", main, new OptionAction()));
+
+        io.addItem(new Item("__IMPORT__", importer, new OptionAction()));
+        io.addItem(new Item("__EXPORT__", exporter, new OptionAction()));
+        io.addItem(new Item("Previous", main, new OptionAction()));
+
+        importer.addItem(new Item("Import guests", importer, new ImportGuestsAction()));
+        importer.addItem(new Item("Import rooms", importer, new ImportRoomsAction()));
+        importer.addItem(new Item("Import services", importer, new ImportServicesAction()));
+        importer.addItem(new Item("Import registrations", importer, new ImportRegistrationsAction()));
+        importer.addItem(new Item("Import all", importer, new ImportAllAction()));
+        importer.addItem(new Item("Previous", io, new OptionAction()));
+
+        exporter.addItem(new Item("Export guests", exporter, new ExportGuestsAction()));
+        exporter.addItem(new Item("Export rooms", exporter, new ExportRoomsAction()));
+        exporter.addItem(new Item("Export services", exporter, new ExportServicesAction()));
+        exporter.addItem(new Item("Export registrations", exporter, new ExportRegistrationsAction()));
+        exporter.addItem(new Item("Export all", exporter, new ExportAllAction()));
+        exporter.addItem(new Item("Previous", io, new OptionAction()));
+
+
         return main;
     }
 }

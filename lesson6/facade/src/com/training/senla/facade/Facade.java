@@ -75,13 +75,15 @@ public interface Facade {
     List<RegistrationModel> getAllRegistrations();
 
     //imports
-    List<GuestModel> importGuests();
+    void importGuests();
 
-    List<RegistrationModel> importRegistrations();
+    void importRegistrations();
 
-    List<RoomModel> importRooms();
+    void importRooms();
 
-    List<ServiceModel> importServices();
+    void importServices();
+
+    void importAll();
 
     //exports
     void exportGuests();

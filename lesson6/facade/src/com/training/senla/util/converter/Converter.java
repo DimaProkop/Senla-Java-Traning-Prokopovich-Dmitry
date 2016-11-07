@@ -14,6 +14,22 @@ import java.util.Objects;
  */
 public interface Converter {
 
+    String convertGuestToString(GuestModel guestModel);
+
+    String convertRoomToString(RoomModel roomModel);
+
+    String convertServiceToString(ServiceModel serviceModel);
+
+    String convertRegistrationToString(RegistrationModel registrationModel);
+
+    GuestModel convertStringToGuest(String string, Map<Integer, RoomModel> roomsMap, Map<Integer, ServiceModel> servicesMap);
+
+    RoomModel convertStringToRoom(String string);
+
+    ServiceModel convertStringToService(String string);
+
+    RegistrationModel convertStringToRegistration(String string);
+
     List<Object> convertDataToObject();
 
     void convertDataToModel(List<Object> data);

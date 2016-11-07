@@ -11,13 +11,14 @@ import com.training.senla.service.GuestModelService;
 import com.training.senla.service.RegistrationModelService;
 import com.training.senla.service.RoomModelService;
 import com.training.senla.service.ServiceModelService;
-import com.training.senla.util.converter.Converter;
-import com.training.senla.util.converter.impl.ConverterImpl;
+import com.training.senla.storage.Storage;
 import com.training.senla.util.initializer.Initializer;
 import com.training.senla.util.io.exporter.Exporter;
 import com.training.senla.util.io.exporter.impl.ExporterImpl;
 import com.training.senla.util.io.importer.Importer;
 import com.training.senla.util.io.importer.impl.ImporterImpl;
+import com.training.senla.util.service.StreamService;
+import com.training.senla.util.service.impl.StreamServiceImpl;
 
 import java.util.Date;
 import java.util.List;
@@ -37,6 +38,8 @@ public class FacadeImpl implements Facade{
     private Importer importer;
     private Exporter exporter;
 
+    private StreamService streamService;
+
     private static Facade facade;
 
     public static Facade getInstance() {
@@ -49,8 +52,9 @@ public class FacadeImpl implements Facade{
     @Override
     public void init() {
         ClassSetting.init();
-        this.importer = new ImporterImpl();
-        this.exporter = new ExporterImpl();
+        this.streamService = new StreamServiceImpl();
+        this.importer = new ImporterImpl(streamService);
+        this.exporter = new ExporterImpl(streamService);
         this.initializer = new Initializer();
         this.fillServicesFromInitializer();
     }
@@ -221,35 +225,28 @@ public class FacadeImpl implements Facade{
     }
 
     @Override
-    public List<GuestModel> importGuests() {
-        if(this.importer == null) {
-            this.importer = new ImporterImpl();
-        }
-        return importer.importGuests();
+    public void importGuests() {
+        importer.importGuests();
     }
 
     @Override
-    public List<RegistrationModel> importRegistrations() {
-        if(this.importer == null) {
-            this.importer = new ImporterImpl();
-        }
-        return importer.importRegistrations();
+    public void importRegistrations() {
+        importer.importRegistrations();
     }
 
     @Override
-    public List<RoomModel> importRooms() {
-        if(this.importer == null) {
-            this.importer = new ImporterImpl();
-        }
-        return importer.importRooms();
+    public void importRooms() {
+        importer.importRooms();
     }
 
     @Override
-    public List<ServiceModel> importServices() {
-        if(this.importer == null) {
-            this.importer = new ImporterImpl();
-        }
-        return importer.importServices();
+    public void importServices() {
+        importer.importServices();
+    }
+
+    @Override
+    public void importAll() {
+        importer.importAll();
     }
 
     @Override
