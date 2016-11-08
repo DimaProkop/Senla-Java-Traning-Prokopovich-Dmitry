@@ -6,7 +6,11 @@ import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
+import com.training.senla.storage.Storage;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Date;
 
@@ -19,20 +23,5 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         FacadeImpl.getInstance().init();
-
-        GuestModel guestModel = new GuestModel("Dimka");
-        FacadeImpl.getInstance().addGuest(guestModel);
-        RoomModel roomModel = new RoomModel(22, 3, RoomsSection.LUKS, 4);
-        RoomModel room2 = new RoomModel(1111, 4, RoomsSection.IMPROVED, 5);
-        FacadeImpl.getInstance().addRoom(roomModel);
-        FacadeImpl.getInstance().addRoom(room2);
-        FacadeImpl.getInstance().registerGuest(guestModel, roomModel, new Date(2016, 6, 6), new Date(2017, 5, 5));
-
-        ServiceModel serviceModel = new ServiceModel("shower", 43, ServicesSection.MANDATORY, new Date(2016, 6, 6), new Date(2017, 5, 5));
-        FacadeImpl.getInstance().addService(serviceModel);
-
-        FacadeImpl.getInstance().exportAll();
-
-
     }
 }

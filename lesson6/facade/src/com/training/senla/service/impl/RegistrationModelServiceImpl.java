@@ -34,6 +34,15 @@ public class RegistrationModelServiceImpl implements RegistrationModelService{
     }
 
     @Override
+    public void update(RegistrationModel registrationModel) {
+        try {
+            registrationModelRepository.update(registrationModel);
+        } catch (Exception e) {
+            LOG.error(e.getMessage());
+        }
+    }
+
+    @Override
     public RegistrationModel getRegistration(int id) {
         RegistrationModel registration = null;
         try {

@@ -12,6 +12,8 @@ import java.util.List;
 public interface RegistrationModelService {
     void addRecord(RegistrationModel registrationModel);
 
+    void update(RegistrationModel registrationModel);
+
     RegistrationModel getRegistration(int id);
 
     List<RegistrationModel> getAll();

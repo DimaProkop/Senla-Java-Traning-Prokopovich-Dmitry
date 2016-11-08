@@ -10,4 +10,8 @@ public interface DataService {
     List<Object> loadData();
 
     void saveData(Object object);
+
+    List<?> loadEntity();
+
+    void saveEnitty(List<?> list);
 }

@@ -41,11 +41,22 @@ public class ClassSetting {
         return answer;
     }
 
-    public static String getPathToFile() {
+    public static String getPathToMainFile() {
         String answer = "";
         try {
             properties.load(stream);
-            answer = String.valueOf(properties.getProperty("path.to.file"));
+            answer = String.valueOf(properties.getProperty("path.to.main.file"));
+        } catch (IOException e) {
+            System.out.print("File not found");
+        }
+        return answer;
+    }
+
+    public static String getPathToEntityFile() {
+        String answer = "";
+        try {
+            properties.load(stream);
+            answer = String.valueOf(properties.getProperty("path.to.entity.file"));
         } catch (IOException e) {
             System.out.print("File not found");
         }

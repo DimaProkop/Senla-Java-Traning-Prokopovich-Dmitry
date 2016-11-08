@@ -58,6 +58,11 @@ public class RegistrationModelRepositoryImpl implements RegistrationModelReposit
     }
 
     @Override
+    public void update(RegistrationModel registrationModel) {
+        Storage.registrations.set(registrationModel.getId(), registrationModel);
+    }
+
+    @Override
     public RegistrationModel getRegistration(int id) {
         return Storage.registrations.get(getRegistrationIndexById(id));
     }

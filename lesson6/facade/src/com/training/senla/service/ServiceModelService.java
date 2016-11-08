@@ -12,7 +12,7 @@ import java.util.List;
  * Created by prokop on 13.10.16.
  */
 public interface ServiceModelService {
-    void setService(ServiceModel serviceModel);
+    void addService(ServiceModel serviceModel);
 
     ServiceModel getService(int id);
 

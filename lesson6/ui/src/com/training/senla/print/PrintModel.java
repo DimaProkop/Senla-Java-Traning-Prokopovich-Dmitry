@@ -5,12 +5,14 @@ import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
  * Created by prokop on 24.10.16.
  */
 public class PrintModel {
+    private static final SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
     public static void printGuest(GuestModel guest) {
         System.out.printf("id:    name:      room:\n");
@@ -32,7 +34,7 @@ public class PrintModel {
 
     public static void printService(ServiceModel service) {
         System.out.printf("id:    name:      price:      section:        startDate:      finalDate:\n");
-        System.out.printf("%d    %s      %f    %s      %s      %s\n", service.getId(), service.getName(), service.getPrice(), service.getSection().toString(), service.getStartDate().toString(), service.getFinalDate().toString());
+        System.out.printf("%d    %s      %f    %s      %s      %s\n", service.getId(), service.getName(), service.getPrice(), service.getSection().toString(), formatter.format(service.getStartDate()), formatter.format(service.getFinalDate()));
     }
 
     public static void printServices(List<ServiceModel> services) {
@@ -41,7 +43,7 @@ public class PrintModel {
 
     public static void printRegistration(RegistrationModel registration) {
         System.out.printf("id:   guestId:    roomId:    startDate:      finalDate:\n");
-        System.out.printf("%d   %d    %d    %s      %s\n", registration.getId(), registration.getGuestId(), registration.getRoomId(), registration.getStartDate().toString(), registration.getFinalDate().toString());
+        System.out.printf("%d   %d    %d    %s      %s\n", registration.getId(), registration.getGuestId(), registration.getRoomId(), formatter.format(registration.getStartDate()), formatter.format(registration.getFinalDate()));
     }
 
     public static void printRegistrations(List<RegistrationModel> registrations) {

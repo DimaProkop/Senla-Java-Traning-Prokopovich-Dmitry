@@ -22,7 +22,7 @@ public class DataServiceImpl implements DataService {
         FileInputStream fileInputStream = null;
         ObjectInputStream objectInputStream = null;
         try {
-            fileInputStream = new FileInputStream(ClassSetting.getPathToFile());
+            fileInputStream = new FileInputStream(ClassSetting.getPathToMainFile());
             objectInputStream = new ObjectInputStream(fileInputStream);
             try {
                 data = (List<Object>) objectInputStream.readObject();
@@ -43,7 +43,7 @@ public class DataServiceImpl implements DataService {
         ObjectOutputStream objectOutputStream = null;
 
         try {
-            fileOutputStream = new FileOutputStream(ClassSetting.getPathToFile());
+            fileOutputStream = new FileOutputStream(ClassSetting.getPathToMainFile());
             objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(object);
 
@@ -52,5 +52,15 @@ public class DataServiceImpl implements DataService {
         }catch (IOException e) {
             LOG.error(e);
         }
+    }
+
+    @Override
+    public List<?> loadEntity() {
+        return null;
+    }
+
+    @Override
+    public void saveEnitty(List<?> list) {
+
     }
 }
