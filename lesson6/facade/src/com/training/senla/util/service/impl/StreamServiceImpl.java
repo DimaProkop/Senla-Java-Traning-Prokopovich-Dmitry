@@ -46,28 +46,20 @@ public class StreamServiceImpl implements StreamService {
     @Override
     public String[] readModel() {
         String[] values = new String[0];
-        try {
-            fileReader = new BufferedReader(new FileReader(path));
-            try {
-                if(fileReader.read() == -1) {
-                    values = null;
-                }else {
-                    values = new String[fileReader.read()];
-                    for (int i = 0; i < values.length; i++) {
-                        values[i] = fileReader.readLine();
+        try (BufferedReader br = new BufferedReader(new FileReader(path))){
+            if(br.read() == -1) {
+                values = null;
+            }else {
+                values = new String[br.read()];
+                String line = "";
+                for (int i = 0; i < values.length; i++) {
+                    if((line = br.readLine()) != null) {
+                        values[i] = line;
                     }
                 }
-            } catch (IOException e) {
-                LOG.error(e.getMessage());
             }
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             LOG.error(e.getMessage());
-        }finally {
-            try {
-                fileReader.close();
-            } catch (IOException e) {
-                LOG.error(e.getMessage());
-            }
         }
         return values;
     }

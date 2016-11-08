@@ -27,7 +27,7 @@ public class ServiceModelServiceImpl implements ServiceModelService {
     }
 
     @Override
-    public void setService(ServiceModel serviceModel) {
+    public void addService(ServiceModel serviceModel) {
         try {
             serviceModelRepository.setService(serviceModel);
         } catch (Exception e) {

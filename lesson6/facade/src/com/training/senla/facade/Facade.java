@@ -18,6 +18,8 @@ public interface Facade {
 
     void addGuest(GuestModel guest);
 
+    void updateGuest(GuestModel guest);
+
     RoomModel getRoom(int id);
 
     void addRoom(RoomModel room);
@@ -26,7 +28,11 @@ public interface Facade {
 
     ServiceModel getService(int id);
 
+    void updateService(ServiceModel service);
+
     void addService(ServiceModel service);
+
+    void updateRegistration(RegistrationModel registration);
 
     List<GuestModel> getAllGuests();
 

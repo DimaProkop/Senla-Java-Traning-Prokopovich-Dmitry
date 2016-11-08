@@ -37,7 +37,7 @@ public class RoomModelServiceImpl implements RoomModelService {
     }
 
     @Override
-    public void setRoom(RoomModel roomModel) {
+    public void addRoom(RoomModel roomModel) {
         try {
             roomModelRepository.setRoom(roomModel);
         } catch (Exception e) {

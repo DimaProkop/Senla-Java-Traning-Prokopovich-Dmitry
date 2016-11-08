@@ -3,6 +3,7 @@ package com.training.senla.util.converter.impl;
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
 import com.training.senla.enums.ServicesSection;
+import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
@@ -33,7 +34,7 @@ public class ConverterImpl implements Converter{
     @Override
     public String convertGuestToString(GuestModel guestModel) {
         StringBuilder builder = new StringBuilder();
-        builder.append("GG");
+        builder.append("G");
         builder.append(String.valueOf(guestModel.getId()));
         builder.append(SEPARATOR);
         builder.append(String.valueOf(guestModel.getName()));
@@ -60,7 +61,7 @@ public class ConverterImpl implements Converter{
     @Override
     public String convertRoomToString(RoomModel roomModel) {
         StringBuilder builder = new StringBuilder();
-        builder.append("RR");
+        builder.append("R");
         builder.append(String.valueOf(roomModel.getId()));
         builder.append(SEPARATOR);
         builder.append(String.valueOf(roomModel.getPrice()));
@@ -79,7 +80,7 @@ public class ConverterImpl implements Converter{
     @Override
     public String convertServiceToString(ServiceModel serviceModel) {
         StringBuilder builder = new StringBuilder();
-        builder.append("SS");
+        builder.append("S");
         builder.append(String.valueOf(serviceModel.getId()));
         builder.append(SEPARATOR);
         builder.append(String.valueOf(serviceModel.getName()));
@@ -98,7 +99,7 @@ public class ConverterImpl implements Converter{
     @Override
     public String convertRegistrationToString(RegistrationModel registrationModel) {
         StringBuilder builder = new StringBuilder();
-        builder.append("TT");
+        builder.append("T");
         builder.append(String.valueOf(registrationModel.getId()));
         builder.append(SEPARATOR);
         builder.append(String.valueOf(registrationModel.getGuestId()));
@@ -118,7 +119,8 @@ public class ConverterImpl implements Converter{
     public GuestModel convertStringToGuest(String string, Map<Integer, RoomModel> roomsMap, Map<Integer, ServiceModel> servicesMap) {
         GuestModel guestModel = new GuestModel();
         String[] params = string.split(SEPARATOR);
-        guestModel.setId(Integer.parseInt(params[0].replace("[", "").replace("]", "").replace(", ", "").replace("G", "")));
+        int id = Integer.parseInt(params[0].replace("[", "").replace("]", "").replace(", ", "").replace("G", ""));
+        guestModel.setId(id);
         guestModel.setName(params[1]);
         if(" ".equals(params[2])) {
             guestModel.setRoomModel(null);

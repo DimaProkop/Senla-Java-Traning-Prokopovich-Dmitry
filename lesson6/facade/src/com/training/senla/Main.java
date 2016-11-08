@@ -6,6 +6,7 @@ import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
+import com.training.senla.storage.Storage;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

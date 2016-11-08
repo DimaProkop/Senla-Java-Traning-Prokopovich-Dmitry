@@ -13,7 +13,7 @@ import java.util.List;
  * Created by prokop on 13.10.16.
  */
 public interface RoomModelService {
-    void setRoom(RoomModel roomModel);
+    void addRoom(RoomModel roomModel);
 
     RoomModel getRoom(int id);
 

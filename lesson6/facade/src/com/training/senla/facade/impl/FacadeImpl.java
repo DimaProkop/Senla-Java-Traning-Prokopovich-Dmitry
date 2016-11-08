@@ -53,10 +53,11 @@ public class FacadeImpl implements Facade{
     public void init() {
         ClassSetting.init();
         this.streamService = new StreamServiceImpl();
-        this.importer = new ImporterImpl(streamService);
-        this.exporter = new ExporterImpl(streamService);
         this.initializer = new Initializer();
         this.fillServicesFromInitializer();
+        int i = Storage.guests.size();
+        this.importer = new ImporterImpl();
+        this.exporter = new ExporterImpl(streamService);
     }
 
     private void fillServicesFromInitializer() {
@@ -73,7 +74,12 @@ public class FacadeImpl implements Facade{
 
     @Override
     public void addGuest(GuestModel guest) {
-        guestModelService.setGuest(guest);
+        guestModelService.addGuest(guest);
+    }
+
+    @Override
+    public void updateGuest(GuestModel guest) {
+        guestModelService.update(guest);
     }
 
     @Override
@@ -83,7 +89,7 @@ public class FacadeImpl implements Facade{
 
     @Override
     public void addRoom(RoomModel room) {
-        roomModelService.setRoom(room);
+        roomModelService.addRoom(room);
     }
 
     @Override
@@ -97,8 +103,18 @@ public class FacadeImpl implements Facade{
     }
 
     @Override
+    public void updateService(ServiceModel service) {
+        serviceModelService.update(service);
+    }
+
+    @Override
     public void addService(ServiceModel service) {
-        serviceModelService.setService(service);
+        serviceModelService.addService(service);
+    }
+
+    @Override
+    public void updateRegistration(RegistrationModel registration) {
+        registrationModelService.update(registration);
     }
 
     @Override
@@ -226,22 +242,22 @@ public class FacadeImpl implements Facade{
 
     @Override
     public void importGuests() {
-        importer.importGuests();
+        importer.importModel("G");
     }
 
     @Override
     public void importRegistrations() {
-        importer.importRegistrations();
+        importer.importModel("T");
     }
 
     @Override
     public void importRooms() {
-        importer.importRooms();
+        importer.importModel("R");
     }
 
     @Override
     public void importServices() {
-        importer.importServices();
+        importer.importModel("S");
     }
 
     @Override

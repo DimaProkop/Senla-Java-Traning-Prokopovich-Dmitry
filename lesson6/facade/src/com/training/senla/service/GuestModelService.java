@@ -10,7 +10,7 @@ import java.util.List;
  * Created by prokop on 13.10.16.
  */
 public interface GuestModelService {
-    void setGuest(GuestModel guestModel);
+    void addGuest(GuestModel guestModel);
 
     GuestModel getGuest(int id);
 

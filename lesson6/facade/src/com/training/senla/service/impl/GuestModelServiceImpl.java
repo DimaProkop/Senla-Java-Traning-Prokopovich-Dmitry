@@ -32,7 +32,7 @@ public class GuestModelServiceImpl implements GuestModelService {
     }
 
     @Override
-    public void setGuest(GuestModel guestModel) {
+    public void addGuest(GuestModel guestModel) {
         try {
             guestModelRepository.setGuest(guestModel);
         } catch (Exception e) {

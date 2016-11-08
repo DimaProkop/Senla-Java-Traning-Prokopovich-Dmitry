@@ -3,3 +3,37 @@
 2016-10-27 01:48:11,582 [main] INFO  (GuestModel.java:80) - Service not found 
 2016-11-03 05:37:55,571 [main] ERROR (DataServiceImpl.java:35) - java.io.EOFException 
 2016-11-03 05:37:55,575 [main] ERROR (ConverterImpl.java:43) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2016-11-08 00:33:15,835 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 00:33:15,852 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:28:35,071 [main] ERROR (GuestModelServiceImpl.java:49) - -1 
+2016-11-08 02:30:47,458 [main] ERROR (GuestModelServiceImpl.java:49) - -1 
+2016-11-08 02:32:32,135 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:32:32,140 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:35:40,982 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:35:40,995 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:36:18,690 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:36:18,696 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:36:39,634 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:36:39,639 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:37:29,343 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:37:29,357 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:38:12,806 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:38:12,811 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:38:19,150 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:38:19,155 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:38:54,129 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:38:54,139 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:48:18,296 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:48:18,304 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:50:00,845 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:50:00,853 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:51:28,986 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:51:28,996 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:51:44,950 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:51:44,959 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:53:11,186 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:53:11,199 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:53:28,555 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:53:28,559 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:53:54,742 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:53:54,751 [main] INFO  (RoomModel.java:95) - Is full 
