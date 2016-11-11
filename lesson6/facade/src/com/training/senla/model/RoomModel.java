@@ -15,6 +15,7 @@ import java.util.List;
 public class RoomModel extends BaseModel implements Cloneable, Serializable{
     private static final Logger LOG = LogManager.getLogger(GuestModel.class);
     private static final long serialVersionUID = 3950254982747535717L;
+    public static final String ENTITY_TOKEN = "R";
 
     private double price;
     private int capacity;
@@ -87,15 +88,19 @@ public class RoomModel extends BaseModel implements Cloneable, Serializable{
         if(guests == null) {
             guests = new ArrayList<>();
         }
-        try {
-            if(guests.size()<capacity){
-                setStatus(guests.size()+1==capacity ? RoomStatus.BUSY : RoomStatus.FREE);
-                guests.add(guestModel);
-            }else {
-                LOG.info("Is full");
+        if(guests.contains(guestModel)) {
+            LOG.info("Guest already settled");
+        }else {
+            try {
+                if (guests.size() < capacity) {
+                    setStatus(guests.size() + 1 == capacity ? RoomStatus.BUSY : RoomStatus.FREE);
+                    guests.add(guestModel);
+                } else {
+                    LOG.info("Is full");
+                }
+            } catch (Exception e) {
+                LOG.error(e);
             }
-        } catch (Exception e) {
-            LOG.error(e);
         }
 
     }

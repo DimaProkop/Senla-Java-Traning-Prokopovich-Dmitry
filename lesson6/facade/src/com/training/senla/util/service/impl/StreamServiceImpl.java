@@ -1,6 +1,7 @@
 package com.training.senla.util.service.impl;
 
 import com.training.senla.ClassSetting;
+import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.util.service.StreamService;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -14,9 +15,8 @@ public class StreamServiceImpl implements StreamService {
     private static final Logger LOG = LogManager.getLogger(StreamServiceImpl.class);
 
     private static final String NEW_LINE_SEPARATOR = "\n";
-    private static final String path = ClassSetting.getPathToEntityFile();
+    private static final String path = FacadeImpl.getInstance().getProperty("path.to.entity.file");
     private FileWriter fileWriter;
-    private BufferedReader fileReader;
 
 
     public StreamServiceImpl() {
@@ -41,26 +41,5 @@ public class StreamServiceImpl implements StreamService {
                 LOG.error(e.getMessage());
             }
         }
-    }
-
-    @Override
-    public String[] readModel() {
-        String[] values = new String[0];
-        try (BufferedReader br = new BufferedReader(new FileReader(path))){
-            if(br.read() == -1) {
-                values = null;
-            }else {
-                values = new String[br.read()];
-                String line = "";
-                for (int i = 0; i < values.length; i++) {
-                    if((line = br.readLine()) != null) {
-                        values[i] = line;
-                    }
-                }
-            }
-        } catch (IOException e) {
-            LOG.error(e.getMessage());
-        }
-        return values;
     }
 }

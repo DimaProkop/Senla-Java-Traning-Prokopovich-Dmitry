@@ -14,6 +14,7 @@ public class GuestModel extends BaseModel implements Serializable{
 
     private static final Logger LOG = LogManager.getLogger(GuestModel.class);
     private static final long serialVersionUID = -4477116269261501412L;
+    public static final String ENTITY_TOKEN = "G";
 
     private String name;
     private RoomModel roomModel;

@@ -10,6 +10,7 @@ import java.util.List;
  */
 public class RegistrationModel extends BaseModel implements Serializable{
     private static final long serialVersionUID = -7389885297471547150L;
+    public static final String ENTITY_TOKEN = "T";
 
     private int guestId;
     private int roomId;

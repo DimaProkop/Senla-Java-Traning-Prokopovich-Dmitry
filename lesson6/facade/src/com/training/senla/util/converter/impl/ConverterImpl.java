@@ -3,12 +3,10 @@ package com.training.senla.util.converter.impl;
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
 import com.training.senla.enums.ServicesSection;
-import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
-import com.training.senla.storage.Storage;
 import com.training.senla.util.converter.Converter;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -191,26 +189,5 @@ public class ConverterImpl implements Converter{
             serviceModels.add(servicesMap.get(Integer.parseInt(id)));
         }
         return serviceModels;
-    }
-    @Override
-    public List<Object> convertDataToObject() {
-        List<Object> data = new ArrayList<>();
-        data.add(Storage.guests);
-        data.add(Storage.rooms);
-        data.add(Storage.services);
-        data.add(Storage.registrations);
-        return data;
-    }
-
-    @Override
-    public void convertDataToModel(List<Object> data) {
-        try {
-            Storage.guests = (List<GuestModel>) data.get(0);
-            Storage.rooms = (List<RoomModel>) data.get(1);
-            Storage.services = (List<ServiceModel>) data.get(2);
-            Storage.registrations = (List<RegistrationModel>) data.get(3);
-        }catch (Exception e) {
-            LOG.error(e);
-        }
     }
 }
