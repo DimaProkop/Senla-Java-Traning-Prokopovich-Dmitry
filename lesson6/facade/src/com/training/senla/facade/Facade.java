@@ -14,6 +14,8 @@ import java.util.List;
 public interface Facade {
     void init();
 
+    String getProperty(String value);
+
     GuestModel getGuest(int id);
 
     void addGuest(GuestModel guest);
@@ -88,8 +90,6 @@ public interface Facade {
     void importRooms();
 
     void importServices();
-
-    void importAll();
 
     //exports
     void exportGuests();

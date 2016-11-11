@@ -11,6 +11,7 @@ import java.util.Date;
  */
 public class ServiceModel extends BaseModel implements Serializable{
     private static final long serialVersionUID = 1069546016452590380L;
+    public static final String ENTITY_TOKEN = "S";
 
     private String name;
     private double price;

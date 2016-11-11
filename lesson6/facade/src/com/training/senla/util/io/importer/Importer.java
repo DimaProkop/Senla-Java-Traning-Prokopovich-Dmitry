@@ -1,10 +1,21 @@
 package com.training.senla.util.io.importer;
 
+import com.training.senla.model.GuestModel;
+import com.training.senla.model.RegistrationModel;
+import com.training.senla.model.RoomModel;
+import com.training.senla.model.ServiceModel;
+
+import java.util.List;
+
 /**
  * Created by prokop on 16.10.16.
  */
 public interface Importer {
-    void importModel(String token);
+    void importGuests(List<GuestModel> guests);
 
-    void importAll();
+    void importRooms(List<RoomModel> rooms);
+
+    void importRegistrations(List<RegistrationModel> registrations);
+
+    void importServices(List<ServiceModel> services);
 }

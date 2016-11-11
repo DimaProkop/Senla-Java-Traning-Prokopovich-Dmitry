@@ -5,5 +5,4 @@ package com.training.senla.util.service;
  */
 public interface StreamService {
     void writeModel(String[] values);
-    String[] readModel();
 }

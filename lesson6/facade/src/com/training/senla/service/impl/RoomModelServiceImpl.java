@@ -9,11 +9,9 @@ import com.training.senla.repository.GuestModelRepository;
 import com.training.senla.repository.RegistrationModelRepository;
 import com.training.senla.repository.RoomModelRepository;
 import com.training.senla.service.RoomModelService;
-import com.training.senla.storage.Storage;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -39,7 +37,7 @@ public class RoomModelServiceImpl implements RoomModelService {
     @Override
     public void addRoom(RoomModel roomModel) {
         try {
-            roomModelRepository.setRoom(roomModel);
+            roomModelRepository.addRoom(roomModel);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -89,6 +87,8 @@ public class RoomModelServiceImpl implements RoomModelService {
     public void evictGuest(GuestModel guestModel) {
         try {
             guestModelRepository.delete(guestModel);
+            guestModel.getRoomModel().removeGuest(guestModel);
+            this.roomModelRepository.update(guestModel.getRoomModel());
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }

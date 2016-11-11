@@ -11,13 +11,13 @@ import java.util.List;
  * Created by prokop on 16.10.16.
  */
 public interface Exporter {
-    void exportGuests();
+    void exportGuests(List<GuestModel> guests);
 
-    void exportRegistrations();
+    void exportRegistrations(List<RegistrationModel> registrations);
 
-    void exportRooms();
+    void exportRooms(List<RoomModel> rooms);
 
-    void exportServices();
+    void exportServices(List<ServiceModel> services);
 
-    void exportAll();
+    void exportAll(List<GuestModel> guests, List<RegistrationModel> registrations, List<RoomModel> rooms, List<ServiceModel> services);
 }

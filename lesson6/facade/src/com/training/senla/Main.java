@@ -1,18 +1,10 @@
 package com.training.senla;
 
-import com.training.senla.enums.RoomsSection;
-import com.training.senla.enums.ServicesSection;
 import com.training.senla.facade.impl.FacadeImpl;
-import com.training.senla.model.GuestModel;
-import com.training.senla.model.RoomModel;
-import com.training.senla.model.ServiceModel;
-import com.training.senla.storage.Storage;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Date;
+import java.io.ObjectOutputStream;
 
 /**
  * Created by prokop on 12.10.16.

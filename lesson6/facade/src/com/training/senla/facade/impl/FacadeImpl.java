@@ -11,7 +11,6 @@ import com.training.senla.service.GuestModelService;
 import com.training.senla.service.RegistrationModelService;
 import com.training.senla.service.RoomModelService;
 import com.training.senla.service.ServiceModelService;
-import com.training.senla.storage.Storage;
 import com.training.senla.util.initializer.Initializer;
 import com.training.senla.util.io.exporter.Exporter;
 import com.training.senla.util.io.exporter.impl.ExporterImpl;
@@ -22,6 +21,7 @@ import com.training.senla.util.service.impl.StreamServiceImpl;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by prokop on 13.10.16.
@@ -39,6 +39,7 @@ public class FacadeImpl implements Facade{
     private Exporter exporter;
 
     private StreamService streamService;
+    private ClassSetting setting;
 
     private static Facade facade;
 
@@ -51,13 +52,18 @@ public class FacadeImpl implements Facade{
 
     @Override
     public void init() {
-        ClassSetting.init();
+        this.setting = new ClassSetting();
         this.streamService = new StreamServiceImpl();
         this.initializer = new Initializer();
         this.fillServicesFromInitializer();
-        int i = Storage.guests.size();
-        this.importer = new ImporterImpl();
+        this.importer = new ImporterImpl(this.serviceModelService.getAll(), this.roomModelService.getAll());
         this.exporter = new ExporterImpl(streamService);
+    }
+
+    @Override
+    public String getProperty(String value) {
+        Map<String, String> props = this.setting.getPropsHolder();
+        return props.get(value);
     }
 
     private void fillServicesFromInitializer() {
@@ -222,7 +228,8 @@ public class FacadeImpl implements Facade{
 
     @Override
     public boolean changeRoomStatus(RoomModel roomModel) {
-        if(ClassSetting.setupRoomStatus()) {
+        boolean isBlock = Boolean.parseBoolean(this.getProperty("block.status"));
+        if(isBlock) {
             roomModel.setStatus(RoomStatus.MAINTAINED);
             roomModelService.update(roomModel);
             return true;
@@ -242,51 +249,46 @@ public class FacadeImpl implements Facade{
 
     @Override
     public void importGuests() {
-        importer.importModel("G");
+        importer.importGuests(this.guestModelService.getAll());
     }
 
     @Override
     public void importRegistrations() {
-        importer.importModel("T");
+        importer.importRegistrations(this.registrationModelService.getAll());
     }
 
     @Override
     public void importRooms() {
-        importer.importModel("R");
+        importer.importRooms(this.roomModelService.getAll());
     }
 
     @Override
     public void importServices() {
-        importer.importModel("S");
-    }
-
-    @Override
-    public void importAll() {
-        importer.importAll();
+        importer.importServices(this.serviceModelService.getAll());
     }
 
     @Override
     public void exportGuests() {
-        exporter.exportGuests();
+        exporter.exportGuests(this.guestModelService.getAll());
     }
 
     @Override
     public void exportRegistrations() {
-        exporter.exportRegistrations();
+        exporter.exportRegistrations(this.registrationModelService.getAll());
     }
 
     @Override
     public void exportRooms() {
-        exporter.exportRooms();
+        exporter.exportRooms(this.roomModelService.getAll());
     }
 
     @Override
     public void exportServices() {
-        exporter.exportServices();
+        exporter.exportServices(this.serviceModelService.getAll());
     }
 
     @Override
     public void exportAll() {
-        exporter.exportAll();
+        exporter.exportAll(this.getAllGuests(), this.getAllRegistrations(), this.getAllRooms(), this.getAllServices());
     }
 }

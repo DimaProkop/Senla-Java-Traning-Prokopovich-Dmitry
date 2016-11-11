@@ -1,6 +1,9 @@
 package com.training.senla.util.io.exporter.impl;
 
-import com.training.senla.storage.Storage;
+import com.training.senla.model.GuestModel;
+import com.training.senla.model.RegistrationModel;
+import com.training.senla.model.RoomModel;
+import com.training.senla.model.ServiceModel;
 import com.training.senla.util.converter.Converter;
 import com.training.senla.util.converter.impl.ConverterImpl;
 import com.training.senla.util.io.exporter.Exporter;
@@ -8,6 +11,7 @@ import com.training.senla.util.service.DataService;
 import com.training.senla.util.service.StreamService;
 import com.training.senla.util.service.impl.DataServiceImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,44 +30,48 @@ public class ExporterImpl implements Exporter {
     }
 
     @Override
-    public void exportGuests() {
-        String[] values = new String[Storage.guests.size()];
+    public void exportGuests(List<GuestModel> guests) {
+        String[] values = new String[guests.size()];
         for (int i = 0; i < values.length; i++) {
-            values[i] = converter.convertGuestToString(Storage.guests.get(i));
+            values[i] = converter.convertGuestToString(guests.get(i));
         }
         streamService.writeModel(values);
     }
 
     @Override
-    public void exportRegistrations() {
-        String[] values = new String[Storage.registrations.size()];
+    public void exportRegistrations(List<RegistrationModel> registrations) {
+        String[] values = new String[registrations.size()];
         for (int i = 0; i < values.length; i++) {
-            values[i] = converter.convertRegistrationToString(Storage.registrations.get(i));
+            values[i] = converter.convertRegistrationToString(registrations.get(i));
         }
         streamService.writeModel(values);
     }
 
     @Override
-    public void exportRooms() {
-        String[] values = new String[Storage.rooms.size()];
+    public void exportRooms(List<RoomModel> rooms) {
+        String[] values = new String[rooms.size()];
         for (int i = 0; i < values.length; i++) {
-            values[i] = converter.convertRoomToString(Storage.rooms.get(i));
+            values[i] = converter.convertRoomToString(rooms.get(i));
         }
         streamService.writeModel(values);
     }
 
     @Override
-    public void exportServices() {
-        String[] values = new String[Storage.services.size()];
+    public void exportServices(List<ServiceModel> services) {
+        String[] values = new String[services.size()];
         for (int i = 0; i < values.length; i++) {
-            values[i] = converter.convertServiceToString(Storage.services.get(i));
+            values[i] = converter.convertServiceToString(services.get(i));
         }
         streamService.writeModel(values);
     }
 
     @Override
-    public void exportAll() {
-        List<Object> data = converter.convertDataToObject();
+    public void exportAll(List<GuestModel> guests, List<RegistrationModel> registrations, List<RoomModel> rooms, List<ServiceModel> services) {
+        List<Object> data = new ArrayList<>();
+        data.add(guests);
+        data.add(rooms);
+        data.add(services);
+        data.add(registrations);
         dataService.saveData(data);
     }
 }

@@ -1,5 +1,5 @@
 package com.training.senla;
-import java.util.Properties;
+import java.util.*;
 import java.io.*;
 
 /**
@@ -7,59 +7,35 @@ import java.io.*;
  */
 public class ClassSetting {
 
-    private static String PATH_TO_CONFIG = "/home/prokop/Senla-Java-Traning-Prokopovich-Dmitry/lesson6/property/resource/config.properties";
-    private static FileInputStream stream = null;
-    private static Properties properties = new Properties();
+    private final String PATH_TO_CONFIG = "/home/dmitry/Senla-Java-Traning-Prokopovich-Dmitry/lesson6/property/resource/config.properties";
+    private Map<String, String> propsHolder = null;
 
-    public static void init() {
-        try {
-            stream = new FileInputStream(PATH_TO_CONFIG);
+    public ClassSetting() {
+        this.propsHolder = new HashMap<>();
+        this.init();
+    }
+
+    private void init() {
+        Properties properties = new Properties();
+        try (FileInputStream stream = new FileInputStream(this.PATH_TO_CONFIG)){
+            properties.load(stream);
+            for (Object obj : properties.keySet()) {
+                String key = String.valueOf(obj);
+                this.propsHolder.put(key, properties.getProperty(key));
+            }
+
         } catch (FileNotFoundException e) {
             System.out.print("File not found");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    public static boolean setupRoomStatus() {
-        boolean answer = true;
-        try {
-            properties.load(stream);
-            answer = Boolean.parseBoolean(properties.getProperty("block.change.status"));
-        } catch (IOException e) {
-            System.out.print("File not found");
-        }
-        return answer;
+    public Map<String, String> getPropsHolder() {
+        return propsHolder;
     }
 
-    public static int setupRecordsRooms() {
-        int answer = 100;
-        try {
-            properties.load(stream);
-            answer = Integer.parseInt(properties.getProperty("count.registrations"));
-        } catch (IOException e) {
-            System.out.print("File not found");
-        }
-        return answer;
-    }
-
-    public static String getPathToMainFile() {
-        String answer = "";
-        try {
-            properties.load(stream);
-            answer = String.valueOf(properties.getProperty("path.to.main.file"));
-        } catch (IOException e) {
-            System.out.print("File not found");
-        }
-        return answer;
-    }
-
-    public static String getPathToEntityFile() {
-        String answer = "";
-        try {
-            properties.load(stream);
-            answer = String.valueOf(properties.getProperty("path.to.entity.file"));
-        } catch (IOException e) {
-            System.out.print("File not found");
-        }
-        return answer;
+    public void setPropsHolder(Map<String, String> propsHolder) {
+        this.propsHolder = propsHolder;
     }
 }

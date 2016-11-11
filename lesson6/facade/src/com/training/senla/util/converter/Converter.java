@@ -29,8 +29,4 @@ public interface Converter {
     ServiceModel convertStringToService(String string);
 
     RegistrationModel convertStringToRegistration(String string);
-
-    List<Object> convertDataToObject();
-
-    void convertDataToModel(List<Object> data);
 }
