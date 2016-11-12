@@ -8,12 +8,11 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Created by dmitry on 12.11.16.
+ * Created by dmitry on 13.11.16.
  */
-@Target(value=ElementType.FIELD)
+@Target(value= ElementType.FIELD)
 @Retention(value= RetentionPolicy.RUNTIME)
-@interface CsvProperty {
+public @interface CsvPropertyLink {
     PropertyType propertyType();
-    int columnNumber();
-    boolean escape();
+    String keyField();
 }

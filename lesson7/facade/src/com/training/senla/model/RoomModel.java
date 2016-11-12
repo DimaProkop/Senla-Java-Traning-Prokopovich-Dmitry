@@ -1,5 +1,9 @@
 package com.training.senla.model;
 
+import com.training.senla.annotation.CsvEntity;
+import com.training.senla.annotation.CsvProperty;
+import com.training.senla.annotation.CsvPropertyLink;
+import com.training.senla.enums.PropertyType;
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
 import org.apache.log4j.LogManager;
@@ -12,16 +16,27 @@ import java.util.List;
 /**
  * Created by prokop on 13.10.16.
  */
+@CsvEntity(filename = "room.csv", valuesSeparator = ";", entityId = "id")
 public class RoomModel extends BaseModel implements Cloneable, Serializable{
     private static final Logger LOG = LogManager.getLogger(GuestModel.class);
     private static final long serialVersionUID = 3950254982747535717L;
-    public static final String ENTITY_TOKEN = "R";
 
+    @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 1, escape = true)
     private double price;
+
+    @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 1, escape = true)
     private int capacity;
+
+    @CsvPropertyLink(propertyType = PropertyType.CompositeProperty, keyField = "id")
     private RoomStatus status;
+
+    @CsvPropertyLink(propertyType = PropertyType.CompositeProperty, keyField = "id")
     private RoomsSection section;
+
+    @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 1, escape = true)
     private int rating;
+
+    @CsvPropertyLink(propertyType = PropertyType.CompositeProperty, keyField = "id")
     private List<GuestModel> guests;
 
     public RoomModel() {

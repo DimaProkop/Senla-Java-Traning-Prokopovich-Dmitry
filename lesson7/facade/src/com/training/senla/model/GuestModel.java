@@ -1,5 +1,9 @@
 package com.training.senla.model;
 
+import com.training.senla.annotation.CsvEntity;
+import com.training.senla.annotation.CsvProperty;
+import com.training.senla.annotation.CsvPropertyLink;
+import com.training.senla.enums.PropertyType;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -10,14 +14,19 @@ import java.util.List;
 /**
  * Created by prokop on 13.10.16.
  */
+@CsvEntity(filename = "guest.csv", valuesSeparator = ";", entityId = "id")
 public class GuestModel extends BaseModel implements Serializable{
 
     private static final Logger LOG = LogManager.getLogger(GuestModel.class);
     private static final long serialVersionUID = -4477116269261501412L;
-    public static final String ENTITY_TOKEN = "G";
 
+    @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 2, escape = true)
     private String name;
+
+    @CsvPropertyLink(propertyType = PropertyType.CompositeProperty, keyField = "id")
     private RoomModel roomModel;
+
+    @CsvPropertyLink(propertyType = PropertyType.CompositeProperty, keyField = "id")
     private List<ServiceModel> serviceModelList;
 
     public GuestModel() {
