@@ -16,6 +16,8 @@ public interface Facade {
 
     String getProperty(String value);
 
+    void writeModel(List<Object> objects, String fileName, String separator, int countFields);
+
     GuestModel getGuest(int id);
 
     void addGuest(GuestModel guest);

@@ -1,5 +1,6 @@
 package com.training.senla.util.io.exporter.impl;
 
+import com.training.senla.manager.EntityManager;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
@@ -19,50 +20,32 @@ import java.util.List;
  */
 public class ExporterImpl implements Exporter {
 
-    private Converter converter;
     private DataService dataService;
-    private StreamService streamService;
+    private EntityManager entityManager;
 
-    public ExporterImpl(StreamService streamService) {
-        this.converter = new ConverterImpl();
-        this.streamService = streamService;
+    public ExporterImpl() {
         this.dataService = new DataServiceImpl();
+        this.entityManager = new EntityManager();
     }
 
     @Override
     public void exportGuests(List<GuestModel> guests) {
-        String[] values = new String[guests.size()];
-        for (int i = 0; i < values.length; i++) {
-            values[i] = converter.convertGuestToString(guests.get(i));
-        }
-        streamService.writeModel(values);
+        entityManager.analyzeData(guests, GuestModel.class);
     }
 
     @Override
     public void exportRegistrations(List<RegistrationModel> registrations) {
-        String[] values = new String[registrations.size()];
-        for (int i = 0; i < values.length; i++) {
-            values[i] = converter.convertRegistrationToString(registrations.get(i));
-        }
-        streamService.writeModel(values);
+        entityManager.analyzeData(registrations, RegistrationModel.class);
     }
 
     @Override
     public void exportRooms(List<RoomModel> rooms) {
-        String[] values = new String[rooms.size()];
-        for (int i = 0; i < values.length; i++) {
-            values[i] = converter.convertRoomToString(rooms.get(i));
-        }
-        streamService.writeModel(values);
+        entityManager.analyzeData(rooms, RoomModel.class);
     }
 
     @Override
     public void exportServices(List<ServiceModel> services) {
-        String[] values = new String[services.size()];
-        for (int i = 0; i < values.length; i++) {
-            values[i] = converter.convertServiceToString(services.get(i));
-        }
-        streamService.writeModel(values);
+        entityManager.analyzeData(services, ServiceModel.class);
     }
 
     @Override

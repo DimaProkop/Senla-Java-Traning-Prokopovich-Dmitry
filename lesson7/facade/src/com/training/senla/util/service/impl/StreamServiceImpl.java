@@ -7,6 +7,8 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.io.*;
+import java.lang.reflect.Field;
+import java.util.List;
 
 /**
  * Created by prokop on 7.11.16.
@@ -15,7 +17,6 @@ public class StreamServiceImpl implements StreamService {
     private static final Logger LOG = LogManager.getLogger(StreamServiceImpl.class);
 
     private static final String NEW_LINE_SEPARATOR = "\n";
-    private static final String path = FacadeImpl.getInstance().getProperty("path.to.entity.file");
     private FileWriter fileWriter;
 
 
@@ -24,12 +25,28 @@ public class StreamServiceImpl implements StreamService {
 
 
     @Override
-    public void writeModel(String[] values) {
+    public void writeModel(List<Object> objects, String fileName, String separator, int countFields) {
+        String path = FacadeImpl.getInstance().getProperty("folder.for.entity") + fileName;
         try {
             fileWriter = new FileWriter(path);
-            for (String line : values) {
-                fileWriter.append(line);
-                fileWriter.append(NEW_LINE_SEPARATOR);
+            for (int i = 0; i < objects.size(); i++) {
+                String field = "";
+                int iterator = 1;
+                if(objects.get(i) == null) {
+                    field = "null";
+                }else {
+                    field = objects.get(i).toString();
+                }
+                if(i > 0 && i % countFields == 0) {
+                    fileWriter.append(field);
+                    fileWriter.append(separator);
+                    fileWriter.append(NEW_LINE_SEPARATOR);
+                    ++iterator;
+                }else {
+                    fileWriter.append(field);
+                    fileWriter.append(separator);
+                    ++iterator;
+                }
             }
         } catch (IOException e) {
             LOG.error(e.getMessage());

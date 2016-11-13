@@ -24,16 +24,16 @@ public class RoomModel extends BaseModel implements Cloneable, Serializable{
     @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 1, escape = true)
     private double price;
 
-    @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 1, escape = true)
+    @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 2, escape = true)
     private int capacity;
 
-    @CsvPropertyLink(propertyType = PropertyType.CompositeProperty, keyField = "id")
+    @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 3, escape = true)
     private RoomStatus status;
 
-    @CsvPropertyLink(propertyType = PropertyType.CompositeProperty, keyField = "id")
+    @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 4, escape = true)
     private RoomsSection section;
 
-    @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 1, escape = true)
+    @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 5, escape = true)
     private int rating;
 
     @CsvPropertyLink(propertyType = PropertyType.CompositeProperty, keyField = "id")

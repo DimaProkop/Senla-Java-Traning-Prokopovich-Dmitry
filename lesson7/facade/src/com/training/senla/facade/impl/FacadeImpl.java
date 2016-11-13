@@ -57,13 +57,18 @@ public class FacadeImpl implements Facade{
         this.initializer = new Initializer();
         this.fillServicesFromInitializer();
         this.importer = new ImporterImpl(this.serviceModelService.getAll(), this.roomModelService.getAll());
-        this.exporter = new ExporterImpl(streamService);
+        this.exporter = new ExporterImpl();
     }
 
     @Override
     public String getProperty(String value) {
         Map<String, String> props = this.setting.getPropsHolder();
         return props.get(value);
+    }
+
+    @Override
+    public void writeModel(List<Object> objects, String fileName, String separator, int countFields) {
+        streamService.writeModel(objects, fileName, separator, countFields);
     }
 
     private void fillServicesFromInitializer() {
