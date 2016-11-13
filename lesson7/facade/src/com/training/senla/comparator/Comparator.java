@@ -14,5 +14,4 @@ public class Comparator {
     public static final GuestRoomDataComparator GUEST_ROOM_DATA_COMPARATOR = new GuestRoomDataComparator();
     public static final ServicePriceComparator SERVICE_PRICE_COMPARATOR = new ServicePriceComparator();
     public static final ServiceDateComparator SERVICE_DATE_COMPARATOR = new ServiceDateComparator();
-
 }

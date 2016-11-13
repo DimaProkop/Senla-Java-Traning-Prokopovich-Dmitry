@@ -50,7 +50,7 @@ public class ImporterImpl implements Importer {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line = "";
             while ((line = br.readLine()) != null) {
-                if (isModel(line, GuestModel.ENTITY_TOKEN)) {
+                if (isModel(line, "G")) {
                     GuestModel guest = converter.convertStringToGuest(line, roomsMap, servicesMap);
                     if (guests.contains(guest)) {
                         guests.set(guest.getId(), guest);
@@ -70,7 +70,7 @@ public class ImporterImpl implements Importer {
         try (BufferedReader br = new BufferedReader(new FileReader(path))){
             String line = "";
             while ((line = br.readLine()) != null) {
-                if (isModel(line, RoomModel.ENTITY_TOKEN)) {
+                if (isModel(line, "R")) {
                     RoomModel room = converter.convertStringToRoom(line);
                     if(room.getId() == FacadeImpl.getInstance().getRoom(room.getId()).getId()) {
                         FacadeImpl.getInstance().updateRoom(room);
@@ -92,7 +92,7 @@ public class ImporterImpl implements Importer {
         try (BufferedReader br = new BufferedReader(new FileReader(path))){
             String line = "";
             while ((line = br.readLine()) != null) {
-                if(isModel(line, RegistrationModel.ENTITY_TOKEN)) {
+                if(isModel(line, "T")) {
                     RegistrationModel registration = converter.convertStringToRegistration(line);
                     if(registration.getId() == FacadeImpl.getInstance().getRegistration(registration.getId()).getId()) {
                         FacadeImpl.getInstance().updateRegistration(registration);
@@ -112,7 +112,7 @@ public class ImporterImpl implements Importer {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line = "";
             while ((line = br.readLine()) != null) {
-                if (isModel(line, ServiceModel.ENTITY_TOKEN)) {
+                if (isModel(line, "S")) {
                     ServiceModel service = converter.convertStringToService(line);
                     if (service.getId() == FacadeImpl.getInstance().getService(service.getId()).getId()) {
                         FacadeImpl.getInstance().updateService(service);
