@@ -14,5 +14,7 @@ import java.io.ObjectOutputStream;
 public class Main {
 
     public static void main(String[] args) throws IOException {
+        FacadeImpl.getInstance().init();
+        FacadeImpl.getInstance().exportRooms();
     }
 }

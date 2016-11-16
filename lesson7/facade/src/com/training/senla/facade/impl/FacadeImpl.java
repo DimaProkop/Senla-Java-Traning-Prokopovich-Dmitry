@@ -1,6 +1,7 @@
 package com.training.senla.facade.impl;
 
 import com.training.senla.ClassSetting;
+import com.training.senla.Props;
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.facade.Facade;
 import com.training.senla.model.GuestModel;
@@ -39,7 +40,6 @@ public class FacadeImpl implements Facade{
     private Exporter exporter;
 
     private StreamService streamService;
-    private ClassSetting setting;
 
     private static Facade facade;
 
@@ -52,18 +52,11 @@ public class FacadeImpl implements Facade{
 
     @Override
     public void init() {
-        this.setting = new ClassSetting();
         this.streamService = new StreamServiceImpl();
         this.initializer = new Initializer();
         this.fillServicesFromInitializer();
         this.importer = new ImporterImpl(this.serviceModelService.getAll(), this.roomModelService.getAll());
         this.exporter = new ExporterImpl();
-    }
-
-    @Override
-    public String getProperty(String value) {
-        Map<String, String> props = this.setting.getPropsHolder();
-        return props.get(value);
     }
 
     @Override
@@ -233,8 +226,7 @@ public class FacadeImpl implements Facade{
 
     @Override
     public boolean changeRoomStatus(RoomModel roomModel) {
-        boolean isBlock = Boolean.parseBoolean(this.getProperty("block.status"));
-        if(isBlock) {
+        if(Props.isBlockStatus()) {
             roomModel.setStatus(RoomStatus.MAINTAINED);
             roomModelService.update(roomModel);
             return true;

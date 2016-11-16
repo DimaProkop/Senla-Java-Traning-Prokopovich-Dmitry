@@ -5,15 +5,13 @@ import com.training.senla.model.GuestModel;
 import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
-import com.training.senla.util.converter.Converter;
-import com.training.senla.util.converter.impl.ConverterImpl;
 import com.training.senla.util.io.exporter.Exporter;
 import com.training.senla.util.service.DataService;
-import com.training.senla.util.service.StreamService;
 import com.training.senla.util.service.impl.DataServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by prokop on 16.10.16.
@@ -30,22 +28,22 @@ public class ExporterImpl implements Exporter {
 
     @Override
     public void exportGuests(List<GuestModel> guests) {
-        entityManager.analyzeData(guests, GuestModel.class);
+        entityManager.analyzeObject(guests, GuestModel.class);
     }
 
     @Override
     public void exportRegistrations(List<RegistrationModel> registrations) {
-        entityManager.analyzeData(registrations, RegistrationModel.class);
+        entityManager.analyzeObject(registrations, RegistrationModel.class);
     }
 
     @Override
     public void exportRooms(List<RoomModel> rooms) {
-        entityManager.analyzeData(rooms, RoomModel.class);
+        entityManager.analyzeArray(rooms, RoomModel.class);
     }
 
     @Override
     public void exportServices(List<ServiceModel> services) {
-        entityManager.analyzeData(services, ServiceModel.class);
+        entityManager.analyzeObject(services, ServiceModel.class);
     }
 
     @Override

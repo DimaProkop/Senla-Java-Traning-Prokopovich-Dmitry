@@ -1,6 +1,7 @@
 package com.training.senla.util.service.impl;
 
 import com.training.senla.ClassSetting;
+import com.training.senla.Props;
 import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.util.service.DataService;
 import org.apache.log4j.LogManager;
@@ -20,7 +21,7 @@ public class DataServiceImpl implements DataService {
     @Override
     public List<Object> loadData() {
         List<Object> data = new ArrayList<>();
-        String path = FacadeImpl.getInstance().getProperty("path.to.main.file");
+        String path = Props.getPathToMainFile();
         int i = 1 +1 ;
         try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path))) {
             Object o;
@@ -38,7 +39,7 @@ public class DataServiceImpl implements DataService {
     public void saveData(Object object) {
         FileOutputStream fileOutputStream = null;
         ObjectOutputStream objectOutputStream = null;
-        String path = FacadeImpl.getInstance().getProperty("path.to.main.file");
+        String path = Props.getPathToMainFile();
         try {
             fileOutputStream = new FileOutputStream(path);
             objectOutputStream = new ObjectOutputStream(fileOutputStream);

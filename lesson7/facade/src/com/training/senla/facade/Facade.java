@@ -14,8 +14,6 @@ import java.util.List;
 public interface Facade {
     void init();
 
-    String getProperty(String value);
-
     void writeModel(List<Object> objects, String fileName, String separator, int countFields);
 
     GuestModel getGuest(int id);
