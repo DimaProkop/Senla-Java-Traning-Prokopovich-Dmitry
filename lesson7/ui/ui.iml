@@ -10,8 +10,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="log4j" level="project" />
+    <orderEntry type="library" name="annotation" level="project" />
     <orderEntry type="library" name="facade" level="project" />
     <orderEntry type="library" name="property" level="project" />
-    <orderEntry type="library" name="log4j" level="project" />
   </component>
 </module>

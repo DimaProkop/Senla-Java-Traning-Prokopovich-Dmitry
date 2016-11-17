@@ -4,58 +4,58 @@ package com.training.senla;
  * Created by dmitry on 17.11.16.
  */
 public class Props {
-    private static boolean blockStatus;
-    private static int countRecords;
-    private static String pathToMainFile;
-    private static String pathToInstanceFile;
-    private static String pathToFolderEntity;
-    private static String pathToFileEntity;
+    private boolean blockStatus;
+    private int countRecords;
+    private String pathToMainFile;
+    private String pathToInstanceFile;
+    private String pathToFolderEntity;
+    private String pathToFileEntity;
 
-    public static String getPathToInstanceFile() {
+    public String getPathToInstanceFile() {
         return pathToInstanceFile;
     }
 
-    public static void setPathToInstanceFile(String pathToInstanceFile) {
-        Props.pathToInstanceFile = pathToInstanceFile;
+    public void setPathToInstanceFile(String pathToInstanceFile) {
+        this.pathToInstanceFile = pathToInstanceFile;
     }
 
-    public static boolean isBlockStatus() {
+    public boolean isBlockStatus() {
         return blockStatus;
     }
 
-    public static void setBlockStatus(boolean blockStatus) {
-        Props.blockStatus = blockStatus;
+    public void setBlockStatus(boolean blockStatus) {
+        this.blockStatus = blockStatus;
     }
 
-    public static int getCountRecords() {
+    public int getCountRecords() {
         return countRecords;
     }
 
-    public static void setCountRecords(int countRecords) {
-        Props.countRecords = countRecords;
+    public void setCountRecords(int countRecords) {
+        this.countRecords = countRecords;
     }
 
-    public static String getPathToMainFile() {
+    public String getPathToMainFile() {
         return pathToMainFile;
     }
 
-    public static void setPathToMainFile(String pathToMainFile) {
-        Props.pathToMainFile = pathToMainFile;
+    public void setPathToMainFile(String pathToMainFile) {
+        this.pathToMainFile = pathToMainFile;
     }
 
-    public static String getPathToFolderEntity() {
+    public String getPathToFolderEntity() {
         return pathToFolderEntity;
     }
 
-    public static void setPathToFolderEntity(String pathToFolderEntity) {
-        Props.pathToFolderEntity = pathToFolderEntity;
+    public void setPathToFolderEntity(String pathToFolderEntity) {
+        this.pathToFolderEntity = pathToFolderEntity;
     }
 
-    public static String getPathToFileEntity() {
+    public String getPathToFileEntity() {
         return pathToFileEntity;
     }
 
-    public static void setPathToFileEntity(String pathToFileEntity) {
-        Props.pathToFileEntity = pathToFileEntity;
+    public void setPathToFileEntity(String pathToFileEntity) {
+        this.pathToFileEntity = pathToFileEntity;
     }
 }

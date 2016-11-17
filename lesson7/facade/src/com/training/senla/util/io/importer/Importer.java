@@ -18,4 +18,8 @@ public interface Importer {
     void importRegistrations(List<RegistrationModel> registrations);
 
     void importServices(List<ServiceModel> services);
+
+    void setServices(List<ServiceModel> services);
+
+    void setRooms(List<RoomModel> rooms);
 }

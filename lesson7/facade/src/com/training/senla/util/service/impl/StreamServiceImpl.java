@@ -27,7 +27,7 @@ public class StreamServiceImpl implements StreamService {
 
     @Override
     public void writeModel(List objects, String fileName, String separator, int countFields) {
-        String path = Props.getPathToFolderEntity() + fileName;
+        String path = ClassSetting.getProps().getPathToFolderEntity()+ fileName;
         try {
             fileWriter = new FileWriter(path);
             for (int i = 0; i < objects.size(); i++) {

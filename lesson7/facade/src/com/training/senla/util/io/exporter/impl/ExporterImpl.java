@@ -24,9 +24,8 @@ public class ExporterImpl implements Exporter {
     private DataService dataService;
 
     public ExporterImpl() {
-        DependencyInjection injection = new DependencyInjection();
-        this.dataService = (DataService) injection.checkInstanceClass("DataService.class");
-        this.streamService = (StreamService) injection.checkInstanceClass("StreamService.class");
+        this.dataService = (DataService) DependencyInjection.getInstance(DataService.class);
+        this.streamService = (StreamService) DependencyInjection.getInstance(StreamService.class);
         this.entityManager = new EntityManagerImpl();
     }
 

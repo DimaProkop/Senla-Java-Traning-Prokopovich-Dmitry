@@ -1,7 +1,6 @@
 package com.training.senla.util.initializer;
 
 import com.training.senla.di.DependencyInjection;
-import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
@@ -22,10 +21,7 @@ import com.training.senla.service.impl.GuestModelServiceImpl;
 import com.training.senla.service.impl.RegistrationModelServiceImpl;
 import com.training.senla.service.impl.RoomModelServiceImpl;
 import com.training.senla.service.impl.ServiceModelServiceImpl;
-import com.training.senla.util.converter.Converter;
-import com.training.senla.util.converter.impl.ConverterImpl;
 import com.training.senla.util.service.DataService;
-import com.training.senla.util.service.impl.DataServiceImpl;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -48,13 +44,10 @@ public class Initializer {
     private List<RegistrationModel> registrations = new ArrayList<>();
     private List<ServiceModel> services = new ArrayList<>();
 
-    private Converter converter;
     private DataService dataService;
 
     public Initializer() {
-        DependencyInjection injection = new DependencyInjection();
-        this.dataService = (DataService) injection.checkInstanceClass("DataService.class");
-        this.converter = (Converter) injection.checkInstanceClass("Converter.class");
+        this.dataService = (DataService) DependencyInjection.getInstance(DataService.class);
         this.fillDataObjects();
         this.fillServices();
     }
