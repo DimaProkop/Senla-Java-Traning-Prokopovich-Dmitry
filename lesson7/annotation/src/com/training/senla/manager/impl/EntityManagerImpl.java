@@ -4,7 +4,6 @@ import com.training.senla.annotation.CsvEntity;
 import com.training.senla.annotation.CsvProperty;
 import com.training.senla.annotation.CsvPropertyLink;
 import com.training.senla.comparator.ColumnNumberComparator;
-import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.manager.EntityManager;
 
 import java.lang.reflect.Field;
@@ -12,30 +11,35 @@ import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Created by dmitry on 13.11.16.
  */
 public class EntityManagerImpl implements EntityManager{
 
-    public String[] analyzeArray(List objects, Class clazz) {
-        String[] params = new String[3];
+    public Object[] analyzeArray(List objects, Class clazz) {
+        Object[] params = new Object[3];
+        List<Object> data = new ArrayList<>();
         for (Object object : objects) {
             params = analyzeObject(object, clazz);
+            List list = (List) params[2];
+            for (Object item : list) {
+                data.add(item);
+            }
         }
+        params[2] = data;
         return params;
     }
 
-    public String[] analyzeObject(Class clazz) {
-        return new String[3];
+    public Object[] analyzeObject(Class clazz) {
+
+        return new Object[3];
     }
 
 
-    public String[] analyzeObject(Object object, Class clazz) {
-        String[] params = new String[3];
+    public Object[] analyzeObject(Object object, Class clazz) {
+        Object[] params = new Object[4];
         String fileName = "";
         String separator = "";
         String nameFieldId = "id";
@@ -46,7 +50,6 @@ public class EntityManagerImpl implements EntityManager{
             separator = entity.valuesSeparator();
             params[1] = separator;
             nameFieldId = entity.entityId();
-            params[2] = nameFieldId;
         }
 
 
@@ -103,7 +106,8 @@ public class EntityManagerImpl implements EntityManager{
                     //tests
                     if (field.getType().getSimpleName().equals("List")) {
                         for (Field member : ((Class) ((ParameterizedType) field.getGenericType()).getActualTypeArguments()[0]).getDeclaredFields()) {
-                            String j = member.get(object).toString();
+                            member.setAccessible(true);
+                            Object j = member.get(object);
                             // FIXME: 17.11.16 problem with getter value in ArrayList (GenericType)
                             member.setAccessible(false);
                         }
@@ -120,6 +124,7 @@ public class EntityManagerImpl implements EntityManager{
                 field.setAccessible(false);
             }
         }
+        params[2] = data;
         params[3] = String.valueOf(countFields);
 
         return params;

@@ -1,5 +1,7 @@
 package com.training.senla.di;
 
+import com.training.senla.util.service.StreamService;
+
 import java.util.HashMap;
 import java.util.Map;
 

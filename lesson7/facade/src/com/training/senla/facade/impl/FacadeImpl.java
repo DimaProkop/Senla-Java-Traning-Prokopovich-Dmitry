@@ -53,6 +53,7 @@ public class FacadeImpl implements Facade{
 
     @Override
     public void init() {
+        ClassSetting classSetting = new ClassSetting();
         DependencyInjection injection = new DependencyInjection();
         this.streamService = (StreamService) injection.checkInstanceClass("StreamService.class");
         this.initializer = new Initializer();
@@ -269,22 +270,22 @@ public class FacadeImpl implements Facade{
 
     @Override
     public void exportGuests() {
-        exporter.exportGuests(this.guestModelService.getAll());
+        exporter.exportCollection(this.guestModelService.getAll(), GuestModel.class);
     }
 
     @Override
     public void exportRegistrations() {
-        exporter.exportRegistrations(this.registrationModelService.getAll());
+        exporter.exportCollection(this.registrationModelService.getAll(), RegistrationModel.class);
     }
 
     @Override
     public void exportRooms() {
-        exporter.exportRooms(this.roomModelService.getAll());
+        exporter.exportCollection(this.roomModelService.getAll(), RoomModel.class);
     }
 
     @Override
     public void exportServices() {
-        exporter.exportServices(this.serviceModelService.getAll());
+        exporter.exportCollection(this.serviceModelService.getAll(), ServiceModel.class);
     }
 
     @Override

@@ -11,13 +11,7 @@ import java.util.List;
  * Created by prokop on 16.10.16.
  */
 public interface Exporter {
-    void exportGuests(List<GuestModel> guests);
-
-    void exportRegistrations(List<RegistrationModel> registrations);
-
-    void exportRooms(List<RoomModel> rooms);
-
-    void exportServices(List<ServiceModel> services);
+    void exportCollection(List guests, Class clazz);
 
     void exportAll(List<GuestModel> guests, List<RegistrationModel> registrations, List<RoomModel> rooms, List<ServiceModel> services);
 }

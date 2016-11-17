@@ -1,6 +1,7 @@
 package com.training.senla.util.io.exporter.impl;
 
 import com.training.senla.di.DependencyInjection;
+import com.training.senla.manager.EntityManager;
 import com.training.senla.manager.impl.EntityManagerImpl;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RegistrationModel;
@@ -8,6 +9,7 @@ import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 import com.training.senla.util.io.exporter.Exporter;
 import com.training.senla.util.service.DataService;
+import com.training.senla.util.service.StreamService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,33 +19,24 @@ import java.util.List;
  */
 public class ExporterImpl implements Exporter {
 
+    private StreamService streamService;
+    private EntityManager entityManager;
     private DataService dataService;
-    private EntityManagerImpl entityManagerImpl;
 
     public ExporterImpl() {
         DependencyInjection injection = new DependencyInjection();
         this.dataService = (DataService) injection.checkInstanceClass("DataService.class");
-        this.entityManagerImpl = new EntityManagerImpl();
+        this.streamService = (StreamService) injection.checkInstanceClass("StreamService.class");
+        this.entityManager = new EntityManagerImpl();
     }
 
     @Override
-    public void exportGuests(List<GuestModel> guests) {
-        entityManagerImpl.analyzeObject(guests, GuestModel.class);
-    }
-
-    @Override
-    public void exportRegistrations(List<RegistrationModel> registrations) {
-        entityManagerImpl.analyzeObject(registrations, RegistrationModel.class);
-    }
-
-    @Override
-    public void exportRooms(List<RoomModel> rooms) {
-        entityManagerImpl.analyzeArray(rooms, RoomModel.class);
-    }
-
-    @Override
-    public void exportServices(List<ServiceModel> services) {
-        entityManagerImpl.analyzeObject(services, ServiceModel.class);
+    public void exportCollection(List collection, Class clazz) {
+        Object[] params = entityManager.analyzeArray(collection, clazz);
+        String fileName = String.valueOf(params[0]);
+        String separator = String.valueOf(params[1]);
+        int countFields = Integer.parseInt(String.valueOf(params[3]));
+        streamService.writeModel((List) params[2], fileName, separator, countFields);
     }
 
     @Override

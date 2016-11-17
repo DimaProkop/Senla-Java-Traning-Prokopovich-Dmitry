@@ -27,6 +27,7 @@ public class InstanceProps {
 
     public InstanceProps() {
         Properties properties = new Properties();
+        String s = Props.getPathToFolderEntity();
         try (FileInputStream stream = new FileInputStream(Props.getPathToInstanceFile())) {
             properties.load(stream);
             facade = properties.getProperty("Facade.class");

@@ -26,7 +26,7 @@ public class StreamServiceImpl implements StreamService {
 
 
     @Override
-    public void writeModel(List<Object> objects, String fileName, String separator, int countFields) {
+    public void writeModel(List objects, String fileName, String separator, int countFields) {
         String path = Props.getPathToFolderEntity() + fileName;
         try {
             fileWriter = new FileWriter(path);
@@ -38,7 +38,8 @@ public class StreamServiceImpl implements StreamService {
                 }else {
                     field = objects.get(i).toString();
                 }
-                if(i > 0 && i % countFields == 0) {
+                iterator += i;
+                if(iterator % countFields == 0) {
                     fileWriter.append(field);
                     fileWriter.append(separator);
                     fileWriter.append(NEW_LINE_SEPARATOR);

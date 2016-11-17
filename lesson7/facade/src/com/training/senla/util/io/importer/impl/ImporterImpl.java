@@ -48,6 +48,9 @@ public class ImporterImpl implements Importer {
         initMaps(services, rooms);
     }
 
+    public ImporterImpl() {
+    }
+
     @Override
     public void importGuests(List<GuestModel> guests) {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
