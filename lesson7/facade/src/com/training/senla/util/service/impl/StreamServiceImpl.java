@@ -1,6 +1,7 @@
 package com.training.senla.util.service.impl;
 
 import com.training.senla.ClassSetting;
+import com.training.senla.Props;
 import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.util.service.StreamService;
 import org.apache.log4j.LogManager;
@@ -26,7 +27,7 @@ public class StreamServiceImpl implements StreamService {
 
     @Override
     public void writeModel(List<Object> objects, String fileName, String separator, int countFields) {
-        String path = FacadeImpl.getInstance().getProperty("folder.for.entity") + fileName;
+        String path = Props.getPathToFolderEntity() + fileName;
         try {
             fileWriter = new FileWriter(path);
             for (int i = 0; i < objects.size(); i++) {

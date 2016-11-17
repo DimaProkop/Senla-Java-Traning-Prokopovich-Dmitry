@@ -2,6 +2,7 @@ package com.training.senla.facade.impl;
 
 import com.training.senla.ClassSetting;
 import com.training.senla.Props;
+import com.training.senla.di.DependencyInjection;
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.facade.Facade;
 import com.training.senla.model.GuestModel;
@@ -52,9 +53,11 @@ public class FacadeImpl implements Facade{
 
     @Override
     public void init() {
-        this.streamService = new StreamServiceImpl();
+        DependencyInjection injection = new DependencyInjection();
+        this.streamService = (StreamService) injection.checkInstanceClass("StreamService.class");
         this.initializer = new Initializer();
         this.fillServicesFromInitializer();
+        this.importer = (Importer) injection.checkInstanceClass("Importer.class");
         this.importer = new ImporterImpl(this.serviceModelService.getAll(), this.roomModelService.getAll());
         this.exporter = new ExporterImpl();
     }

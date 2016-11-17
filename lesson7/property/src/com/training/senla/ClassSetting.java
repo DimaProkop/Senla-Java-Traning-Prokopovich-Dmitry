@@ -20,6 +20,9 @@ public class ClassSetting {
             Props.setBlockStatus(Boolean.parseBoolean(properties.getProperty("block.status")));
             Props.setCountRecords(Integer.parseInt(properties.getProperty("count.records")));
             Props.setPathToMainFile(properties.getProperty("path.to.main.file"));
+            Props.setPathToInstanceFile(properties.getProperty("path.to.instance"));
+            Props.setPathToFileEntity(properties.getProperty("path.to.entity.file"));
+            Props.setPathToFolderEntity(properties.getProperty("folder.for.entity"));
         } catch (FileNotFoundException e) {
             System.out.print("File not found");
         } catch (IOException e) {

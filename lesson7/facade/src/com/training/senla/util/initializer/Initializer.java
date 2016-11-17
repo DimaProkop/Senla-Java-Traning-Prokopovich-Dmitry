@@ -1,5 +1,6 @@
 package com.training.senla.util.initializer;
 
+import com.training.senla.di.DependencyInjection;
 import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RegistrationModel;
@@ -51,8 +52,9 @@ public class Initializer {
     private DataService dataService;
 
     public Initializer() {
-        this.dataService = new DataServiceImpl();
-        this.converter = new ConverterImpl();
+        DependencyInjection injection = new DependencyInjection();
+        this.dataService = (DataService) injection.checkInstanceClass("DataService.class");
+        this.converter = (Converter) injection.checkInstanceClass("Converter.class");
         this.fillDataObjects();
         this.fillServices();
     }

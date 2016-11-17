@@ -1,5 +1,7 @@
 package com.training.senla.util.io.importer.impl;
 
+import com.training.senla.Props;
+import com.training.senla.di.DependencyInjection;
 import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RegistrationModel;
@@ -33,7 +35,7 @@ import java.util.Map;
  */
 public class ImporterImpl implements Importer {
     private static final Logger LOG = LogManager.getLogger(ImporterImpl.class);
-    private static final String path = FacadeImpl.getInstance().getProperty("path.to.entity.file");
+    private static final String path = Props.getPathToFileEntity();
 
     private Converter converter;
 
@@ -41,7 +43,8 @@ public class ImporterImpl implements Importer {
     private Map<Integer, ServiceModel> servicesMap;
 
     public ImporterImpl(List<ServiceModel> services, List<RoomModel> rooms) {
-        this.converter = new ConverterImpl();
+        DependencyInjection injection = new DependencyInjection();
+        this.converter = (Converter) injection.checkInstanceClass("Converter.class");
         initMaps(services, rooms);
     }
 

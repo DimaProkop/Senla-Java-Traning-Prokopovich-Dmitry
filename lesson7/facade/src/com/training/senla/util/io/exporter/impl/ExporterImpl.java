@@ -1,17 +1,16 @@
 package com.training.senla.util.io.exporter.impl;
 
-import com.training.senla.manager.EntityManager;
+import com.training.senla.di.DependencyInjection;
+import com.training.senla.manager.impl.EntityManagerImpl;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 import com.training.senla.util.io.exporter.Exporter;
 import com.training.senla.util.service.DataService;
-import com.training.senla.util.service.impl.DataServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created by prokop on 16.10.16.
@@ -19,31 +18,32 @@ import java.util.Objects;
 public class ExporterImpl implements Exporter {
 
     private DataService dataService;
-    private EntityManager entityManager;
+    private EntityManagerImpl entityManagerImpl;
 
     public ExporterImpl() {
-        this.dataService = new DataServiceImpl();
-        this.entityManager = new EntityManager();
+        DependencyInjection injection = new DependencyInjection();
+        this.dataService = (DataService) injection.checkInstanceClass("DataService.class");
+        this.entityManagerImpl = new EntityManagerImpl();
     }
 
     @Override
     public void exportGuests(List<GuestModel> guests) {
-        entityManager.analyzeObject(guests, GuestModel.class);
+        entityManagerImpl.analyzeObject(guests, GuestModel.class);
     }
 
     @Override
     public void exportRegistrations(List<RegistrationModel> registrations) {
-        entityManager.analyzeObject(registrations, RegistrationModel.class);
+        entityManagerImpl.analyzeObject(registrations, RegistrationModel.class);
     }
 
     @Override
     public void exportRooms(List<RoomModel> rooms) {
-        entityManager.analyzeArray(rooms, RoomModel.class);
+        entityManagerImpl.analyzeArray(rooms, RoomModel.class);
     }
 
     @Override
     public void exportServices(List<ServiceModel> services) {
-        entityManager.analyzeObject(services, ServiceModel.class);
+        entityManagerImpl.analyzeObject(services, ServiceModel.class);
     }
 
     @Override
