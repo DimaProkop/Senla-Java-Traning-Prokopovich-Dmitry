@@ -22,7 +22,6 @@ public class DataServiceImpl implements DataService {
     public List<Object> loadData() {
         List<Object> data = new ArrayList<>();
         String path = ClassSetting.getProps().getPathToMainFile();
-        int i = 1 +1 ;
         try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path))) {
             Object o;
             while ((o = ois.readObject()) != null) {
