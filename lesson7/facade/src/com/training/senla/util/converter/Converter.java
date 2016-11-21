@@ -1,9 +1,6 @@
 package com.training.senla.util.converter;
 
-import com.training.senla.model.GuestModel;
-import com.training.senla.model.RegistrationModel;
-import com.training.senla.model.RoomModel;
-import com.training.senla.model.ServiceModel;
+import com.training.senla.model.*;
 
 import java.util.List;
 import java.util.Map;
@@ -13,20 +10,11 @@ import java.util.Objects;
  * Created by prokop on 18.10.16.
  */
 public interface Converter {
+    GuestModel convertStringToGuest(String string, ReadTemplate template);
 
-    String convertGuestToString(GuestModel guestModel);
+    RoomModel convertStringToRoom(String string, ReadTemplate template);
 
-    String convertRoomToString(RoomModel roomModel);
+    ServiceModel convertStringToService(String string, ReadTemplate template);
 
-    String convertServiceToString(ServiceModel serviceModel);
-
-    String convertRegistrationToString(RegistrationModel registrationModel);
-
-    GuestModel convertStringToGuest(String string, Map<Integer, RoomModel> roomsMap, Map<Integer, ServiceModel> servicesMap);
-
-    RoomModel convertStringToRoom(String string);
-
-    ServiceModel convertStringToService(String string);
-
-    RegistrationModel convertStringToRegistration(String string);
+    RegistrationModel convertStringToRegistration(String string, ReadTemplate template);
 }

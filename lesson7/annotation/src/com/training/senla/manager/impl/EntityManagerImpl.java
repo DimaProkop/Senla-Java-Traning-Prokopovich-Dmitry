@@ -1,16 +1,16 @@
 package com.training.senla.manager.impl;
 
+import com.training.senla.Main;
 import com.training.senla.annotation.CsvEntity;
 import com.training.senla.annotation.CsvProperty;
 import com.training.senla.annotation.CsvPropertyLink;
 import com.training.senla.comparator.ColumnNumberComparator;
 import com.training.senla.manager.EntityManager;
-import com.training.senla.model.Data;
+import com.training.senla.model.ReadTemplate;
+import com.training.senla.model.WriteTemplate;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -18,8 +18,8 @@ import java.util.stream.Collectors;
  */
 public class EntityManagerImpl implements EntityManager {
 
-    public Data analyzeArray(List objects, Class clazz) {
-        Data params = new Data();
+    public WriteTemplate analyzeArray(List objects, Class clazz) {
+        WriteTemplate params = new WriteTemplate();
         List<Object> data = new ArrayList<>();
         for (Object object : objects) {
             params = analyzeObject(object, clazz);
@@ -30,14 +30,40 @@ public class EntityManagerImpl implements EntityManager {
         return params;
     }
 
-    public Data analyzeObject(Class clazz) {
-        Data params = new Data();
+    public ReadTemplate analyzeObject(Class clazz) {
+        ReadTemplate params = new ReadTemplate();
+        int countFields = 0;
+        if (clazz.isAnnotationPresent(CsvEntity.class)) {
+            CsvEntity entity = (CsvEntity) clazz.getAnnotation(CsvEntity.class);
+            params.setFileName(entity.filename());
+            params.setSeparator(entity.valuesSeparator());
+        }
+        List<Integer> orders = new ArrayList<>();
+        Map<Integer,Boolean> escapeMaps = new HashMap<>();
+        List<Field> fields = Arrays.asList(clazz.getDeclaredFields());
+        for (Field field : fields) {
+            if(field.isAnnotationPresent(CsvProperty.class)) {
+                ++countFields;
+                CsvProperty property = field.getAnnotation(CsvProperty.class);
+                int columnNumber = property.columnNumber();
+                boolean escape = property.escape();
+
+                orders.add(columnNumber);
+                escapeMaps.put(columnNumber, escape);
+            }else if(field.isAnnotationPresent(CsvPropertyLink.class)) {
+                ++countFields;
+            }
+        }
+        params.setOrderList(orders);
+        params.setEscapeMaps(escapeMaps);
+        params.setCountFields(countFields);
+
         return params;
     }
 
 
-    public Data analyzeObject(Object object, Class clazz) {
-        Data params = new Data();
+    public WriteTemplate analyzeObject(Object object, Class clazz) {
+        WriteTemplate params = new WriteTemplate();
         String nameFieldId = "id";
         if (clazz.isAnnotationPresent(CsvEntity.class)) {
             CsvEntity entity = (CsvEntity) clazz.getAnnotation(CsvEntity.class);
@@ -128,10 +154,10 @@ public class EntityManagerImpl implements EntityManager {
             for (int i = 0; i < list.size(); i++) {
                 Object item = list.get(i);
                 String answer = getValueFromList(item, keyField);
-                if(!(i == list.size() - 1)) {
+                if (!(i == list.size() - 1)) {
                     builder.append(answer);
                     builder.append(",");
-                }else {
+                } else {
                     builder.append(answer);
                 }
             }
@@ -145,12 +171,12 @@ public class EntityManagerImpl implements EntityManager {
         String answer = "";
         boolean flag = false;
         for (Field field : item.getClass().getDeclaredFields()) {
-            if(field.getName().equals(keyField)) {
+            if (field.getName().equals(keyField)) {
                 answer = buildField(field, item);
                 flag = true;
             }
         }
-        if(!flag) {
+        if (!flag) {
             for (Field field : item.getClass().getSuperclass().getDeclaredFields()) {
                 answer = buildField(field, item);
             }
@@ -176,7 +202,7 @@ public class EntityManagerImpl implements EntityManager {
                         j = f.get(object).toString();
                     } catch (IllegalAccessException e) {
                         e.printStackTrace();
-                        }
+                    }
                     answer = buildField(f, object);
                 }
             }

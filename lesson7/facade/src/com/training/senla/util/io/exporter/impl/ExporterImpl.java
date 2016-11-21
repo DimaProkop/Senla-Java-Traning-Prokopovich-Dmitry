@@ -28,11 +28,11 @@ public class ExporterImpl implements Exporter {
 
     @Override
     public void exportCollection(List collection, Class clazz) {
-        Data data = entityManager.analyzeArray(collection, clazz);
-        String fileName = data.getFileName();
-        String separator = data.getSeparator();
-        int countFields = data.getCountFields();
-        List list = data.getData();
+        WriteTemplate template = entityManager.analyzeArray(collection, clazz);
+        String fileName = template.getFileName();
+        String separator = template.getSeparator();
+        int countFields = template.getCountFields();
+        List list = template.getData();
         streamService.writeModel(list, fileName, separator, countFields);
     }
 

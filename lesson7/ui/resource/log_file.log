@@ -130,3 +130,7 @@
 2016-11-19 21:22:03,474 [main] ERROR (Initializer.java:78) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
 2016-11-19 21:33:29,291 [main] ERROR (DataServiceImpl.java:32) -  
 2016-11-19 21:49:35,133 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-20 19:30:05,531 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-21 05:15:31,626 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-21 05:15:39,108 [main] INFO  (RoomModel.java:114) - Is full 
+2016-11-21 05:15:39,109 [main] INFO  (RoomModel.java:114) - Is full 

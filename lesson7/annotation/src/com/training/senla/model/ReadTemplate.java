@@ -1,24 +1,19 @@
 package com.training.senla.model;
 
 import java.util.List;
+import java.util.Map;
 
 /**
- * Created by dmitry on 19.11.16.
+ * Created by dmitry on 21.11.16.
  */
-public class Data {
+public class ReadTemplate {
     private String fileName;
     private String separator;
-    private List<Object> data;
+    private List<Integer> orderList;
+    private Map<Integer,Boolean> escapeMaps;
     private int countFields;
 
-    public Data() {
-    }
-
-    public Data(String fileName, String separator, List<Object> data, int countFields) {
-        this.fileName = fileName;
-        this.separator = separator;
-        this.data = data;
-        this.countFields = countFields;
+    public ReadTemplate() {
     }
 
     public String getFileName() {
@@ -37,12 +32,20 @@ public class Data {
         this.separator = separator;
     }
 
-    public List<Object> getData() {
-        return data;
+    public List<Integer> getOrderList() {
+        return orderList;
     }
 
-    public void setData(List<Object> data) {
-        this.data = data;
+    public void setOrderList(List<Integer> orderList) {
+        this.orderList = orderList;
+    }
+
+    public Map<Integer, Boolean> getEscapeMaps() {
+        return escapeMaps;
+    }
+
+    public void setEscapeMaps(Map<Integer, Boolean> escapeMaps) {
+        this.escapeMaps = escapeMaps;
     }
 
     public int getCountFields() {

@@ -20,7 +20,7 @@ public class GuestModel extends BaseModel implements Serializable{
     private static final Logger LOG = LogManager.getLogger(GuestModel.class);
     private static final long serialVersionUID = -4477116269261501412L;
 
-    @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 2, escape = true)
+    @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 1, escape = true)
     private String name;
 
     @CsvPropertyLink(propertyType = PropertyType.CompositeProperty, keyField = "id")

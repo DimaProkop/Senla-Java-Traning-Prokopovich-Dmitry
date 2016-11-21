@@ -53,8 +53,6 @@ public class FacadeImpl implements Facade{
         initializer = new Initializer();
         fillServicesFromInitializer();
         importer = (Importer) DependencyInjection.getInstance(Importer.class);
-        importer.setServices(this.getAllServices());
-        importer.setRooms(this.getAllRooms());
         exporter = new ExporterImpl();
     }
 
