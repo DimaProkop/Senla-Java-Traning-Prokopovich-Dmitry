@@ -1,5 +1,6 @@
 package com.training.senla.repository.impl;
 
+import com.training.senla.ClassSetting;
 import com.training.senla.Props;
 import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.model.RegistrationModel;
@@ -51,7 +52,7 @@ public class RegistrationModelRepositoryImpl implements RegistrationModelReposit
                 .map(x->x.getRoomId())
                 .distinct()
                 .collect(Collectors.toList());
-        int countRecords = Props.getCountRecords();
+        int countRecords = ClassSetting.getProps().getCountRecords();
         if(countRecords<oldIds.size()) {
             registrations.remove(registrations.get(0));
             registrations.add(registrationModel);

@@ -1,7 +1,6 @@
 package com.training.senla.facade.impl;
 
 import com.training.senla.ClassSetting;
-import com.training.senla.Props;
 import com.training.senla.di.DependencyInjection;
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.facade.Facade;
@@ -17,13 +16,10 @@ import com.training.senla.util.initializer.Initializer;
 import com.training.senla.util.io.exporter.Exporter;
 import com.training.senla.util.io.exporter.impl.ExporterImpl;
 import com.training.senla.util.io.importer.Importer;
-import com.training.senla.util.io.importer.impl.ImporterImpl;
 import com.training.senla.util.service.StreamService;
-import com.training.senla.util.service.impl.StreamServiceImpl;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by prokop on 13.10.16.
@@ -53,14 +49,11 @@ public class FacadeImpl implements Facade{
 
     @Override
     public void init() {
-        ClassSetting classSetting = new ClassSetting();
-        DependencyInjection injection = new DependencyInjection();
-        this.streamService = (StreamService) injection.checkInstanceClass("StreamService.class");
-        this.initializer = new Initializer();
-        this.fillServicesFromInitializer();
-        this.importer = (Importer) injection.checkInstanceClass("Importer.class");
-        this.importer = new ImporterImpl(this.serviceModelService.getAll(), this.roomModelService.getAll());
-        this.exporter = new ExporterImpl();
+        streamService = (StreamService) DependencyInjection.getInstance(StreamService.class);
+        initializer = new Initializer();
+        fillServicesFromInitializer();
+        importer = (Importer) DependencyInjection.getInstance(Importer.class);
+        exporter = new ExporterImpl();
     }
 
     @Override
@@ -230,7 +223,7 @@ public class FacadeImpl implements Facade{
 
     @Override
     public boolean changeRoomStatus(RoomModel roomModel) {
-        if(Props.isBlockStatus()) {
+        if(ClassSetting.getProps().isBlockStatus()) {
             roomModel.setStatus(RoomStatus.MAINTAINED);
             roomModelService.update(roomModel);
             return true;

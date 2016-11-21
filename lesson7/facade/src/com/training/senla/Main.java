@@ -1,5 +1,6 @@
 package com.training.senla;
 
+import com.training.senla.facade.Facade;
 import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.model.GuestModel;
 
@@ -16,8 +17,5 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         FacadeImpl.getInstance().init();
-        GuestModel guest = new GuestModel("Dima");
-        FacadeImpl.getInstance().addGuest(guest);
-        FacadeImpl.getInstance().exportGuests();
     }
 }

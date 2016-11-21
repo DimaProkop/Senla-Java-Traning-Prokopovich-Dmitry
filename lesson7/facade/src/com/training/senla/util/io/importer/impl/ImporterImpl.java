@@ -1,12 +1,12 @@
 package com.training.senla.util.io.importer.impl;
 
+import com.training.senla.ClassSetting;
 import com.training.senla.Props;
 import com.training.senla.di.DependencyInjection;
 import com.training.senla.facade.impl.FacadeImpl;
-import com.training.senla.model.GuestModel;
-import com.training.senla.model.RegistrationModel;
-import com.training.senla.model.RoomModel;
-import com.training.senla.model.ServiceModel;
+import com.training.senla.manager.EntityManager;
+import com.training.senla.manager.impl.EntityManagerImpl;
+import com.training.senla.model.*;
 import com.training.senla.repository.GuestModelRepository;
 import com.training.senla.repository.RegistrationModelRepository;
 import com.training.senla.repository.RoomModelRepository;
@@ -35,123 +35,89 @@ import java.util.Map;
  */
 public class ImporterImpl implements Importer {
     private static final Logger LOG = LogManager.getLogger(ImporterImpl.class);
-    private static final String path = Props.getPathToFileEntity();
+    private static final String path = ClassSetting.getProps().getPathToFolderEntity();
 
     private Converter converter;
-
-    private Map<Integer, RoomModel> roomsMap;
-    private Map<Integer, ServiceModel> servicesMap;
-
-    public ImporterImpl(List<ServiceModel> services, List<RoomModel> rooms) {
-        DependencyInjection injection = new DependencyInjection();
-        this.converter = (Converter) injection.checkInstanceClass("Converter.class");
-        initMaps(services, rooms);
-    }
+    private EntityManager manager;
 
     public ImporterImpl() {
+        this.converter = (Converter) DependencyInjection.getInstance(Converter.class);
+        this.manager = new EntityManagerImpl();
     }
 
     @Override
     public void importGuests(List<GuestModel> guests) {
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+        ReadTemplate template = manager.analyzeObject(GuestModel.class);
+        try (BufferedReader br = new BufferedReader(new FileReader(path + template.getFileName()))) {
             String line = "";
             while ((line = br.readLine()) != null) {
-                if (isModel(line, "G")) {
-                    GuestModel guest = converter.convertStringToGuest(line, roomsMap, servicesMap);
-                    if (guests.contains(guest)) {
-                        guests.set(guest.getId(), guest);
-                    } else {
-                        guests.add(guest);
-                    }
+                GuestModel guest = converter.convertStringToGuest(line, template);
+                if (guests.contains(guest)) {
+                    guests.set(guest.getId(), guest);
+                } else {
+                    guests.add(guest);
                 }
             }
             GuestModelRepository repository = new GuestModelRepositoryImpl(guests);
-        }catch (IOException e) {
+        } catch (IOException e) {
             LOG.error(e.getMessage());
         }
     }
 
     @Override
     public void importRooms(List<RoomModel> rooms) {
-        try (BufferedReader br = new BufferedReader(new FileReader(path))){
+        ReadTemplate template = manager.analyzeObject(RoomModel.class);
+        try (BufferedReader br = new BufferedReader(new FileReader(path + template.getFileName()))) {
             String line = "";
             while ((line = br.readLine()) != null) {
-                if (isModel(line, "R")) {
-                    RoomModel room = converter.convertStringToRoom(line);
-                    if(room.getId() == FacadeImpl.getInstance().getRoom(room.getId()).getId()) {
-                        FacadeImpl.getInstance().updateRoom(room);
-                    }else {
-                        rooms.add(room);
-                        roomsMap.put(room.getId(), room);
-                    }
+                RoomModel room = converter.convertStringToRoom(line, template);
+                if (room.getId() == FacadeImpl.getInstance().getRoom(room.getId()).getId()) {
+                    FacadeImpl.getInstance().updateRoom(room);
+                } else {
+                    rooms.add(room);
                 }
             }
             RoomModelRepository repository = new RoomModelRepositoryImpl(rooms);
-        }catch (IOException e) {
+        } catch (IOException e) {
             LOG.error(e.getMessage());
         }
     }
 
     @Override
     public void importRegistrations(List<RegistrationModel> registrations) {
-
-        try (BufferedReader br = new BufferedReader(new FileReader(path))){
+        ReadTemplate template = manager.analyzeObject(RegistrationModel.class);
+        try (BufferedReader br = new BufferedReader(new FileReader(path + template.getFileName()))) {
             String line = "";
             while ((line = br.readLine()) != null) {
-                if(isModel(line, "T")) {
-                    RegistrationModel registration = converter.convertStringToRegistration(line);
-                    if(registration.getId() == FacadeImpl.getInstance().getRegistration(registration.getId()).getId()) {
-                        FacadeImpl.getInstance().updateRegistration(registration);
-                    }else {
-                        registrations.add(registration);
-                    }
+                RegistrationModel registration = converter.convertStringToRegistration(line, template);
+                if (registration.getId() == FacadeImpl.getInstance().getRegistration(registration.getId()).getId()) {
+                    FacadeImpl.getInstance().updateRegistration(registration);
+                } else {
+                    registrations.add(registration);
                 }
             }
             RegistrationModelRepository repository = new RegistrationModelRepositoryImpl(registrations);
-        }catch (IOException e) {
+        } catch (IOException e) {
             LOG.error(e.getMessage());
         }
     }
 
     @Override
     public void importServices(List<ServiceModel> services) {
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+        ReadTemplate template = manager.analyzeObject(ServiceModel.class);
+        try (BufferedReader br = new BufferedReader(new FileReader(path + template.getFileName()))) {
             String line = "";
             while ((line = br.readLine()) != null) {
-                if (isModel(line, "S")) {
-                    ServiceModel service = converter.convertStringToService(line);
-                    if (service.getId() == FacadeImpl.getInstance().getService(service.getId()).getId()) {
-                        FacadeImpl.getInstance().updateService(service);
-                    } else {
-                        services.add(service);
-                        servicesMap.put(service.getId(), service);
-                    }
+                ServiceModel service = converter.convertStringToService(line, template);
+                if (service.getId() == FacadeImpl.getInstance().getService(service.getId()).getId()) {
+                    FacadeImpl.getInstance().updateService(service);
+                } else {
+                    services.add(service);
                 }
             }
             ServiceModelRepository repository = new ServiceModelRepositoryImpl(services);
-        }catch (IOException e) {
+        } catch (IOException e) {
             LOG.error(e.getMessage());
         }
-    }
-
-    //initialize maps for successfully update the object
-    private void initMaps(List<ServiceModel> services, List<RoomModel> rooms) {
-        servicesMap = new HashMap<>();
-        roomsMap = new HashMap<>();
-        if(services != null) {
-            for (ServiceModel service : services) {
-                servicesMap.put(service.getId(), service);
-            }
-        }
-        if(rooms != null) {
-            for (RoomModel room : rooms) {
-                roomsMap.put(room.getId(), room);
-            }
-        }
-    }
-
-    private boolean isModel(String string, String token) {
-        String[] values = string.split(";");
-        return values[0].contains(token);
     }
 }

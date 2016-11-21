@@ -3,10 +3,7 @@ package com.training.senla.util.io.exporter.impl;
 import com.training.senla.di.DependencyInjection;
 import com.training.senla.manager.EntityManager;
 import com.training.senla.manager.impl.EntityManagerImpl;
-import com.training.senla.model.GuestModel;
-import com.training.senla.model.RegistrationModel;
-import com.training.senla.model.RoomModel;
-import com.training.senla.model.ServiceModel;
+import com.training.senla.model.*;
 import com.training.senla.util.io.exporter.Exporter;
 import com.training.senla.util.service.DataService;
 import com.training.senla.util.service.StreamService;
@@ -24,19 +21,19 @@ public class ExporterImpl implements Exporter {
     private DataService dataService;
 
     public ExporterImpl() {
-        DependencyInjection injection = new DependencyInjection();
-        this.dataService = (DataService) injection.checkInstanceClass("DataService.class");
-        this.streamService = (StreamService) injection.checkInstanceClass("StreamService.class");
+        this.dataService = (DataService) DependencyInjection.getInstance(DataService.class);
+        this.streamService = (StreamService) DependencyInjection.getInstance(StreamService.class);
         this.entityManager = new EntityManagerImpl();
     }
 
     @Override
     public void exportCollection(List collection, Class clazz) {
-        Object[] params = entityManager.analyzeArray(collection, clazz);
-        String fileName = String.valueOf(params[0]);
-        String separator = String.valueOf(params[1]);
-        int countFields = Integer.parseInt(String.valueOf(params[3]));
-        streamService.writeModel((List) params[2], fileName, separator, countFields);
+        WriteTemplate template = entityManager.analyzeArray(collection, clazz);
+        String fileName = template.getFileName();
+        String separator = template.getSeparator();
+        int countFields = template.getCountFields();
+        List list = template.getData();
+        streamService.writeModel(list, fileName, separator, countFields);
     }
 
     @Override

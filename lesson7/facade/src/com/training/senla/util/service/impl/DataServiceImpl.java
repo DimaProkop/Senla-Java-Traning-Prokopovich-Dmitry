@@ -21,8 +21,7 @@ public class DataServiceImpl implements DataService {
     @Override
     public List<Object> loadData() {
         List<Object> data = new ArrayList<>();
-        String path = Props.getPathToMainFile();
-        int i = 1 +1 ;
+        String path = ClassSetting.getProps().getPathToMainFile();
         try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path))) {
             Object o;
             while ((o = ois.readObject()) != null) {
@@ -39,7 +38,7 @@ public class DataServiceImpl implements DataService {
     public void saveData(Object object) {
         FileOutputStream fileOutputStream = null;
         ObjectOutputStream objectOutputStream = null;
-        String path = Props.getPathToMainFile();
+        String path = ClassSetting.getProps().getPathToMainFile();
         try {
             fileOutputStream = new FileOutputStream(path);
             objectOutputStream = new ObjectOutputStream(fileOutputStream);

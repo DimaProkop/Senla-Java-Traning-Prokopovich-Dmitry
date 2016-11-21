@@ -1,5 +1,6 @@
 package com.training.senla.di;
 
+import com.training.senla.ClassSetting;
 import com.training.senla.util.service.StreamService;
 
 import java.util.HashMap;
@@ -9,35 +10,13 @@ import java.util.Map;
  * Created by dmitry on 17.11.16.
  */
 public class DependencyInjection {
-    private Map<String, String> mediumMaps;
-    private Map<String, Object> mainMaps;
+    private static Map<Class<?>, Object> mainMaps = new HashMap<>();;
+    private static InstanceProps props = new InstanceProps();
 
-    public DependencyInjection() {
-        mediumMaps = new HashMap<>();
-        mainMaps = new HashMap<>();
-        InstanceProps props = new InstanceProps();
-        mediumMaps.put("Facade.class", props.getFacade());
-        mediumMaps.put("GuestModelService.class", props.getGuestModelService());
-        mediumMaps.put("RoomModelService.class", props.getRoomModelService());
-        mediumMaps.put("RegistrationModelService.class", props.getRegistrationModelService());
-        mediumMaps.put("ServiceModelService.class", props.getServiceModelService());
-        mediumMaps.put("GuestModelRepository.class", props.getGuestModelRepository());
-        mediumMaps.put("RoomModelRepository.class", props.getRoomModelRepository());
-        mediumMaps.put("RegistrationModelRepository.class", props.getRegistrationModelRepository());
-        mediumMaps.put("ServiceModelRepository.class", props.getServiceModelRepository());
-        mediumMaps.put("Converter.class", props.getConverter());
-        mediumMaps.put("Exporter.class", props.getExporter());
-        mediumMaps.put("Importer.class", props.getImporter());
-        mediumMaps.put("DataService.class", props.getDataService());
-        mediumMaps.put("StreamService.class", props.getStreamService());
-
-    }
-
-    public Object checkInstanceClass(String className) {
+    public static Object getInstance(Class<?> className) {
         Object object = mainMaps.get(className);
         if(object == null) {
-            String nameInstance = mediumMaps.get(className);
-            if(nameInstance != null) {
+            String nameInstance = props.getRealization(className.getSimpleName());
                 try {
                     Class clazz = Class.forName(nameInstance);
                     Object obj = clazz.newInstance();
@@ -47,8 +26,6 @@ public class DependencyInjection {
                 } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
                     e.printStackTrace();
                 }
-
-            }
         }
         return object;
     }
