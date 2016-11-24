@@ -31,8 +31,7 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
         }
     }
 
-    public RoomModelRepositoryImpl(List<RoomModel> roomModels) {
-        rooms = roomModels;
+    public RoomModelRepositoryImpl() {
         calcCurrentId();
     }
 
@@ -53,7 +52,11 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
 
     @Override
     public RoomModel getRoom(int id) {
-        return rooms.get(getRoomIndexById(id));
+        RoomModel room = null;
+        if(id != -1) {
+            room = rooms.get(id);
+        }
+        return room;
     }
 
     @Override
@@ -141,5 +144,10 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
     @Override
     public List<Double> getPriceBySection(RoomsSection section) {
         return null;
+    }
+
+    @Override
+    public void setRooms(List<RoomModel> rooms) {
+        this.rooms = rooms;
     }
 }

@@ -22,8 +22,7 @@ public class ServiceModelServiceImpl implements ServiceModelService {
 
     private ServiceModelRepository serviceModelRepository;
 
-    public ServiceModelServiceImpl(ServiceModelRepository serviceModelRepository) {
-        this.serviceModelRepository = serviceModelRepository;
+    public ServiceModelServiceImpl() {
     }
 
     @Override
@@ -106,5 +105,9 @@ public class ServiceModelServiceImpl implements ServiceModelService {
             LOG.error(e.getMessage());
         }
         return prices;
+    }
+
+    public void setServiceModelRepository(ServiceModelRepository serviceModelRepository) {
+        this.serviceModelRepository = serviceModelRepository;
     }
 }

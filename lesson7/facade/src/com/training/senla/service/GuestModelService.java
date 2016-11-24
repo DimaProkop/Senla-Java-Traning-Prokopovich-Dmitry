@@ -3,6 +3,8 @@ package com.training.senla.service;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
+import com.training.senla.repository.GuestModelRepository;
+import com.training.senla.repository.RegistrationModelRepository;
 
 import java.util.List;
 
@@ -35,4 +37,8 @@ public interface GuestModelService {
     double getSumByRoom(RoomModel roomModel, GuestModel guestModel);
 
     int getCount();
+
+    void setGuestModelRepository(GuestModelRepository guestModelRepository);
+
+    void setRegistrationModelRepository(RegistrationModelRepository registrationModelRepository);
 }

@@ -26,9 +26,7 @@ public class GuestModelServiceImpl implements GuestModelService {
     private GuestModelRepository guestModelRepository;
     private RegistrationModelRepository registrationModelRepository;
 
-    public GuestModelServiceImpl(GuestModelRepository guestModelRepository, RegistrationModelRepository registrationModelRepository) {
-        this.guestModelRepository = guestModelRepository;
-        this.registrationModelRepository = registrationModelRepository;
+    public GuestModelServiceImpl() {
     }
 
     @Override
@@ -177,5 +175,13 @@ public class GuestModelServiceImpl implements GuestModelService {
             LOG.error(e.getMessage());
         }
         return count;
+    }
+
+    public void setGuestModelRepository(GuestModelRepository guestModelRepository) {
+        this.guestModelRepository = guestModelRepository;
+    }
+
+    public void setRegistrationModelRepository(RegistrationModelRepository registrationModelRepository) {
+        this.registrationModelRepository = registrationModelRepository;
     }
 }

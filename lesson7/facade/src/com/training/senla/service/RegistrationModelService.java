@@ -2,6 +2,7 @@ package com.training.senla.service;
 
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RegistrationModel;
+import com.training.senla.repository.RegistrationModelRepository;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -17,4 +18,6 @@ public interface RegistrationModelService {
     RegistrationModel getRegistration(int id);
 
     List<RegistrationModel> getAll();
+
+    void setRegistrationModelRepository(RegistrationModelRepository registrationModelRepository);
 }

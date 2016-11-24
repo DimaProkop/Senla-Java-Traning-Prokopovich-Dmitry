@@ -53,14 +53,28 @@ public class Initializer {
     }
 
     private void fillServices() {
-        GuestModelRepository guestModelRepository = new GuestModelRepositoryImpl(this.guests);
-        RoomModelRepository roomModelRepository = new RoomModelRepositoryImpl(this.rooms);
-        RegistrationModelRepository registrationModelRepository = new RegistrationModelRepositoryImpl(this.registrations);
-        ServiceModelRepository serviceModelRepository = new ServiceModelRepositoryImpl(this.services);
-        guestModelService = new GuestModelServiceImpl(guestModelRepository, registrationModelRepository);
-        roomModelService = new RoomModelServiceImpl(roomModelRepository, guestModelRepository, registrationModelRepository);
-        registrationModelService = new RegistrationModelServiceImpl(registrationModelRepository);
-        serviceModelService = new ServiceModelServiceImpl(serviceModelRepository);
+        GuestModelRepository guestModelRepository = (GuestModelRepository) DependencyInjection.getInstance(GuestModelRepository.class);
+        guestModelRepository.setGuests(this.guests);
+        RoomModelRepository roomModelRepository = (RoomModelRepository) DependencyInjection.getInstance(RoomModelRepository.class);
+        roomModelRepository.setRooms(this.rooms);
+        RegistrationModelRepository registrationModelRepository = (RegistrationModelRepository) DependencyInjection.getInstance(RegistrationModelRepository.class);
+        registrationModelRepository.setRegistrations(this.registrations);
+        ServiceModelRepository serviceModelRepository = (ServiceModelRepository) DependencyInjection.getInstance(ServiceModelRepository.class);
+        serviceModelRepository.setServices(this.services);
+        guestModelService = (GuestModelService) DependencyInjection.getInstance(GuestModelService.class);
+        guestModelService.setGuestModelRepository(guestModelRepository);
+        guestModelService.setRegistrationModelRepository(registrationModelRepository);
+
+        roomModelService = (RoomModelService) DependencyInjection.getInstance(RoomModelService.class);
+        roomModelService.setGuestModelRepository(guestModelRepository);
+        roomModelService.setRoomModelRepository(roomModelRepository);
+        roomModelService.setRegistrationModelRepository(registrationModelRepository);
+
+        registrationModelService = (RegistrationModelService) DependencyInjection.getInstance(RegistrationModelService.class);
+        registrationModelService.setRegistrationModelRepository(registrationModelRepository);
+
+        serviceModelService = (ServiceModelService) DependencyInjection.getInstance(ServiceModelService.class);
+        serviceModelService.setServiceModelRepository(serviceModelRepository);
     }
 
     private void fillDataObjects() {

@@ -36,6 +36,8 @@ public interface Facade {
 
     void updateRegistration(RegistrationModel registration);
 
+    void addRegistration(RegistrationModel registration);
+
     List<GuestModel> getAllGuests();
 
     List<RoomModel> getAllRooms();

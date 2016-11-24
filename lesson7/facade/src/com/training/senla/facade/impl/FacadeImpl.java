@@ -119,6 +119,11 @@ public class FacadeImpl implements Facade{
     }
 
     @Override
+    public void addRegistration(RegistrationModel registration) {
+        registrationModelService.addRecord(registration);
+    }
+
+    @Override
     public List<GuestModel> getAllGuests() {
         return guestModelService.getAll();
     }

@@ -38,7 +38,7 @@ public class ConverterImpl implements Converter{
             guestModel.setRoomModel(null);
         } else {
             guestModel.setRoomModel(FacadeImpl.getInstance().getRoom(Integer.parseInt(params[max])));
-            guestModel.getRoomModel().addGuest(guestModel);
+            //guestModel.getRoomModel().addGuest(guestModel);
         }
         ++max;
         if("null".equals(params[max])) {

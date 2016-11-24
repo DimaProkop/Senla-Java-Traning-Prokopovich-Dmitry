@@ -134,3 +134,20 @@
 2016-11-21 05:15:31,626 [main] ERROR (DataServiceImpl.java:32) -  
 2016-11-21 05:15:39,108 [main] INFO  (RoomModel.java:114) - Is full 
 2016-11-21 05:15:39,109 [main] INFO  (RoomModel.java:114) - Is full 
+2016-11-24 00:05:31,509 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-24 00:05:39,899 [main] INFO  (RoomModel.java:114) - Is full 
+2016-11-24 00:05:39,900 [main] INFO  (RoomModel.java:114) - Is full 
+2016-11-24 11:32:29,613 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-24 11:32:45,110 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-24 14:25:44,985 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-24 14:25:53,032 [main] ERROR (GuestModelServiceImpl.java:49) - -1 
+2016-11-24 14:25:53,033 [main] ERROR (ImportGuestsAction.java:21) -  
+2016-11-24 15:37:18,414 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-24 15:37:35,291 [main] ERROR (RoomModelServiceImpl.java:52) - Index: 2, Size: 2 
+2016-11-24 15:37:35,292 [main] ERROR (RoomModelServiceImpl.java:52) - Index: 2, Size: 2 
+2016-11-24 15:37:35,292 [main] ERROR (GuestModelServiceImpl.java:49) - -1 
+2016-11-24 16:00:01,580 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-24 16:06:25,613 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-24 16:06:33,309 [main] ERROR (RoomModelServiceImpl.java:55) - Index: 2, Size: 2 
+2016-11-24 16:06:33,310 [main] ERROR (RoomModelServiceImpl.java:55) - Index: 2, Size: 2 
+2016-11-24 16:06:33,311 [main] ERROR (GuestModelServiceImpl.java:47) - -1 

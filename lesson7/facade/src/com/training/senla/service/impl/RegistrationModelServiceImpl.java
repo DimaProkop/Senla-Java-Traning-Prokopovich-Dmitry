@@ -19,6 +19,9 @@ public class RegistrationModelServiceImpl implements RegistrationModelService{
 
     private RegistrationModelRepository registrationModelRepository;
 
+    public RegistrationModelServiceImpl() {
+    }
+
     public RegistrationModelServiceImpl(RegistrationModelRepository registrationModelRepository) {
         this.registrationModelRepository = registrationModelRepository;
     }
@@ -64,4 +67,7 @@ public class RegistrationModelServiceImpl implements RegistrationModelService{
         return registrations;
     }
 
+    public void setRegistrationModelRepository(RegistrationModelRepository registrationModelRepository) {
+        this.registrationModelRepository = registrationModelRepository;
+    }
 }

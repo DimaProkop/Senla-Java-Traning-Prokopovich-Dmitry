@@ -29,6 +29,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Stream;
 
 /**
  * Created by prokop on 16.10.16.
@@ -51,14 +52,14 @@ public class ImporterImpl implements Importer {
         try (BufferedReader br = new BufferedReader(new FileReader(path + template.getFileName()))) {
             String line = "";
             while ((line = br.readLine()) != null) {
-                GuestModel guest = converter.convertStringToGuest(line, template);
-                if (guests.contains(guest)) {
-                    guests.set(guest.getId(), guest);
+                GuestModel currentGuest = converter.convertStringToGuest(line, template);
+                GuestModel guest = FacadeImpl.getInstance().getGuest(currentGuest.getId());
+                if (guest != null) {
+                    FacadeImpl.getInstance().updateGuest(currentGuest);
                 } else {
-                    guests.add(guest);
+                    FacadeImpl.getInstance().addGuest(currentGuest);
                 }
             }
-            GuestModelRepository repository = new GuestModelRepositoryImpl(guests);
         } catch (IOException e) {
             LOG.error(e.getMessage());
         }
@@ -70,14 +71,14 @@ public class ImporterImpl implements Importer {
         try (BufferedReader br = new BufferedReader(new FileReader(path + template.getFileName()))) {
             String line = "";
             while ((line = br.readLine()) != null) {
-                RoomModel room = converter.convertStringToRoom(line, template);
-                if (room.getId() == FacadeImpl.getInstance().getRoom(room.getId()).getId()) {
-                    FacadeImpl.getInstance().updateRoom(room);
+                RoomModel currentRoom = converter.convertStringToRoom(line, template);
+                RoomModel room = FacadeImpl.getInstance().getRoom(currentRoom.getId());
+                if (room != null) {
+                    FacadeImpl.getInstance().updateRoom(currentRoom);
                 } else {
-                    rooms.add(room);
+                    FacadeImpl.getInstance().addRoom(currentRoom);
                 }
             }
-            RoomModelRepository repository = new RoomModelRepositoryImpl(rooms);
         } catch (IOException e) {
             LOG.error(e.getMessage());
         }
@@ -89,14 +90,14 @@ public class ImporterImpl implements Importer {
         try (BufferedReader br = new BufferedReader(new FileReader(path + template.getFileName()))) {
             String line = "";
             while ((line = br.readLine()) != null) {
-                RegistrationModel registration = converter.convertStringToRegistration(line, template);
-                if (registration.getId() == FacadeImpl.getInstance().getRegistration(registration.getId()).getId()) {
-                    FacadeImpl.getInstance().updateRegistration(registration);
+                RegistrationModel currentRegistration = converter.convertStringToRegistration(line, template);
+                RegistrationModel registration = FacadeImpl.getInstance().getRegistration(currentRegistration.getId());
+                if (registration != null) {
+                    FacadeImpl.getInstance().updateRegistration(currentRegistration);
                 } else {
-                    registrations.add(registration);
+                    FacadeImpl.getInstance().addRegistration(currentRegistration);
                 }
             }
-            RegistrationModelRepository repository = new RegistrationModelRepositoryImpl(registrations);
         } catch (IOException e) {
             LOG.error(e.getMessage());
         }
@@ -108,14 +109,14 @@ public class ImporterImpl implements Importer {
         try (BufferedReader br = new BufferedReader(new FileReader(path + template.getFileName()))) {
             String line = "";
             while ((line = br.readLine()) != null) {
-                ServiceModel service = converter.convertStringToService(line, template);
-                if (service.getId() == FacadeImpl.getInstance().getService(service.getId()).getId()) {
-                    FacadeImpl.getInstance().updateService(service);
+                ServiceModel currentService = converter.convertStringToService(line, template);
+                ServiceModel service = FacadeImpl.getInstance().getService(currentService.getId());
+                if (service != null) {
+                    FacadeImpl.getInstance().updateService(currentService);
                 } else {
-                    services.add(service);
+                    FacadeImpl.getInstance().addService(currentService);
                 }
             }
-            ServiceModelRepository repository = new ServiceModelRepositoryImpl(services);
         } catch (IOException e) {
             LOG.error(e.getMessage());
         }
