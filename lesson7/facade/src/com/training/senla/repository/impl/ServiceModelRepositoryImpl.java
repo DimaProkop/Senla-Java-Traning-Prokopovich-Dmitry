@@ -31,8 +31,7 @@ public class ServiceModelRepositoryImpl implements ServiceModelRepository {
         }
     }
 
-    public ServiceModelRepositoryImpl(List<ServiceModel> serviceModels) {
-        services = serviceModels;
+    public ServiceModelRepositoryImpl() {
         calcCurrentId();
     }
 
@@ -53,7 +52,11 @@ public class ServiceModelRepositoryImpl implements ServiceModelRepository {
 
     @Override
     public ServiceModel getService(int id) {
-        return services.get(getServiceIndexById(id));
+        ServiceModel service = null;
+        if(id != -1) {
+            service = services.get(id);
+        }
+        return service;
     }
 
     @Override
@@ -90,5 +93,10 @@ public class ServiceModelRepositoryImpl implements ServiceModelRepository {
     @Override
     public List<Double> getPriceBySection(ServicesSection section) {
         return null;
+    }
+
+    @Override
+    public void setServices(List<ServiceModel> services) {
+        this.services = services;
     }
 }

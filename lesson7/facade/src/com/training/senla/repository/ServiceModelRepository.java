@@ -27,4 +27,6 @@ public interface ServiceModelRepository {
     List<ServiceModel> getSortedByDate(Date date);
 
     List<Double> getPriceBySection(ServicesSection section);
+
+    void setServices(List<ServiceModel> services);
 }

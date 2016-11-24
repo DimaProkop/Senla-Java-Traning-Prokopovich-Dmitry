@@ -40,8 +40,7 @@ public class RegistrationModelRepositoryImpl implements RegistrationModelReposit
         return -1;
     }
 
-    public RegistrationModelRepositoryImpl(List<RegistrationModel> registrationModelList) {
-        registrations = registrationModelList;
+    public RegistrationModelRepositoryImpl() {
         calcCurrentId();
     }
 
@@ -68,11 +67,19 @@ public class RegistrationModelRepositoryImpl implements RegistrationModelReposit
 
     @Override
     public RegistrationModel getRegistration(int id) {
-        return registrations.get(getRegistrationIndexById(id));
+        RegistrationModel registration = null;
+        if(id != -1) {
+            registration = registrations.get(id);
+        }
+        return registration;
     }
 
     @Override
     public List<RegistrationModel> getAll() {
         return registrations;
+    }
+
+    public void setRegistrations(List<RegistrationModel> registrations) {
+        this.registrations = registrations;
     }
 }

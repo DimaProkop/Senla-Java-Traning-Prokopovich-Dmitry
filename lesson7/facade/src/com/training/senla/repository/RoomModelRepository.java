@@ -43,4 +43,6 @@ public interface RoomModelRepository {
     List<RoomModel> getLatestGuests(int count);
 
     List<Double> getPriceBySection(RoomsSection section);
+
+    void setRooms(List<RoomModel> rooms);
 }

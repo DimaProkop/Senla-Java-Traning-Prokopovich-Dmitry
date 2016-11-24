@@ -28,6 +28,9 @@ public class RoomModelServiceImpl implements RoomModelService {
     private GuestModelRepository guestModelRepository;
     private RegistrationModelRepository registrationModelRepository;
 
+    public RoomModelServiceImpl() {
+    }
+
     public RoomModelServiceImpl(RoomModelRepository roomModelRepository, GuestModelRepository guestModelRepository, RegistrationModelRepository registrationModelRepository) {
         this.roomModelRepository = roomModelRepository;
         this.guestModelRepository = guestModelRepository;
@@ -244,5 +247,17 @@ public class RoomModelServiceImpl implements RoomModelService {
             LOG.error(e.getMessage());
         }
         return prices;
+    }
+
+    public void setRoomModelRepository(RoomModelRepository roomModelRepository) {
+        this.roomModelRepository = roomModelRepository;
+    }
+
+    public void setGuestModelRepository(GuestModelRepository guestModelRepository) {
+        this.guestModelRepository = guestModelRepository;
+    }
+
+    public void setRegistrationModelRepository(RegistrationModelRepository registrationModelRepository) {
+        this.registrationModelRepository = registrationModelRepository;
     }
 }

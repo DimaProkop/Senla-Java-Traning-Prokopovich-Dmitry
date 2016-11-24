@@ -30,8 +30,7 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
         }
     }
 
-    public GuestModelRepositoryImpl(List<GuestModel> guestModels) {
-        guests = guestModels;
+    public GuestModelRepositoryImpl() {
         calcCurrentId();
     }
 
@@ -52,7 +51,11 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
 
     @Override
     public GuestModel getGuest(int id) {
-        return guests.get(getGuestIndexById(id));
+        GuestModel guest = null;
+        if(id != -1) {
+            guest = guests.get(getGuestIndexById(id));
+        }
+        return guest;
     }
 
     @Override
@@ -96,5 +99,10 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
     @Override
     public int getCount() {
         return guests.size();
+    }
+
+    @Override
+    public void setGuests(List<GuestModel> guests) {
+        this.guests = guests;
     }
 }

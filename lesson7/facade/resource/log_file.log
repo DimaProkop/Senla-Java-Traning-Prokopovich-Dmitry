@@ -452,3 +452,44 @@
 2016-11-20 02:16:34,200 [main] ERROR (DataServiceImpl.java:32) -  
 2016-11-20 02:22:27,794 [main] ERROR (DataServiceImpl.java:32) -  
 2016-11-20 02:25:21,291 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-21 12:43:08,182 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-21 12:43:26,872 [main] INFO  (RoomModel.java:114) - Is full 
+2016-11-21 12:43:26,873 [main] INFO  (RoomModel.java:114) - Is full 
+2016-11-21 12:43:36,614 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-21 12:46:37,603 [main] INFO  (RoomModel.java:114) - Is full 
+2016-11-21 12:46:37,603 [main] INFO  (RoomModel.java:114) - Is full 
+2016-11-21 12:47:15,082 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-21 12:47:51,415 [main] INFO  (RoomModel.java:114) - Is full 
+2016-11-21 12:48:14,319 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-21 12:48:52,741 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-21 12:49:33,625 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-21 13:33:47,026 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-21 13:34:44,714 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-21 14:21:48,986 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-21 14:22:04,834 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-21 15:09:24,815 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-21 15:09:53,032 [main] ERROR (GuestModelServiceImpl.java:49) - -1 
+2016-11-21 16:17:07,194 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-21 16:17:11,730 [main] ERROR (GuestModelServiceImpl.java:49) - -1 
+2016-11-21 16:17:33,519 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-23 21:19:00,282 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-23 21:19:12,641 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-23 21:19:20,734 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-23 23:30:27,251 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-23 23:30:44,168 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-23 23:31:06,304 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-24 14:26:32,106 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-24 14:27:39,119 [main] ERROR (GuestModelServiceImpl.java:49) - -1 
+2016-11-24 14:27:58,272 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-24 14:28:24,100 [main] ERROR (GuestModelServiceImpl.java:49) - -1 
+2016-11-24 14:33:51,801 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-24 14:33:58,843 [main] ERROR (GuestModelServiceImpl.java:49) - -1 
+2016-11-24 15:32:11,652 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-24 15:32:28,844 [main] ERROR (GuestModelServiceImpl.java:49) - -1 
+2016-11-24 16:00:34,686 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-24 16:00:47,733 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-24 16:04:58,684 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-24 16:05:08,198 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-24 16:05:08,271 [main] ERROR (RoomModelServiceImpl.java:55) - Index: 2, Size: 2 
+2016-11-24 16:05:08,273 [main] ERROR (RoomModelServiceImpl.java:55) - Index: 2, Size: 2 
+2016-11-24 16:05:08,273 [main] ERROR (GuestModelServiceImpl.java:47) - -1 

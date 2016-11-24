@@ -15,4 +15,6 @@ public interface RegistrationModelRepository {
     RegistrationModel getRegistration(int id);
 
     List<RegistrationModel> getAll();
+
+    void setRegistrations(List<RegistrationModel> registrations);
 }

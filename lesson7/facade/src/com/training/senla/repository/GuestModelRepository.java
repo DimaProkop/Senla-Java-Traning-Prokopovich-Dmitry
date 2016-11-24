@@ -27,4 +27,6 @@ public interface GuestModelRepository {
     List<GuestModel> getSortedByName();
 
     int getCount();
+
+    void setGuests(List<GuestModel> guests);
 }
