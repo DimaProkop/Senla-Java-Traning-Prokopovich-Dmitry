@@ -1,48 +1,25 @@
-import java.io.BufferedReader;
+import com.training.by.launcher.Launcher;
+import com.training.by.menu.Builder;
+import com.training.senla.RequestHandler;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.net.Socket;
 
 /**
- * Created by dmitry on 24.11.16.
+ * Created by dmitry on 26.11.16.
  */
+
 public class Client {
 
-    public static void main(String[] args) throws IOException {
+    private static final String ADDRESS = "127.0.0.1";
+    private static final int PORT = 3000;
 
-        System.out.println("Welcome to Client side");
+    public static void main(String args[]) throws IOException {
+        Socket client = new Socket(ADDRESS, PORT);
+        RequestHandler handler = new RequestHandler(client);
+        Builder builder = new Builder();
+        Launcher launcher = new Launcher();
+        launcher.start(builder.buildMenu());
 
-        Socket fromServer = null;
-
-        if (args.length == 0) {
-            System.out.println("use: client hostname");
-            System.exit(-1);
-        }
-        System.out.println("Connecting to... " + args[0]);
-
-        fromServer = new Socket(args[0], 3000);
-        BufferedReader in = new
-                BufferedReader(new
-                InputStreamReader(fromServer.getInputStream()));
-        PrintWriter out = new
-                PrintWriter(fromServer.getOutputStream(), true);
-        BufferedReader inu = new
-                BufferedReader(new InputStreamReader(System.in));
-
-        String fuser, fserver;
-
-        while ((fuser = inu.readLine()) != null) {
-            out.println(fuser);
-            fserver = in.readLine();
-            System.out.println(fserver);
-            if (fuser.equalsIgnoreCase("close")) break;
-            if (fuser.equalsIgnoreCase("exit")) break;
-        }
-
-        out.close();
-        in.close();
-        inu.close();
-        fromServer.close();
     }
 }
