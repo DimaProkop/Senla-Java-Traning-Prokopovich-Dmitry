@@ -18,7 +18,7 @@ public class Server {
                 System.out.println("Waiting for a client..");
                 Socket socket = server.accept();
                 thread = new ServerThread(socket);
-                System.out.println("Client connected.");
+                System.out.println("Client " + thread.getName() + " connected.");
                 thread.start();
             }
         } catch (IOException e) {
