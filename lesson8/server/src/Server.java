@@ -19,7 +19,7 @@ public class Server {
                 Socket socket = server.accept();
                 thread = new ServerThread(socket);
                 System.out.println("Client connected.");
-                thread.run();
+                thread.start();
             }
         } catch (IOException e) {
             e.printStackTrace();
