@@ -58,11 +58,6 @@ public class FacadeImpl implements Facade{
         }
     }
 
-    @Override
-    public void writeModel(List<Object> objects, String fileName, String separator, int countFields) {
-        streamService.writeModel(objects, fileName, separator, countFields);
-    }
-
     private void fillServicesFromInitializer() {
         this.guestModelService = this.initializer.getGuestModelService();
         this.roomModelService = this.initializer.getRoomModelService();
@@ -71,13 +66,19 @@ public class FacadeImpl implements Facade{
     }
 
     @Override
-    public GuestModel getGuest(int id) {
-        return guestModelService.getGuest(id);
+    public GuestModel getGuest(Object id) {
+        GuestModel guest = null;
+        synchronized (guestModelService) {
+            guest = guestModelService.getGuest((int) id);
+        }
+        return guest;
     }
 
     @Override
-    public void addGuest(GuestModel guest) {
-        guestModelService.addGuest(guest);
+    public void addGuest(Object guest) {
+        synchronized (guestModelService) {
+            guestModelService.addGuest((GuestModel) guest);
+        }
     }
 
     @Override

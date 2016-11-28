@@ -1,5 +1,7 @@
 package com.training.by.menu.action.guest;
 
+import com.training.senla.DataPacket;
+import com.training.senla.RequestHandler;
 import com.training.senla.facade.impl.FacadeImpl;
 import com.training.by.menu.action.Action;
 import com.training.senla.model.GuestModel;
@@ -19,9 +21,10 @@ public class NewGuestAction implements Action {
         String name = Reader.getString("Input guest name: ");
         try {
             GuestModel guest = new GuestModel(name);
-            FacadeImpl.getInstance().addGuest(guest);
+            DataPacket packet = new DataPacket("addGuest", guest);
+            RequestHandler.sendRequest(packet);
             PrintModel.printMessage("Guest created.");
-        }catch (Exception e) {
+        } catch (Exception e) {
             LOG.error(e.getMessage());
         }
     }

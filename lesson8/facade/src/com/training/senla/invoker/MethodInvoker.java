@@ -16,7 +16,7 @@ public class MethodInvoker {
         Object answer = null;
         if(params != null) {
             try {
-                answer = facade.getClass().getMethod(methodName, Facade.class).invoke(facade, params);
+                answer = facade.getClass().getMethod(methodName, Object.class).invoke(facade, params);
             } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
                 e.printStackTrace();
             }
