@@ -49,11 +49,13 @@ public class FacadeImpl implements Facade{
 
     @Override
     public void init() {
-        streamService = (StreamService) DependencyInjection.getInstance(StreamService.class);
-        initializer = new Initializer();
-        fillServicesFromInitializer();
-        importer = (Importer) DependencyInjection.getInstance(Importer.class);
-        exporter = new ExporterImpl();
+        if(streamService == null) {
+            streamService = (StreamService) DependencyInjection.getInstance(StreamService.class);
+            initializer = new Initializer();
+            fillServicesFromInitializer();
+            importer = (Importer) DependencyInjection.getInstance(Importer.class);
+            exporter = new ExporterImpl();
+        }
     }
 
     @Override

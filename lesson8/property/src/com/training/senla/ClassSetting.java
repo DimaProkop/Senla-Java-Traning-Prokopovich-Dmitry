@@ -7,7 +7,7 @@ import java.io.*;
  */
 public class ClassSetting {
 
-    private static final String PATH_TO_CONFIG = "/home/dmitry/Senla-Java-Traning-Prokopovich-Dmitry/lesson7/property/resource/config.properties";
+    private static final String PATH_TO_CONFIG = "/home/dmitry/Senla-Java-Traning-Prokopovich-Dmitry/lesson8/property/resource/config.properties";
     private static Props props;
 
     public static Props getProps() {

@@ -17,9 +17,8 @@ class ServerThread extends Thread {
         ObjectOutputStream out;
 
         try {
-
-            out = new ObjectOutputStream(client.getOutputStream());
             in = new ObjectInputStream(client.getInputStream());
+            out = new ObjectOutputStream(client.getOutputStream());
 
             while (true) {
                 DataPacket request = (DataPacket) in.readObject();

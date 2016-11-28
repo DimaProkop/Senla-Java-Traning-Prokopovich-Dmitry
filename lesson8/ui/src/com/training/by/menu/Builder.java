@@ -9,6 +9,8 @@ import com.training.by.menu.action.io.importer.ImportRoomsAction;
 import com.training.by.menu.action.io.importer.ImportServicesAction;
 import com.training.by.menu.action.room.*;
 import com.training.by.menu.action.service.AllServicesAction;
+import com.training.senla.di.DependencyInjection;
+import com.training.senla.facade.Facade;
 import com.training.senla.facade.impl.FacadeImpl;
 import com.training.by.menu.action.registration.AllRegistrationsAction;
 import com.training.by.menu.action.service.ChangePriceInServiceAction;
@@ -20,7 +22,8 @@ import com.training.by.menu.action.service.NewServiceAction;
 public class Builder {
 
     public Builder() {
-        FacadeImpl.getInstance().init();
+        Facade facade = (Facade) DependencyInjection.getInstance(Facade.class);
+        facade.init();
     }
 
     public Menu buildMenu() {
