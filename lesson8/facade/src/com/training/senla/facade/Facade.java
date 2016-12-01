@@ -14,9 +14,9 @@ import java.util.List;
 public interface Facade {
     void init();
 
-    GuestModel getGuest(Object id);
+    GuestModel getGuest(int id);
 
-    void addGuest(Object guest);
+    void addGuest(GuestModel guest);
 
     void updateGuest(GuestModel guest);
 
@@ -78,7 +78,7 @@ public interface Facade {
 
     boolean changeRoomStatus(RoomModel roomModel);
 
-    RoomModel cloneRoom(int id);
+    void cloneRoom(int id);
 
     List<RegistrationModel> getAllRegistrations();
 

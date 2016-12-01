@@ -1,10 +1,12 @@
 package com.training.by.menu.action.room;
 
 import com.training.by.menu.action.Action;
-import com.training.senla.facade.impl.FacadeImpl;
-import com.training.senla.model.RoomModel;
 import com.training.by.print.PrintModel;
 import com.training.by.reader.Reader;
+import com.training.senla.ClassSetting;
+import com.training.senla.DataPacket;
+import com.training.senla.RequestHandler;
+import com.training.senla.model.Room;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -15,17 +17,19 @@ public class ChangeStatusRoomAction implements Action {
     private static final Logger LOG = LogManager.getLogger(ChangeStatusRoomAction.class);
 
     @Override
-    public void execute() {
-        if(!FacadeImpl.getInstance().changeRoomStatus(null)) {
+    public void execute(RequestHandler requestHandler) {
+        if(!ClassSetting.getProps().isBlockStatus()) {
             PrintModel.printMessage("Can't change the status of the rooms!");
         }else {
             int roomId = Reader.getInt("Input room ID: ");
             try {
-                RoomModel room = FacadeImpl.getInstance().getRoom(roomId);
+                DataPacket packet = new DataPacket("getRoom", roomId);
+                Room room = (Room) requestHandler.sendRequest(packet);
                 if (room == null) {
                     PrintModel.printMessage("Room not found.");
                 } else {
-                    FacadeImpl.getInstance().changeRoomStatus(room);
+                    packet = new DataPacket("changeRoomStatus", null);
+                    requestHandler.sendRequest(packet);
                     PrintModel.printMessage("Room is maintained.");
                 }
             } catch (Exception e) {

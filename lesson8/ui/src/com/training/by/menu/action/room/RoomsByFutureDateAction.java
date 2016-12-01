@@ -1,10 +1,11 @@
 package com.training.by.menu.action.room;
 
 import com.training.by.menu.action.Action;
-import com.training.senla.facade.impl.FacadeImpl;
-import com.training.senla.model.RoomModel;
 import com.training.by.print.PrintModel;
 import com.training.by.reader.Reader;
+import com.training.senla.DataPacket;
+import com.training.senla.RequestHandler;
+import com.training.senla.model.Room;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -18,10 +19,11 @@ public class RoomsByFutureDateAction implements Action {
     private static final Logger LOG = LogManager.getLogger(RoomsByFutureDateAction.class);
 
     @Override
-    public void execute() {
+    public void execute(RequestHandler requestHandler) {
         Date date = Reader.getDate("Input date - (dd-mm-yyyy): ");
         try {
-            List<RoomModel> rooms = FacadeImpl.getInstance().getReleasedRoomsInFuture(date);
+            DataPacket packet = new DataPacket("getReleasedRoomsInFuture", date);
+            List<Room> rooms = (List<Room>) requestHandler.sendRequest(packet);
             if (rooms == null) {
                 PrintModel.printMessage("All rooms are occupied on this date.");
             }else {

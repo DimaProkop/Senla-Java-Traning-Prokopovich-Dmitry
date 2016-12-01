@@ -1,8 +1,9 @@
 package com.training.by.menu.action.io.importer;
 
 import com.training.by.menu.action.Action;
-import com.training.senla.facade.impl.FacadeImpl;
 import com.training.by.print.PrintModel;
+import com.training.senla.DataPacket;
+import com.training.senla.RequestHandler;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -13,9 +14,10 @@ public class ImportGuestsAction implements Action {
     private static final Logger LOG = LogManager.getLogger(ImportGuestsAction.class);
 
     @Override
-    public void execute() {
+    public void execute(RequestHandler requestHandler) {
         try {
-            FacadeImpl.getInstance().importGuests();
+            DataPacket packet = new DataPacket("importGuests", null);
+            requestHandler.sendRequest(packet);
             PrintModel.printMessage("Guests have successfully imported.");
         }catch (Exception e) {
             LOG.error(e.getMessage());

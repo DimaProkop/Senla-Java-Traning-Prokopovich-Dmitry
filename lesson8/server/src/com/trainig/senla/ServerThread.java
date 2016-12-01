@@ -1,3 +1,5 @@
+package com.trainig.senla;
+
 import com.training.senla.DataPacket;
 import com.training.senla.invoker.MethodInvoker;
 

@@ -1,11 +1,12 @@
 package com.training.by.menu.action.service;
 
 import com.training.by.menu.action.Action;
-import com.training.senla.enums.ServicesSection;
-import com.training.senla.facade.impl.FacadeImpl;
-import com.training.senla.model.ServiceModel;
 import com.training.by.print.PrintModel;
 import com.training.by.reader.Reader;
+import com.training.senla.DataPacket;
+import com.training.senla.RequestHandler;
+import com.training.senla.enums.ServicesSection;
+import com.training.senla.model.Service;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -18,7 +19,7 @@ public class NewServiceAction implements Action {
     private static final Logger LOG = LogManager.getLogger(NewServiceAction.class);
 
     @Override
-    public void execute() {
+    public void execute(RequestHandler requestHandler) {
         try {
             String name = Reader.getString("Input service name: ");
             double price = Reader.getDouble("Input price: ");
@@ -26,8 +27,9 @@ public class NewServiceAction implements Action {
             ServicesSection section = ServicesSection.isExist(strSection.toUpperCase());
             Date startDate = Reader.getDate("Input start date - (dd-mm-yyyy): ");
             Date finalDate = Reader.getDate("Input final date - (dd-mm-yyyy): ");
-            ServiceModel service = new ServiceModel(name, price, section, startDate, finalDate);
-            FacadeImpl.getInstance().addService(service);
+            Service service = new Service(name, price, section, startDate, finalDate);
+            DataPacket packet = new DataPacket("addService", service);
+            requestHandler.sendRequest(packet);
             PrintModel.printMessage("Service created.");
         }catch (Exception e) {
             LOG.error(e.getMessage());

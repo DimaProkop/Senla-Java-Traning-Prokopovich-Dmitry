@@ -1,6 +1,7 @@
+package com.training.senla;
+
 import com.training.by.launcher.Launcher;
 import com.training.by.menu.Builder;
-import com.training.senla.RequestHandler;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -16,9 +17,9 @@ public class Client {
 
     public static void main(String args[]) throws IOException {
         Socket client = new Socket(ADDRESS, PORT);
-        RequestHandler handler = new RequestHandler(client);
+        RequestHandler requestHandler = new RequestHandlerImpl(client);
         Builder builder = new Builder();
-        Launcher launcher = new Launcher();
+        Launcher launcher = new Launcher(requestHandler);
         launcher.start(builder.buildMenu());
 
     }

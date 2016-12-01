@@ -3,6 +3,7 @@ package com.training.senla.util.io.importer.impl;
 import com.training.senla.ClassSetting;
 import com.training.senla.Props;
 import com.training.senla.di.DependencyInjection;
+import com.training.senla.facade.Facade;
 import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.manager.EntityManager;
 import com.training.senla.manager.impl.EntityManagerImpl;
@@ -40,8 +41,10 @@ public class ImporterImpl implements Importer {
 
     private Converter converter;
     private EntityManager manager;
+    private Facade facade;
 
     public ImporterImpl() {
+        this.facade = (Facade) DependencyInjection.getInstance(Facade.class); 
         this.converter = (Converter) DependencyInjection.getInstance(Converter.class);
         this.manager = new EntityManagerImpl();
     }
@@ -53,11 +56,11 @@ public class ImporterImpl implements Importer {
             String line = "";
             while ((line = br.readLine()) != null) {
                 GuestModel currentGuest = converter.convertStringToGuest(line, template);
-                GuestModel guest = FacadeImpl.getInstance().getGuest(currentGuest.getId());
+                GuestModel guest = facade.getGuest(currentGuest.getId());
                 if (guest != null) {
-                    FacadeImpl.getInstance().updateGuest(currentGuest);
+                    facade.updateGuest(currentGuest);
                 } else {
-                    FacadeImpl.getInstance().addGuest(currentGuest);
+                    facade.addGuest(currentGuest);
                 }
             }
         } catch (IOException e) {
@@ -72,11 +75,11 @@ public class ImporterImpl implements Importer {
             String line = "";
             while ((line = br.readLine()) != null) {
                 RoomModel currentRoom = converter.convertStringToRoom(line, template);
-                RoomModel room = FacadeImpl.getInstance().getRoom(currentRoom.getId());
+                RoomModel room = facade.getRoom(currentRoom.getId());
                 if (room != null) {
-                    FacadeImpl.getInstance().updateRoom(currentRoom);
+                    facade.updateRoom(currentRoom);
                 } else {
-                    FacadeImpl.getInstance().addRoom(currentRoom);
+                    facade.addRoom(currentRoom);
                 }
             }
         } catch (IOException e) {
@@ -91,11 +94,11 @@ public class ImporterImpl implements Importer {
             String line = "";
             while ((line = br.readLine()) != null) {
                 RegistrationModel currentRegistration = converter.convertStringToRegistration(line, template);
-                RegistrationModel registration = FacadeImpl.getInstance().getRegistration(currentRegistration.getId());
+                RegistrationModel registration = facade.getRegistration(currentRegistration.getId());
                 if (registration != null) {
-                    FacadeImpl.getInstance().updateRegistration(currentRegistration);
+                    facade.updateRegistration(currentRegistration);
                 } else {
-                    FacadeImpl.getInstance().addRegistration(currentRegistration);
+                    facade.addRegistration(currentRegistration);
                 }
             }
         } catch (IOException e) {
@@ -110,11 +113,11 @@ public class ImporterImpl implements Importer {
             String line = "";
             while ((line = br.readLine()) != null) {
                 ServiceModel currentService = converter.convertStringToService(line, template);
-                ServiceModel service = FacadeImpl.getInstance().getService(currentService.getId());
+                ServiceModel service = facade.getService(currentService.getId());
                 if (service != null) {
-                    FacadeImpl.getInstance().updateService(currentService);
+                    facade.updateService(currentService);
                 } else {
-                    FacadeImpl.getInstance().addService(currentService);
+                    facade.addService(currentService);
                 }
             }
         } catch (IOException e) {
