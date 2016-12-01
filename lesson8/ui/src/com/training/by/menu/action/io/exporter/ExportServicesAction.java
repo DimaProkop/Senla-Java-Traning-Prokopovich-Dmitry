@@ -1,10 +1,15 @@
 package com.training.by.menu.action.io.exporter;
 
-import com.training.senla.facade.impl.FacadeImpl;
+import com.training.senla.DataPacket;
+import com.training.senla.RequestHandler;
 import com.training.by.menu.action.Action;
 import com.training.by.print.PrintModel;
+import com.training.senla.model.Room;
+import com.training.senla.model.Service;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+
+import java.util.List;
 
 /**
  * Created by prokop on 7.11.16.
@@ -13,12 +18,15 @@ public class ExportServicesAction implements Action {
     private static final Logger LOG = LogManager.getLogger(ExportServicesAction.class);
 
     @Override
-    public void execute() {
+    public void execute(RequestHandler requestHandler) {
         try {
-            if (FacadeImpl.getInstance().getAllServices().size() == 0) {
+            DataPacket packet = new DataPacket("getAllServices", null);
+            List<Service> services = (List<Service>) requestHandler.sendRequest(packet);
+            if (services.size() == 0) {
                 PrintModel.printMessage("Services is missing.");
             } else {
-                FacadeImpl.getInstance().exportServices();
+                packet = new DataPacket("exportServices", null);
+                requestHandler.sendRequest(packet);
                 PrintModel.printMessage("Services have successfully exported.");
             }
         }catch (Exception e) {

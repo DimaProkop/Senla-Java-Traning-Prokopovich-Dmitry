@@ -1,8 +1,10 @@
 package com.training.senla.util.converter.impl;
 
+import com.training.senla.di.DependencyInjection;
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
 import com.training.senla.enums.ServicesSection;
+import com.training.senla.facade.Facade;
 import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.model.*;
 import com.training.senla.util.converter.Converter;
@@ -14,9 +16,10 @@ import java.util.*;
  */
 public class ConverterImpl implements Converter{
 
+    private Facade facade;
 
     public ConverterImpl() {
-
+        this.facade = (Facade) DependencyInjection.getInstance(Facade.class);
     }
 
     @Override
@@ -37,7 +40,7 @@ public class ConverterImpl implements Converter{
         if("null".equals(params[max])) {
             guestModel.setRoomModel(null);
         } else {
-            guestModel.setRoomModel(FacadeImpl.getInstance().getRoom(Integer.parseInt(params[max])));
+            guestModel.setRoomModel(facade.getRoom(Integer.parseInt(params[max])));
             //guestModel.getRoomModel().addGuest(guestModel);
         }
         ++max;
@@ -183,7 +186,7 @@ public class ConverterImpl implements Converter{
     private List<ServiceModel> getServicesById(String[] services) {
         List<ServiceModel> serviceModels = new ArrayList<>();
         for (String id : services) {
-            serviceModels.add(FacadeImpl.getInstance().getService((Integer.parseInt(id))));
+            serviceModels.add(facade.getService((Integer.parseInt(id))));
         }
         return serviceModels;
     }
@@ -191,7 +194,7 @@ public class ConverterImpl implements Converter{
     private List<GuestModel> getGuestsById(String[] guests) {
         List<GuestModel> guestModels = new ArrayList<>();
         for (String id : guests) {
-            guestModels.add(FacadeImpl.getInstance().getGuest((Integer.parseInt(id))));
+            guestModels.add(facade.getGuest((Integer.parseInt(id))));
         }
         return guestModels;
     }

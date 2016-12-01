@@ -4,10 +4,7 @@ import com.training.senla.ClassSetting;
 import com.training.senla.di.DependencyInjection;
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.facade.Facade;
-import com.training.senla.model.GuestModel;
-import com.training.senla.model.RegistrationModel;
-import com.training.senla.model.RoomModel;
-import com.training.senla.model.ServiceModel;
+import com.training.senla.model.*;
 import com.training.senla.service.GuestModelService;
 import com.training.senla.service.RegistrationModelService;
 import com.training.senla.service.RoomModelService;
@@ -66,16 +63,16 @@ public class FacadeImpl implements Facade{
     }
 
     @Override
-    public GuestModel getGuest(Object id) {
+    public GuestModel getGuest(int id) {
         GuestModel guest = null;
         synchronized (guestModelService) {
-            guest = guestModelService.getGuest((int) id);
+            guest = guestModelService.getGuest(id);
         }
         return guest;
     }
 
     @Override
-    public void addGuest(Object guest) {
+    public void addGuest(GuestModel guest) {
         synchronized (guestModelService) {
             guestModelService.addGuest((GuestModel) guest);
         }
@@ -83,7 +80,9 @@ public class FacadeImpl implements Facade{
 
     @Override
     public void updateGuest(GuestModel guest) {
-        guestModelService.update(guest);
+        synchronized (guestModelService) {
+            guestModelService.update(guest);
+        }
     }
 
     @Override
@@ -240,8 +239,12 @@ public class FacadeImpl implements Facade{
     }
 
     @Override
-    public RoomModel cloneRoom(int id) {
-        return roomModelService.cloneRoom(id);
+    public void cloneRoom(int id) {
+        RoomModel room = null;
+        synchronized (roomModelService) {
+            room = roomModelService.cloneRoom(id);
+            roomModelService.addRoom(room);
+        }
     }
 
     @Override

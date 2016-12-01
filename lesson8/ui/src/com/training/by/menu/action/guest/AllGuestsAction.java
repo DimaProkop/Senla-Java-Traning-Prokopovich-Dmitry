@@ -2,12 +2,13 @@ package com.training.by.menu.action.guest;
 
 
 import com.training.by.menu.action.Action;
+import com.training.by.print.PrintModel;
 import com.training.senla.DataPacket;
 import com.training.senla.RequestHandler;
-import com.training.senla.model.GuestModel;
-import com.training.by.print.PrintModel;
+import com.training.senla.model.Guest;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+
 import java.util.List;
 
 /**
@@ -17,10 +18,10 @@ public class AllGuestsAction implements Action {
     private static final Logger LOG = LogManager.getLogger(AllGuestsAction.class);
 
     @Override
-    public void execute() {
+    public void execute(RequestHandler requestHandler) {
         try {
             DataPacket packet = new DataPacket("getAllGuests", null);
-            List<GuestModel> guests = (List<GuestModel>) RequestHandler.sendRequest(packet);
+            List<Guest> guests = (List<Guest>) requestHandler.sendRequest(packet);
             if (guests == null || guests.size() == 0) {
                 PrintModel.printMessage("Guests not found.");
             } else {

@@ -14,26 +14,15 @@ public class MethodInvoker {
         Facade facade = (Facade) DependencyInjection.getInstance(Facade.class);
         facade.init();
         Object answer = null;
-        if(params != null) {
-            try {
-                answer = facade.getClass().getMethod(methodName, Object.class).invoke(facade, params);
-            } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-                e.printStackTrace();
-            }
-        }else {
-            try {
-                try {
-                    answer = facade.getClass().getMethod(methodName, new Class[] {}).invoke(facade);
-                } catch (InvocationTargetException e) {
-                    System.err.println("An InvocationTargetException was caught!");
-                    Throwable cause = e.getCause();
-                    System.out.format("Invocation of %s failed because of: %s%n",
-                            methodName, cause.getMessage());
 
-                }
-            } catch (IllegalAccessException | NoSuchMethodException e) {
-                e.printStackTrace();
+        try {
+            if(params != null) {
+                answer = facade.getClass().getMethod(methodName, Object.class).invoke(facade, params);
+            }else {
+                answer = facade.getClass().getMethod(methodName, new Class[] {}).invoke(facade);
             }
+        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+            e.printStackTrace();
         }
 
         return answer;
