@@ -21,7 +21,10 @@ public class PrintModel {
     }
 
     public static void printGuests(List<Guest> guests) {
-        guests.forEach(PrintModel::printGuest);
+        for (Guest guest : guests) {
+            String l = guest.getClass().getName();
+            printGuest(guest);
+        }
     }
 
     public static void printRoom(Room room) {

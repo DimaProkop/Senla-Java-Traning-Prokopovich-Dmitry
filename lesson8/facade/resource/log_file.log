@@ -1552,3 +1552,15 @@
 2016-12-01 12:22:41,538 [main] ERROR (AllGuestsAction.java:31) - com.training.senla.model.GuestModel cannot be cast to com.training.senla.model.Guest 
 2016-12-01 12:22:41,546 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
 2016-12-01 12:33:34,735 [Thread-0] ERROR (DataServiceImpl.java:32) -  
+2016-12-01 12:36:27,580 [main] ERROR (AllGuestsAction.java:31) - com.training.senla.model.GuestModel cannot be cast to com.training.senla.model.Guest 
+2016-12-01 12:36:27,585 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2016-12-01 12:38:30,628 [main] ERROR (AllGuestsAction.java:31) - com.training.senla.model.GuestModel cannot be cast to com.training.senla.model.Guest 
+2016-12-01 12:38:30,631 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2016-12-01 12:38:44,425 [main] ERROR (AllGuestsAction.java:32) - com.training.senla.model.GuestModel cannot be cast to com.training.senla.model.Guest 
+2016-12-01 12:38:44,429 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2016-12-01 12:40:31,495 [main] ERROR (AllGuestsAction.java:32) - com.training.senla.model.GuestModel cannot be cast to com.training.senla.model.Guest 
+2016-12-01 12:40:31,499 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2016-12-01 12:41:15,738 [main] ERROR (AllGuestsAction.java:31) - com.training.senla.model.GuestModel cannot be cast to com.training.senla.model.Guest 
+2016-12-01 12:41:15,743 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2016-12-01 13:33:25,055 [main] ERROR (AllGuestsAction.java:31) - com.training.senla.model.GuestModel cannot be cast to com.training.senla.model.Guest 
+2016-12-01 13:33:25,060 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 

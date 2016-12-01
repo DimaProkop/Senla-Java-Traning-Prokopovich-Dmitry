@@ -28,7 +28,6 @@ public class RequestHandlerImpl implements RequestHandler{
             out.writeObject(packet);
             out.flush();
             response = in.readObject();
-            int i = 1 +1 ;
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
