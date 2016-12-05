@@ -98,102 +98,170 @@ public class FacadeImpl implements Facade {
 
     @Override
     public void addRoom(RoomModel room) {
-        roomModelService.addRoom(room);
+        synchronized (roomModelService) {
+            roomModelService.addRoom(room);
+        }
     }
 
     @Override
     public RegistrationModel getRegistration(int id) {
-        return registrationModelService.getRegistration(id);
+        RegistrationModel registration = null;
+        synchronized (registrationModelService) {
+            registration = registrationModelService.getRegistration(id);
+        }
+        return registration;
     }
 
     @Override
     public ServiceModel getService(int id) {
-        return serviceModelService.getService(id);
+        ServiceModel service = null;
+        synchronized (serviceModelService) {
+            service = serviceModelService.getService(id);
+        }
+        return service;
     }
 
     @Override
     public void updateService(ServiceModel service) {
-        serviceModelService.update(service);
+        synchronized (serviceModelService) {
+            serviceModelService.update(service);
+        }
     }
 
     @Override
     public void addService(ServiceModel service) {
-        serviceModelService.addService(service);
+        synchronized (serviceModelService) {
+            serviceModelService.addService(service);
+        }
     }
 
     @Override
     public void updateRegistration(RegistrationModel registration) {
-        registrationModelService.update(registration);
+        synchronized (registrationModelService) {
+            registrationModelService.update(registration);
+        }
     }
 
     @Override
     public void addRegistration(RegistrationModel registration) {
-        registrationModelService.addRecord(registration);
+        synchronized (registrationModelService) {
+            registrationModelService.addRecord(registration);
+        }
     }
 
     @Override
     public List<GuestModel> getAllGuests() {
-        return guestModelService.getAll();
+        List<GuestModel> guests = null;
+        synchronized (guestModelService) {
+            guests = guestModelService.getAll();
+        }
+        return guests;
     }
 
     @Override
     public List<RoomModel> getAllRooms() {
-        return roomModelService.getAll();
+        List<RoomModel> rooms = null;
+        synchronized (roomModelService) {
+            rooms = roomModelService.getAll();
+        }
+        return rooms;
     }
 
     @Override
     public List<RoomModel> getSortedByPrice() {
-        return roomModelService.getSortedByPrice();
+        List<RoomModel> rooms = null;
+        synchronized (roomModelService) {
+            rooms = roomModelService.getSortedByPrice();
+        }
+        return rooms;
     }
 
     @Override
     public List<RoomModel> getSortedByCapacity() {
-        return roomModelService.getSortedByCapacity();
+        List<RoomModel> rooms = null;
+        synchronized (roomModelService) {
+            rooms = roomModelService.getSortedByCapacity();
+        }
+        return rooms;
     }
 
     @Override
     public List<RoomModel> getSortedByRating() {
-        return roomModelService.getSortedByRating();
+        List<RoomModel> rooms = null;
+        synchronized (roomModelService) {
+            rooms = roomModelService.getSortedByRating();
+        }
+        return rooms;
     }
 
     @Override
     public List<RoomModel> getAllFreeRooms() {
-        return roomModelService.getAll(RoomStatus.FREE);
+        List<RoomModel> rooms = null;
+        synchronized (roomModelService) {
+            rooms = roomModelService.getAll(RoomStatus.FREE);
+        }
+        return rooms;
     }
 
     @Override
     public List<GuestModel> getGuestsRoom() {
-        return guestModelService.getAll();
+        List<GuestModel> guests = null;
+        synchronized (guestModelService) {
+            guests = guestModelService.getAll();
+        }
+        return guests;
     }
 
     @Override
     public void updateRoom(RoomModel roomModel) {
-        roomModelService.update(roomModel);
+        synchronized (roomModelService) {
+            roomModelService.update(roomModel);
+        }
     }
 
     @Override
     public int getCountFreeRooms() {
-        return roomModelService.getCountFreeRooms();
+        int count = 0;
+        synchronized (roomModelService) {
+            count = roomModelService.getCountFreeRooms();
+        }
+        return count;
     }
 
     @Override
     public int getCountGuests() {
-        return guestModelService.getCount();
+        int count = 0;
+        synchronized (guestModelService) {
+            count = guestModelService.getCount();
+        }
+        return count;
     }
 
     @Override
     public List<RoomModel> getReleasedRoomsInFuture(Date date) {
-        return roomModelService.getReleasedInFuture(date);
+        List<RoomModel> rooms = null;
+        synchronized (roomModelService) {
+            rooms = roomModelService.getReleasedInFuture(date);
+        }
+        return rooms;
     }
 
     @Override
     public double getSumPaymentRoom(GuestModel guestModel, RoomModel roomModel) {
-        return guestModelService.getSumByRoom(roomModel, guestModel);
+        double sum = 0;
+        synchronized (guestModelService) {
+            sum = guestModelService.getSumByRoom(roomModel, guestModel);
+        }
+        return sum;
     }
 
     @Override
     public List<ServiceModel> getGuestServices(GuestModel guestModel) {
-        return guestModelService.getServicesByPrice(guestModel);
+        List<ServiceModel> services = null;
+        synchronized (guestModelService) {
+            services = guestModelService.getServicesByPrice(guestModel);
+        }
+        return services;
     }
 
     @Override
@@ -203,7 +271,11 @@ public class FacadeImpl implements Facade {
 
     @Override
     public List<ServiceModel> getAllServices() {
-        return serviceModelService.getAll();
+        List<ServiceModel> services = null;
+        synchronized (serviceModelService) {
+            services = serviceModelService.getAll();
+        }
+        return services;
     }
 
     @Override
@@ -213,32 +285,42 @@ public class FacadeImpl implements Facade {
 
     @Override
     public void registerGuest(GuestModel guestModel, RoomModel roomModel, Date startDate, Date finalDate) {
-        roomModelService.registerGuest(guestModel, roomModel, startDate, finalDate);
+        synchronized (roomModelService) {
+            roomModelService.registerGuest(guestModel, roomModel, startDate, finalDate);
+        }
     }
 
     @Override
     public void evictGuest(GuestModel guestModel) {
-        roomModelService.evictGuest(guestModel);
+        synchronized (roomModelService) {
+            roomModelService.evictGuest(guestModel);
+        }
     }
 
 
     @Override
     public void changeServicePrice(ServiceModel serviceModel, double price) {
         serviceModel.setPrice(price);
-        serviceModelService.update(serviceModel);
+        synchronized (serviceModelService) {
+            serviceModelService.update(serviceModel);
+        }
     }
 
     @Override
     public void changeRoomPrice(RoomModel roomModel, double price) {
         roomModel.setPrice(price);
-        roomModelService.update(roomModel);
+        synchronized (roomModelService) {
+            roomModelService.update(roomModel);
+        }
     }
 
     @Override
     public boolean changeRoomStatus(RoomModel roomModel) {
         if (ClassSetting.getProps().isBlockStatus()) {
             roomModel.setStatus(RoomStatus.MAINTAINED);
-            roomModelService.update(roomModel);
+            synchronized (roomModelService) {
+                roomModelService.update(roomModel);
+            }
             return true;
         }
         return false;
@@ -255,47 +337,67 @@ public class FacadeImpl implements Facade {
 
     @Override
     public List<RegistrationModel> getAllRegistrations() {
-        return registrationModelService.getAll();
+        List<RegistrationModel> registrations = null;
+        synchronized (registrationModelService) {
+            registrations = registrationModelService.getAll();
+        }
+        return registrations;
     }
 
     @Override
     public void importGuests() {
-        importer.importGuests(this.guestModelService.getAll());
+        synchronized (guestModelService) {
+            importer.importGuests(this.guestModelService.getAll());
+        }
     }
 
     @Override
     public void importRegistrations() {
-        importer.importRegistrations(this.registrationModelService.getAll());
+        synchronized (registrationModelService) {
+            importer.importRegistrations(this.registrationModelService.getAll());
+        }
     }
 
     @Override
     public void importRooms() {
-        importer.importRooms(this.roomModelService.getAll());
+        synchronized (roomModelService) {
+            importer.importRooms(this.roomModelService.getAll());
+        }
     }
 
     @Override
     public void importServices() {
-        importer.importServices(this.serviceModelService.getAll());
+        synchronized (serviceModelService) {
+            importer.importServices(this.serviceModelService.getAll());
+        }
     }
 
     @Override
     public void exportGuests() {
-        exporter.exportCollection(this.guestModelService.getAll(), GuestModel.class);
+        synchronized (guestModelService) {
+            exporter.exportCollection(this.guestModelService.getAll(), GuestModel.class);
+        }
     }
 
     @Override
     public void exportRegistrations() {
-        exporter.exportCollection(this.registrationModelService.getAll(), RegistrationModel.class);
+        synchronized (registrationModelService) {
+            exporter.exportCollection(this.registrationModelService.getAll(), RegistrationModel.class);
+        }
     }
 
     @Override
     public void exportRooms() {
-        exporter.exportCollection(this.roomModelService.getAll(), RoomModel.class);
+        synchronized (roomModelService) {
+            exporter.exportCollection(this.roomModelService.getAll(), RoomModel.class);
+        }
     }
 
     @Override
     public void exportServices() {
-        exporter.exportCollection(this.serviceModelService.getAll(), ServiceModel.class);
+        synchronized (serviceModelService) {
+            exporter.exportCollection(this.serviceModelService.getAll(), ServiceModel.class);
+        }
     }
 
     @Override
