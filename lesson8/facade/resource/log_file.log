@@ -1727,3 +1727,20 @@
 2016-12-05 07:43:35,411 [main] ERROR (AllGuestsAction.java:32) - com.training.senla.model.GuestModel cannot be cast to com.training.senla.models.GuestModel 
 2016-12-05 07:43:35,413 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
 2016-12-05 07:47:54,433 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2016-12-05 15:51:20,316 [main] ERROR (DataServiceImpl.java:30) -  
+2016-12-05 15:52:01,337 [main] ERROR (DataServiceImpl.java:30) -  
+2016-12-05 15:53:15,573 [main] ERROR (DataServiceImpl.java:30) -  
+2016-12-05 15:54:01,338 [main] ERROR (DataServiceImpl.java:30) -  
+2016-12-05 15:55:23,981 [main] ERROR (DataServiceImpl.java:30) -  
+2016-12-05 15:57:51,477 [main] ERROR (DataServiceImpl.java:30) -  
+2016-12-05 16:00:10,705 [main] ERROR (DataServiceImpl.java:30) -  
+2016-12-05 16:00:23,810 [main] ERROR (DataServiceImpl.java:30) -  
+2016-12-05 16:00:45,882 [main] ERROR (DataServiceImpl.java:30) -  
+2016-12-05 16:01:10,891 [main] ERROR (DataServiceImpl.java:30) -  
+2016-12-05 16:13:25,550 [main] ERROR (DataServiceImpl.java:30) -  
+2016-12-05 16:14:31,584 [main] ERROR (DataServiceImpl.java:30) -  
+2016-12-05 16:21:44,549 [main] ERROR (DataServiceImpl.java:30) -  
+2016-12-05 16:22:45,290 [main] ERROR (DataServiceImpl.java:30) -  
+2016-12-05 16:22:45,315 [main] ERROR (RoomModelServiceImpl.java:65) - -1 
+2016-12-05 16:34:58,562 [main] ERROR (DataServiceImpl.java:30) -  
+2016-12-05 16:34:58,590 [main] ERROR (DataServiceImpl.java:30) -  
