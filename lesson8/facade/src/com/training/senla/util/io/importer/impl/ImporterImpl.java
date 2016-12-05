@@ -1,36 +1,20 @@
 package com.training.senla.util.io.importer.impl;
 
 import com.training.senla.ClassSetting;
-import com.training.senla.Props;
 import com.training.senla.di.DependencyInjection;
 import com.training.senla.facade.Facade;
-import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.manager.EntityManager;
 import com.training.senla.manager.impl.EntityManagerImpl;
 import com.training.senla.model.*;
-import com.training.senla.repository.GuestModelRepository;
-import com.training.senla.repository.RegistrationModelRepository;
-import com.training.senla.repository.RoomModelRepository;
-import com.training.senla.repository.ServiceModelRepository;
-import com.training.senla.repository.impl.GuestModelRepositoryImpl;
-import com.training.senla.repository.impl.RegistrationModelRepositoryImpl;
-import com.training.senla.repository.impl.RoomModelRepositoryImpl;
-import com.training.senla.repository.impl.ServiceModelRepositoryImpl;
 import com.training.senla.util.converter.Converter;
-import com.training.senla.util.converter.impl.ConverterImpl;
 import com.training.senla.util.io.importer.Importer;
-import com.training.senla.util.service.DataService;
-import com.training.senla.util.service.impl.DataServiceImpl;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Stream;
 
 /**
  * Created by prokop on 16.10.16.

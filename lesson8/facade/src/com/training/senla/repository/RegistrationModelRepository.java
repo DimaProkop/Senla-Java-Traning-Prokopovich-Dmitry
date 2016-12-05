@@ -17,4 +17,6 @@ public interface RegistrationModelRepository {
     List<RegistrationModel> getAll();
 
     void setRegistrations(List<RegistrationModel> registrations);
+
+    void calcCurrentId();
 }

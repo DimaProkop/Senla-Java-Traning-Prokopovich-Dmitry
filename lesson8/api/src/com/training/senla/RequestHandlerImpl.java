@@ -37,10 +37,16 @@ public class RequestHandlerImpl implements RequestHandler{
     @Override
     public void disconnect() {
         try {
+            saveDataAfterExit();
             out.close();
             in.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void saveDataAfterExit() {
+        DataPacket packet = new DataPacket("exportAll", null);
+        sendRequest(packet);
     }
 }

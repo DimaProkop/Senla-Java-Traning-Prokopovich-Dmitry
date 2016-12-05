@@ -2,22 +2,30 @@ package com.training.senla.model;
 
 import com.training.senla.enums.ServicesSection;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created by dmitry on 1.12.16.
+ * Created by prokop on 13.10.16.
  */
-public class Service extends Base {
+public class ServiceModel extends BaseModel implements Serializable{
+    private static final long serialVersionUID = 1069546016452590380L;
+
     private String name;
+
     private double price;
+
     private ServicesSection section;
+
     private Date startDate;
+
     private Date finalDate;
 
-    public Service() {
+    public ServiceModel() {
+
     }
 
-    public Service(String name, double price, ServicesSection section, Date startDate, Date finalDate) {
+    public ServiceModel(String name, double price, ServicesSection section, Date startDate, Date finalDate) {
         this.name = name;
         this.price = price;
         this.section = section;

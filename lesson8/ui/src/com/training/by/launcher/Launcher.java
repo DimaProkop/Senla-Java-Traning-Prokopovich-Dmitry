@@ -12,26 +12,21 @@ import com.training.by.reader.Reader;
  */
 public class Launcher {
     private RequestHandler requestHandler;
+
     public Launcher(RequestHandler requestHandler) {
         this.requestHandler = requestHandler;
     }
 
     public void start(Menu menu) {
-        while (menu !=null) {
+        while (menu != null) {
             PrintMenu.print(menu);
             int level = Reader.getInt("Level: ");
             Item item = menu.getChild().get(level - 1);
             item.getAction().execute(requestHandler);
             menu = item.getMenu();
-            if(menu == null) {
+            if (menu == null) {
                 requestHandler.disconnect();
             }
         }
-        saveDataAfterExit();
-    }
-
-    private void saveDataAfterExit() {
-        DataPacket packet = new DataPacket("exportAll", null);
-        requestHandler.sendRequest(packet);
     }
 }

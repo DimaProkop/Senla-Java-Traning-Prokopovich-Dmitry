@@ -5,7 +5,7 @@ import com.training.by.print.PrintModel;
 import com.training.by.reader.Reader;
 import com.training.senla.DataPacket;
 import com.training.senla.RequestHandler;
-import com.training.senla.model.Room;
+import com.training.senla.model.RoomModel;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -23,7 +23,7 @@ public class ChangePriceInRoomAction implements Action {
         int roomId = Reader.getInt("Input room ID: ");
         try {
             DataPacket packet = new DataPacket("getRoom", roomId);
-            Room room = (Room) requestHandler.sendRequest(packet);
+            RoomModel room = (RoomModel) requestHandler.sendRequest(packet);
             if(room == null) {
                 PrintModel.printMessage("Room not found.");
             }else {

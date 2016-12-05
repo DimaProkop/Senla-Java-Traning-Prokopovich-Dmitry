@@ -4,7 +4,7 @@ import com.training.by.menu.action.Action;
 import com.training.senla.DataPacket;
 import com.training.senla.RequestHandler;
 import com.training.by.print.PrintModel;
-import com.training.senla.model.Registration;
+import com.training.senla.model.RegistrationModel;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -20,7 +20,7 @@ public class ExportRegistrationsAction implements Action {
     public void execute(RequestHandler requestHandler) {
         try {
             DataPacket packet = new DataPacket("getAllRegistrations", null);
-            List<Registration> registrations = (List<Registration>) requestHandler.sendRequest(packet);
+            List<RegistrationModel> registrations = (List<RegistrationModel>) requestHandler.sendRequest(packet);
             if (registrations.size() == 0) {
                 PrintModel.printMessage("Registrations is missing.");
             } else {

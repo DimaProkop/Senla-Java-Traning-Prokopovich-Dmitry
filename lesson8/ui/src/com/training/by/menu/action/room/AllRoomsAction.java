@@ -4,7 +4,7 @@ import com.training.by.menu.action.Action;
 import com.training.by.print.PrintModel;
 import com.training.senla.DataPacket;
 import com.training.senla.RequestHandler;
-import com.training.senla.model.Room;
+import com.training.senla.model.RoomModel;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -20,7 +20,7 @@ public class AllRoomsAction implements Action {
     public void execute(RequestHandler requestHandler) {
         try {
             DataPacket packet = new DataPacket("getAllRooms", null);
-            List<Room> rooms = (List<Room>) requestHandler.sendRequest(packet);
+            List<RoomModel> rooms = (List<RoomModel>) requestHandler.sendRequest(packet);
             if(rooms == null || rooms.size() == 0) {
                 PrintModel.printMessage("Rooms not found.");
             }else {

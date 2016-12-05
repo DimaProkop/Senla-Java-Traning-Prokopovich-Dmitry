@@ -15,7 +15,7 @@ public class PrintMenu {
         List<Item> child = menu.getChild();
         int count = 1;
         for (Item item : child) {
-            System.out.println(count + ". " + item.getName());
+            System.out.println(count + " " + item.getName());
             count++;
         }
     }

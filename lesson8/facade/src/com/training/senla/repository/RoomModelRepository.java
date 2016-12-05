@@ -2,11 +2,8 @@ package com.training.senla.repository;
 
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
-import com.training.senla.model.GuestModel;
 import com.training.senla.model.RoomModel;
 
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -45,4 +42,6 @@ public interface RoomModelRepository {
     List<Double> getPriceBySection(RoomsSection section);
 
     void setRooms(List<RoomModel> rooms);
+
+    void calcCurrentId();
 }

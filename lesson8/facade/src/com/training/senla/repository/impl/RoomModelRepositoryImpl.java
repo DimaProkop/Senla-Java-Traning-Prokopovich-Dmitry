@@ -17,6 +17,7 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
     private List<RoomModel> rooms;
     private int currentId=1;
 
+    @Override
     public void calcCurrentId() {
         int maxId = 0;
         if(rooms == null) {
@@ -54,7 +55,7 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
     public RoomModel getRoom(int id) {
         RoomModel room = null;
         if(id != -1) {
-            room = rooms.get(id);
+            room = rooms.get(getRoomIndexById(id));
         }
         return room;
     }

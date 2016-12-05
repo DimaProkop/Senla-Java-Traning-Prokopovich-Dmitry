@@ -1,14 +1,11 @@
 package com.training.senla.util.service.impl;
 
 import com.training.senla.ClassSetting;
-import com.training.senla.Props;
-import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.util.service.StreamService;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.io.*;
-import java.lang.reflect.Field;
 import java.util.List;
 
 /**

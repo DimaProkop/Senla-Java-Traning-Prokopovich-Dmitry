@@ -3,24 +3,32 @@ package com.training.senla.model;
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by dmitry on 30.11.16.
+ * Created by prokop on 13.10.16.
  */
-public class Room extends Base {
-    private double price;
-    private int capacity;
-    private RoomStatus status;
-    private RoomsSection section;
-    private int rating;
-    private List<Guest> guests;
+public class RoomModel extends BaseModel implements Cloneable, Serializable{
+    private static final long serialVersionUID = 3950254982747535717L;
 
-    public Room() {
+    private double price;
+
+    private int capacity;
+
+    private RoomStatus status;
+
+    private RoomsSection section;
+
+    private int rating;
+
+    private List<GuestModel> guests;
+
+    public RoomModel() {
     }
 
-    public Room(double price, int capacity, RoomsSection section, int rating) {
+    public RoomModel(double price, int capacity, RoomsSection section, int rating) {
         this.price = price;
         this.capacity = capacity;
         this.status = RoomStatus.FREE;
@@ -69,11 +77,11 @@ public class Room extends Base {
         this.rating = rating;
     }
 
-    public List<Guest> getGuests() {
+    public List<GuestModel> getGuests() {
         return guests;
     }
 
-    public void setGuests(List<Guest> guests) {
+    public void setGuests(List<GuestModel> guests) {
         this.guests = guests;
     }
 }
