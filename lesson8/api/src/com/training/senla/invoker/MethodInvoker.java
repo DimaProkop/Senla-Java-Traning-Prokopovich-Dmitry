@@ -1,8 +1,8 @@
 package com.training.senla.invoker;
 
-import com.training.senla.di.DependencyInjection;
-import com.training.senla.facade.Facade;
-import com.training.senla.facade.impl.FacadeImpl;
+
+import com.training.senla.service.FacadeService;
+import com.training.senla.service.impl.FacadeServiceImpl;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -11,8 +11,7 @@ import java.lang.reflect.InvocationTargetException;
  */
 public class MethodInvoker {
     public static Object invokeMethod(String methodName, Object params) {
-        Facade facade = (Facade) DependencyInjection.getInstance(Facade.class);
-        facade.init();
+        FacadeService facade = new FacadeServiceImpl();
         Object answer = null;
 
         try {
@@ -22,7 +21,7 @@ public class MethodInvoker {
                 answer = facade.getClass().getMethod(methodName, new Class[] {}).invoke(facade);
             }
         } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-            e.printStackTrace();
+            e.getCause().printStackTrace();
         }
 
         return answer;

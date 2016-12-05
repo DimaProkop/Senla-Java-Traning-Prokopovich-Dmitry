@@ -5,7 +5,6 @@ import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
 import com.training.senla.enums.ServicesSection;
 import com.training.senla.facade.Facade;
-import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.model.*;
 import com.training.senla.util.converter.Converter;
 

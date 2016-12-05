@@ -12,9 +12,9 @@ public class Server {
 
     public static void main(String[] args) {
         ServerSocket server = null;
-        ServerThread thread = null;
 
         try {
+            ServerThread thread;
             server = new ServerSocket(PORT);
             while (true) {
                 System.out.println("Waiting for a client..");

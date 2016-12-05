@@ -2,10 +2,6 @@ package com.training.senla.util.converter;
 
 import com.training.senla.model.*;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-
 /**
  * Created by prokop on 18.10.16.
  */

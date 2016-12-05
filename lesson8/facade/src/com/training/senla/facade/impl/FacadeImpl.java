@@ -4,7 +4,10 @@ import com.training.senla.ClassSetting;
 import com.training.senla.di.DependencyInjection;
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.facade.Facade;
-import com.training.senla.model.*;
+import com.training.senla.model.GuestModel;
+import com.training.senla.model.RegistrationModel;
+import com.training.senla.model.RoomModel;
+import com.training.senla.model.ServiceModel;
 import com.training.senla.service.GuestModelService;
 import com.training.senla.service.RegistrationModelService;
 import com.training.senla.service.RoomModelService;
@@ -21,7 +24,7 @@ import java.util.List;
 /**
  * Created by prokop on 13.10.16.
  */
-public class FacadeImpl implements Facade{
+public class FacadeImpl implements Facade {
 
     private GuestModelService guestModelService;
     private RoomModelService roomModelService;
@@ -38,7 +41,7 @@ public class FacadeImpl implements Facade{
     private static Facade facade;
 
     public static Facade getInstance() {
-        if(facade == null) {
+        if (facade == null) {
             facade = new FacadeImpl();
         }
         return facade;
@@ -46,13 +49,12 @@ public class FacadeImpl implements Facade{
 
     @Override
     public void init() {
-        if(streamService == null) {
-            streamService = (StreamService) DependencyInjection.getInstance(StreamService.class);
-            initializer = new Initializer();
-            fillServicesFromInitializer();
-            importer = (Importer) DependencyInjection.getInstance(Importer.class);
-            exporter = new ExporterImpl();
-        }
+        streamService = (StreamService) DependencyInjection.getInstance(StreamService.class);
+        initializer = new Initializer();
+        fillServicesFromInitializer();
+        importer = (Importer) DependencyInjection.getInstance(Importer.class);
+        exporter = new ExporterImpl();
+
     }
 
     private void fillServicesFromInitializer() {
@@ -74,7 +76,7 @@ public class FacadeImpl implements Facade{
     @Override
     public void addGuest(GuestModel guest) {
         synchronized (guestModelService) {
-            guestModelService.addGuest((GuestModel) guest);
+            guestModelService.addGuest(guest);
         }
     }
 
@@ -87,7 +89,11 @@ public class FacadeImpl implements Facade{
 
     @Override
     public RoomModel getRoom(int id) {
-        return roomModelService.getRoom(id);
+        RoomModel room = null;
+        synchronized (roomModelService) {
+            room = roomModelService.getRoom(id);
+        }
+        return room;
     }
 
     @Override
@@ -230,7 +236,7 @@ public class FacadeImpl implements Facade{
 
     @Override
     public boolean changeRoomStatus(RoomModel roomModel) {
-        if(ClassSetting.getProps().isBlockStatus()) {
+        if (ClassSetting.getProps().isBlockStatus()) {
             roomModel.setStatus(RoomStatus.MAINTAINED);
             roomModelService.update(roomModel);
             return true;

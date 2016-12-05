@@ -5,8 +5,8 @@ import com.training.by.print.PrintModel;
 import com.training.by.reader.Reader;
 import com.training.senla.DataPacket;
 import com.training.senla.RequestHandler;
-import com.training.senla.model.Guest;
-import com.training.senla.model.Room;
+import com.training.senla.model.GuestModel;
+import com.training.senla.model.RoomModel;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -25,9 +25,9 @@ public class SumByRoomGuestAction implements Action {
         int guestId = Reader.getInt("Input guest ID:");
         try {
             DataPacket packet = new DataPacket("getGuest", guestId);
-            Guest guest = (Guest) requestHandler.sendRequest(packet);
+            GuestModel guest = (GuestModel) requestHandler.sendRequest(packet);
             packet = new DataPacket("getRoom", roomId);
-            Room room = (Room) requestHandler.sendRequest(packet);
+            RoomModel room = (RoomModel) requestHandler.sendRequest(packet);
             if(guest == null || room == null) {
                 PrintModel.printMessage("Guest or room not found");
             }else {

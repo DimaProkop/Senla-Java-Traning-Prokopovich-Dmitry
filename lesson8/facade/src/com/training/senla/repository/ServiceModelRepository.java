@@ -1,10 +1,8 @@
 package com.training.senla.repository;
 
 import com.training.senla.enums.ServicesSection;
-import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -29,4 +27,6 @@ public interface ServiceModelRepository {
     List<Double> getPriceBySection(ServicesSection section);
 
     void setServices(List<ServiceModel> services);
+
+    void calcCurrentId();
 }

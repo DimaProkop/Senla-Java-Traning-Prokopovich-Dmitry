@@ -1,7 +1,6 @@
 package com.training.senla.repository;
 
 import com.training.senla.model.GuestModel;
-import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 
 import java.util.List;
@@ -29,4 +28,6 @@ public interface GuestModelRepository {
     int getCount();
 
     void setGuests(List<GuestModel> guests);
+
+    void calcCurrentId();
 }

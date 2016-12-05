@@ -1,13 +1,11 @@
 package com.training.senla.service.impl;
 
-import com.training.senla.model.GuestModel;
 import com.training.senla.model.RegistrationModel;
 import com.training.senla.repository.RegistrationModelRepository;
 import com.training.senla.service.RegistrationModelService;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

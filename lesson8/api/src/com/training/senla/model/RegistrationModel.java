@@ -1,20 +1,26 @@
 package com.training.senla.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created by dmitry on 1.12.16.
+ * Created by prokop on 13.10.16.
  */
-public class Registration extends Base {
+public class RegistrationModel extends BaseModel implements Serializable{
+    private static final long serialVersionUID = -7389885297471547150L;
+
     private int guestId;
+
     private int roomId;
+
     private Date startDate;
+
     private Date finalDate;
 
-    public Registration() {
+    public RegistrationModel() {
     }
 
-    public Registration(int guestId, int roomId, Date startDate, Date finalDate) {
+    public RegistrationModel(int guestId, int roomId, Date startDate, Date finalDate) {
         this.guestId = guestId;
         this.roomId = roomId;
         this.startDate = startDate;

@@ -1,6 +1,5 @@
 package com.training.senla.comparator;
 import com.training.senla.annotation.CsvProperty;
-import com.training.senla.manager.EntityManager;
 
 import java.lang.reflect.Field;
 import java.util.Comparator;

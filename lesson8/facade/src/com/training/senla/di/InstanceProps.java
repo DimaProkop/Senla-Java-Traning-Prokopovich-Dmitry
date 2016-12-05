@@ -1,8 +1,6 @@
 package com.training.senla.di;
 
 import com.training.senla.ClassSetting;
-import com.training.senla.Props;
-import com.training.senla.util.service.StreamService;
 
 import java.io.FileInputStream;
 import java.io.IOException;

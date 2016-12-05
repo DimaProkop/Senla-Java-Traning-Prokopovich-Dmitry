@@ -16,6 +16,7 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
     private int currentId=1;
     private List<GuestModel> guests;
 
+    @Override
     public void calcCurrentId() {
         int maxId = 0;
         if(guests == null){

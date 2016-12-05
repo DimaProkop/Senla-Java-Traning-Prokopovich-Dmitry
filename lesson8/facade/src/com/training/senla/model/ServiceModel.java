@@ -6,7 +6,6 @@ import com.training.senla.enums.PropertyType;
 import com.training.senla.enums.ServicesSection;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Date;
 
 /**

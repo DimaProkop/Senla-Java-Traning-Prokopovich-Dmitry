@@ -8,8 +8,8 @@ public enum ServicesSection {
     MANDATORY,
     PLACE;
 
-    public static com.training.senla.enums.ServicesSection isExist(String string) {
-        for(com.training.senla.enums.ServicesSection section : values()) {
+    public static ServicesSection isExist(String string) {
+        for(ServicesSection section : ServicesSection.values()) {
             if(section.toString().equals(string)) {
                 return section;
             }

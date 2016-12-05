@@ -1,8 +1,6 @@
 package com.training.senla.util.service.impl;
 
 import com.training.senla.ClassSetting;
-import com.training.senla.Props;
-import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.util.service.DataService;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;

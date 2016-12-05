@@ -17,6 +17,7 @@ public class ServiceModelRepositoryImpl implements ServiceModelRepository {
     private List<ServiceModel> services;
     private int currentId=1;
 
+    @Override
     public void calcCurrentId() {
         int maxId = 0;
         if(services == null) {
@@ -54,7 +55,7 @@ public class ServiceModelRepositoryImpl implements ServiceModelRepository {
     public ServiceModel getService(int id) {
         ServiceModel service = null;
         if(id != -1) {
-            service = services.get(id);
+            service = services.get(getServiceIndexById(id));
         }
         return service;
     }

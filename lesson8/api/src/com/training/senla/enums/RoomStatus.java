@@ -8,8 +8,8 @@ public enum  RoomStatus {
     FREE,
     BUSY;
 
-    public static com.training.senla.enums.RoomStatus isExist(String string) {
-        for(com.training.senla.enums.RoomStatus status : values()) {
+    public static RoomStatus isExist(String string) {
+        for(RoomStatus status : RoomStatus.values()) {
             if(status.toString().equals(string)) {
                 return status;
             }

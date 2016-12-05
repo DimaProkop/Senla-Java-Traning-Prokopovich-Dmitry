@@ -1,11 +1,9 @@
 package com.training.senla.service;
 
 import com.training.senla.enums.ServicesSection;
-import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 import com.training.senla.repository.ServiceModelRepository;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 

@@ -9,8 +9,8 @@ public enum RoomsSection{
     IMPROVED,
     LUKS;
 
-    public static com.training.senla.enums.RoomsSection isExist(String string) {
-        for(com.training.senla.enums.RoomsSection section : values()) {
+    public static RoomsSection isExist(String string) {
+        for(RoomsSection section : RoomsSection.values()) {
             if(section.toString().equals(string)) {
                 return section;
             }

@@ -1,8 +1,6 @@
 package com.training.senla.repository.impl;
 
 import com.training.senla.ClassSetting;
-import com.training.senla.Props;
-import com.training.senla.facade.impl.FacadeImpl;
 import com.training.senla.model.RegistrationModel;
 import com.training.senla.repository.RegistrationModelRepository;
 
@@ -17,6 +15,7 @@ public class RegistrationModelRepositoryImpl implements RegistrationModelReposit
     private List<RegistrationModel> registrations;
     private int currentId=1;
 
+    @Override
     public void calcCurrentId() {
         int maxId = 0;
         if(registrations == null) {
@@ -40,9 +39,6 @@ public class RegistrationModelRepositoryImpl implements RegistrationModelReposit
         return -1;
     }
 
-    public RegistrationModelRepositoryImpl() {
-        calcCurrentId();
-    }
 
     @Override
     public void addRecord(RegistrationModel registrationModel) {
@@ -69,7 +65,7 @@ public class RegistrationModelRepositoryImpl implements RegistrationModelReposit
     public RegistrationModel getRegistration(int id) {
         RegistrationModel registration = null;
         if(id != -1) {
-            registration = registrations.get(id);
+            registration = registrations.get(getRegistrationIndexById(id));
         }
         return registration;
     }
