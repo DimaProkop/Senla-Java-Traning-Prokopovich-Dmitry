@@ -11,7 +11,7 @@ model varchar(50) not null,
 speed smallint not null,
 ram smallint not null,
 hd real not null,
-price smallint null,
+price decimal null,
 screen tinyint not null,
 foreign key(model) references product(model)
 );
@@ -23,7 +23,7 @@ speed smallint not null,
 ram smallint not null,
 hd real not null,
 cd varchar(10) not null,
-price smallint null,
+price decimal null,
 foreign key(model) references product(model)
 );
 
@@ -32,6 +32,6 @@ code int not null primary key,
 model varchar(50) not null,
 color char(1) not null,
 type varchar(10) not null,
-price smallint null,
+price decimal null,
 foreign key(model) references product(model)
 );
