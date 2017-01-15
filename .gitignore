@@ -14,5 +14,6 @@
 hs_err_pid*
 
 .gitignore
-.idea/
+.idea
 Senla-Java-Traning-Prokopovich-Dmitry.iml
+lesson10.iml
