@@ -1,5 +1,4 @@
 package com.training.senla;
-
 /**
  * Created by prokop on 12.10.16.
  */
