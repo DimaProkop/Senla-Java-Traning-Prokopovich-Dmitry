@@ -47,7 +47,11 @@ SELECT maker, MAX(price) FROM product, pc WHERE product.model = pc.model GROUP B
 /* task 22 */
 SELECT speed, AVG(price) FROM pc GROUP BY speed HAVING speed > 600;
 /* task 23 */
-
+SELECT DISTINCT maker FROM product WHERE type = 'Laptop' AND maker IN (SELECT maker FROM product WHERE type = 'PC' AND maker IN(SELECT maker FROM pc, laptop WHERE pc.speed >=750 and laptop.speed >=750));
 /* task 24 */
-
+SELECT DISTINCT model FROM laptop WHERE laptop.price = (SELECT MAX(price) FROM laptop) UNION
+SELECT model FROM pc WHERE pc.price = (SELECT MAX(price) FROM pc) UNION
+SELECT model FROM printer WHERE printer.price = (SELECT MAX(price) FROM printer);
 /* task 25 */
+SELECT DISTINCT maker FROM product WHERE type = 'Printer' AND maker IN (SELECT maker FROM product
+  JOIN pc on product.model = pc.model WHERE type = 'PC' and ram = (SELECT MIN(ram) FROM pc) AND pc.speed = (SELECT MAX(speed) FROM pc));
