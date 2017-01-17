@@ -1,0 +1,38 @@
+CREATE DATABASE IF NOT EXISTS hotel;
+USE hotel;
+
+CREATE TABLE IF NOT EXISTS guest(
+  id INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(50) NOT NULL,
+  roomId INT(10),
+  FOREIGN KEY (roomId) REFERENCES room(id)
+);
+
+CREATE TABLE IF NOT EXISTS room(
+  id INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  price DOUBLE NOT NULL,
+  capacity INT(10) NOT NULL,
+  status VARCHAR(50) NOT NULL,
+  section VARCHAR(50) NOT NULL,
+  rating INT(10) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS service(
+  id INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(50) NOT NULL,
+  price DOUBLE NOT NULL,
+  section VARCHAR(50) NOT NULL,
+  startDate DATE NOT NULL,
+  finalDate DATE NOT NULL,
+  FOREIGN KEY (id) REFERENCES guest(id)
+);
+
+CREATE TABLE IF NOT EXISTS registration(
+  roomId INT(10),
+  guestId INT(10),
+  startDate DATE,
+  finalDate DATE,
+  FOREIGN KEY (roomId) REFERENCES room(id),
+  FOREIGN KEY (guestId) REFERENCES guest(id)
+);
+
