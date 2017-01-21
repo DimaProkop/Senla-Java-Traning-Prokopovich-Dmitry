@@ -21,8 +21,5 @@ public class Main {
     public static void main(String[] args) {
         Facade facade = (Facade) DependencyInjection.getInstance(Facade.class);
         facade.init();
-
-
-
     }
 }

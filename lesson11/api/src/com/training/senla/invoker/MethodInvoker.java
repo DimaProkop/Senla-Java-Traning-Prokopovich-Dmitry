@@ -13,7 +13,9 @@ import java.util.List;
 public class MethodInvoker {
     public static Object invokeMethod(String methodName, List<Object> args) {
         Facade facade = (Facade) DependencyInjection.getInstance(Facade.class);
-        facade.init();
+        if(facade.getStreamService() == null) {
+            facade.init();
+        }
 
         Object answer = null;
 

@@ -403,4 +403,8 @@ public class FacadeImpl implements Facade {
     public void exportAll() {
         exporter.exportAll(this.getAllGuests(), this.getAllRegistrations(), this.getAllRooms(), this.getAllServices());
     }
+
+    public StreamService getStreamService() {
+        return streamService;
+    }
 }

@@ -4,6 +4,7 @@ import com.training.senla.model.GuestModel;
 import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
+import com.training.senla.util.service.StreamService;
 
 import java.util.Date;
 import java.util.List;
@@ -101,4 +102,6 @@ public interface Facade {
     void exportServices();
 
     void exportAll();
+
+    StreamService getStreamService();
 }

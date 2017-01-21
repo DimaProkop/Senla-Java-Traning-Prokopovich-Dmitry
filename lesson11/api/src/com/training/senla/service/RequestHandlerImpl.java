@@ -1,5 +1,8 @@
 package com.training.senla.service;
 
+import com.training.senla.di.DependencyInjection;
+import com.training.senla.facade.Facade;
+
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
