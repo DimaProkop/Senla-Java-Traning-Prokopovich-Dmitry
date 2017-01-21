@@ -1,0 +1,155 @@
+2016-10-27 02:48:44,857 [main] ERROR (Reader.java:74) - For input string: "df" 
+2016-10-27 02:48:49,566 [main] ERROR (Reader.java:89) - java.lang.NumberFormatException: For input string: "ddf" 
+2016-10-27 02:50:02,145 [main] ERROR (RoomModelServiceImpl.java:52) - -1 
+2016-10-27 02:50:34,968 [main] ERROR (Reader.java:74) - For input string: "adsfdsf" 
+2016-10-27 02:59:22,168 [main] ERROR (Reader.java:89) - java.lang.NumberFormatException: For input string: "ыв" 
+2016-10-27 03:08:42,827 [main] ERROR (Reader.java:92) - java.time.DateTimeException: Invalid value for DayOfMonth (valid values 1 - 28/31): 43 
+2016-10-27 03:08:53,629 [main] ERROR (Reader.java:92) - java.time.DateTimeException: Invalid value for MonthOfYear (valid values 1 - 12): 21 
+2016-10-27 03:52:26,844 [main] ERROR (AllRegistrationsItem.java:32) - Format specifier '%s' 
+2016-10-27 03:55:20,912 [main] ERROR (AllRegistrationsItem.java:32) - Format specifier '%s' 
+2016-10-27 03:55:20,919 [main] ERROR (Reader.java:33) - java.util.NoSuchElementException 
+2016-10-31 00:17:30,224 [main] ERROR (Reader.java:88) - java.lang.NumberFormatException: For input string: "6*65" 
+2016-10-31 00:17:32,712 [main] ERROR (Reader.java:88) - java.lang.ArrayIndexOutOfBoundsException: 1 
+2016-10-31 00:21:25,283 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2016-10-31 00:30:28,064 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2016-10-31 00:43:09,836 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2016-10-31 01:48:08,720 [main] ERROR (AllGuestsItem.java:32) -  
+2016-10-31 01:48:16,896 [main] ERROR (AllGuestsItem.java:32) -  
+2016-10-31 01:48:26,846 [main] ERROR (AllGuestsItem.java:32) -  
+2016-10-31 01:49:10,585 [main] ERROR (AllGuestsItem.java:32) -  
+2016-10-31 01:50:19,642 [main] ERROR (AllGuestsItem.java:32) -  
+2016-10-31 01:52:17,799 [main] ERROR (AllGuestsItem.java:32) -  
+2016-10-31 01:52:17,801 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2016-10-31 01:52:50,701 [main] ERROR (AllGuestsItem.java:32) -  
+2016-10-31 01:55:18,312 [main] ERROR (AllGuestsItem.java:32) -  
+2016-10-31 01:55:18,319 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2016-10-31 01:59:08,796 [main] ERROR (AllGuestsItem.java:32) - d != java.lang.String 
+2016-10-31 01:59:33,392 [main] ERROR (AllGuestsItem.java:32) - d != java.lang.String 
+2016-10-31 01:59:56,802 [main] ERROR (AllGuestsItem.java:32) - d != java.lang.String 
+2016-10-31 02:05:04,605 [main] ERROR (RoomModelServiceImpl.java:209) - Index: 0, Size: 0 
+2016-10-31 15:25:02,116 [main] ERROR (AllGuestsItem.java:32) - d != java.lang.String 
+2016-10-31 15:27:10,646 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2016-10-31 15:54:02,214 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
+2016-10-31 16:23:35,112 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
+2016-11-01 00:04:15,608 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
+2016-11-01 00:07:58,348 [main] ERROR (GuestModelServiceImpl.java:49) - -1 
+2016-11-01 00:09:06,987 [main] ERROR (GuestModelServiceImpl.java:49) - -1 
+2016-11-01 00:09:44,643 [main] ERROR (GuestModelServiceImpl.java:49) - -1 
+2016-11-01 00:20:55,588 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
+2016-11-01 00:21:11,595 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
+2016-11-01 00:21:27,859 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
+2016-11-01 00:21:37,624 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
+2016-11-01 00:22:06,800 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
+2016-11-01 00:24:38,938 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
+2016-11-01 00:25:27,475 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
+2016-11-01 00:29:50,796 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
+2016-11-01 00:37:16,627 [main] ERROR (AllGuestsItem.java:34) - d != java.lang.String 
+2016-11-01 00:37:16,628 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2016-11-03 05:36:59,376 [main] ERROR (DataServiceImpl.java:35) - java.io.StreamCorruptedException: invalid stream header: 787E7200 
+2016-11-03 05:36:59,380 [main] ERROR (ConverterImpl.java:43) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2016-11-05 22:26:22,248 [main] ERROR (Reader.java:89) - java.lang.ArrayIndexOutOfBoundsException: 1 
+2016-11-05 22:26:22,264 [main] ERROR (RoomModelServiceImpl.java:222) -  
+2016-11-05 22:27:58,231 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-07 03:17:21,180 [main] ERROR (ImportGuestsAction.java:21) -  
+2016-11-07 03:18:11,267 [main] ERROR (ImportGuestsAction.java:21) -  
+2016-11-07 03:18:16,243 [main] ERROR (ImportRoomsAction.java:21) -  
+2016-11-07 03:18:18,197 [main] ERROR (ImportServicesAction.java:21) -  
+2016-11-07 03:18:19,084 [main] ERROR (ImportRegistrationsAction.java:21) -  
+2016-11-07 03:21:11,535 [main] ERROR (ImportRoomsAction.java:21) -  
+2016-11-07 03:21:11,544 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2016-11-07 03:21:36,103 [main] ERROR (ImportGuestsAction.java:21) -  
+2016-11-07 18:11:23,283 [main] ERROR (ImportGuestsAction.java:21) -  
+2016-11-07 18:14:24,857 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-07 18:14:49,380 [main] ERROR (ImportGuestsAction.java:21) -  
+2016-11-07 18:19:31,892 [main] ERROR (ImportGuestsAction.java:21) -  
+2016-11-07 18:19:31,900 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2016-11-07 18:22:07,801 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-07 18:22:23,457 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-07 18:23:11,053 [main] ERROR (ImportRoomsAction.java:21) -  
+2016-11-07 18:23:12,408 [main] ERROR (ImportGuestsAction.java:21) -  
+2016-11-07 23:59:47,465 [main] ERROR (ImportGuestsAction.java:21) -  
+2016-11-08 00:00:32,884 [main] ERROR (ImportGuestsAction.java:21) -  
+2016-11-08 00:00:32,891 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2016-11-08 00:01:42,461 [main] ERROR (ImportGuestsAction.java:21) -  
+2016-11-08 00:01:42,469 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2016-11-08 00:02:29,086 [main] ERROR (ImportGuestsAction.java:21) -  
+2016-11-08 00:02:29,096 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2016-11-08 00:16:34,440 [main] ERROR (ImportGuestsAction.java:21) - For input string: "G1" 
+2016-11-08 00:17:03,870 [main] ERROR (ImportGuestsAction.java:21) - For input string: "G1" 
+2016-11-08 00:17:05,552 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 00:17:05,553 [main] ERROR (ImportGuestsAction.java:21) - For input string: "G1" 
+2016-11-08 00:30:01,591 [main] ERROR (ImportGuestsAction.java:21) - For input string: "G1" 
+2016-11-08 00:34:03,538 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 00:34:03,544 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 00:34:51,152 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 00:34:51,153 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:27:53,616 [main] ERROR (GuestModelServiceImpl.java:49) - -1 
+2016-11-08 02:27:53,619 [main] ERROR (ImportGuestsAction.java:21) -  
+2016-11-08 02:32:44,742 [main] ERROR (GuestModelServiceImpl.java:49) - -1 
+2016-11-08 02:32:44,745 [main] ERROR (ImportGuestsAction.java:21) -  
+2016-11-08 02:34:16,533 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:34:16,538 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:37:49,368 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:37:49,373 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:40:39,012 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:40:39,014 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:42:30,928 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:42:44,307 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:42:44,310 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2016-11-08 02:55:59,917 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:55:59,922 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:56:28,996 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:56:28,997 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-08 02:56:28,997 [main] INFO  (RoomModel.java:95) - Is full 
+2016-11-12 14:17:17,766 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-12 14:41:29,566 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-14 01:58:33,651 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-14 01:58:58,799 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-14 02:00:48,925 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-14 02:00:54,280 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-14 02:01:34,103 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-14 02:02:29,658 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2016-11-14 02:04:29,744 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-14 02:04:37,585 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-14 02:04:41,058 [main] ERROR (StreamServiceImpl.java:51) - /home/dmitry/Senla-Java-Traning-Prokopovich-Dmitry/lesson7/facade/resource/entity (Is a directory) 
+2016-11-14 02:04:41,059 [main] ERROR (ExportGuestsAction.java:26) -  
+2016-11-14 02:04:51,833 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-14 02:04:56,410 [main] ERROR (StreamServiceImpl.java:51) - /home/dmitry/Senla-Java-Traning-Prokopovich-Dmitry/lesson7/facade/resource/entity (Is a directory) 
+2016-11-14 02:04:56,411 [main] ERROR (ExportGuestsAction.java:26) -  
+2016-11-14 02:05:19,121 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-14 02:05:39,643 [main] ERROR (StreamServiceImpl.java:51) - /home/dmitry/Senla-Java-Traning-Prokopovich-Dmitry/lesson7/facade/resource/entity (Is a directory) 
+2016-11-14 02:05:39,644 [main] ERROR (ExportGuestsAction.java:26) -  
+2016-11-14 02:07:36,648 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-14 02:08:15,508 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-14 02:09:55,755 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2016-11-14 02:14:37,562 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-19 20:39:47,976 [main] ERROR (DataServiceImpl.java:33) -  
+2016-11-19 20:47:02,406 [main] ERROR (DataServiceImpl.java:33) -  
+2016-11-19 20:48:07,557 [main] ERROR (DataServiceImpl.java:33) -  
+2016-11-19 21:22:03,468 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-19 21:22:03,474 [main] ERROR (Initializer.java:78) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2016-11-19 21:33:29,291 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-19 21:49:35,133 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-20 19:30:05,531 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-21 05:15:31,626 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-21 05:15:39,108 [main] INFO  (RoomModel.java:114) - Is full 
+2016-11-21 05:15:39,109 [main] INFO  (RoomModel.java:114) - Is full 
+2016-11-24 00:05:31,509 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-24 00:05:39,899 [main] INFO  (RoomModel.java:114) - Is full 
+2016-11-24 00:05:39,900 [main] INFO  (RoomModel.java:114) - Is full 
+2016-11-24 11:32:29,613 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-24 11:32:45,110 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-24 14:25:44,985 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-24 14:25:53,032 [main] ERROR (GuestModelServiceImpl.java:49) - -1 
+2016-11-24 14:25:53,033 [main] ERROR (ImportGuestsAction.java:21) -  
+2016-11-24 15:37:18,414 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-24 15:37:35,291 [main] ERROR (RoomModelServiceImpl.java:52) - Index: 2, Size: 2 
+2016-11-24 15:37:35,292 [main] ERROR (RoomModelServiceImpl.java:52) - Index: 2, Size: 2 
+2016-11-24 15:37:35,292 [main] ERROR (GuestModelServiceImpl.java:49) - -1 
+2016-11-24 16:00:01,580 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-24 16:06:25,613 [main] ERROR (DataServiceImpl.java:32) -  
+2016-11-24 16:06:33,309 [main] ERROR (RoomModelServiceImpl.java:55) - Index: 2, Size: 2 
+2016-11-24 16:06:33,310 [main] ERROR (RoomModelServiceImpl.java:55) - Index: 2, Size: 2 
+2016-11-24 16:06:33,311 [main] ERROR (GuestModelServiceImpl.java:47) - -1 
+2017-01-20 21:53:03,115 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2017-01-20 22:55:31,608 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
