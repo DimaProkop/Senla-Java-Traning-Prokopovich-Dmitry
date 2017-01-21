@@ -9,6 +9,9 @@ import com.training.senla.model.RoomModel;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by prokop on 26.10.16.
  */
@@ -17,23 +20,27 @@ public class ChangeStatusRoomAction implements Action {
 
     @Override
     public void execute(RequestHandler requestHandler) {
-            int roomId = Reader.getInt("Input room ID: ");
-            try {
-                DataPacket packet = new DataPacket("getRoom", roomId);
-                RoomModel room = (RoomModel) requestHandler.sendRequest(packet);
-                if (room == null) {
-                    PrintModel.printMessage("Room not found.");
+        int roomId = Reader.getInt("Input room ID: ");
+        List<Object> objects = new ArrayList<>();
+        try {
+            objects.add(roomId);
+            DataPacket packet = new DataPacket("getRoom", objects);
+            RoomModel room = (RoomModel) requestHandler.sendRequest(packet);
+            if (room == null) {
+                PrintModel.printMessage("Room not found.");
+            } else {
+                objects.clear();
+                objects.add(room);
+                packet = new DataPacket("changeRoomStatus", objects);
+                boolean truth = (boolean) requestHandler.sendRequest(packet);
+                if (!truth) {
+                    PrintModel.printMessage("Can't change room status!");
                 } else {
-                    packet = new DataPacket("changeRoomStatus", room);
-                    boolean truth = (boolean) requestHandler.sendRequest(packet);
-                    if(!truth) {
-                        PrintModel.printMessage("Can't change room status!");
-                    } else {
-                        PrintModel.printMessage("Room is maintained.");
-                    }
+                    PrintModel.printMessage("Room is maintained.");
                 }
-            } catch (Exception e) {
-                LOG.error(e.getMessage());
             }
+        } catch (Exception e) {
+            LOG.error(e.getMessage());
+        }
     }
 }

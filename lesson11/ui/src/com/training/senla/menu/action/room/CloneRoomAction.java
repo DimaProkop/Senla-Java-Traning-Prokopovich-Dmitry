@@ -10,6 +10,9 @@ import com.training.senla.model.RoomModel;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by prokop on 2.11.16.
  */
@@ -18,13 +21,17 @@ public class CloneRoomAction implements Action {
 
     @Override
     public void execute(RequestHandler requestHandler) {
+        List<Object> objects = new ArrayList<>();
         int roomId = Reader.getInt("Input room id that you want to clone: ");
-        DataPacket packet = new DataPacket("getRoom", roomId);
+        objects.add(roomId);
+        DataPacket packet = new DataPacket("getRoom", objects);
         RoomModel roomExist = (RoomModel) requestHandler.sendRequest(packet);
         if(roomExist == null) {
             PrintModel.printMessage("Room not found.");
         }else {
-            packet = new DataPacket("cloneRoom", roomId);
+            objects.clear();
+            objects.add(roomId);
+            packet = new DataPacket("cloneRoom", objects);
             RoomModel room = (RoomModel) requestHandler.sendRequest(packet);
             String answer = Reader.getString("Do you want to change the number? - Y/N  ");
             if(answer.equals("Y")) {
@@ -33,7 +40,9 @@ public class CloneRoomAction implements Action {
                 String strSection = Reader.getString("Input room section: ");
                 room.setSection(RoomsSection.isExist(strSection));
                 room.setRating(Reader.getInt("Input rating: "));
-                packet = new DataPacket("updateRoom", room);
+                objects.clear();
+                objects.add(room);
+                packet = new DataPacket("updateRoom", objects);
                 requestHandler.sendRequest(packet);
                 PrintModel.printMessage("Room is successful changed.");
             }else {

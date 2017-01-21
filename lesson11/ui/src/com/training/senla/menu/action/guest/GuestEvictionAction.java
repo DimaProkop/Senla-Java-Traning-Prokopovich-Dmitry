@@ -9,6 +9,9 @@ import com.training.senla.model.GuestModel;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by prokop on 26.10.16.
  */
@@ -18,13 +21,17 @@ public class GuestEvictionAction implements Action {
     @Override
     public void execute(RequestHandler requestHandler) {
         int guestId = Reader.getInt("Input guest ID: ");
+        List<Object> objects = new ArrayList<>();
         try {
-            DataPacket packet = new DataPacket("getGuest", guestId);
+            objects.add(guestId);
+            DataPacket packet = new DataPacket("getGuest", objects);
             GuestModel guest = (GuestModel) requestHandler.sendRequest(packet);
             if(guest == null) {
                 PrintModel.printMessage("Guest not found");
             }else {
-                packet = new DataPacket("evictGuest", guest);
+                objects.clear();
+                objects.add(guest);
+                packet = new DataPacket("evictGuest", objects);
                 requestHandler.sendRequest(packet);
                 PrintModel.printMessage("Guest evicted.");
             }

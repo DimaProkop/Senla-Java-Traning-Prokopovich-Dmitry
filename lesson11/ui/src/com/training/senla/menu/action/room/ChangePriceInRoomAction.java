@@ -20,18 +20,20 @@ public class ChangePriceInRoomAction implements Action {
 
     @Override
     public void execute(RequestHandler requestHandler) {
+        List<Object> objects = new ArrayList<>();
         int roomId = Reader.getInt("Input room ID: ");
         try {
-            DataPacket packet = new DataPacket("getRoom", roomId);
+            objects.add(roomId);
+            DataPacket packet = new DataPacket("getRoom", objects);
             RoomModel room = (RoomModel) requestHandler.sendRequest(packet);
             if(room == null) {
                 PrintModel.printMessage("Room not found.");
             }else {
                 double value = Reader.getDouble("Input new price for room: ");
-                List<Object> params = new ArrayList<>();
-                params.add(room);
-                params.add(value);
-                packet = new DataPacket("changeRoomPrice", params);
+                objects.clear();
+                objects.add(room);
+                objects.add(value);
+                packet = new DataPacket("changeRoomPrice", objects);
                 requestHandler.sendRequest(packet);
             }
         }catch (Exception e) {

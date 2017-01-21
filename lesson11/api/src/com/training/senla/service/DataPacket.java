@@ -1,15 +1,16 @@
 package com.training.senla.service;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by dmitry on 27.11.16.
  */
 public class DataPacket implements Serializable {
     private String header;
-    private Object body;
+    private List<Object> body;
 
-    public DataPacket(String header, Object body) {
+    public DataPacket(String header, List<Object> body) {
         this.header = header;
         this.body = body;
     }
@@ -22,11 +23,11 @@ public class DataPacket implements Serializable {
         this.header = header;
     }
 
-    public Object getBody() {
+    public List<Object> getBody() {
         return body;
     }
 
-    public void setBody(Object body) {
+    public void setBody(List<Object> body) {
         this.body = body;
     }
 }

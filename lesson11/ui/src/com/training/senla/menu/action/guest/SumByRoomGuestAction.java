@@ -23,18 +23,22 @@ public class SumByRoomGuestAction implements Action {
     public void execute(RequestHandler requestHandler) {
         int roomId = Reader.getInt("Input room ID: ");
         int guestId = Reader.getInt("Input guest ID:");
+        List<Object> objects = new ArrayList<>();
         try {
-            DataPacket packet = new DataPacket("getGuest", guestId);
+            objects.add(guestId);
+            DataPacket packet = new DataPacket("getGuest", objects);
             GuestModel guest = (GuestModel) requestHandler.sendRequest(packet);
-            packet = new DataPacket("getRoom", roomId);
+            objects.clear();
+            objects.add(roomId);
+            packet = new DataPacket("getRoom", objects);
             RoomModel room = (RoomModel) requestHandler.sendRequest(packet);
             if(guest == null || room == null) {
                 PrintModel.printMessage("Guest or room not found");
             }else {
-                List<Object> params = new ArrayList<>();
-                params.add(guest);
-                params.add(room);
-                packet = new DataPacket("getSumPaymentRoom", params);
+                objects.clear();
+                objects.add(guest);
+                objects.add(room);
+                packet = new DataPacket("getSumPaymentRoom", objects);
                 double sum = (double) requestHandler.sendRequest(packet);
                 PrintModel.printMessage("Sum: " + String.valueOf(sum));
             }

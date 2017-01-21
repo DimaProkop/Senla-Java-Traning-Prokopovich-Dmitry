@@ -9,6 +9,9 @@ import com.training.senla.model.RoomModel;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by prokop on 26.10.16.
  */
@@ -18,8 +21,10 @@ public class RoomDetailsAction implements Action{
     @Override
     public void execute(RequestHandler requestHandler) {
         int roomId = Reader.getInt("Input room ID: ");
+        List<Object> objects = new ArrayList<>();
         try {
-            DataPacket packet = new DataPacket("getRoom", roomId);
+            objects.add(roomId);
+            DataPacket packet = new DataPacket("getRoom", objects);
             RoomModel room = (RoomModel) requestHandler.sendRequest(packet);
             if(room == null) {
                 PrintModel.printMessage("Room not found.");

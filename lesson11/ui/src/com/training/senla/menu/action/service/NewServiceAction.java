@@ -10,7 +10,9 @@ import com.training.senla.model.ServiceModel;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by prokop on 26.10.16.
@@ -21,6 +23,7 @@ public class NewServiceAction implements Action {
     @Override
     public void execute(RequestHandler requestHandler) {
         try {
+            List<Object> objects = new ArrayList<>();
             String name = Reader.getString("Input service name: ");
             double price = Reader.getDouble("Input price: ");
             String strSection = Reader.getString("Input room section: ");
@@ -28,7 +31,8 @@ public class NewServiceAction implements Action {
             Date startDate = Reader.getDate("Input start date - (dd-mm-yyyy): ");
             Date finalDate = Reader.getDate("Input final date - (dd-mm-yyyy): ");
             ServiceModel service = new ServiceModel(name, price, section, startDate, finalDate);
-            DataPacket packet = new DataPacket("addService", service);
+            objects.add(service);
+            DataPacket packet = new DataPacket("addService", objects);
             requestHandler.sendRequest(packet);
             PrintModel.printMessage("Service created.");
         }catch (Exception e) {

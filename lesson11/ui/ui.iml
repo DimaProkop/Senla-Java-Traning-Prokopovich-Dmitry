@@ -12,5 +12,7 @@
     <orderEntry type="library" name="property" level="project" />
     <orderEntry type="library" name="api" level="project" />
     <orderEntry type="library" name="model" level="project" />
+    <orderEntry type="library" name="annotation" level="project" />
+    <orderEntry type="library" name="facade" level="project" />
   </component>
 </module>

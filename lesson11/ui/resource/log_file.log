@@ -153,3 +153,12 @@
 2016-11-24 16:06:33,311 [main] ERROR (GuestModelServiceImpl.java:47) - -1 
 2017-01-20 21:53:03,115 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
 2017-01-20 22:55:31,608 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2017-01-21 16:18:30,325 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2017-01-21 16:27:06,548 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2017-01-21 16:34:52,424 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2017-01-21 19:01:56,064 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2017-01-21 19:04:24,491 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2017-01-21 19:35:18,199 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2017-01-21 19:35:59,658 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2017-01-21 20:02:52,248 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 
+2017-01-21 20:32:07,678 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException 

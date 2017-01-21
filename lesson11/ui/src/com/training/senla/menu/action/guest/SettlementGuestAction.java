@@ -22,22 +22,26 @@ public class SettlementGuestAction implements Action {
     public void execute(RequestHandler requestHandler) {
         int guestId = Reader.getInt("Input guest id: ");
         int roomId = Reader.getInt("Input room id: ");
+        List<Object> objects = new ArrayList<>();
         try {
-            DataPacket packet = new DataPacket("getGuest", guestId);
+            objects.add(guestId);
+            DataPacket packet = new DataPacket("getGuest", objects);
             GuestModel guest = (GuestModel) requestHandler.sendRequest(packet);
-            packet = new DataPacket("getRoom", roomId);
+            objects.clear();
+            objects.add(roomId);
+            packet = new DataPacket("getRoom", objects);
             RoomModel room = (RoomModel) requestHandler.sendRequest(packet);
             if(guest == null || room == null) {
                 PrintModel.printMessage("Guest or room not fount");
             } else {
                 Date startDate = Reader.getDate("Input start date - (dd-mm-yyyy): ");
                 Date finalDate = Reader.getDate("Input final date - (dd-mm-yyyy): ");
-                List<Object> params = new ArrayList<>();
-                params.add(guest);
-                params.add(room);
-                params.add(startDate);
-                params.add(finalDate);
-                packet = new DataPacket("registerGuest", params);
+                objects.clear();
+                objects.add(guest);
+                objects.add(room);
+                objects.add(startDate);
+                objects.add(finalDate);
+                packet = new DataPacket("registerGuest", objects);
                 requestHandler.sendRequest(packet);
                 PrintModel.printMessage("Guest settled.");
             }

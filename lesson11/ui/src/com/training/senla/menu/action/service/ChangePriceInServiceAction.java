@@ -21,17 +21,19 @@ public class ChangePriceInServiceAction implements Action {
     @Override
     public void execute(RequestHandler requestHandler) {
         int serviceId = Reader.getInt("Input service ID: ");
+        List<Object> objects = new ArrayList<>();
         try {
-            DataPacket packet = new DataPacket("getService", serviceId);
+            objects.add(serviceId);
+            DataPacket packet = new DataPacket("getService", objects);
             ServiceModel service = (ServiceModel) requestHandler.sendRequest(packet);
             if(service == null) {
                 PrintModel.printMessage("Service not found.");
             }else {
                 double value = Reader.getDouble("Input new price for service: ");
-                List<Object> params = new ArrayList<>();
-                params.add(service);
-                params.add(value);
-                packet = new DataPacket("changeServicePrice", params);
+                objects.clear();
+                objects.add(service);
+                objects.add(value);
+                packet = new DataPacket("changeServicePrice", objects);
                 requestHandler.sendRequest(packet);
             }
         }catch (Exception e) {

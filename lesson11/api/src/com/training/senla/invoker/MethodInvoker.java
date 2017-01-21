@@ -11,7 +11,7 @@ import java.util.List;
  * Created by dmitry on 26.11.16.
  */
 public class MethodInvoker {
-    public static Object invokeMethod(String methodName, Object args) {
+    public static Object invokeMethod(String methodName, List<Object> args) {
         Facade facade = (Facade) DependencyInjection.getInstance(Facade.class);
         facade.init();
 
@@ -19,10 +19,9 @@ public class MethodInvoker {
 
         try {
             if (args != null) {
-                List<Object> objects = (List<Object>) args;
-                Object[] params = new Object[objects.size()];
-                for (int i = 0; i < objects.size(); i++) {
-                    params[i] = objects.get(i);
+                Object[] params = new Object[args.size()];
+                for (int i = 0; i < args.size(); i++) {
+                    params[i] = args.get(i);
                 }
 
                 Class<?>[] classes = new Class[params.length];

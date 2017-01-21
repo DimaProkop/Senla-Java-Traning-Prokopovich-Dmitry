@@ -9,6 +9,7 @@ import com.training.senla.model.RoomModel;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -21,8 +22,10 @@ public class RoomsByFutureDateAction implements Action {
     @Override
     public void execute(RequestHandler requestHandler) {
         Date date = Reader.getDate("Input date - (dd-mm-yyyy): ");
+        List<Object> objects = new ArrayList<>();
         try {
-            DataPacket packet = new DataPacket("getReleasedRoomsInFuture", date);
+            objects.add(date);
+            DataPacket packet = new DataPacket("getReleasedRoomsInFuture", objects);
             List<RoomModel> rooms = (List<RoomModel>) requestHandler.sendRequest(packet);
             if (rooms == null) {
                 PrintModel.printMessage("All rooms are occupied on this date.");

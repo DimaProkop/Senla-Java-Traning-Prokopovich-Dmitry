@@ -9,6 +9,9 @@ import com.training.senla.model.GuestModel;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by prokop on 26.10.16.
  */
@@ -18,9 +21,12 @@ public class NewGuestAction implements Action {
     @Override
     public void execute(RequestHandler requestHandler) {
         String name = Reader.getString("Input guest name: ");
+        List<Object> objects = new ArrayList<>();
+
         try {
             GuestModel guest = new GuestModel(name);
-            DataPacket packet = new DataPacket("addGuest", guest);
+            objects.add(guest);
+            DataPacket packet = new DataPacket("addGuest", objects);
             requestHandler.sendRequest(packet);
             PrintModel.printMessage("Guest created.");
         } catch (Exception e) {

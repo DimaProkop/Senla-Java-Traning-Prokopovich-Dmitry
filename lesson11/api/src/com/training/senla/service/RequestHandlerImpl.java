@@ -1,5 +1,6 @@
 package com.training.senla.service;
 
+import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -28,6 +29,8 @@ public class RequestHandlerImpl implements RequestHandler{
             out.writeObject(packet);
             out.flush();
             response = in.readObject();
+        } catch (EOFException e) {
+            //System.out.println(e.getMessage());
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
