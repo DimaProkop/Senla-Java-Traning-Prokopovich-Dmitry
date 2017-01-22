@@ -5,6 +5,10 @@ import com.training.senla.model.GuestModel;
 import com.training.senla.model.ServiceModel;
 import com.training.senla.repository.GuestModelRepository;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,26 +17,9 @@ import java.util.stream.Collectors;
  */
 public class GuestModelRepositoryImpl implements GuestModelRepository {
 
-    private int currentId=1;
     private List<GuestModel> guests;
 
-    @Override
-    public void calcCurrentId() {
-        int maxId = 0;
-        if(guests == null){
-            currentId = 1;
-        }else {
-            for (GuestModel guest : guests) {
-                if (guest.getId() > maxId) {
-                    maxId = guest.getId();
-                }
-            }
-            currentId = maxId + 1;
-        }
-    }
-
     public GuestModelRepositoryImpl() {
-        calcCurrentId();
     }
 
     private int getGuestIndexById(int id) {
@@ -42,31 +29,6 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
             }
         }
         return -1;
-    }
-
-    @Override
-    public void setGuest(GuestModel guestModel) {
-        guestModel.setId(currentId++);
-        guests.add(guestModel);
-    }
-
-    @Override
-    public GuestModel getGuest(int id) {
-        GuestModel guest = null;
-        if(id != -1) {
-            guest = guests.get(getGuestIndexById(id));
-        }
-        return guest;
-    }
-
-    @Override
-    public void update(GuestModel guestModel) {
-        guests.set(getGuestIndexById(guestModel.getId()), guestModel);
-    }
-
-    @Override
-    public void delete(GuestModel guestMode) {
-        guests.remove(getGuestIndexById(guestMode.getId()));
     }
 
     @Override
@@ -103,7 +65,35 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
     }
 
     @Override
-    public void setGuests(List<GuestModel> guests) {
-        this.guests = guests;
+    public void update(Connection connection, GuestModel entity) {
+
+    }
+
+    @Override
+    public GuestModel get(Connection connection, int id) {
+        return null;
+    }
+
+    @Override
+    public void set(Connection connection, GuestModel entity) {
+        Statement statement = null;
+        try {
+            statement = connection.createStatement();
+            statement.executeUpdate("INSERT guest(name) VALUES ("+entity.getName()+")");
+
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<GuestModel> getAll(Connection connection) {
+        return null;
+    }
+
+    @Override
+    public void delete(Connection connection, GuestModel entity) {
+
     }
 }

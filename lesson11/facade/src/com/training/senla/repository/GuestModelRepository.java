@@ -8,14 +8,7 @@ import java.util.List;
 /**
  * Created by prokop on 13.10.16.
  */
-public interface GuestModelRepository {
-    void setGuest(GuestModel guestModel);
-
-    GuestModel getGuest(int id);
-
-    void update(GuestModel guestModel);
-
-    void delete(GuestModel guestModel);
+public interface GuestModelRepository extends BaseModelRepository<GuestModel>{
 
     List<ServiceModel> getServicesByPrice(GuestModel guestModel);
 
@@ -26,8 +19,4 @@ public interface GuestModelRepository {
     List<GuestModel> getSortedByName();
 
     int getCount();
-
-    void setGuests(List<GuestModel> guests);
-
-    void calcCurrentId();
 }

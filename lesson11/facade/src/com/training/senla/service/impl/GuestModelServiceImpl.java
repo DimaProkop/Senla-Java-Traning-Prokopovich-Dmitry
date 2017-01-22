@@ -9,9 +9,11 @@ import com.training.senla.repository.GuestModelRepository;
 import com.training.senla.repository.RegistrationModelRepository;
 import com.training.senla.service.GuestModelService;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.training.senla.util.connection.ConnectionManager;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import java.util.stream.Collectors;
@@ -31,10 +33,14 @@ public class GuestModelServiceImpl implements GuestModelService {
 
     @Override
     public void addGuest(GuestModel guestModel) {
+        Connection connection = null;
         try {
-            guestModelRepository.setGuest(guestModel);
+            connection = ConnectionManager.getConnection();
+            guestModelRepository.set(connection, guestModel);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
     }
 
