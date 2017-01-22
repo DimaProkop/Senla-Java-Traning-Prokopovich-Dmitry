@@ -22,6 +22,10 @@ public class ClassSetting {
                 props.setPathToInstanceFile(properties.getProperty("path.to.instance"));
                 props.setPathToFileEntity(properties.getProperty("path.to.entity.file"));
                 props.setPathToFolderEntity(properties.getProperty("folder.for.entity"));
+                props.setUrlToDB(properties.getProperty("db.url"));
+                props.setPathToDriverJDBC(properties.getProperty("db.driver"));
+                props.setUsernameToDB(properties.getProperty("db.username"));
+                props.setPasswordToDB(properties.getProperty("db.password"));
             } catch (FileNotFoundException e) {
                 System.out.print("File not found");
             } catch (IOException e) {

@@ -10,6 +10,10 @@ public class Props {
     private String pathToInstanceFile;
     private String pathToFolderEntity;
     private String pathToFileEntity;
+    private String urlToDB;
+    private String usernameToDB;
+    private String passwordToDB;
+    private String pathToDriverJDBC;
 
     public String getPathToInstanceFile() {
         return pathToInstanceFile;
@@ -57,5 +61,37 @@ public class Props {
 
     public void setPathToFileEntity(String pathToFileEntity) {
         this.pathToFileEntity = pathToFileEntity;
+    }
+
+    public String getUrlToDB() {
+        return urlToDB;
+    }
+
+    public void setUrlToDB(String urlToDB) {
+        this.urlToDB = urlToDB;
+    }
+
+    public String getUsernameToDB() {
+        return usernameToDB;
+    }
+
+    public void setUsernameToDB(String usernameToDB) {
+        this.usernameToDB = usernameToDB;
+    }
+
+    public String getPasswordToDB() {
+        return passwordToDB;
+    }
+
+    public void setPasswordToDB(String passwordToDB) {
+        this.passwordToDB = passwordToDB;
+    }
+
+    public String getPathToDriverJDBC() {
+        return pathToDriverJDBC;
+    }
+
+    public void setPathToDriverJDBC(String pathToDriverJDBC) {
+        this.pathToDriverJDBC = pathToDriverJDBC;
     }
 }
