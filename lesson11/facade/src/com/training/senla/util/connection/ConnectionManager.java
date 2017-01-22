@@ -23,11 +23,15 @@ public class ConnectionManager {
     private static String PASSWORD = ClassSetting.getProps().getPasswordToDB();
 
     public static Connection getConnection() {
-        try {
-            Class.forName(DRIVER);
-            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-        } catch (ClassNotFoundException | SQLException e) {
-            LOG.error(e.getMessage());
+        if(connection != null) {
+            return connection;
+        }else {
+            try {
+                Class.forName(DRIVER);
+                connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            } catch (ClassNotFoundException | SQLException e) {
+                LOG.error(e.getMessage());
+            }
         }
         return connection;
     }

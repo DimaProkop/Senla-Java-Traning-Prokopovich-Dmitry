@@ -5,6 +5,8 @@ import com.training.senla.facade.Facade;
 import com.training.senla.model.GuestModel;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by prokop on 12.10.16.
@@ -29,17 +31,19 @@ public class Main {
         setGuest(guestModel, statement);
 
 
-        ResultSet set = statement.executeQuery("SELECT * FROM service WHERE name = 'Service1'");
-
-        int x = set.getMetaData().getColumnCount();
+        ResultSet set = statement.executeQuery("SELECT * FROM guest WHERE id = "+2+"");
+        int countColumn = set.getMetaData().getColumnCount();
 
         while (set.next()) {
-            for (int i = 1; i <= x; i++) {
-                System.out.print(set.getString(i) + "\t");
-            }
-            System.out.println();
+            System.out.println(set.getInt(1));
+            System.out.println(set.getString(2));
+            System.out.println(set.getInt(3));
         }
 
+        int countRow = 0;
+        while (set.next()) {
+            countRow++;
+        }
     }
 
     private static void setGuest(GuestModel guest, Statement statement) throws SQLException {

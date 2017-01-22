@@ -9,9 +9,11 @@ import com.training.senla.repository.GuestModelRepository;
 import com.training.senla.repository.RegistrationModelRepository;
 import com.training.senla.repository.RoomModelRepository;
 import com.training.senla.service.RoomModelService;
+import com.training.senla.util.connection.ConnectionManager;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -88,8 +90,9 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     @Override
     public void evictGuest(GuestModel guestModel) {
+        Connection connection = ConnectionManager.getConnection();
         try {
-            guestModelRepository.delete(guestModel);
+            guestModelRepository.delete(connection, guestModel);
             guestModel.getRoomModel().removeGuest(guestModel);
             this.roomModelRepository.update(guestModel.getRoomModel());
         } catch (Exception e) {

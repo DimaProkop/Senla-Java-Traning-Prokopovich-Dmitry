@@ -6,6 +6,11 @@ import com.training.senla.enums.RoomsSection;
 import com.training.senla.model.RoomModel;
 import com.training.senla.repository.RoomModelRepository;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,25 +20,8 @@ import java.util.stream.Collectors;
 public class RoomModelRepositoryImpl implements RoomModelRepository {
 
     private List<RoomModel> rooms;
-    private int currentId=1;
-
-    @Override
-    public void calcCurrentId() {
-        int maxId = 0;
-        if(rooms == null) {
-            currentId = 1;
-        }else {
-            for (RoomModel room : rooms) {
-                if (room.getId() > maxId) {
-                    maxId = room.getId();
-                }
-            }
-            currentId = maxId + 1;
-        }
-    }
 
     public RoomModelRepositoryImpl() {
-        calcCurrentId();
     }
 
     private int getRoomIndexById(int id) {
@@ -43,38 +31,6 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
             }
         }
         return -1;
-    }
-
-    @Override
-    public void addRoom(RoomModel roomModel) {
-        roomModel.setId(currentId++);
-        rooms.add(roomModel);
-    }
-
-    @Override
-    public RoomModel getRoom(int id) {
-        RoomModel room = null;
-        if(id != -1) {
-            room = rooms.get(getRoomIndexById(id));
-        }
-        return room;
-    }
-
-    @Override
-    public void update(RoomModel roomModel) {
-        rooms.set(getRoomIndexById(roomModel.getId()), roomModel);
-    }
-
-    @Override
-    public void delete(RoomModel roomModel) {
-        rooms.remove(getRoomIndexById(roomModel.getId()));
-    }
-
-    @Override
-    public List<RoomModel> getAll() {
-        return rooms.stream()
-                .sorted(Comparator.ROOM_ID_COMPARATOR)
-                .collect(Collectors.toList());
     }
 
     @Override
@@ -150,5 +106,58 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
     @Override
     public void setRooms(List<RoomModel> rooms) {
         this.rooms = rooms;
+    }
+
+    @Override
+    public void update(Connection connection, RoomModel entity) {
+
+    }
+
+    @Override
+    public RoomModel get(Connection connection, int id) {
+        return null;
+    }
+
+    @Override
+    public void set(Connection connection, RoomModel entity) {
+
+    }
+
+    @Override
+    public List<RoomModel> getAll(Connection connection) {
+        Statement statement = null;
+        List<RoomModel> rooms = new ArrayList<>();
+        try {
+            statement = connection.createStatement();
+            ResultSet set = statement.executeQuery("SELECT * FROM guest ORDER BY id");
+            while (set.next()) {
+            }
+            set.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return rooms;
+    }
+
+    @Override
+    public void delete(Connection connection, RoomModel entity) {
+
+    }
+
+    private RoomModel parseRoom(Statement statement, ResultSet set) {
+        RoomModel room = null;
+        try {
+            room.setId(set.getInt(1));
+            room.setPrice(set.getDouble(2));
+            room.setCapacity(set.getInt(3));
+            room.setStatus(RoomStatus.isExist(set.getString(4)));
+            room.setSection(RoomsSection.isExist(set.getString(5)));
+            room.setRating(set.getInt(6));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return room;
     }
 }

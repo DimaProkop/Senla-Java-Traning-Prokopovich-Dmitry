@@ -3,6 +3,8 @@ package com.training.senla.repository;
 import com.training.senla.model.BaseModel;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -14,4 +16,13 @@ public interface BaseModelRepository<E extends BaseModel>{
     void set(Connection connection, E entity);
     List<E> getAll(Connection connection);
     void delete(Connection connection, E entity);
+
+    default int getCountRow(ResultSet set) throws SQLException {
+        int countRow = 0;
+        while (set.next()) {
+            countRow++;
+        }
+        return countRow;
+    }
+
 }

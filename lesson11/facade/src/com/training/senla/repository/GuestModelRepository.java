@@ -3,6 +3,7 @@ package com.training.senla.repository;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.ServiceModel;
 
+import java.sql.Connection;
 import java.util.List;
 
 /**
@@ -10,13 +11,13 @@ import java.util.List;
  */
 public interface GuestModelRepository extends BaseModelRepository<GuestModel>{
 
-    List<ServiceModel> getServicesByPrice(GuestModel guestModel);
+    List<ServiceModel> getServicesByPrice(Connection connection, GuestModel guestModel);
 
-    List<ServiceModel> getServicesByDate(GuestModel guestModel);
+    List<ServiceModel> getServicesByDate(Connection connection, GuestModel guestModel);
 
-    List<GuestModel> getAll();
+    List<GuestModel> getSortedByName(Connection connection);
 
-    List<GuestModel> getSortedByName();
+    int getCount(Connection connection);
 
-    int getCount();
+    void setGuests(List<GuestModel> guests);
 }

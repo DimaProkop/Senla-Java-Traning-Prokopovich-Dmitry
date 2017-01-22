@@ -61,8 +61,9 @@ public class GuestModelServiceImpl implements GuestModelService {
 
     @Override
     public void update(GuestModel guestModel) {
+        Connection connection = ConnectionManager.getConnection();
         try {
-            guestModelRepository.update(guestModel);
+            guestModelRepository.update(connection, guestModel);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -70,8 +71,9 @@ public class GuestModelServiceImpl implements GuestModelService {
 
     @Override
     public void delete(GuestModel guestModel) {
+        Connection connection = ConnectionManager.getConnection();
         try {
-            guestModelRepository.delete(guestModel);
+            guestModelRepository.delete(connection, guestModel);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -98,8 +100,9 @@ public class GuestModelServiceImpl implements GuestModelService {
     @Override
     public List<ServiceModel> getServicesByPrice(GuestModel guestModel) {
         List<ServiceModel> services = null;
+        Connection connection = ConnectionManager.getConnection();
         try {
-            services = guestModelRepository.getServicesByPrice(guestModel);
+            services = guestModelRepository.getServicesByPrice(connection, guestModel);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -109,8 +112,9 @@ public class GuestModelServiceImpl implements GuestModelService {
     @Override
     public List<ServiceModel> getServicesByDate(GuestModel guestModel) {
         List<ServiceModel> services = null;
+        Connection connection = ConnectionManager.getConnection();
         try {
-            services = guestModelRepository.getServicesByDate(guestModel);
+            services = guestModelRepository.getServicesByDate(connection, guestModel);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -119,9 +123,10 @@ public class GuestModelServiceImpl implements GuestModelService {
 
     @Override
     public List<GuestModel> getAll() {
+        Connection connection = ConnectionManager.getConnection();
         List<GuestModel> guests = null;
         try {
-            guests = guestModelRepository.getAll();
+            guests = guestModelRepository.getAll(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -131,6 +136,7 @@ public class GuestModelServiceImpl implements GuestModelService {
     @Override
     public List<GuestModel> getSortedByFinalDate() {
         List<GuestModel> guests = new ArrayList<>();
+        Connection connection = ConnectionManager.getConnection();
         try {
             List<RegistrationModel> registrations = registrationModelRepository.getAll().stream()
                     .sorted(Comparator.GUEST_ROOM_DATA_COMPARATOR)
@@ -138,8 +144,8 @@ public class GuestModelServiceImpl implements GuestModelService {
             List<Integer> newList = registrations.stream()
                     .map(RegistrationModel::getGuestId)
                     .collect(Collectors.toList());
-            for (int i = 0; i < guestModelRepository.getAll().size(); i++) {
-                GuestModel guest = guestModelRepository.getGuest(newList.get(i));
+            for (int i = 0; i < guestModelRepository.getAll(connection).size(); i++) {
+                GuestModel guest = guestModelRepository.get(connection, newList.get(i));
                 guests.add(guest);
             }
         } catch (Exception e) {
@@ -151,8 +157,9 @@ public class GuestModelServiceImpl implements GuestModelService {
     @Override
     public List<GuestModel> getSortedByName() {
         List<GuestModel> guests = null;
+        Connection connection = ConnectionManager.getConnection();
         try {
-            guests = guestModelRepository.getSortedByName();
+            guests = guestModelRepository.getSortedByName(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -179,8 +186,9 @@ public class GuestModelServiceImpl implements GuestModelService {
     @Override
     public int getCount() {
         int count = 0;
+        Connection connection = ConnectionManager.getConnection();
         try {
-            count = guestModelRepository.getCount();
+            count = guestModelRepository.getCount(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }

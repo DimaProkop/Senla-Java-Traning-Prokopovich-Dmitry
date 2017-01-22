@@ -9,16 +9,7 @@ import java.util.List;
 /**
  * Created by prokop on 13.10.16.
  */
-public interface RoomModelRepository {
-    void addRoom(RoomModel roomModel);
-
-    RoomModel getRoom(int id);
-
-    void update(RoomModel roomModel);
-
-    void delete(RoomModel roomModel);
-
-    List<RoomModel> getAll();
+public interface RoomModelRepository extends BaseModelRepository<RoomModel>{
 
     List<RoomModel> getSortedByPrice();
 
@@ -42,6 +33,4 @@ public interface RoomModelRepository {
     List<Double> getPriceBySection(RoomsSection section);
 
     void setRooms(List<RoomModel> rooms);
-
-    void calcCurrentId();
 }
