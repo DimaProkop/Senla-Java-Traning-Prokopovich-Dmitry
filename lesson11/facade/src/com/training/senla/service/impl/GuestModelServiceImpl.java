@@ -47,10 +47,14 @@ public class GuestModelServiceImpl implements GuestModelService {
     @Override
     public GuestModel getGuest(int id) {
         GuestModel guest = null;
+        Connection connection = null;
         try {
-            guest = guestModelRepository.getGuest(id);
+            connection = ConnectionManager.getConnection();
+            guest = guestModelRepository.get(connection, id);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return guest;
     }

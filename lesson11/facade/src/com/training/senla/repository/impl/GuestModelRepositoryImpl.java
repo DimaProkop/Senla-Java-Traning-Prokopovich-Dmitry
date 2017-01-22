@@ -71,6 +71,20 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
 
     @Override
     public GuestModel get(Connection connection, int id) {
+        Statement statement = null;
+        GuestModel guest = null;
+        try {
+            statement = connection.createStatement();
+            ResultSet set = statement.executeQuery("SELECT * FROM guest WHERE id = "+id+"");
+            while (set.next()) {
+                guest.setId(set.getInt(1));
+                guest.setName(set.getString(2));
+                // FIXME: 22.1.17 PARSER FOR QUERY
+                guest.setRoomModel();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
