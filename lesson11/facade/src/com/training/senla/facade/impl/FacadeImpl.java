@@ -8,11 +8,14 @@ import com.training.senla.model.GuestModel;
 import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
+import com.training.senla.repository.GuestModelRepository;
+import com.training.senla.repository.RegistrationModelRepository;
+import com.training.senla.repository.RoomModelRepository;
+import com.training.senla.repository.ServiceModelRepository;
 import com.training.senla.service.GuestModelService;
 import com.training.senla.service.RegistrationModelService;
 import com.training.senla.service.RoomModelService;
 import com.training.senla.service.ServiceModelService;
-import com.training.senla.util.initializer.Initializer;
 import com.training.senla.util.io.exporter.Exporter;
 import com.training.senla.util.io.exporter.impl.ExporterImpl;
 import com.training.senla.util.io.importer.Importer;
@@ -31,36 +34,38 @@ public class FacadeImpl implements Facade {
     private RegistrationModelService registrationModelService;
     private ServiceModelService serviceModelService;
 
-    private Initializer initializer;
-
     private Importer importer;
     private Exporter exporter;
 
     private StreamService streamService;
 
-    private static Facade facade;
-
-    public static Facade getInstance() {
-        if (facade == null) {
-            facade = new FacadeImpl();
-        }
-        return facade;
-    }
-
     @Override
     public void init() {
+        fillServices();
         streamService = (StreamService) DependencyInjection.getInstance(StreamService.class);
-        initializer = new Initializer();
-        fillServicesFromInitializer();
         importer = (Importer) DependencyInjection.getInstance(Importer.class);
         exporter = new ExporterImpl();
     }
 
-    private void fillServicesFromInitializer() {
-        this.guestModelService = this.initializer.getGuestModelService();
-        this.roomModelService = this.initializer.getRoomModelService();
-        this.registrationModelService = this.initializer.getRegistrationModelService();
-        this.serviceModelService = this.initializer.getServiceModelService();
+    private void fillServices() {
+        GuestModelRepository guestModelRepository = (GuestModelRepository) DependencyInjection.getInstance(GuestModelRepository.class);
+        RoomModelRepository roomModelRepository = (RoomModelRepository) DependencyInjection.getInstance(RoomModelRepository.class);
+        RegistrationModelRepository registrationModelRepository = (RegistrationModelRepository) DependencyInjection.getInstance(RegistrationModelRepository.class);
+        ServiceModelRepository serviceModelRepository = (ServiceModelRepository) DependencyInjection.getInstance(ServiceModelRepository.class);
+        guestModelService = (GuestModelService) DependencyInjection.getInstance(GuestModelService.class);
+        guestModelService.setGuestModelRepository(guestModelRepository);
+        guestModelService.setRegistrationModelRepository(registrationModelRepository);
+
+        roomModelService = (RoomModelService) DependencyInjection.getInstance(RoomModelService.class);
+        roomModelService.setGuestModelRepository(guestModelRepository);
+        roomModelService.setRoomModelRepository(roomModelRepository);
+        roomModelService.setRegistrationModelRepository(registrationModelRepository);
+
+        registrationModelService = (RegistrationModelService) DependencyInjection.getInstance(RegistrationModelService.class);
+        registrationModelService.setRegistrationModelRepository(registrationModelRepository);
+
+        serviceModelService = (ServiceModelService) DependencyInjection.getInstance(ServiceModelService.class);
+        serviceModelService.setServiceModelRepository(serviceModelRepository);
     }
 
     @Override

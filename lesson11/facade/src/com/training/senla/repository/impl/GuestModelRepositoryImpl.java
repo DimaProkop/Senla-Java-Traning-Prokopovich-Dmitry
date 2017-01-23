@@ -1,6 +1,7 @@
 package com.training.senla.repository.impl;
 
 import com.training.senla.model.GuestModel;
+import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 import com.training.senla.repository.GuestModelRepository;
 
@@ -17,6 +18,8 @@ import static com.training.senla.util.ParserResultSet.parseService;
  */
 public class GuestModelRepositoryImpl implements GuestModelRepository {
 
+    private String TOKEN = "'";
+    private String DELIMITER = ", ";
 
     public GuestModelRepositoryImpl() {
     }
@@ -30,8 +33,10 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
             statement = connection.createStatement();
             StringBuilder builder = new StringBuilder();
             builder.append("SELECT * FROM service WHERE guestId = ");
+            builder.append(TOKEN);
             builder.append(String.valueOf(guestModel.getId()));
-            builder.append("ORDER BY price");
+            builder.append(TOKEN);
+            builder.append(" ORDER BY price");
             ResultSet set = statement.executeQuery(builder.toString());
             while (set.next()) {
                 services.add(parseService(statement, set));
@@ -53,8 +58,10 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
             statement = connection.createStatement();
             StringBuilder builder = new StringBuilder();
             builder.append("SELECT * FROM service WHERE finalDate = ");
+            builder.append(TOKEN);
             builder.append(String.valueOf(guestModel.getId()));
-            builder.append("ORDER BY finalDate");
+            builder.append(TOKEN);
+            builder.append(" ORDER BY finalDate");
             ResultSet set = statement.executeQuery(builder.toString());
             while (set.next()) {
                 services.add(parseService(statement, set));
@@ -88,6 +95,35 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
     }
 
     @Override
+    public List<GuestModel> getSortedByFinalDate(Connection connection) {
+        return null;
+    }
+
+    @SuppressWarnings("deprecation")
+    @Override
+    public double getSumByRoom(Connection connection, RoomModel roomModel, GuestModel guestModel) {
+        Statement statement = null;
+        double sum = 0;
+        try {
+            StringBuilder builder = new StringBuilder();
+            builder.append("SELECT startDate, finalDate FROM registration WHERE guestId = ");
+            builder.append(TOKEN);
+            builder.append(String.valueOf(guestModel.getId()));
+            builder.append(TOKEN);
+            builder.append(" AND roomId = ");
+            builder.append(TOKEN);
+            builder.append(String.valueOf(roomModel.getId()));
+            builder.append(TOKEN);
+            ResultSet set = statement.executeQuery(builder.toString());
+            int count = set.getDate(2).getDay() - set.getDate(1).getDay();
+            sum = count * roomModel.getPrice();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return sum;
+    }
+
+    @Override
     public int getCount(Connection connection) {
         Statement statement = null;
         int count = 0;
@@ -108,7 +144,9 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
         try {
             StringBuilder builder = new StringBuilder();
             builder.append("UPDATE guest SET name = ?, roomId = ? WHERE id = ");
+            builder.append(TOKEN);
             builder.append(String.valueOf(entity.getId()));
+            builder.append(TOKEN);
             preparedStatement = connection.prepareStatement(builder.toString());
             preparedStatement.setString(1, entity.getName());
             preparedStatement.setInt(2, entity.getRoomModel().getId());
@@ -128,7 +166,9 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
             statement = connection.createStatement();
             StringBuilder builder = new StringBuilder();
             builder.append("SELECT * FROM guest WHERE id = ");
+            builder.append(TOKEN);
             builder.append(String.valueOf(id));
+            builder.append(TOKEN);
             ResultSet set = statement.executeQuery(builder.toString());
             guest = parseGuest(statement, set);
             set.close();
@@ -146,7 +186,13 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
             StringBuilder builder = new StringBuilder();
             statement = connection.createStatement();
             builder.append("INSERT guest(name) VALUES (");
+            builder.append(TOKEN);
             builder.append(entity.getName());
+            builder.append(TOKEN);
+            if(entity.getRoomModel() != null) {
+                builder.append(DELIMITER);
+                builder.append(entity.getRoomModel().getId());
+            }
             builder.append(")");
             statement.executeUpdate(builder.toString());
 
@@ -182,7 +228,9 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
             statement = connection.createStatement();
             StringBuilder builder = new StringBuilder();
             builder.append("DELETE * FROM guest WHERE id = ");
+            builder.append(TOKEN);
             builder.append(String.valueOf(entity.getId()));
+            builder.append(TOKEN);
             statement.executeUpdate(builder.toString());
             statement.close();
         } catch (SQLException e) {

@@ -32,8 +32,6 @@ public class RequestHandlerImpl implements RequestHandler{
             out.writeObject(packet);
             out.flush();
             response = in.readObject();
-        } catch (EOFException e) {
-            //System.out.println(e.getMessage());
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }

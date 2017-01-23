@@ -4,6 +4,7 @@ import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
 import com.training.senla.enums.ServicesSection;
 import com.training.senla.model.GuestModel;
+import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 
@@ -16,24 +17,27 @@ import java.sql.Statement;
  */
 public class ParserResultSet {
 
+    private static String TOKEN = "'";
+
     public static GuestModel parseGuest(Statement statement, ResultSet set) {
-        GuestModel guest = null;
+        GuestModel guest = new GuestModel();
         try {
             guest.setId(set.getInt(1));
             guest.setName(set.getString(2));
-            if(set.getInt(3) != 0) {
+            int roomId = set.getInt(3);
+            if(roomId != 0) {
+                //set Room
                 StringBuilder builder = new StringBuilder();
                 builder.append("SELECT * FROM room WHERE id = ");
-                builder.append(String.valueOf(set.getInt(3)));
+                builder.append(TOKEN);
+                builder.append(roomId);
+                builder.append(TOKEN);
                 ResultSet setRoom = statement.executeQuery(builder.toString());
-                RoomModel room = new RoomModel();
-                room.setId(setRoom.getInt(1));
-                room.setPrice(setRoom.getDouble(2));
-                room.setCapacity(setRoom.getInt(3));
-                room.setStatus(RoomStatus.isExist(setRoom.getString(4)));
-                room.setSection(RoomsSection.isExist(setRoom.getString(5)));
-                room.setRating(setRoom.getInt(6));
-                guest.setRoomModel(room);
+                guest.setRoomModel(parseRoom(statement, setRoom));
+
+                //set Services
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.append("1");
             }else {
                 guest.setRoomModel(null);
             }
@@ -44,7 +48,7 @@ public class ParserResultSet {
     }
 
     public static ServiceModel parseService(Statement statement, ResultSet set) {
-        ServiceModel service = null;
+        ServiceModel service = new ServiceModel();
         try {
             service.setId(set.getInt(1));
             service.setName(set.getString(2));
@@ -60,7 +64,7 @@ public class ParserResultSet {
     }
 
     public static RoomModel parseRoom(Statement statement, ResultSet set) {
-        RoomModel room = null;
+        RoomModel room = new RoomModel();
         try {
             room.setId(set.getInt(1));
             room.setPrice(set.getDouble(2));
@@ -72,5 +76,20 @@ public class ParserResultSet {
             e.printStackTrace();
         }
         return room;
+    }
+
+    public static RegistrationModel parseRegistration(Statement statement, ResultSet set) {
+        RegistrationModel registration = new RegistrationModel();
+        try {
+            registration.setId(set.getInt(1));
+            registration.setGuestId(set.getInt(2));
+            registration.setRoomId(set.getInt(3));
+            registration.setStartDate(set.getDate(4));
+            registration.setFinalDate(set.getDate(5));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return registration;
     }
 }

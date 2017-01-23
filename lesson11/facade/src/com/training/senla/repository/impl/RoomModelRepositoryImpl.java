@@ -16,6 +16,9 @@ import static com.training.senla.util.ParserResultSet.parseRoom;
  */
 public class RoomModelRepositoryImpl implements RoomModelRepository {
 
+    private String TOKEN = "'";
+    private String DELIMITER = ", ";
+
     public RoomModelRepositoryImpl() {
     }
 
@@ -84,8 +87,10 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
             statement = connection.createStatement();
             StringBuilder builder = new StringBuilder();
             builder.append("SELECT * FROM room WHERE status = ");
-            builder.append(status.toString());
-            builder.append("ORDER BY id");
+            builder.append(TOKEN);
+            builder.append(status.toString().toLowerCase());
+            builder.append(TOKEN);
+            builder.append(" ORDER BY id");
             ResultSet set = statement.executeQuery(builder.toString());
             while (set.next()) {
                 rooms.add(parseRoom(statement, set));
@@ -107,8 +112,10 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
             statement = connection.createStatement();
             StringBuilder builder = new StringBuilder();
             builder.append("SELECT * FROM room WHERE status = ");
+            builder.append(TOKEN);
             builder.append(status.toString());
-            builder.append("ORDER BY price");
+            builder.append(TOKEN);
+            builder.append(" ORDER BY price");
             ResultSet set = statement.executeQuery(builder.toString());
             while (set.next()) {
                 rooms.add(parseRoom(statement, set));
@@ -130,8 +137,10 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
             statement = connection.createStatement();
             StringBuilder builder = new StringBuilder();
             builder.append("SELECT * FROM room WHERE status = ");
+            builder.append(TOKEN);
             builder.append(status.toString());
-            builder.append("ORDER BY capacity");
+            builder.append(TOKEN);
+            builder.append(" ORDER BY capacity");
             ResultSet set = statement.executeQuery(builder.toString());
             while (set.next()) {
                 rooms.add(parseRoom(statement, set));
@@ -153,8 +162,10 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
             statement = connection.createStatement();
             StringBuilder builder = new StringBuilder();
             builder.append("SELECT * FROM room WHERE status = ");
+            builder.append(TOKEN);
             builder.append(status.toString());
-            builder.append("ORDER BY rating");
+            builder.append(TOKEN);
+            builder.append(" ORDER BY rating");
             ResultSet set = statement.executeQuery(builder.toString());
             while (set.next()) {
                 rooms.add(parseRoom(statement, set));
@@ -200,7 +211,9 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
         try {
             StringBuilder builder = new StringBuilder();
             builder.append("UPDATE room SET price = ?, capacity = ?, status = ?, section = ?, rating = ? WHERE id = ");
+            builder.append(TOKEN);
             builder.append(String.valueOf(entity.getId()));
+            builder.append(TOKEN);
             preparedStatement = connection.prepareStatement(builder.toString());
             preparedStatement.setDouble(1, entity.getPrice());
             preparedStatement.setInt(2, entity.getCapacity());
@@ -223,7 +236,9 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
             statement = connection.createStatement();
             StringBuilder builder = new StringBuilder();
             builder.append("SELECT * FROM room WHERE id = ");
+            builder.append(TOKEN);
             builder.append(String.valueOf(id));
+            builder.append(TOKEN);
             ResultSet set = statement.executeQuery(builder.toString());
             room = parseRoom(statement, set);
             set.close();
@@ -242,9 +257,17 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
             statement = connection.createStatement();
             builder.append("INSERT room(price, capacity, status, section, rating) VALUES (");
             builder.append(String.valueOf(entity.getPrice()));
+            builder.append(DELIMITER);
             builder.append(String.valueOf(entity.getCapacity()));
-            builder.append(String.valueOf(entity.getStatus()));
-            builder.append(String.valueOf(entity.getSection()));
+            builder.append(DELIMITER);
+            builder.append(TOKEN);
+            builder.append(String.valueOf(entity.getStatus()).toLowerCase());
+            builder.append(TOKEN);
+            builder.append(DELIMITER);
+            builder.append(TOKEN);
+            builder.append(String.valueOf(entity.getSection()).toLowerCase());
+            builder.append(TOKEN);
+            builder.append(DELIMITER);
             builder.append(String.valueOf(entity.getRating()));
             builder.append(")");
             statement.executeUpdate(builder.toString());
@@ -281,7 +304,9 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
             statement = connection.createStatement();
             StringBuilder builder = new StringBuilder();
             builder.append("DELETE * FROM room WHERE id = ");
+            builder.append(TOKEN);
             builder.append(String.valueOf(entity.getId()));
+            builder.append(TOKEN);
             statement.executeUpdate(builder.toString());
             statement.close();
         } catch (SQLException e) {

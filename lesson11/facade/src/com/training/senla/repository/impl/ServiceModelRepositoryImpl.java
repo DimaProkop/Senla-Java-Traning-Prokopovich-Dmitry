@@ -16,6 +16,9 @@ import static com.training.senla.util.ParserResultSet.parseService;
  */
 public class ServiceModelRepositoryImpl implements ServiceModelRepository {
 
+    private String TOKEN = "'";
+    private String DELIMITER = ", ";
+
     public ServiceModelRepositoryImpl() {
     }
 
@@ -26,7 +29,9 @@ public class ServiceModelRepositoryImpl implements ServiceModelRepository {
         try {
             StringBuilder builder = new StringBuilder();
             builder.append("UPDATE service SET name = ?, price = ?, section = ?, startDate = ?, finalDate = ? WHERE id = ");
+            builder.append(TOKEN);
             builder.append(String.valueOf(entity.getId()));
+            builder.append(TOKEN);
             preparedStatement = connection.prepareStatement(builder.toString());
             preparedStatement.setString(1, entity.getName());
             preparedStatement.setDouble(2, entity.getPrice());
@@ -49,7 +54,9 @@ public class ServiceModelRepositoryImpl implements ServiceModelRepository {
             statement = connection.createStatement();
             StringBuilder builder = new StringBuilder();
             builder.append("SELECT * FROM service WHERE id = ");
+            builder.append(TOKEN);
             builder.append(String.valueOf(id));
+            builder.append(TOKEN);
             ResultSet set = statement.executeQuery(builder.toString());
             service = parseService(statement, set);
             set.close();
@@ -67,11 +74,23 @@ public class ServiceModelRepositoryImpl implements ServiceModelRepository {
             StringBuilder builder = new StringBuilder();
             statement = connection.createStatement();
             builder.append("INSERT service(name, price, section, startDate, finalDate) VALUES (");
+            builder.append(TOKEN);
             builder.append(entity.getName());
+            builder.append(TOKEN);
+            builder.append(DELIMITER);
             builder.append(entity.getPrice());
-            builder.append(entity.getSection().toString());
+            builder.append(DELIMITER);
+            builder.append(TOKEN);
+            builder.append(entity.getSection().toString().toLowerCase());
+            builder.append(TOKEN);
+            builder.append(DELIMITER);
+            builder.append(TOKEN);
             builder.append(entity.getStartDate().toString());
+            builder.append(TOKEN);
+            builder.append(DELIMITER);
+            builder.append(TOKEN);
             builder.append(entity.getFinalDate().toString());
+            builder.append(TOKEN);
             builder.append(")");
             statement.executeUpdate(builder.toString());
 
@@ -107,7 +126,9 @@ public class ServiceModelRepositoryImpl implements ServiceModelRepository {
             statement = connection.createStatement();
             StringBuilder builder = new StringBuilder();
             builder.append("DELETE * FROM service WHERE id = ");
+            builder.append(TOKEN);
             builder.append(String.valueOf(entity.getId()));
+            builder.append(TOKEN);
             statement.executeUpdate(builder.toString());
             statement.close();
         } catch (SQLException e) {

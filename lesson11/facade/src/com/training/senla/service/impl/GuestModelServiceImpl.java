@@ -66,6 +66,8 @@ public class GuestModelServiceImpl implements GuestModelService {
             guestModelRepository.update(connection, guestModel);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
     }
 
@@ -76,6 +78,8 @@ public class GuestModelServiceImpl implements GuestModelService {
             guestModelRepository.delete(connection, guestModel);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
     }
 
@@ -105,6 +109,8 @@ public class GuestModelServiceImpl implements GuestModelService {
             services = guestModelRepository.getServicesByPrice(connection, guestModel);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return services;
     }
@@ -117,6 +123,8 @@ public class GuestModelServiceImpl implements GuestModelService {
             services = guestModelRepository.getServicesByDate(connection, guestModel);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return services;
     }
@@ -129,6 +137,8 @@ public class GuestModelServiceImpl implements GuestModelService {
             guests = guestModelRepository.getAll(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return guests;
     }
@@ -162,24 +172,22 @@ public class GuestModelServiceImpl implements GuestModelService {
             guests = guestModelRepository.getSortedByName(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return guests;
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     public double getSumByRoom(RoomModel roomModel, GuestModel guestModel) {
         double sum = 0;
         Connection connection = ConnectionManager.getConnection();
         try {
-            for (int i = 0; i < registrationModelRepository.getAll(connection).size(); i++) {
-                if(registrationModelRepository.getAll(connection).get(i).getGuestId() == guestModel.getId()) {
-                    int count = registrationModelRepository.getAll(connection).get(i).getFinalDate().getDay() - registrationModelRepository.getAll(connection).get(i).getStartDate().getDay();
-                    sum = count * roomModel.getPrice();
-                }
-            }
+            sum = guestModelRepository.getSumByRoom(connection, roomModel, guestModel);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return sum;
     }
@@ -192,6 +200,8 @@ public class GuestModelServiceImpl implements GuestModelService {
             count = guestModelRepository.getCount(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return count;
     }

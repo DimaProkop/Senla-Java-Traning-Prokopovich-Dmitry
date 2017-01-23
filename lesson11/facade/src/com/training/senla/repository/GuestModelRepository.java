@@ -1,6 +1,7 @@
 package com.training.senla.repository;
 
 import com.training.senla.model.GuestModel;
+import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 
 import java.sql.Connection;
@@ -16,6 +17,10 @@ public interface GuestModelRepository extends BaseModelRepository<GuestModel>{
     List<ServiceModel> getServicesByDate(Connection connection, GuestModel guestModel);
 
     List<GuestModel> getSortedByName(Connection connection);
+
+    List<GuestModel> getSortedByFinalDate(Connection connection);
+
+    double getSumByRoom(Connection connection, RoomModel roomModel, GuestModel guestModel);
 
     int getCount(Connection connection);
 }

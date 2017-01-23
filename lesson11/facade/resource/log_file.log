@@ -1880,3 +1880,38 @@
 2017-01-21 23:05:03,728 [main] ERROR (DataServiceImpl.java:30) -  
 2017-01-21 23:06:29,694 [main] ERROR (DataServiceImpl.java:30) -  
 2017-01-21 23:07:07,417 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-23 04:47:44,549 [Thread-0] ERROR (ConnectionManager.java:33) - com.mysql.cj.jdbc.Driver 
+2017-01-23 04:47:44,552 [Thread-0] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 04:47:50,212 [Thread-0] ERROR (ConnectionManager.java:33) - com.mysql.cj.jdbc.Driver 
+2017-01-23 04:47:50,213 [Thread-0] ERROR (GuestModelServiceImpl.java:41) -  
+2017-01-23 04:47:57,368 [Thread-0] ERROR (ConnectionManager.java:33) - com.mysql.cj.jdbc.Driver 
+2017-01-23 04:47:57,368 [Thread-0] ERROR (GuestModelServiceImpl.java:41) -  
+2017-01-23 04:50:55,367 [Thread-0] ERROR (ConnectionManager.java:33) - com.mysql.cj.jdbc.Driver 
+2017-01-23 04:50:55,372 [Thread-0] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 04:52:40,174 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 04:53:37,133 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 04:55:02,652 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 04:56:37,969 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 04:56:48,218 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 04:57:02,366 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 04:57:22,429 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 04:59:09,074 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:00:25,256 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:00:36,003 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:00:45,834 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:00:59,939 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:01:10,520 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:01:30,442 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:01:39,217 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:01:41,857 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:01:52,353 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:02:05,098 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:03:59,115 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:04:15,320 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:04:22,820 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:07:42,499 [Thread-0] ERROR (ConnectionManager.java:33) - com.mysql.cj.jdbc.Driver 
+2017-01-23 05:07:42,501 [Thread-0] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 14:50:36,469 [Thread-0] ERROR (ConnectionManager.java:33) - com.mysql.cj.jdbc.Driver 
+2017-01-23 14:50:36,477 [Thread-0] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 14:57:57,700 [Thread-0] ERROR (ConnectionManager.java:33) - com.mysql.cj.jdbc.Driver 
+2017-01-23 14:57:57,709 [Thread-0] ERROR (GuestModelServiceImpl.java:139) -  

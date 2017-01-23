@@ -6,7 +6,6 @@ import com.training.senla.manager.impl.EntityManagerImpl;
 import com.training.senla.model.*;
 import com.training.senla.template.WriteTemplate;
 import com.training.senla.util.io.exporter.Exporter;
-import com.training.senla.util.service.DataService;
 import com.training.senla.util.service.StreamService;
 
 import java.util.ArrayList;
@@ -19,10 +18,8 @@ public class ExporterImpl implements Exporter {
 
     private StreamService streamService;
     private EntityManager entityManager;
-    private DataService dataService;
 
     public ExporterImpl() {
-        this.dataService = (DataService) DependencyInjection.getInstance(DataService.class);
         this.streamService = (StreamService) DependencyInjection.getInstance(StreamService.class);
         this.entityManager = new EntityManagerImpl();
     }
@@ -44,6 +41,5 @@ public class ExporterImpl implements Exporter {
         data.add(rooms);
         data.add(services);
         data.add(registrations);
-        dataService.saveData(data);
     }
 }
