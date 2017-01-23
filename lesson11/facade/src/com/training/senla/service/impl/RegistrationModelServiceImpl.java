@@ -3,9 +3,11 @@ package com.training.senla.service.impl;
 import com.training.senla.model.RegistrationModel;
 import com.training.senla.repository.RegistrationModelRepository;
 import com.training.senla.service.RegistrationModelService;
+import com.training.senla.util.connection.ConnectionManager;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+import java.sql.Connection;
 import java.util.List;
 
 /**
@@ -26,8 +28,9 @@ public class RegistrationModelServiceImpl implements RegistrationModelService{
 
     @Override
     public void addRecord(RegistrationModel registrationModel) {
+        Connection connection = ConnectionManager.getConnection();
         try {
-            registrationModelRepository.addRecord(registrationModel);
+            registrationModelRepository.set(connection, registrationModel);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -36,8 +39,9 @@ public class RegistrationModelServiceImpl implements RegistrationModelService{
 
     @Override
     public void update(RegistrationModel registrationModel) {
+        Connection connection = ConnectionManager.getConnection();
         try {
-            registrationModelRepository.update(registrationModel);
+            registrationModelRepository.update(connection, registrationModel);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -45,9 +49,10 @@ public class RegistrationModelServiceImpl implements RegistrationModelService{
 
     @Override
     public RegistrationModel getRegistration(int id) {
+        Connection connection = ConnectionManager.getConnection();
         RegistrationModel registration = null;
         try {
-            registration = registrationModelRepository.getRegistration(id);
+            registration = registrationModelRepository.get(connection, id);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -56,9 +61,10 @@ public class RegistrationModelServiceImpl implements RegistrationModelService{
 
     @Override
     public List<RegistrationModel> getAll() {
+        Connection connection = ConnectionManager.getConnection();
         List<RegistrationModel> registrations = null;
         try {
-            registrations = registrationModelRepository.getAll();
+            registrations = registrationModelRepository.getAll(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }

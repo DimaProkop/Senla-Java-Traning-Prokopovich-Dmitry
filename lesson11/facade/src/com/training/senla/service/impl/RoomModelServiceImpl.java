@@ -41,8 +41,9 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     @Override
     public void addRoom(RoomModel roomModel) {
+        Connection connection = ConnectionManager.getConnection();
         try {
-            roomModelRepository.addRoom(roomModel);
+            roomModelRepository.set(connection, roomModel);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -51,8 +52,9 @@ public class RoomModelServiceImpl implements RoomModelService {
     @Override
     public RoomModel getRoom(int id) {
         RoomModel room = null;
+        Connection connection = ConnectionManager.getConnection();
         try {
-            room = roomModelRepository.getRoom(id);
+            room = roomModelRepository.get(connection, id);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -61,8 +63,9 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     @Override
     public void update(RoomModel roomModel) {
+        Connection connection = ConnectionManager.getConnection();
         try {
-            roomModelRepository.update(roomModel);
+            roomModelRepository.update(connection, roomModel);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -70,8 +73,9 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     @Override
     public void delete(RoomModel roomModel) {
+        Connection connection = ConnectionManager.getConnection();
         try {
-            roomModelRepository.delete(roomModel);
+            roomModelRepository.delete(connection, roomModel);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -79,10 +83,11 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     @Override
     public void registerGuest(GuestModel guestModel, RoomModel roomModel, Date startDate, Date finalDate) {
+        Connection connection = ConnectionManager.getConnection();
         try {
             roomModel.addGuest(guestModel);
             guestModel.setRoomModel(roomModel);
-            registrationModelRepository.addRecord(new RegistrationModel(guestModel.getId(), roomModel.getId(), startDate, finalDate));
+            registrationModelRepository.set(connection, new RegistrationModel(guestModel.getId(), roomModel.getId(), startDate, finalDate));
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -94,7 +99,7 @@ public class RoomModelServiceImpl implements RoomModelService {
         try {
             guestModelRepository.delete(connection, guestModel);
             guestModel.getRoomModel().removeGuest(guestModel);
-            this.roomModelRepository.update(guestModel.getRoomModel());
+            this.roomModelRepository.update(connection, guestModel.getRoomModel());
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -102,7 +107,8 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     @Override
     public RoomModel cloneRoom(int id) {
-        RoomModel room = roomModelRepository.getRoom(id);
+        Connection connection = ConnectionManager.getConnection();
+        RoomModel room = roomModelRepository.get(connection, id);
         RoomModel clone = null;
         try {
             clone = (RoomModel) room.clone();
@@ -114,9 +120,10 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     @Override
     public List<RoomModel> getAll() {
+        Connection connection = ConnectionManager.getConnection();
         List<RoomModel> rooms = null;
         try {
-            rooms = roomModelRepository.getAll();
+            rooms = roomModelRepository.getAll(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -125,9 +132,10 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     @Override
     public List<RoomModel> getSortedByPrice() {
+        Connection connection = ConnectionManager.getConnection();
         List<RoomModel> rooms = null;
         try {
-            rooms = roomModelRepository.getSortedByPrice();
+            rooms = roomModelRepository.getSortedByPrice(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -136,9 +144,10 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     @Override
     public List<RoomModel> getSortedByCapacity() {
+        Connection connection = ConnectionManager.getConnection();
         List<RoomModel> rooms = null;
         try {
-            rooms = roomModelRepository.getSortedByCapacity();
+            rooms = roomModelRepository.getSortedByCapacity(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -147,9 +156,10 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     @Override
     public List<RoomModel> getSortedByRating() {
+        Connection connection = ConnectionManager.getConnection();
         List<RoomModel> rooms = null;
         try {
-            rooms = roomModelRepository.getSortedByRating();
+            rooms = roomModelRepository.getSortedByRating(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -158,9 +168,10 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     @Override
     public List<RoomModel> getAll(RoomStatus status) {
+        Connection connection = ConnectionManager.getConnection();
         List<RoomModel> rooms = null;
         try {
-            rooms = roomModelRepository.getAll(status);
+            rooms = roomModelRepository.getAll(connection, status);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -169,9 +180,10 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     @Override
     public List<RoomModel> getSortedByPrice(RoomStatus status) {
+        Connection connection = ConnectionManager.getConnection();
         List<RoomModel> rooms = null;
         try {
-            rooms = roomModelRepository.getSortedByPrice(status);
+            rooms = roomModelRepository.getSortedByPrice(connection, status);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -180,9 +192,10 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     @Override
     public List<RoomModel> getSortedByCapacity(RoomStatus status) {
+        Connection connection = ConnectionManager.getConnection();
         List<RoomModel> rooms = null;
         try {
-            rooms = roomModelRepository.getSortedByCapacity(status);
+            rooms = roomModelRepository.getSortedByCapacity(connection, status);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -191,9 +204,10 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     @Override
     public List<RoomModel> getSortedByRating(RoomStatus status) {
+        Connection connection = ConnectionManager.getConnection();
         List<RoomModel> rooms = null;
         try {
-            rooms = roomModelRepository.getSortedByRating(status);
+            rooms = roomModelRepository.getSortedByRating(connection, status);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -202,9 +216,10 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     @Override
     public int getCountFreeRooms() {
+        Connection connection = ConnectionManager.getConnection();
         int count = 0;
         try {
-            count = roomModelRepository.getCountFreeRooms();
+            count = roomModelRepository.getCountFreeRooms(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -213,15 +228,16 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     @Override
     public List<RoomModel> getReleasedInFuture(Date date) {
+        Connection connection = ConnectionManager.getConnection();
         List<RoomModel> rooms = new ArrayList<>();
         try {
-            List<Integer> roomIds = registrationModelRepository.getAll().stream()
+            List<Integer> roomIds = registrationModelRepository.getAll(connection).stream()
                     .filter(x->x.getFinalDate().getTime() < date.getTime())
                     .map(RegistrationModel::getRoomId)
                     .distinct()
                     .collect(Collectors.toList());
-            for (int i = 0; i < roomModelRepository.getAll().size(); i++) {
-                RoomModel room = roomModelRepository.getRoom(roomIds.get(i));
+            for (int i = 0; i < roomModelRepository.getAll(connection).size(); i++) {
+                RoomModel room = roomModelRepository.get(connection, roomIds.get(i));
                 rooms.add(room);
             }
         } catch (Exception e) {
@@ -232,9 +248,10 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     @Override
     public List<RoomModel> getLatestGuests(int count) {
+        Connection connection = ConnectionManager.getConnection();
         List<RoomModel> rooms = null;
         try {
-            rooms = roomModelRepository.getLatestGuests(count);
+            rooms = roomModelRepository.getLatestGuests(connection, count);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -243,9 +260,10 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     @Override
     public List<Double> getPriceBySection(RoomsSection section) {
+        Connection connection = ConnectionManager.getConnection();
         List<Double> prices = null;
         try {
-            prices = roomModelRepository.getPriceBySection(section);
+            prices = roomModelRepository.getPriceBySection(connection, section);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }

@@ -138,7 +138,7 @@ public class GuestModelServiceImpl implements GuestModelService {
         List<GuestModel> guests = new ArrayList<>();
         Connection connection = ConnectionManager.getConnection();
         try {
-            List<RegistrationModel> registrations = registrationModelRepository.getAll().stream()
+            List<RegistrationModel> registrations = registrationModelRepository.getAll(connection).stream()
                     .sorted(Comparator.GUEST_ROOM_DATA_COMPARATOR)
                     .collect(Collectors.toList());
             List<Integer> newList = registrations.stream()
@@ -170,10 +170,11 @@ public class GuestModelServiceImpl implements GuestModelService {
     @Override
     public double getSumByRoom(RoomModel roomModel, GuestModel guestModel) {
         double sum = 0;
+        Connection connection = ConnectionManager.getConnection();
         try {
-            for (int i = 0; i < registrationModelRepository.getAll().size(); i++) {
-                if(registrationModelRepository.getAll().get(i).getGuestId() == guestModel.getId()) {
-                    int count = registrationModelRepository.getAll().get(i).getFinalDate().getDay() - registrationModelRepository.getAll().get(i).getStartDate().getDay();
+            for (int i = 0; i < registrationModelRepository.getAll(connection).size(); i++) {
+                if(registrationModelRepository.getAll(connection).get(i).getGuestId() == guestModel.getId()) {
+                    int count = registrationModelRepository.getAll(connection).get(i).getFinalDate().getDay() - registrationModelRepository.getAll(connection).get(i).getStartDate().getDay();
                     sum = count * roomModel.getPrice();
                 }
             }

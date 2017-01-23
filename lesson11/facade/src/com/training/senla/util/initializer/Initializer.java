@@ -46,16 +46,9 @@ public class Initializer {
 
     private void fillServices() {
         GuestModelRepository guestModelRepository = (GuestModelRepository) DependencyInjection.getInstance(GuestModelRepository.class);
-        guestModelRepository.setGuests(guestModelService.getAll());
         RoomModelRepository roomModelRepository = (RoomModelRepository) DependencyInjection.getInstance(RoomModelRepository.class);
-        roomModelRepository.setRooms(this.rooms);
-        roomModelRepository.calcCurrentId();
         RegistrationModelRepository registrationModelRepository = (RegistrationModelRepository) DependencyInjection.getInstance(RegistrationModelRepository.class);
-        registrationModelRepository.setRegistrations(this.registrations);
-        registrationModelRepository.calcCurrentId();
         ServiceModelRepository serviceModelRepository = (ServiceModelRepository) DependencyInjection.getInstance(ServiceModelRepository.class);
-        serviceModelRepository.setServices(this.services);
-        serviceModelRepository.calcCurrentId();
         guestModelService = (GuestModelService) DependencyInjection.getInstance(GuestModelService.class);
         guestModelService.setGuestModelRepository(guestModelRepository);
         guestModelService.setRegistrationModelRepository(registrationModelRepository);

@@ -4,6 +4,9 @@ import com.training.senla.ClassSetting;
 import com.training.senla.model.RegistrationModel;
 import com.training.senla.repository.RegistrationModelRepository;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,70 +15,43 @@ import java.util.stream.Collectors;
  */
 public class RegistrationModelRepositoryImpl implements RegistrationModelRepository {
 
-    private List<RegistrationModel> registrations;
-    private int currentId=1;
-
-    @Override
-    public void calcCurrentId() {
-        int maxId = 0;
-        if(registrations == null) {
-            currentId = 1;
-        }else {
-            for (RegistrationModel registration : registrations) {
-                if (registration.getId() > maxId) {
-                    maxId = registration.getId();
-                }
-            }
-            currentId = maxId + 1;
-        }
+    public RegistrationModelRepositoryImpl() {
     }
 
-    private int getRegistrationIndexById(int id) {
-        for (int i = 0; i < registrations.size(); i++) {
-            if(registrations.get(i).getGuestId() == id) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-
     @Override
-    public void addRecord(RegistrationModel registrationModel) {
-        registrationModel.setId(currentId++);
-        List<Integer> oldIds = registrations.stream()
-                .map(x->x.getRoomId())
-                .distinct()
-                .collect(Collectors.toList());
-        int countRecords = ClassSetting.getProps().getCountRecords();
-        if(countRecords<oldIds.size()) {
-            registrations.remove(registrations.get(0));
-            registrations.add(registrationModel);
-        }else {
-            registrations.add(registrationModel);
+    public void update(Connection connection, RegistrationModel entity) {
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement("UPDATE registration SET guestId = ?, roomId = ?, section = ?, startDate = ?, finalDate = ?");
+            preparedStatement.setInt(1, entity.getGuestId());
+            preparedStatement.setInt(2, entity.getRoomId());
+            preparedStatement.setString(3, entity.getStartDate().toString());
+            preparedStatement.setString(4, entity.getFinalDate().toString());
+            preparedStatement.executeUpdate();
+
+            preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
     @Override
-    public void update(RegistrationModel registrationModel) {
-        registrations.set(registrationModel.getId(), registrationModel);
+    public RegistrationModel get(Connection connection, int id) {
+        return null;
     }
 
     @Override
-    public RegistrationModel getRegistration(int id) {
-        RegistrationModel registration = null;
-        if(id != -1) {
-            registration = registrations.get(getRegistrationIndexById(id));
-        }
-        return registration;
+    public void set(Connection connection, RegistrationModel entity) {
+
     }
 
     @Override
-    public List<RegistrationModel> getAll() {
-        return registrations;
+    public List<RegistrationModel> getAll(Connection connection) {
+        return null;
     }
 
-    public void setRegistrations(List<RegistrationModel> registrations) {
-        this.registrations = registrations;
+    @Override
+    public void delete(Connection connection, RegistrationModel entity) {
+
     }
 }

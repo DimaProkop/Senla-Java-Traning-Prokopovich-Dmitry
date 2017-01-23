@@ -18,6 +18,4 @@ public interface GuestModelRepository extends BaseModelRepository<GuestModel>{
     List<GuestModel> getSortedByName(Connection connection);
 
     int getCount(Connection connection);
-
-    void setGuests(List<GuestModel> guests);
 }

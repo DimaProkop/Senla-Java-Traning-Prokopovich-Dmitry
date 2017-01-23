@@ -29,15 +29,15 @@ public class Main {
 
         GuestModel guestModel = new GuestModel("testMethod");
         setGuest(guestModel, statement);
+        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE guest SET name = ?  WHERE id = '4'");
+        preparedStatement.setString(1, "sdsds");
+        preparedStatement.executeUpdate();
 
-
-        ResultSet set = statement.executeQuery("SELECT * FROM guest WHERE id = "+2+"");
+        ResultSet set = statement.executeQuery("SELECT price FROM service ORDER BY section");
         int countColumn = set.getMetaData().getColumnCount();
 
         while (set.next()) {
             System.out.println(set.getInt(1));
-            System.out.println(set.getString(2));
-            System.out.println(set.getInt(3));
         }
 
         int countRow = 0;

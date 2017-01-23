@@ -3,30 +3,17 @@ package com.training.senla.repository;
 import com.training.senla.enums.ServicesSection;
 import com.training.senla.model.ServiceModel;
 
+import java.sql.Connection;
 import java.util.Date;
 import java.util.List;
 
 /**
  * Created by prokop on 13.10.16.
  */
-public interface ServiceModelRepository {
-    void setService(ServiceModel serviceModel);
+public interface ServiceModelRepository extends BaseModelRepository<ServiceModel>{
+    List<ServiceModel> getSortedByPrice(Connection connection);
 
-    ServiceModel getService(int id);
+    List<ServiceModel> getSortedByDate(Connection connection, Date date);
 
-    void update(ServiceModel serviceModel);
-
-    void delete(ServiceModel serviceModel);
-
-    List<ServiceModel> getAll();
-
-    List<ServiceModel> getSortedByPrice();
-
-    List<ServiceModel> getSortedByDate(Date date);
-
-    List<Double> getPriceBySection(ServicesSection section);
-
-    void setServices(List<ServiceModel> services);
-
-    void calcCurrentId();
+    List<Double> getPriceBySection(Connection connection, ServicesSection section);
 }
