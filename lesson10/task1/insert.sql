@@ -1,3 +1,6 @@
+START TRANSACTION;
+USE test;
+
 INSERT product(maker, model, type) VALUE
   ('Lenovo', 'Lenovo ideaPad', 'Laptop'),
   ('Xerox', 'd2000', 'Printer'),
@@ -15,7 +18,7 @@ INSERT product(maker, model, type) VALUE
   ('HP', 'HP 15-ac159ur', 'Laptop'),
   ('Asus', 'Zen AiO Pro', 'PC'),
   ('Asus', 'A4110', 'PC'),
-  ('HP', 'Zen AiO Pro', 'PC'),
+  ('HP', 'Zen AiO', 'PC'),
   ('HP', 'ENVY 24-n271ur', 'PC'),
   ('MSI Gaming', 'GT83VR', 'PC'),
   ('MSI Gaming', 'MSI GL62', 'PC');
@@ -46,3 +49,5 @@ INSERT laptop(code, model, speed, ram, hd, price, screen) VALUE
   (5501, 'HP 255', 2100, 4048, 500, 550, 15),
   (1844, 'HP 15-ac159ur', 2500, 8192, 1000, 860, 15),
   (2142, 'Acer Aspire ES1', 2600, 8192, 750, 810, 15);
+
+COMMIT;
