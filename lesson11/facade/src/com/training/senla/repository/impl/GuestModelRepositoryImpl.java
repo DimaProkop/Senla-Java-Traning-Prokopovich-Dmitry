@@ -153,8 +153,9 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
     }
 
     @Override
-    public void update(Connection connection, GuestModel entity) {
+    public boolean update(Connection connection, GuestModel entity) {
         PreparedStatement preparedStatement = null;
+        boolean status = false;
         try {
             StringBuilder builder = new StringBuilder();
             builder.append("UPDATE guest SET name = ?, roomId = ? WHERE id = ");
@@ -164,12 +165,13 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
             preparedStatement = connection.prepareStatement(builder.toString());
             preparedStatement.setString(1, entity.getName());
             preparedStatement.setInt(2, entity.getRoomModel().getId());
-            preparedStatement.executeUpdate();
-
+            int count = preparedStatement.executeUpdate();
+            status = (count > 0);
             preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return status;
     }
 
     @Override

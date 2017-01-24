@@ -55,8 +55,13 @@ public class GuestModelServiceImpl implements GuestModelService {
     @Override
     public void update(GuestModel guestModel) {
         Connection connection = ConnectionManager.getConnection();
+        boolean status = false;
         try {
-            guestModelRepository.update(connection, guestModel);
+            connection.setAutoCommit(false);
+            status = guestModelRepository.update(connection, guestModel);
+            if(status) {
+                connection.commit();
+            }
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }finally {

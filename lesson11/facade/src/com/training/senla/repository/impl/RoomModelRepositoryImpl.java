@@ -230,8 +230,9 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
     }
 
     @Override
-    public void update(Connection connection, RoomModel entity) {
+    public boolean update(Connection connection, RoomModel entity) {
         PreparedStatement preparedStatement = null;
+        boolean status = false;
         try {
             StringBuilder builder = new StringBuilder();
             builder.append("UPDATE room SET price = ?, capacity = ?, status = ?, section = ?, rating = ? WHERE id = ");
@@ -244,12 +245,13 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
             preparedStatement.setString(3, entity.getStatus().toString());
             preparedStatement.setString(4, entity.getSection().toString());
             preparedStatement.setInt(5, entity.getRating());
-            preparedStatement.executeUpdate();
-
+            int count = preparedStatement.executeUpdate();
+            status = (count > 0);
             preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return status;
     }
 
     @Override

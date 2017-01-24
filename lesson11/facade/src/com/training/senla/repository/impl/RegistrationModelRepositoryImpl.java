@@ -21,20 +21,22 @@ public class RegistrationModelRepositoryImpl implements RegistrationModelReposit
     }
 
     @Override
-    public void update(Connection connection, RegistrationModel entity) {
+    public boolean update(Connection connection, RegistrationModel entity) {
         PreparedStatement preparedStatement = null;
+        boolean status = false;
         try {
             preparedStatement = connection.prepareStatement("UPDATE registration SET guestId = ?, roomId = ?, startDate = ?, finalDate = ? WHERE id = ");
             preparedStatement.setInt(1, entity.getGuestId());
             preparedStatement.setInt(2, entity.getRoomId());
             preparedStatement.setString(3, entity.getStartDate().toString());
             preparedStatement.setString(4, entity.getFinalDate().toString());
-            preparedStatement.executeUpdate();
-
+            int count = preparedStatement.executeUpdate();
+            status = (count > 0);
             preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return status;
     }
 
     @Override

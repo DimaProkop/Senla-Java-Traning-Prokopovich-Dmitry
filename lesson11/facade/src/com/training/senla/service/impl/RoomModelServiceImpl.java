@@ -58,11 +58,17 @@ public class RoomModelServiceImpl implements RoomModelService {
     @Override
     public void update(RoomModel roomModel) {
         Connection connection = ConnectionManager.getConnection();
+        boolean status = false;
         try {
             connection.setAutoCommit(false);
-            roomModelRepository.update(connection, roomModel);
+            status = roomModelRepository.update(connection, roomModel);
+            if(status) {
+                connection.commit();
+            }
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
     }
 

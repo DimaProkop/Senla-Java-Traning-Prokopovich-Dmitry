@@ -49,10 +49,17 @@ public class ServiceModelServiceImpl implements ServiceModelService {
     @Override
     public void update(ServiceModel serviceModel) {
         Connection connection = ConnectionManager.getConnection();
+        boolean status = false;
         try {
-            serviceModelRepository.update(connection, serviceModel);
+            connection.setAutoCommit(false);
+            status = serviceModelRepository.update(connection, serviceModel);
+            if(status) {
+                connection.commit();
+            }
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
     }
 

@@ -24,8 +24,9 @@ public class ServiceModelRepositoryImpl implements ServiceModelRepository {
 
 
     @Override
-    public void update(Connection connection, ServiceModel entity) {
+    public boolean update(Connection connection, ServiceModel entity) {
         PreparedStatement preparedStatement = null;
+        boolean status = false;
         try {
             StringBuilder builder = new StringBuilder();
             builder.append("UPDATE service SET name = ?, price = ?, section = ?, startDate = ?, finalDate = ? WHERE id = ");
@@ -38,12 +39,13 @@ public class ServiceModelRepositoryImpl implements ServiceModelRepository {
             preparedStatement.setString(3, entity.getSection().toString());
             preparedStatement.setString(4, entity.getStartDate().toString());
             preparedStatement.setString(5, entity.getFinalDate().toString());
-            preparedStatement.executeUpdate();
-
+            int count = preparedStatement.executeUpdate();
+            status = (count > 0);
             preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return status;
     }
 
     @Override

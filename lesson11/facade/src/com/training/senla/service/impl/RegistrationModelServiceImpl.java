@@ -40,10 +40,17 @@ public class RegistrationModelServiceImpl implements RegistrationModelService{
     @Override
     public void update(RegistrationModel registrationModel) {
         Connection connection = ConnectionManager.getConnection();
+        boolean status = false;
         try {
-            registrationModelRepository.update(connection, registrationModel);
+            connection.setAutoCommit(false);
+            status = registrationModelRepository.update(connection, registrationModel);
+            if (status) {
+                connection.commit();
+            }
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
     }
 
