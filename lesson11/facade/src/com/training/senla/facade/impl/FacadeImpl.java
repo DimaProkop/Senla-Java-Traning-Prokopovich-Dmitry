@@ -54,7 +54,6 @@ public class FacadeImpl implements Facade {
         ServiceModelRepository serviceModelRepository = (ServiceModelRepository) DependencyInjection.getInstance(ServiceModelRepository.class);
         guestModelService = (GuestModelService) DependencyInjection.getInstance(GuestModelService.class);
         guestModelService.setGuestModelRepository(guestModelRepository);
-        guestModelService.setRegistrationModelRepository(registrationModelRepository);
 
         roomModelService = (RoomModelService) DependencyInjection.getInstance(RoomModelService.class);
         roomModelService.setGuestModelRepository(guestModelRepository);

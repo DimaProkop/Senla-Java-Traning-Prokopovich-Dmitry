@@ -33,12 +33,6 @@ public class RoomModelServiceImpl implements RoomModelService {
     public RoomModelServiceImpl() {
     }
 
-    public RoomModelServiceImpl(RoomModelRepository roomModelRepository, GuestModelRepository guestModelRepository, RegistrationModelRepository registrationModelRepository) {
-        this.roomModelRepository = roomModelRepository;
-        this.guestModelRepository = guestModelRepository;
-        this.registrationModelRepository = registrationModelRepository;
-    }
-
     @Override
     public void addRoom(RoomModel roomModel) {
         Connection connection = ConnectionManager.getConnection();
@@ -65,6 +59,7 @@ public class RoomModelServiceImpl implements RoomModelService {
     public void update(RoomModel roomModel) {
         Connection connection = ConnectionManager.getConnection();
         try {
+            connection.setAutoCommit(false);
             roomModelRepository.update(connection, roomModel);
         } catch (Exception e) {
             LOG.error(e.getMessage());
@@ -87,6 +82,7 @@ public class RoomModelServiceImpl implements RoomModelService {
         try {
             roomModel.addGuest(guestModel);
             guestModel.setRoomModel(roomModel);
+            guestModelRepository.update(connection, guestModel);
             registrationModelRepository.set(connection, new RegistrationModel(guestModel.getId(), roomModel.getId(), startDate, finalDate));
         } catch (Exception e) {
             LOG.error(e.getMessage());
@@ -99,7 +95,7 @@ public class RoomModelServiceImpl implements RoomModelService {
         try {
             guestModelRepository.delete(connection, guestModel);
             guestModel.getRoomModel().removeGuest(guestModel);
-            this.roomModelRepository.update(connection, guestModel.getRoomModel());
+            guestModelRepository.update(connection, guestModel);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }

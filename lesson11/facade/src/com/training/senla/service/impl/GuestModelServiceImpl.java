@@ -1,22 +1,16 @@
 package com.training.senla.service.impl;
 
-import com.training.senla.comparator.Comparator;
 import com.training.senla.model.GuestModel;
-import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
 import com.training.senla.repository.GuestModelRepository;
-import com.training.senla.repository.RegistrationModelRepository;
 import com.training.senla.service.GuestModelService;
-
-import java.sql.Connection;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.training.senla.util.connection.ConnectionManager;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import java.util.stream.Collectors;
+
+import java.sql.Connection;
+import java.util.List;
 
 /**
  * Created by prokop on 13.10.16.
@@ -26,7 +20,6 @@ public class GuestModelServiceImpl implements GuestModelService {
     private static final Logger LOG = LogManager.getLogger(GuestModelServiceImpl.class);
 
     private GuestModelRepository guestModelRepository;
-    private RegistrationModelRepository registrationModelRepository;
 
     public GuestModelServiceImpl() {
     }
@@ -145,21 +138,14 @@ public class GuestModelServiceImpl implements GuestModelService {
 
     @Override
     public List<GuestModel> getSortedByFinalDate() {
-        List<GuestModel> guests = new ArrayList<>();
         Connection connection = ConnectionManager.getConnection();
+        List<GuestModel> guests = null;
         try {
-            List<RegistrationModel> registrations = registrationModelRepository.getAll(connection).stream()
-                    .sorted(Comparator.GUEST_ROOM_DATA_COMPARATOR)
-                    .collect(Collectors.toList());
-            List<Integer> newList = registrations.stream()
-                    .map(RegistrationModel::getGuestId)
-                    .collect(Collectors.toList());
-            for (int i = 0; i < guestModelRepository.getAll(connection).size(); i++) {
-                GuestModel guest = guestModelRepository.get(connection, newList.get(i));
-                guests.add(guest);
-            }
+            guests = guestModelRepository.getSortedByFinalDate(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return guests;
     }
@@ -208,9 +194,5 @@ public class GuestModelServiceImpl implements GuestModelService {
 
     public void setGuestModelRepository(GuestModelRepository guestModelRepository) {
         this.guestModelRepository = guestModelRepository;
-    }
-
-    public void setRegistrationModelRepository(RegistrationModelRepository registrationModelRepository) {
-        this.registrationModelRepository = registrationModelRepository;
     }
 }

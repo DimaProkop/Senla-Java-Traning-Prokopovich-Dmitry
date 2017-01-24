@@ -16,13 +16,4 @@ public interface BaseModelRepository<E extends BaseModel>{
     void set(Connection connection, E entity);
     List<E> getAll(Connection connection);
     void delete(Connection connection, E entity);
-
-    default int getCountRow(ResultSet set) throws SQLException {
-        int countRow = 0;
-        while (set.next()) {
-            countRow++;
-        }
-        return countRow;
-    }
-
 }

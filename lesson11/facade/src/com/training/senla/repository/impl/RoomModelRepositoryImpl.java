@@ -6,8 +6,8 @@ import com.training.senla.model.RoomModel;
 import com.training.senla.repository.RoomModelRepository;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.Date;
 
 import static com.training.senla.util.ParserResultSet.parseRoom;
 
@@ -198,6 +198,30 @@ public class RoomModelRepositoryImpl implements RoomModelRepository {
     @Override
     public List<RoomModel> getLatestGuests(Connection connection, int count) {
         return null;
+    }
+
+    @Override
+    public List<RoomModel> getReleasedInFuture(Connection connection, Date date) {
+        Statement statement = null;
+        List<RoomModel> rooms = new ArrayList<>();
+        try {
+            statement = connection.createStatement();
+            StringBuilder builder = new StringBuilder();
+            builder.append("SELECT * FROM room ");
+            builder.append("JOIN registration ON room.id = registration.roomId WHERE finalDate < ");
+            builder.append(TOKEN);
+            builder.append("");
+            ResultSet set = statement.executeQuery(builder.toString());
+            while (set.next()) {
+                rooms.add(parseRoom(statement, set));
+            }
+            set.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return rooms;
     }
 
     @Override

@@ -5,6 +5,7 @@ import com.training.senla.enums.RoomsSection;
 import com.training.senla.model.RoomModel;
 
 import java.sql.Connection;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,6 +31,8 @@ public interface RoomModelRepository extends BaseModelRepository<RoomModel>{
     int getCountFreeRooms(Connection connection);
 
     List<RoomModel> getLatestGuests(Connection connection, int count);
+
+    List<RoomModel> getReleasedInFuture(Connection connection, Date date);
 
     List<Double> getPriceBySection(Connection connection, RoomsSection section);
 }

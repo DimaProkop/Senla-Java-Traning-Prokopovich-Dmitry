@@ -39,6 +39,4 @@ public interface GuestModelService {
     int getCount();
 
     void setGuestModelRepository(GuestModelRepository guestModelRepository);
-
-    void setRegistrationModelRepository(RegistrationModelRepository registrationModelRepository);
 }

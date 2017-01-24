@@ -96,7 +96,21 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
 
     @Override
     public List<GuestModel> getSortedByFinalDate(Connection connection) {
-        return null;
+        Statement statement = null;
+        List<GuestModel> guests = new ArrayList<>();
+        try {
+            statement = connection.createStatement();
+            ResultSet set = statement.executeQuery("SELECT * FROM guest JOIN registration ON guest.id = registration.guestId ORDER BY registration.finalDate ");
+            while (set.next()) {
+                guests.add(parseGuest(statement, set));
+            }
+            set.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return guests;
     }
 
     @SuppressWarnings("deprecation")

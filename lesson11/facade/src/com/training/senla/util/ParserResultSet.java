@@ -11,6 +11,8 @@ import com.training.senla.model.ServiceModel;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by dmitry on 23.1.17.
@@ -25,7 +27,7 @@ public class ParserResultSet {
             guest.setId(set.getInt(1));
             guest.setName(set.getString(2));
             int roomId = set.getInt(3);
-            if(roomId != 0) {
+            if (roomId != 0) {
                 //set Room
                 StringBuilder builder = new StringBuilder();
                 builder.append("SELECT * FROM room WHERE id = ");
@@ -34,13 +36,25 @@ public class ParserResultSet {
                 builder.append(TOKEN);
                 ResultSet setRoom = statement.executeQuery(builder.toString());
                 guest.setRoomModel(parseRoom(statement, setRoom));
+                setRoom.close();
 
-                //set Services
-                StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.append("1");
-            }else {
+            } else {
                 guest.setRoomModel(null);
             }
+
+            //set Services
+            List<ServiceModel> services = new ArrayList<>();
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append("SELECT * FROM service WHERE guestId = ");
+            stringBuilder.append(TOKEN);
+            stringBuilder.append(guest.getId());
+            stringBuilder.append(TOKEN);
+            ResultSet setService = statement.executeQuery(stringBuilder.toString());
+            while (setService.next()) {
+                services.add(parseService(statement, setService));
+            }
+            guest.setServiceModelList(services);
+            setService.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -72,6 +86,33 @@ public class ParserResultSet {
             room.setStatus(RoomStatus.isExist(set.getString(4)));
             room.setSection(RoomsSection.isExist(set.getString(5)));
             room.setRating(set.getInt(6));
+
+            //set guests
+            List<GuestModel> guests = new ArrayList<>();
+            StringBuilder builder = new StringBuilder();
+            builder.append("SELECT guestId FROM registration WHERE roomId = ");
+            builder.append(TOKEN);
+            builder.append(room.getId());
+            builder.append(TOKEN);
+            ResultSet setRegistration = statement.executeQuery(builder.toString());
+            if (!setRegistration.wasNull()) {
+                while (setRegistration.next()) {
+
+                    StringBuilder stringBuilder = new StringBuilder();
+                    stringBuilder.append("SELECT * FROM guest WHERE id = ");
+                    builder.append(TOKEN);
+                    builder.append(setRegistration.getInt(1));
+                    builder.append(TOKEN);
+                    ResultSet setGuest = statement.executeQuery(stringBuilder.toString());
+                    guests.add(parseGuest(statement, setGuest));
+                    setGuest.close();
+
+                }
+                room.setGuests(guests);
+            }else {
+                room.setGuests(null);
+            }
+            setRegistration.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
