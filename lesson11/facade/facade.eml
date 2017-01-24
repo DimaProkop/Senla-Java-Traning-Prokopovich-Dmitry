@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inherit-compiler-output="true" inheritJdk="true">
+	<output-test url="file://$MODULE_DIR$/../../out/test/facade"/>
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<levels>
+		<level name="log4j" value="project"/>
+		<level name="property" value="project"/>
+		<level name="annotation" value="project"/>
+		<level name="model" value="project"/>
+		<level name="jdbc" value="project"/>
+	</levels>
+</component>
