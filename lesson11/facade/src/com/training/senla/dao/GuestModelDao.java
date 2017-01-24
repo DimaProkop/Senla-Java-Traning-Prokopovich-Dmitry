@@ -1,4 +1,4 @@
-package com.training.senla.repository;
+package com.training.senla.dao;
 
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RoomModel;
@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by prokop on 13.10.16.
  */
-public interface GuestModelRepository extends BaseModelRepository<GuestModel>{
+public interface GuestModelDao extends BaseModelDao<GuestModel> {
 
     List<ServiceModel> getServicesByPrice(Connection connection, GuestModel guestModel);
 

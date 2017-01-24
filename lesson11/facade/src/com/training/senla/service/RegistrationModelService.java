@@ -1,7 +1,7 @@
 package com.training.senla.service;
 
 import com.training.senla.model.RegistrationModel;
-import com.training.senla.repository.RegistrationModelRepository;
+import com.training.senla.dao.RegistrationModelDao;
 
 import java.util.List;
 
@@ -17,5 +17,5 @@ public interface RegistrationModelService {
 
     List<RegistrationModel> getAll();
 
-    void setRegistrationModelRepository(RegistrationModelRepository registrationModelRepository);
+    void setRegistrationModelRepository(RegistrationModelDao registrationModelRepository);
 }

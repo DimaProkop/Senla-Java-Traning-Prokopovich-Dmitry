@@ -1,8 +1,8 @@
-package com.training.senla.repository.impl;
+package com.training.senla.dao.impl;
 
 import com.training.senla.enums.ServicesSection;
 import com.training.senla.model.ServiceModel;
-import com.training.senla.repository.ServiceModelRepository;
+import com.training.senla.dao.ServiceModelDao;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,12 +14,12 @@ import static com.training.senla.util.ParserResultSet.parseService;
 /**
  * Created by prokop on 13.10.16.
  */
-public class ServiceModelRepositoryImpl implements ServiceModelRepository {
+public class ServiceModelDaoImpl implements ServiceModelDao {
 
     private String TOKEN = "'";
     private String DELIMITER = ", ";
 
-    public ServiceModelRepositoryImpl() {
+    public ServiceModelDaoImpl() {
     }
 
 

@@ -1,4 +1,4 @@
-package com.training.senla.repository;
+package com.training.senla.dao;
 
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by prokop on 13.10.16.
  */
-public interface RoomModelRepository extends BaseModelRepository<RoomModel>{
+public interface RoomModelDao extends BaseModelDao<RoomModel> {
 
     List<RoomModel> getSortedByPrice(Connection connection);
 

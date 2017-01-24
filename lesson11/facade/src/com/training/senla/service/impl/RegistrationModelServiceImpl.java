@@ -1,7 +1,7 @@
 package com.training.senla.service.impl;
 
 import com.training.senla.model.RegistrationModel;
-import com.training.senla.repository.RegistrationModelRepository;
+import com.training.senla.dao.RegistrationModelDao;
 import com.training.senla.service.RegistrationModelService;
 import com.training.senla.util.connection.ConnectionManager;
 import org.apache.log4j.LogManager;
@@ -17,12 +17,12 @@ public class RegistrationModelServiceImpl implements RegistrationModelService{
 
     private static final Logger LOG = LogManager.getLogger(RegistrationModelServiceImpl.class);
 
-    private RegistrationModelRepository registrationModelRepository;
+    private RegistrationModelDao registrationModelRepository;
 
     public RegistrationModelServiceImpl() {
     }
 
-    public RegistrationModelServiceImpl(RegistrationModelRepository registrationModelRepository) {
+    public RegistrationModelServiceImpl(RegistrationModelDao registrationModelRepository) {
         this.registrationModelRepository = registrationModelRepository;
     }
 
@@ -33,6 +33,8 @@ public class RegistrationModelServiceImpl implements RegistrationModelService{
             registrationModelRepository.set(connection, registrationModel);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
 
     }
@@ -46,6 +48,8 @@ public class RegistrationModelServiceImpl implements RegistrationModelService{
             status = registrationModelRepository.update(connection, registrationModel);
             if (status) {
                 connection.commit();
+            }else {
+                connection.rollback();
             }
         } catch (Exception e) {
             LOG.error(e.getMessage());
@@ -62,6 +66,8 @@ public class RegistrationModelServiceImpl implements RegistrationModelService{
             registration = registrationModelRepository.get(connection, id);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return registration;
     }
@@ -74,11 +80,13 @@ public class RegistrationModelServiceImpl implements RegistrationModelService{
             registrations = registrationModelRepository.getAll(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return registrations;
     }
 
-    public void setRegistrationModelRepository(RegistrationModelRepository registrationModelRepository) {
+    public void setRegistrationModelRepository(RegistrationModelDao registrationModelRepository) {
         this.registrationModelRepository = registrationModelRepository;
     }
 }

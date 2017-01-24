@@ -4,9 +4,9 @@ import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RoomModel;
-import com.training.senla.repository.GuestModelRepository;
-import com.training.senla.repository.RegistrationModelRepository;
-import com.training.senla.repository.RoomModelRepository;
+import com.training.senla.dao.GuestModelDao;
+import com.training.senla.dao.RegistrationModelDao;
+import com.training.senla.dao.RoomModelDao;
 
 import java.util.Date;
 import java.util.List;
@@ -54,9 +54,9 @@ public interface RoomModelService {
 
     List<Double> getPriceBySection(RoomsSection section);
 
-    void setRoomModelRepository(RoomModelRepository roomModelRepository);
+    void setRoomModelRepository(RoomModelDao roomModelRepository);
 
-    void setGuestModelRepository(GuestModelRepository guestModelRepository);
+    void setGuestModelRepository(GuestModelDao guestModelRepository);
 
-    void setRegistrationModelRepository(RegistrationModelRepository registrationModelRepository);
+    void setRegistrationModelRepository(RegistrationModelDao registrationModelRepository);
 }

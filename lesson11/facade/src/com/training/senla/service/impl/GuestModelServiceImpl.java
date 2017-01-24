@@ -3,7 +3,7 @@ package com.training.senla.service.impl;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
-import com.training.senla.repository.GuestModelRepository;
+import com.training.senla.dao.GuestModelDao;
 import com.training.senla.service.GuestModelService;
 import com.training.senla.util.connection.ConnectionManager;
 import org.apache.log4j.LogManager;
@@ -19,7 +19,7 @@ public class GuestModelServiceImpl implements GuestModelService {
 
     private static final Logger LOG = LogManager.getLogger(GuestModelServiceImpl.class);
 
-    private GuestModelRepository guestModelRepository;
+    private GuestModelDao guestModelRepository;
 
     public GuestModelServiceImpl() {
     }
@@ -61,6 +61,8 @@ public class GuestModelServiceImpl implements GuestModelService {
             status = guestModelRepository.update(connection, guestModel);
             if(status) {
                 connection.commit();
+            }else {
+                connection.rollback();
             }
         } catch (Exception e) {
             LOG.error(e.getMessage());
@@ -197,7 +199,7 @@ public class GuestModelServiceImpl implements GuestModelService {
         return count;
     }
 
-    public void setGuestModelRepository(GuestModelRepository guestModelRepository) {
+    public void setGuestModelRepository(GuestModelDao guestModelRepository) {
         this.guestModelRepository = guestModelRepository;
     }
 }

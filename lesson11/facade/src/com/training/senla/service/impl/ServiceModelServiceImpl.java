@@ -2,7 +2,7 @@ package com.training.senla.service.impl;
 
 import com.training.senla.enums.ServicesSection;
 import com.training.senla.model.ServiceModel;
-import com.training.senla.repository.ServiceModelRepository;
+import com.training.senla.dao.ServiceModelDao;
 import com.training.senla.service.ServiceModelService;
 import com.training.senla.util.connection.ConnectionManager;
 import org.apache.log4j.LogManager;
@@ -19,7 +19,7 @@ public class ServiceModelServiceImpl implements ServiceModelService {
 
     private static final Logger LOG = LogManager.getLogger(ServiceModelServiceImpl.class);
 
-    private ServiceModelRepository serviceModelRepository;
+    private ServiceModelDao serviceModelRepository;
 
     public ServiceModelServiceImpl() {
     }
@@ -31,6 +31,8 @@ public class ServiceModelServiceImpl implements ServiceModelService {
             serviceModelRepository.set(connection, serviceModel);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
     }
 
@@ -42,6 +44,8 @@ public class ServiceModelServiceImpl implements ServiceModelService {
             service = serviceModelRepository.get(connection, id);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return service;
     }
@@ -70,6 +74,8 @@ public class ServiceModelServiceImpl implements ServiceModelService {
             serviceModelRepository.delete(connection, serviceModel);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
     }
 
@@ -81,6 +87,8 @@ public class ServiceModelServiceImpl implements ServiceModelService {
             services = serviceModelRepository.getAll(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return services;
     }
@@ -93,6 +101,8 @@ public class ServiceModelServiceImpl implements ServiceModelService {
             services = serviceModelRepository.getSortedByPrice(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return services;
     }
@@ -105,6 +115,8 @@ public class ServiceModelServiceImpl implements ServiceModelService {
             services = serviceModelRepository.getSortedByDate(connection, date);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return services;
     }
@@ -117,11 +129,13 @@ public class ServiceModelServiceImpl implements ServiceModelService {
             prices =  serviceModelRepository.getPriceBySection(connection, section);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return prices;
     }
 
-    public void setServiceModelRepository(ServiceModelRepository serviceModelRepository) {
+    public void setServiceModelRepository(ServiceModelDao serviceModelRepository) {
         this.serviceModelRepository = serviceModelRepository;
     }
 }

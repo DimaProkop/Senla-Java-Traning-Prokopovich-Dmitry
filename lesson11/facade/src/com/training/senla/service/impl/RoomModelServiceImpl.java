@@ -5,9 +5,9 @@ import com.training.senla.enums.RoomsSection;
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
-import com.training.senla.repository.GuestModelRepository;
-import com.training.senla.repository.RegistrationModelRepository;
-import com.training.senla.repository.RoomModelRepository;
+import com.training.senla.dao.GuestModelDao;
+import com.training.senla.dao.RegistrationModelDao;
+import com.training.senla.dao.RoomModelDao;
 import com.training.senla.service.RoomModelService;
 import com.training.senla.util.connection.ConnectionManager;
 import org.apache.log4j.LogManager;
@@ -26,9 +26,9 @@ public class RoomModelServiceImpl implements RoomModelService {
 
     private static final Logger LOG = LogManager.getLogger(RoomModelServiceImpl.class);
 
-    private RoomModelRepository roomModelRepository;
-    private GuestModelRepository guestModelRepository;
-    private RegistrationModelRepository registrationModelRepository;
+    private RoomModelDao roomModelRepository;
+    private GuestModelDao guestModelRepository;
+    private RegistrationModelDao registrationModelRepository;
 
     public RoomModelServiceImpl() {
     }
@@ -40,6 +40,8 @@ public class RoomModelServiceImpl implements RoomModelService {
             roomModelRepository.set(connection, roomModel);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
     }
 
@@ -51,6 +53,8 @@ public class RoomModelServiceImpl implements RoomModelService {
             room = roomModelRepository.get(connection, id);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return room;
     }
@@ -64,6 +68,8 @@ public class RoomModelServiceImpl implements RoomModelService {
             status = roomModelRepository.update(connection, roomModel);
             if(status) {
                 connection.commit();
+            }else {
+                connection.rollback();
             }
         } catch (Exception e) {
             LOG.error(e.getMessage());
@@ -79,6 +85,8 @@ public class RoomModelServiceImpl implements RoomModelService {
             roomModelRepository.delete(connection, roomModel);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
     }
 
@@ -92,6 +100,8 @@ public class RoomModelServiceImpl implements RoomModelService {
             registrationModelRepository.set(connection, new RegistrationModel(guestModel.getId(), roomModel.getId(), startDate, finalDate));
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
     }
 
@@ -104,6 +114,8 @@ public class RoomModelServiceImpl implements RoomModelService {
             guestModelRepository.update(connection, guestModel);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
     }
 
@@ -116,6 +128,8 @@ public class RoomModelServiceImpl implements RoomModelService {
             clone = (RoomModel) room.clone();
         } catch (CloneNotSupportedException e) {
             LOG.error(e);
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return clone;
     }
@@ -128,6 +142,8 @@ public class RoomModelServiceImpl implements RoomModelService {
             rooms = roomModelRepository.getAll(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return rooms;
     }
@@ -140,6 +156,8 @@ public class RoomModelServiceImpl implements RoomModelService {
             rooms = roomModelRepository.getSortedByPrice(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return rooms;
     }
@@ -152,6 +170,8 @@ public class RoomModelServiceImpl implements RoomModelService {
             rooms = roomModelRepository.getSortedByCapacity(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return rooms;
     }
@@ -164,6 +184,8 @@ public class RoomModelServiceImpl implements RoomModelService {
             rooms = roomModelRepository.getSortedByRating(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return rooms;
     }
@@ -176,6 +198,8 @@ public class RoomModelServiceImpl implements RoomModelService {
             rooms = roomModelRepository.getAll(connection, status);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return rooms;
     }
@@ -188,6 +212,8 @@ public class RoomModelServiceImpl implements RoomModelService {
             rooms = roomModelRepository.getSortedByPrice(connection, status);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return rooms;
     }
@@ -200,6 +226,8 @@ public class RoomModelServiceImpl implements RoomModelService {
             rooms = roomModelRepository.getSortedByCapacity(connection, status);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return rooms;
     }
@@ -212,6 +240,8 @@ public class RoomModelServiceImpl implements RoomModelService {
             rooms = roomModelRepository.getSortedByRating(connection, status);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return rooms;
     }
@@ -224,6 +254,8 @@ public class RoomModelServiceImpl implements RoomModelService {
             count = roomModelRepository.getCountFreeRooms(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return count;
     }
@@ -244,6 +276,8 @@ public class RoomModelServiceImpl implements RoomModelService {
             }
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return rooms;
     }
@@ -256,6 +290,8 @@ public class RoomModelServiceImpl implements RoomModelService {
             rooms = roomModelRepository.getLatestGuests(connection, count);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return rooms;
     }
@@ -268,19 +304,21 @@ public class RoomModelServiceImpl implements RoomModelService {
             prices = roomModelRepository.getPriceBySection(connection, section);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            ConnectionManager.closeConnection(connection);
         }
         return prices;
     }
 
-    public void setRoomModelRepository(RoomModelRepository roomModelRepository) {
+    public void setRoomModelRepository(RoomModelDao roomModelRepository) {
         this.roomModelRepository = roomModelRepository;
     }
 
-    public void setGuestModelRepository(GuestModelRepository guestModelRepository) {
+    public void setGuestModelRepository(GuestModelDao guestModelRepository) {
         this.guestModelRepository = guestModelRepository;
     }
 
-    public void setRegistrationModelRepository(RegistrationModelRepository registrationModelRepository) {
+    public void setRegistrationModelRepository(RegistrationModelDao registrationModelRepository) {
         this.registrationModelRepository = registrationModelRepository;
     }
 }

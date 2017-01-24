@@ -8,10 +8,10 @@ import com.training.senla.model.GuestModel;
 import com.training.senla.model.RegistrationModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
-import com.training.senla.repository.GuestModelRepository;
-import com.training.senla.repository.RegistrationModelRepository;
-import com.training.senla.repository.RoomModelRepository;
-import com.training.senla.repository.ServiceModelRepository;
+import com.training.senla.dao.GuestModelDao;
+import com.training.senla.dao.RegistrationModelDao;
+import com.training.senla.dao.RoomModelDao;
+import com.training.senla.dao.ServiceModelDao;
 import com.training.senla.service.GuestModelService;
 import com.training.senla.service.RegistrationModelService;
 import com.training.senla.service.RoomModelService;
@@ -48,10 +48,10 @@ public class FacadeImpl implements Facade {
     }
 
     private void fillServices() {
-        GuestModelRepository guestModelRepository = (GuestModelRepository) DependencyInjection.getInstance(GuestModelRepository.class);
-        RoomModelRepository roomModelRepository = (RoomModelRepository) DependencyInjection.getInstance(RoomModelRepository.class);
-        RegistrationModelRepository registrationModelRepository = (RegistrationModelRepository) DependencyInjection.getInstance(RegistrationModelRepository.class);
-        ServiceModelRepository serviceModelRepository = (ServiceModelRepository) DependencyInjection.getInstance(ServiceModelRepository.class);
+        GuestModelDao guestModelRepository = (GuestModelDao) DependencyInjection.getInstance(GuestModelDao.class);
+        RoomModelDao roomModelRepository = (RoomModelDao) DependencyInjection.getInstance(RoomModelDao.class);
+        RegistrationModelDao registrationModelRepository = (RegistrationModelDao) DependencyInjection.getInstance(RegistrationModelDao.class);
+        ServiceModelDao serviceModelRepository = (ServiceModelDao) DependencyInjection.getInstance(ServiceModelDao.class);
         guestModelService = (GuestModelService) DependencyInjection.getInstance(GuestModelService.class);
         guestModelService.setGuestModelRepository(guestModelRepository);
 

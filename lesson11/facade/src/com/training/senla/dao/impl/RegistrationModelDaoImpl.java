@@ -1,7 +1,7 @@
-package com.training.senla.repository.impl;
+package com.training.senla.dao.impl;
 
+import com.training.senla.dao.RegistrationModelDao;
 import com.training.senla.model.RegistrationModel;
-import com.training.senla.repository.RegistrationModelRepository;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,12 +12,12 @@ import static com.training.senla.util.ParserResultSet.parseRegistration;
 /**
  * Created by prokop on 16.10.16.
  */
-public class RegistrationModelRepositoryImpl implements RegistrationModelRepository {
+public class RegistrationModelDaoImpl implements RegistrationModelDao {
 
     private String TOKEN = "'";
     private String DELIMITER = ", ";
 
-    public RegistrationModelRepositoryImpl() {
+    public RegistrationModelDaoImpl() {
     }
 
     @Override

@@ -1,2 +1,2 @@
 Manifest-Version: 1.0
-Main-Class: com.training.senla.Main
+Main-Class: com.training.senla.ClassForTest

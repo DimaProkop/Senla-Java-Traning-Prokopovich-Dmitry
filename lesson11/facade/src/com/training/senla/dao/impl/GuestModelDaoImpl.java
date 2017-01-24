@@ -1,9 +1,9 @@
-package com.training.senla.repository.impl;
+package com.training.senla.dao.impl;
 
 import com.training.senla.model.GuestModel;
 import com.training.senla.model.RoomModel;
 import com.training.senla.model.ServiceModel;
-import com.training.senla.repository.GuestModelRepository;
+import com.training.senla.dao.GuestModelDao;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -16,12 +16,12 @@ import static com.training.senla.util.ParserResultSet.parseService;
 /**
  * Created by prokop on 13.10.16.
  */
-public class GuestModelRepositoryImpl implements GuestModelRepository {
+public class GuestModelDaoImpl implements GuestModelDao {
 
     private String TOKEN = "'";
     private String DELIMITER = ", ";
 
-    public GuestModelRepositoryImpl() {
+    public GuestModelDaoImpl() {
     }
 
 
@@ -57,7 +57,7 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
         try {
             statement = connection.createStatement();
             StringBuilder builder = new StringBuilder();
-            builder.append("SELECT * FROM service WHERE finalDate = ");
+            builder.append("SELECT * FROM service WHERE guestId = ");
             builder.append(TOKEN);
             builder.append(String.valueOf(guestModel.getId()));
             builder.append(TOKEN);
@@ -119,6 +119,7 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
         Statement statement = null;
         double sum = 0;
         try {
+            statement = connection.createStatement();
             StringBuilder builder = new StringBuilder();
             builder.append("SELECT startDate, finalDate FROM registration WHERE guestId = ");
             builder.append(TOKEN);
@@ -129,7 +130,10 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
             builder.append(String.valueOf(roomModel.getId()));
             builder.append(TOKEN);
             ResultSet set = statement.executeQuery(builder.toString());
-            int count = set.getDate(2).getDay() - set.getDate(1).getDay();
+            int count = 0;
+            while (set.next()) {
+                count = set.getDate(2).toLocalDate().getDayOfYear() - set.getDate(1).toLocalDate().getDayOfYear();
+            }
             sum = count * roomModel.getPrice();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -144,8 +148,9 @@ public class GuestModelRepositoryImpl implements GuestModelRepository {
         try {
             statement = connection.createStatement();
             ResultSet set = statement.executeQuery("SELECT COUNT(id) FROM guest");
-            count = set.getInt(1);
-        } catch (SQLException e) {
+            while (set.next()) {
+                count = set.getInt(1);
+            }        } catch (SQLException e) {
             e.printStackTrace();
         }
 

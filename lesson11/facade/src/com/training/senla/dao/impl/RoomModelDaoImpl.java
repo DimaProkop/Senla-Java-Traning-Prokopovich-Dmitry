@@ -1,9 +1,9 @@
-package com.training.senla.repository.impl;
+package com.training.senla.dao.impl;
 
+import com.training.senla.dao.RoomModelDao;
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
 import com.training.senla.model.RoomModel;
-import com.training.senla.repository.RoomModelRepository;
 
 import java.sql.*;
 import java.util.*;
@@ -14,12 +14,12 @@ import static com.training.senla.util.ParserResultSet.parseRoom;
 /**
  * Created by prokop on 13.10.16.
  */
-public class RoomModelRepositoryImpl implements RoomModelRepository {
+public class RoomModelDaoImpl implements RoomModelDao {
 
     private String TOKEN = "'";
     private String DELIMITER = ", ";
 
-    public RoomModelRepositoryImpl() {
+    public RoomModelDaoImpl() {
     }
 
     @Override

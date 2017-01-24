@@ -2,7 +2,7 @@ package com.training.senla.service;
 
 import com.training.senla.enums.ServicesSection;
 import com.training.senla.model.ServiceModel;
-import com.training.senla.repository.ServiceModelRepository;
+import com.training.senla.dao.ServiceModelDao;
 
 import java.util.Date;
 import java.util.List;
@@ -27,5 +27,5 @@ public interface ServiceModelService {
 
     List<Double> getPriceBySection(ServicesSection section);
 
-    void setServiceModelRepository(ServiceModelRepository serviceModelRepository);
+    void setServiceModelRepository(ServiceModelDao serviceModelRepository);
 }
