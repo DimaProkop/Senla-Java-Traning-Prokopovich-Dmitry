@@ -1,9 +1,9 @@
 package com.training.senla.util.io.exporter;
 
-import com.training.senla.model.GuestModel;
-import com.training.senla.model.RegistrationModel;
-import com.training.senla.model.RoomModel;
-import com.training.senla.model.ServiceModel;
+import com.training.senla.model.Guest;
+import com.training.senla.model.Registration;
+import com.training.senla.model.Room;
+import com.training.senla.model.Service;
 
 import java.util.List;
 
@@ -13,5 +13,5 @@ import java.util.List;
 public interface Exporter {
     void exportCollection(List guests, Class clazz);
 
-    void exportAll(List<GuestModel> guests, List<RegistrationModel> registrations, List<RoomModel> rooms, List<ServiceModel> services);
+    void exportAll(List<Guest> guests, List<Registration> registrations, List<Room> rooms, List<Service> services);
 }

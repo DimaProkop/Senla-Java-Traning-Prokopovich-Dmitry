@@ -6,7 +6,7 @@ import com.training.senla.reader.Reader;
 import com.training.senla.service.DataPacket;
 import com.training.senla.service.RequestHandler;
 import com.training.senla.enums.ServicesSection;
-import com.training.senla.model.ServiceModel;
+import com.training.senla.model.Service;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -30,7 +30,7 @@ public class NewServiceAction implements Action {
             ServicesSection section = ServicesSection.isExist(strSection.toUpperCase());
             Date startDate = Reader.getDate("Input start date - (dd-mm-yyyy): ");
             Date finalDate = Reader.getDate("Input final date - (dd-mm-yyyy): ");
-            ServiceModel service = new ServiceModel(name, price, section, startDate, finalDate);
+            Service service = new Service(name, price, section, startDate, finalDate);
             objects.add(service);
             DataPacket packet = new DataPacket("addService", objects);
             requestHandler.sendRequest(packet);

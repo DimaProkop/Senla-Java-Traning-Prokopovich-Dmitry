@@ -5,7 +5,7 @@ import com.training.senla.print.PrintModel;
 import com.training.senla.reader.Reader;
 import com.training.senla.service.DataPacket;
 import com.training.senla.service.RequestHandler;
-import com.training.senla.model.GuestModel;
+import com.training.senla.model.Guest;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -24,7 +24,7 @@ public class NewGuestAction implements Action {
         List<Object> objects = new ArrayList<>();
 
         try {
-            GuestModel guest = new GuestModel(name);
+            Guest guest = new Guest(name);
             objects.add(guest);
             DataPacket packet = new DataPacket("addGuest", objects);
             requestHandler.sendRequest(packet);

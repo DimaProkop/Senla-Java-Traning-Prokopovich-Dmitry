@@ -6,5 +6,5 @@ import java.util.List;
  * Created by prokop on 7.11.16.
  */
 public interface StreamService {
-    void writeModel(List objects, String fileName, String separator, int countFields);
+    void write(List objects, String fileName, String separator, int countFields);
 }

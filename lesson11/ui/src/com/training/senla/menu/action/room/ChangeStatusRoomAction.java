@@ -5,7 +5,7 @@ import com.training.senla.print.PrintModel;
 import com.training.senla.reader.Reader;
 import com.training.senla.service.DataPacket;
 import com.training.senla.service.RequestHandler;
-import com.training.senla.model.RoomModel;
+import com.training.senla.model.Room;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -25,7 +25,7 @@ public class ChangeStatusRoomAction implements Action {
         try {
             objects.add(roomId);
             DataPacket packet = new DataPacket("getRoom", objects);
-            RoomModel room = (RoomModel) requestHandler.sendRequest(packet);
+            Room room = (Room) requestHandler.sendRequest(packet);
             if (room == null) {
                 PrintModel.printMessage("Room not found.");
             } else {

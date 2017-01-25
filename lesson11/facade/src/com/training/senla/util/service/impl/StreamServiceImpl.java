@@ -23,7 +23,7 @@ public class StreamServiceImpl implements StreamService {
 
 
     @Override
-    public void writeModel(List objects, String fileName, String separator, int countFields) {
+    public void write(List objects, String fileName, String separator, int countFields) {
         String path = ClassSetting.getProps().getPathToFolderEntity()+ fileName;
         try {
             fileWriter = new FileWriter(path);

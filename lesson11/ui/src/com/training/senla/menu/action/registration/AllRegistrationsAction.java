@@ -4,7 +4,7 @@ import com.training.senla.menu.action.Action;
 import com.training.senla.print.PrintModel;
 import com.training.senla.service.DataPacket;
 import com.training.senla.service.RequestHandler;
-import com.training.senla.model.RegistrationModel;
+import com.training.senla.model.Registration;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -20,7 +20,7 @@ public class AllRegistrationsAction implements Action {
     public void execute(RequestHandler requestHandler) {
         try {
             DataPacket packet = new DataPacket("getAllRegistrations", null);
-            List<RegistrationModel> registrations = (List<RegistrationModel>) requestHandler.sendRequest(packet);
+            List<Registration> registrations = (List<Registration>) requestHandler.sendRequest(packet);
             if(registrations == null || registrations.size() == 0) {
                 PrintModel.printMessage("Registrations not found.");
             }else {

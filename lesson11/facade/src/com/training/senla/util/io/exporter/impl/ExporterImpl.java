@@ -31,11 +31,11 @@ public class ExporterImpl implements Exporter {
         String separator = template.getSeparator();
         int countFields = template.getCountFields();
         List list = template.getData();
-        streamService.writeModel(list, fileName, separator, countFields);
+        streamService.write(list, fileName, separator, countFields);
     }
 
     @Override
-    public void exportAll(List<GuestModel> guests, List<RegistrationModel> registrations, List<RoomModel> rooms, List<ServiceModel> services) {
+    public void exportAll(List<Guest> guests, List<Registration> registrations, List<Room> rooms, List<Service> services) {
         List<Object> data = new ArrayList<>();
         data.add(guests);
         data.add(rooms);
