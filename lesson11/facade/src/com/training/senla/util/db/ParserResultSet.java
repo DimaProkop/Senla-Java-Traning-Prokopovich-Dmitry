@@ -1,12 +1,12 @@
-package com.training.senla.util;
+package com.training.senla.util.db;
 
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
 import com.training.senla.enums.ServicesSection;
-import com.training.senla.model.GuestModel;
-import com.training.senla.model.RegistrationModel;
-import com.training.senla.model.RoomModel;
-import com.training.senla.model.ServiceModel;
+import com.training.senla.model.Guest;
+import com.training.senla.model.Registration;
+import com.training.senla.model.Room;
+import com.training.senla.model.Service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,22 +19,20 @@ import java.util.List;
  */
 public class ParserResultSet {
 
-    private static String TOKEN = "'";
 
-    public static GuestModel parseGuest(Statement statement, ResultSet set) {
-        GuestModel guest = new GuestModel();
+    public static Guest parseGuest(ResultSet set) {
+        Guest guest = new Guest();
         try {
             guest.setId(set.getInt(1));
             guest.setName(set.getString(2));
-            int roomId = set.getInt(3);
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return guest;
     }
 
-    public static ServiceModel parseService(Statement statement, ResultSet set) {
-        ServiceModel service = new ServiceModel();
+    public static Service parseService(ResultSet set) {
+        Service service = new Service();
         try {
             service.setId(set.getInt(1));
             service.setName(set.getString(2));
@@ -49,8 +47,8 @@ public class ParserResultSet {
         return service;
     }
 
-    public static RoomModel parseRoom(Statement statement, ResultSet set) {
-        RoomModel room = new RoomModel();
+    public static Room parseRoom(ResultSet set) {
+        Room room = new Room();
         try {
             room.setId(set.getInt(1));
             room.setPrice(set.getDouble(2));
@@ -63,7 +61,7 @@ public class ParserResultSet {
              * @type = deviant
              */
 //            //set guests
-//            List<GuestModel> guests = new ArrayList<>();
+//            List<Guest> guests = new ArrayList<>();
 //            StringBuilder builder = new StringBuilder();
 //            builder.append("SELECT guestId FROM registration WHERE roomId = ");
 //            builder.append(TOKEN);
@@ -95,8 +93,8 @@ public class ParserResultSet {
         return room;
     }
 
-    public static RegistrationModel parseRegistration(Statement statement, ResultSet set) {
-        RegistrationModel registration = new RegistrationModel();
+    public static Registration parseRegistration(ResultSet set) {
+        Registration registration = new Registration();
         try {
             registration.setId(set.getInt(1));
             registration.setGuestId(set.getInt(2));

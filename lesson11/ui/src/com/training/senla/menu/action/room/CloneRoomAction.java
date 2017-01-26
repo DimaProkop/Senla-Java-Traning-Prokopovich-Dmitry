@@ -6,7 +6,7 @@ import com.training.senla.reader.Reader;
 import com.training.senla.service.DataPacket;
 import com.training.senla.service.RequestHandler;
 import com.training.senla.enums.RoomsSection;
-import com.training.senla.model.RoomModel;
+import com.training.senla.model.Room;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -25,14 +25,14 @@ public class CloneRoomAction implements Action {
         int roomId = Reader.getInt("Input room id that you want to clone: ");
         objects.add(roomId);
         DataPacket packet = new DataPacket("getRoom", objects);
-        RoomModel roomExist = (RoomModel) requestHandler.sendRequest(packet);
+        Room roomExist = (Room) requestHandler.sendRequest(packet);
         if(roomExist == null) {
             PrintModel.printMessage("Room not found.");
         }else {
             objects.clear();
             objects.add(roomId);
             packet = new DataPacket("cloneRoom", objects);
-            RoomModel room = (RoomModel) requestHandler.sendRequest(packet);
+            Room room = (Room) requestHandler.sendRequest(packet);
             String answer = Reader.getString("Do you want to change the number? - Y/N  ");
             if(answer.equals("Y")) {
                 room.setPrice(Reader.getDouble("Input price: "));

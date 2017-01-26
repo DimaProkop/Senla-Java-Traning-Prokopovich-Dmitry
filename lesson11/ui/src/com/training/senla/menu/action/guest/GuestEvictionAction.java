@@ -5,7 +5,7 @@ import com.training.senla.print.PrintModel;
 import com.training.senla.reader.Reader;
 import com.training.senla.service.DataPacket;
 import com.training.senla.service.RequestHandler;
-import com.training.senla.model.GuestModel;
+import com.training.senla.model.Guest;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -25,7 +25,7 @@ public class GuestEvictionAction implements Action {
         try {
             objects.add(guestId);
             DataPacket packet = new DataPacket("getGuest", objects);
-            GuestModel guest = (GuestModel) requestHandler.sendRequest(packet);
+            Guest guest = (Guest) requestHandler.sendRequest(packet);
             if(guest == null) {
                 PrintModel.printMessage("Guest not found");
             }else {

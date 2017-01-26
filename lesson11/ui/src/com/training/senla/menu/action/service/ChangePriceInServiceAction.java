@@ -5,7 +5,7 @@ import com.training.senla.print.PrintModel;
 import com.training.senla.reader.Reader;
 import com.training.senla.service.DataPacket;
 import com.training.senla.service.RequestHandler;
-import com.training.senla.model.ServiceModel;
+import com.training.senla.model.Service;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -25,7 +25,7 @@ public class ChangePriceInServiceAction implements Action {
         try {
             objects.add(serviceId);
             DataPacket packet = new DataPacket("getService", objects);
-            ServiceModel service = (ServiceModel) requestHandler.sendRequest(packet);
+            Service service = (Service) requestHandler.sendRequest(packet);
             if(service == null) {
                 PrintModel.printMessage("Service not found.");
             }else {

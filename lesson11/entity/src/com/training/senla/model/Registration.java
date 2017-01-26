@@ -11,8 +11,10 @@ import java.util.Date;
  * Created by prokop on 13.10.16.
  */
 @CsvEntity(filename = "registration.csv", valuesSeparator = ";", entityId = "id")
-public class RegistrationModel extends BaseModel implements Serializable{
+public class Registration extends BaseModel{
     private static final long serialVersionUID = -7389885297471547150L;
+
+    private Integer id;
 
     @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 1, escape = true)
     private int guestId;
@@ -26,10 +28,10 @@ public class RegistrationModel extends BaseModel implements Serializable{
     @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 2, escape = true)
     private Date finalDate;
 
-    public RegistrationModel() {
+    public Registration() {
     }
 
-    public RegistrationModel(int guestId, int roomId, Date startDate, Date finalDate) {
+    public Registration(int guestId, int roomId, Date startDate, Date finalDate) {
         this.guestId = guestId;
         this.roomId = roomId;
         this.startDate = startDate;
@@ -66,5 +68,15 @@ public class RegistrationModel extends BaseModel implements Serializable{
 
     public void setFinalDate(Date finalDate) {
         this.finalDate = finalDate;
+    }
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -16,13 +16,22 @@ public class ConnectionManager {
     private static final Logger LOG = LogManager.getLogger(ConnectionManager.class);
 
 
+    private static ConnectionManager connectionManager;
     private static Connection connection;
     private static String URL = ClassSetting.getProps().getUrlToDB();
     private static String DRIVER = ClassSetting.getProps().getPathToDriverJDBC();
     private static String USERNAME = ClassSetting.getProps().getUsernameToDB();
     private static String PASSWORD = ClassSetting.getProps().getPasswordToDB();
 
-    public static Connection getConnection() {
+
+    public static ConnectionManager getInstance() {
+        if (connectionManager == null) {
+            connectionManager = new ConnectionManager();
+        }
+        return connectionManager;
+    }
+
+    public Connection getConnection() {
         if(connection != null) {
             return connection;
         }else {
@@ -36,8 +45,8 @@ public class ConnectionManager {
         return connection;
     }
 
-    public static void closeConnection(Connection connection) {
-        if(connection != null) {
+    public void closeConnection() {
+        if (connection != null) {
             try {
                 connection.close();
             } catch (SQLException e) {

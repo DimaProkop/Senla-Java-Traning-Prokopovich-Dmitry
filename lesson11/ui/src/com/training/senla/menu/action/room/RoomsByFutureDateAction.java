@@ -5,7 +5,7 @@ import com.training.senla.print.PrintModel;
 import com.training.senla.reader.Reader;
 import com.training.senla.service.DataPacket;
 import com.training.senla.service.RequestHandler;
-import com.training.senla.model.RoomModel;
+import com.training.senla.model.Room;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -26,7 +26,7 @@ public class RoomsByFutureDateAction implements Action {
         try {
             objects.add(date);
             DataPacket packet = new DataPacket("getReleasedRoomsInFuture", objects);
-            List<RoomModel> rooms = (List<RoomModel>) requestHandler.sendRequest(packet);
+            List<Room> rooms = (List<Room>) requestHandler.sendRequest(packet);
             if (rooms == null) {
                 PrintModel.printMessage("All rooms are occupied on this date.");
             }else {

@@ -1,9 +1,9 @@
 package com.training.senla.facade;
 
-import com.training.senla.model.GuestModel;
-import com.training.senla.model.RegistrationModel;
-import com.training.senla.model.RoomModel;
-import com.training.senla.model.ServiceModel;
+import com.training.senla.model.Guest;
+import com.training.senla.model.Registration;
+import com.training.senla.model.Room;
+import com.training.senla.model.Service;
 import com.training.senla.util.service.StreamService;
 
 import java.util.Date;
@@ -15,73 +15,73 @@ import java.util.List;
 public interface Facade {
     void init();
 
-    GuestModel getGuest(int id);
+    Guest getGuest(int id);
 
-    void addGuest(GuestModel guest);
+    void addGuest(Guest guest);
 
-    void updateGuest(GuestModel guest);
+    void updateGuest(Guest guest);
 
-    RoomModel getRoom(int id);
+    Room getRoom(int id);
 
-    void addRoom(RoomModel room);
+    void addRoom(Room room);
 
-    RegistrationModel getRegistration(int id);
+    Registration getRegistration(int id);
 
-    ServiceModel getService(int id);
+    Service getService(int id);
 
-    void updateService(ServiceModel service);
+    void updateService(Service service);
 
-    void addService(ServiceModel service);
+    void addService(Service service);
 
-    void updateRegistration(RegistrationModel registration);
+    void updateRegistration(Registration registration);
 
-    void addRegistration(RegistrationModel registration);
+    void addRegistration(Registration registration);
 
-    List<GuestModel> getAllGuests();
+    List<Guest> getAllGuests();
 
-    List<RoomModel> getAllRooms();
+    List<Room> getAllRooms();
 
-    List<RoomModel> getSortedByPrice();
+    List<Room> getSortedByPrice();
 
-    List<RoomModel> getSortedByCapacity();
+    List<Room> getSortedByCapacity();
 
-    List<RoomModel> getSortedByRating();
+    List<Room> getSortedByRating();
 
-    List<RoomModel> getAllFreeRooms();
+    List<Room> getAllFreeRooms();
 
-    List<GuestModel> getGuestsRoom();
+    List<Guest> getGuestsRoom();
 
-    void updateRoom(RoomModel roomModel);
+    void updateRoom(Room room);
 
     int getCountFreeRooms();
 
     int getCountGuests();
 
-    List<RoomModel> getReleasedRoomsInFuture(Date date);
+    List<Room> getReleasedRoomsInFuture(Date date);
 
-    double getSumPaymentRoom(GuestModel guestModel, RoomModel roomModel);
+    double getSumPaymentRoom(Guest guest, Room room);
 
-    List<ServiceModel> getGuestServices(GuestModel guestModel);
+    List<Service> getGuestServices(Guest guest);
 
     List<Double> getPricesService();
 
-    List<ServiceModel> getAllServices();
+    List<Service> getAllServices();
 
     List<Double> getPricesRoom();
 
-    void registerGuest(GuestModel guestModel, RoomModel roomModel, Date startDate, Date finalDate);
+    void registerGuest(Guest guest, Room room, Date startDate, Date finalDate);
 
-    void evictGuest(GuestModel guestModel);
+    void evictGuest(Guest guest);
 
-    void changeServicePrice(ServiceModel serviceModel, double price);
+    void changeServicePrice(Service service, double price);
 
-    void changeRoomPrice(RoomModel roomModel, double price);
+    void changeRoomPrice(Room room, double price);
 
-    boolean changeRoomStatus(RoomModel roomModel);
+    boolean changeRoomStatus(Room room);
 
     void cloneRoom(int id);
 
-    List<RegistrationModel> getAllRegistrations();
+    List<Registration> getAllRegistrations();
 
     //imports
     void importGuests();

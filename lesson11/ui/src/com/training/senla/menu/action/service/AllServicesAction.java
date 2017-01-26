@@ -4,7 +4,7 @@ import com.training.senla.menu.action.Action;
 import com.training.senla.service.DataPacket;
 import com.training.senla.service.RequestHandler;
 import com.training.senla.print.PrintModel;
-import com.training.senla.model.ServiceModel;
+import com.training.senla.model.Service;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -21,7 +21,7 @@ public class AllServicesAction implements Action {
     public void execute(RequestHandler requestHandler) {
         try {
             DataPacket packet = new DataPacket("getAllServices", null);
-            List<ServiceModel> services = (List<ServiceModel>) requestHandler.sendRequest(packet);
+            List<Service> services = (List<Service>) requestHandler.sendRequest(packet);
             if(services == null) {
                 PrintModel.printMessage("Services not found.");
             }else {

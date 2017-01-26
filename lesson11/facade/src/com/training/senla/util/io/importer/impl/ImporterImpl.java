@@ -35,13 +35,13 @@ public class ImporterImpl implements Importer {
     }
 
     @Override
-    public void importGuests(List<GuestModel> guests) {
-        ReadTemplate template = manager.analyzeObject(GuestModel.class);
+    public void importGuests(List<Guest> guests) {
+        ReadTemplate template = manager.analyzeObject(Guest.class);
         try (BufferedReader br = new BufferedReader(new FileReader(path + template.getFileName()))) {
             String line = "";
             while ((line = br.readLine()) != null) {
-                GuestModel currentGuest = converter.convertStringToGuest(line, template);
-                GuestModel guest = facade.getGuest(currentGuest.getId());
+                Guest currentGuest = converter.convertStringToGuest(line, template);
+                Guest guest = facade.getGuest(currentGuest.getId());
                 if (guest != null) {
                     facade.updateGuest(currentGuest);
                 } else {
@@ -54,13 +54,13 @@ public class ImporterImpl implements Importer {
     }
 
     @Override
-    public void importRooms(List<RoomModel> rooms) {
-        ReadTemplate template = manager.analyzeObject(RoomModel.class);
+    public void importRooms(List<Room> rooms) {
+        ReadTemplate template = manager.analyzeObject(Room.class);
         try (BufferedReader br = new BufferedReader(new FileReader(path + template.getFileName()))) {
             String line = "";
             while ((line = br.readLine()) != null) {
-                RoomModel currentRoom = converter.convertStringToRoom(line, template);
-                RoomModel room = facade.getRoom(currentRoom.getId());
+                Room currentRoom = converter.convertStringToRoom(line, template);
+                Room room = facade.getRoom(currentRoom.getId());
                 if (room != null) {
                     facade.updateRoom(currentRoom);
                 } else {
@@ -73,13 +73,13 @@ public class ImporterImpl implements Importer {
     }
 
     @Override
-    public void importRegistrations(List<RegistrationModel> registrations) {
-        ReadTemplate template = manager.analyzeObject(RegistrationModel.class);
+    public void importRegistrations(List<Registration> registrations) {
+        ReadTemplate template = manager.analyzeObject(Registration.class);
         try (BufferedReader br = new BufferedReader(new FileReader(path + template.getFileName()))) {
             String line = "";
             while ((line = br.readLine()) != null) {
-                RegistrationModel currentRegistration = converter.convertStringToRegistration(line, template);
-                RegistrationModel registration = facade.getRegistration(currentRegistration.getId());
+                Registration currentRegistration = converter.convertStringToRegistration(line, template);
+                Registration registration = facade.getRegistration(currentRegistration.getId());
                 if (registration != null) {
                     facade.updateRegistration(currentRegistration);
                 } else {
@@ -92,13 +92,13 @@ public class ImporterImpl implements Importer {
     }
 
     @Override
-    public void importServices(List<ServiceModel> services) {
-        ReadTemplate template = manager.analyzeObject(ServiceModel.class);
+    public void importServices(List<Service> services) {
+        ReadTemplate template = manager.analyzeObject(Service.class);
         try (BufferedReader br = new BufferedReader(new FileReader(path + template.getFileName()))) {
             String line = "";
             while ((line = br.readLine()) != null) {
-                ServiceModel currentService = converter.convertStringToService(line, template);
-                ServiceModel service = facade.getService(currentService.getId());
+                Service currentService = converter.convertStringToService(line, template);
+                Service service = facade.getService(currentService.getId());
                 if (service != null) {
                     facade.updateService(currentService);
                 } else {

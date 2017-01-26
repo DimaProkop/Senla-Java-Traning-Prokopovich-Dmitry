@@ -6,7 +6,7 @@ import com.training.senla.reader.Reader;
 import com.training.senla.service.DataPacket;
 import com.training.senla.service.RequestHandler;
 import com.training.senla.enums.RoomsSection;
-import com.training.senla.model.RoomModel;
+import com.training.senla.model.Room;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -28,7 +28,7 @@ public class NewRoomAction implements Action {
             String strSection = Reader.getString("Input room section: ");
             RoomsSection section = RoomsSection.isExist(strSection.toUpperCase());
             int rating = Reader.getInt("Input rating: ");
-            RoomModel room = new RoomModel(price, capacity, section, rating);
+            Room room = new Room(price, capacity, section, rating);
             objects.add(room);
             DataPacket packet = new DataPacket("addRoom", objects);
             requestHandler.sendRequest(packet);

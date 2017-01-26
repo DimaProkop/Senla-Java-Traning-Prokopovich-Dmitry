@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
 <module type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
-    <exclude-output />
-    <content url="file://$MODULE_DIR$" />
-    <orderEntry type="sourceFolder" forTests="false" />
+  <component name="EclipseModuleManager" forced_jdk="true">
+    <src_description expected_position="1">
+      <src_folder value="file://$MODULE_DIR$/src" expected_position="0" />
+      <src_folder value="file://$MODULE_DIR$/resource" expected_position="1" />
+    </src_description>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/bin" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/resource" type="java-resource" />
+    </content>
     <orderEntry type="inheritedJdk" />
-    <orderEntry type="module" module-name="property/src" />
-    <orderEntry type="module" module-name="property/resource" />
+    <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="log4j" level="project" />
-    <orderEntry type="library" name="property" level="project" />
   </component>
 </module>
-=======
-<module classpath="eclipse" classpath-dir="$MODULE_DIR$" type="JAVA_MODULE" version="4" />
->>>>>>> lesson11

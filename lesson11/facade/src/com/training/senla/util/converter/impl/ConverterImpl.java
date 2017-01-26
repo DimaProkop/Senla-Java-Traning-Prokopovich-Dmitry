@@ -23,179 +23,179 @@ public class ConverterImpl implements Converter{
     }
 
     @Override
-    public GuestModel convertStringToGuest(String string, ReadTemplate template) {
-        GuestModel guestModel = new GuestModel();
+    public Guest convertStringToGuest(String string, ReadTemplate template) {
+        Guest guest = new Guest();
         String[] params = string.split(template.getSeparator());
         List<Integer> orders = template.getOrderList();
         int max = Collections.max(orders);
         Map<Integer,Boolean> escapeMaps = template.getEscapeMaps();
         int id = Integer.parseInt(params[0]);
-        guestModel.setId(id);
+        guest.setId(id);
         if(!escapeMaps.get(orders.get(0))) {
-            guestModel.setName("null");
+            guest.setName("null");
         }else {
-            guestModel.setName(params[orders.get(0)]);
+            guest.setName(params[orders.get(0)]);
         }
         ++max;
         if("null".equals(params[max])) {
-            guestModel.setRoomModel(null);
+            guest.setRoom(null);
         } else {
-            guestModel.setRoomModel(facade.getRoom(Integer.parseInt(params[max])));
-            //guestModel.getRoomModel().addGuest(guestModel);
+            guest.setRoom(facade.getRoom(Integer.parseInt(params[max])));
+            //guest.getRoom().addGuest(guest);
         }
         ++max;
         if("null".equals(params[max])) {
-            guestModel.setServiceModelList(null);
+            guest.setServiceList(null);
         } else {
             String[] values = params[max].split(",");
-            List<ServiceModel> serviceModels = getServicesById(values);
-            guestModel.setServiceModelList(serviceModels);
+            List<Service> services = getServicesById(values);
+            guest.setServiceList(services);
         }
-        return guestModel;
+        return guest;
     }
 
     @Override
-    public RoomModel convertStringToRoom(String string, ReadTemplate template) {
-        RoomModel roomModel = new RoomModel();
+    public Room convertStringToRoom(String string, ReadTemplate template) {
+        Room room = new Room();
         List<Integer> orders = template.getOrderList();
         int max = Collections.max(orders);
         Map<Integer,Boolean> escapeMaps = template.getEscapeMaps();
         String[] params = string.split(template.getSeparator());
-        roomModel.setId(Integer.parseInt(params[0]));
+        room.setId(Integer.parseInt(params[0]));
         if(!escapeMaps.get(orders.get(0))) {
-            roomModel.setPrice(0);
+            room.setPrice(0);
         }else {
-            roomModel.setPrice(Double.parseDouble(params[orders.get(0)]));
+            room.setPrice(Double.parseDouble(params[orders.get(0)]));
         }
 
         if(!escapeMaps.get(orders.get(1))) {
-            roomModel.setCapacity(0);
+            room.setCapacity(0);
         }else {
-            roomModel.setCapacity(Integer.parseInt(params[orders.get(1)]));
+            room.setCapacity(Integer.parseInt(params[orders.get(1)]));
         }
 
         if(!escapeMaps.get(orders.get(2))) {
-            roomModel.setStatus(null);
+            room.setStatus(null);
         }else {
-            roomModel.setStatus(RoomStatus.isExist(params[orders.get(2)]));
+            room.setStatus(RoomStatus.isExist(params[orders.get(2)]));
         }
 
         if(!escapeMaps.get(orders.get(3))) {
-            roomModel.setSection(null);
+            room.setSection(null);
         }else {
-            roomModel.setSection(RoomsSection.isExist(params[orders.get(3)]));
+            room.setSection(RoomsSection.isExist(params[orders.get(3)]));
         }
 
         if(!escapeMaps.get(orders.get(4))) {
-            roomModel.setRating(0);
+            room.setRating(0);
         }else {
-            roomModel.setRating(Integer.parseInt(params[orders.get(4)]));
+            room.setRating(Integer.parseInt(params[orders.get(4)]));
         }
 
         ++max;
         if("null".equals(params[max])) {
-            roomModel.setGuests(null);
+            room.setGuests(null);
         } else {
             String[] values = params[max].split(",");
-            List<GuestModel> guestModels = getGuestsById(values);
-            roomModel.setGuests(guestModels);
+            List<Guest> guests = getGuestsById(values);
+            room.setGuests(guests);
         }
-        return roomModel;
+        return room;
     }
 
     @SuppressWarnings("deprecation")
     @Override
-    public ServiceModel convertStringToService(String string, ReadTemplate template) {
-        ServiceModel serviceModel = new ServiceModel();
+    public Service convertStringToService(String string, ReadTemplate template) {
+        Service service = new Service();
         List<Integer> orders = template.getOrderList();
         int max = Collections.max(orders);
         Map<Integer,Boolean> escapeMaps = template.getEscapeMaps();
         String[] params = string.split(template.getSeparator());
-        serviceModel.setId(Integer.parseInt(params[0]));
+        service.setId(Integer.parseInt(params[0]));
         if(!escapeMaps.get(orders.get(0))) {
-            serviceModel.setName("null");
+            service.setName("null");
         }else {
-            serviceModel.setName(params[orders.get(0)]);
+            service.setName(params[orders.get(0)]);
         }
 
         if(!escapeMaps.get(orders.get(1))) {
-            serviceModel.setPrice(0);
+            service.setPrice(0);
         }else {
-            serviceModel.setPrice(Double.parseDouble(params[orders.get(1)]));
+            service.setPrice(Double.parseDouble(params[orders.get(1)]));
         }
 
         if(!escapeMaps.get(orders.get(2))) {
-            serviceModel.setSection(null);
+            service.setSection(null);
         }else {
-            serviceModel.setSection(ServicesSection.isExist(params[orders.get(2)]));
+            service.setSection(ServicesSection.isExist(params[orders.get(2)]));
         }
 
         if(!escapeMaps.get(orders.get(3))) {
-            serviceModel.setStartDate(null);
+            service.setStartDate(null);
         }else {
             String[] startDates = params[orders.get(3)].split("-");
-            serviceModel.setStartDate(new Date(Integer.parseInt(startDates[0]), Integer.parseInt(startDates[1]), Integer.parseInt(startDates[2])));
+            service.setStartDate(new Date(Integer.parseInt(startDates[0]), Integer.parseInt(startDates[1]), Integer.parseInt(startDates[2])));
         }
 
         if(!escapeMaps.get(orders.get(4))) {
-            serviceModel.setFinalDate(null);
+            service.setFinalDate(null);
         }else {
             String[] finalDates = params[orders.get(4)].split("-");
-            serviceModel.setFinalDate(new Date(Integer.parseInt(finalDates[0]), Integer.parseInt(finalDates[1]), Integer.parseInt(finalDates[2])));
+            service.setFinalDate(new Date(Integer.parseInt(finalDates[0]), Integer.parseInt(finalDates[1]), Integer.parseInt(finalDates[2])));
         }
-        return serviceModel;
+        return service;
     }
 
     @SuppressWarnings("deprecation")
     @Override
-    public RegistrationModel convertStringToRegistration(String string, ReadTemplate template) {
-        RegistrationModel registrationModel = new RegistrationModel();
+    public Registration convertStringToRegistration(String string, ReadTemplate template) {
+        Registration registration = new Registration();
         List<Integer> orders = template.getOrderList();
         int max = Collections.max(orders);
         Map<Integer,Boolean> escapeMaps = template.getEscapeMaps();
         String[] params = string.split(template.getSeparator());
-        registrationModel.setId(Integer.parseInt(params[0]));
+        registration.setId(Integer.parseInt(params[0]));
         if(!escapeMaps.get(orders.get(0))) {
-            registrationModel.setGuestId(0);
+            registration.setGuestId(0);
         }else {
-            registrationModel.setGuestId(Integer.parseInt(params[orders.get(0)]));
+            registration.setGuestId(Integer.parseInt(params[orders.get(0)]));
         }
 
         if(!escapeMaps.get(orders.get(1))) {
-            registrationModel.setRoomId(0);
+            registration.setRoomId(0);
         }else {
-            registrationModel.setRoomId(Integer.parseInt(params[orders.get(1)]));
+            registration.setRoomId(Integer.parseInt(params[orders.get(1)]));
         }
 
         if(!escapeMaps.get(orders.get(2))) {
-            registrationModel.setStartDate(null);
+            registration.setStartDate(null);
         }else {
             String[] startDates = params[orders.get(3)].split("-");
-            registrationModel.setStartDate(new Date(Integer.parseInt(startDates[0]), Integer.parseInt(startDates[1]), Integer.parseInt(startDates[2])));
+            registration.setStartDate(new Date(Integer.parseInt(startDates[0]), Integer.parseInt(startDates[1]), Integer.parseInt(startDates[2])));
         }
 
         if(!escapeMaps.get(orders.get(3))) {
-            registrationModel.setFinalDate(null);
+            registration.setFinalDate(null);
         }else {
             String[] finalDates = params[orders.get(4)].split("-");
-            registrationModel.setFinalDate(new Date(Integer.parseInt(finalDates[0]), Integer.parseInt(finalDates[1]), Integer.parseInt(finalDates[2])));
+            registration.setFinalDate(new Date(Integer.parseInt(finalDates[0]), Integer.parseInt(finalDates[1]), Integer.parseInt(finalDates[2])));
         }
-        return registrationModel;
+        return registration;
     }
 
-    private List<ServiceModel> getServicesById(String[] services) {
-        List<ServiceModel> serviceModels = new ArrayList<>();
+    private List<Service> getServicesById(String[] services) {
+        List<Service> servicesList = new ArrayList<>();
         for (String id : services) {
-            serviceModels.add(facade.getService((Integer.parseInt(id))));
+            servicesList.add(facade.getService((Integer.parseInt(id))));
         }
-        return serviceModels;
+        return servicesList;
     }
 
-    private List<GuestModel> getGuestsById(String[] guests) {
-        List<GuestModel> guestModels = new ArrayList<>();
+    private List<Guest> getGuestsById(String[] guests) {
+        List<Guest> guestsList = new ArrayList<>();
         for (String id : guests) {
-            guestModels.add(facade.getGuest((Integer.parseInt(id))));
+            guestsList.add(facade.getGuest((Integer.parseInt(id))));
         }
-        return guestModels;
+        return guestsList;
     }
 }

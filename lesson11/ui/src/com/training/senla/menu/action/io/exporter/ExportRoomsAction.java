@@ -4,7 +4,7 @@ import com.training.senla.menu.action.Action;
 import com.training.senla.print.PrintModel;
 import com.training.senla.service.DataPacket;
 import com.training.senla.service.RequestHandler;
-import com.training.senla.model.RoomModel;
+import com.training.senla.model.Room;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -20,7 +20,7 @@ public class ExportRoomsAction implements Action {
     public void execute(RequestHandler requestHandler) {
         try {
             DataPacket packet = new DataPacket("getAllRooms", null);
-            List<RoomModel> rooms = (List<RoomModel>) requestHandler.sendRequest(packet);
+            List<Room> rooms = (List<Room>) requestHandler.sendRequest(packet);
             if (rooms.size() == 0) {
                 PrintModel.printMessage("Rooms is missing.");
             } else {
