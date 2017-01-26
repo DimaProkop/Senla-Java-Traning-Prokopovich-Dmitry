@@ -1,6 +1,5 @@
 package com.training.senla.dao.impl;
 
-import com.training.senla.dao.BaseModelDao;
 import com.training.senla.model.Guest;
 import com.training.senla.model.Room;
 import com.training.senla.model.Service;
@@ -17,7 +16,7 @@ import static com.training.senla.util.db.ParserResultSet.parseService;
 /**
  * Created by prokop on 13.10.16.
  */
-public class GuestDaoImpl extends BaseModelDao<Guest> implements GuestDao{
+public class GuestDaoImpl extends BaseModelDaoImpl<Guest> implements GuestDao{
 
     public GuestDaoImpl() {
     }

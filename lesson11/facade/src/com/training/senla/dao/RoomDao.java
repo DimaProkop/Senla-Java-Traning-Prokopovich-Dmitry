@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by prokop on 13.10.16.
  */
-public interface RoomDao{
+public interface RoomDao extends BaseModelDao<Room>{
 
     int getCountFreeRooms(Connection connection);
 

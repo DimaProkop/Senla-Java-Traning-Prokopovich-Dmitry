@@ -10,6 +10,6 @@ import java.util.List;
 /**
  * Created by prokop on 13.10.16.
  */
-public interface ServiceDao{
+public interface ServiceDao extends BaseModelDao<Service>{
     List<Double> getPriceBySection(Connection connection, ServicesSection section);
 }

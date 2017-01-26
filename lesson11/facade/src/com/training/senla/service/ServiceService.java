@@ -1,6 +1,7 @@
 package com.training.senla.service;
 
 import com.training.senla.enums.ServicesSection;
+import com.training.senla.enums.SortType;
 import com.training.senla.model.Service;
 import com.training.senla.dao.ServiceDao;
 
@@ -19,13 +20,7 @@ public interface ServiceService {
 
     void delete(Service service);
 
-    List<Service> getAll();
+    List<Service> getAll(SortType type);
 
-    List<Service> getSortedByPrice();
-
-    List<Service> getSortedByDate(Date date);
-
-    List<Double> getPriceBySection(ServicesSection section);
-
-    void setServiceRepository(ServiceDao serviceRepository);
+    void setServiceDao(ServiceDao serviceDao);
 }

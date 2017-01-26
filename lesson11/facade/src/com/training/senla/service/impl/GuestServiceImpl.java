@@ -1,6 +1,6 @@
 package com.training.senla.service.impl;
 
-import com.training.senla.dao.impl.GuestDaoImpl;
+import com.training.senla.enums.SortType;
 import com.training.senla.model.Guest;
 import com.training.senla.model.Room;
 import com.training.senla.model.Service;
@@ -23,11 +23,11 @@ public class GuestServiceImpl implements GuestService {
 
     private static final Logger LOG = LogManager.getLogger(GuestServiceImpl.class);
 
-    private GuestDaoImpl guestDao;
+    private GuestDao guestDao;
     private LibraryQueries library;
 
     public GuestServiceImpl() {
-        guestDao = new GuestDaoImpl();
+        library = new LibraryQueries();
     }
 
     @Override
@@ -35,7 +35,7 @@ public class GuestServiceImpl implements GuestService {
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
             PreparedStatement statement = library.set(connection, guest);
-            guestDao.get(statement);
+            guestDao.set(statement);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -46,7 +46,7 @@ public class GuestServiceImpl implements GuestService {
         Guest guest = null;
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            PreparedStatement statement = library.get(library.GET_GUEST, connection, guest.getId());
+            PreparedStatement statement = library.get(library.GET_GUEST, connection, id);
             guest = guestDao.get(statement);
         } catch (Exception e) {
             LOG.error(e.getMessage());
@@ -119,35 +119,12 @@ public class GuestServiceImpl implements GuestService {
     }
 
     @Override
-    public List<Guest> getAll() {
+    public List<Guest> getAll(SortType type) {
         Connection connection = ConnectionManager.getInstance().getConnection();
         List<Guest> guests = null;
         try {
-            guests = guestDao.getAll(connection);
-        } catch (Exception e) {
-            LOG.error(e.getMessage());
-        }
-        return guests;
-    }
-
-    @Override
-    public List<Guest> getSortedByFinalDate() {
-        Connection connection = ConnectionManager.getInstance().getConnection();
-        List<Guest> guests = null;
-        try {
-            guests = guestDao.getSortedByFinalDate(connection);
-        } catch (Exception e) {
-            LOG.error(e.getMessage());
-        }
-        return guests;
-    }
-
-    @Override
-    public List<Guest> getSortedByName() {
-        List<Guest> guests = null;
-        Connection connection = ConnectionManager.getInstance().getConnection();
-        try {
-            guests = guestDao.getSortedByName(connection);
+            PreparedStatement statement = library.getAll(library.GET_SORT_GUEST, connection, type);
+            guests = guestDao.getAll(statement);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }

@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 
 /**
  * Created by dmitry on 26.1.17.
@@ -38,15 +39,24 @@ public class LibraryQueries {
     private final String DELETE_REGISTRATION = "DELETE * FROM registration WHERE id = ?";
     //get by sort
     public final String GET_SORT_GUEST = "SELECT * FROM guest ORDER BY ?";
+    public final String GET_SORT_ROOM_FREE = "SELECT * FROM room WHERE status = 'free' ORDER BY ?";
     public final String GET_SORT_ROOM = "SELECT * FROM room ORDER BY ?";
     public final String GET_SORT_SERVICE = "SELECT * FROM service ORDER BY ?";
+    public final String GET_SORT_REGISTRATION = "SELECT * FROM registration ORDER BY ?";
+
+    private final SimpleDateFormat formatter = new SimpleDateFormat("YYYY-dd-MM");
 
     public PreparedStatement update(Connection connection, Guest guest) {
         PreparedStatement statement = null;
         try {
             statement = connection.prepareStatement(UPDATE_GUEST);
             statement.setString(1, guest.getName());
-            statement.setInt(2, guest.getId());
+            if(guest.getRoom() == null) {
+                statement.setString(2, null);
+            }else {
+                statement.setInt(2, guest.getRoom().getId());
+            }
+            statement.setInt(3, guest.getId());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -76,8 +86,8 @@ public class LibraryQueries {
             statement.setString(1, service.getName());
             statement.setDouble(2, service.getPrice());
             statement.setString(3, service.getSection().toString());
-            statement.setString(4, service.getStartDate().toString());
-            statement.setString(5, service.getFinalDate().toString());
+            statement.setString(4, formatter.format(service.getStartDate()));
+            statement.setString(5, formatter.format(service.getFinalDate()));
             statement.setInt(6, service.getId());
         } catch (SQLException e) {
             e.printStackTrace();
@@ -91,8 +101,8 @@ public class LibraryQueries {
             statement = connection.prepareStatement(UPDATE_REGISTRATION);
             statement.setInt(1, registration.getGuestId());
             statement.setInt(2, registration.getRoomId());
-            statement.setString(3, registration.getStartDate().toString());
-            statement.setString(4, registration.getFinalDate().toString());
+            statement.setString(3, formatter.format(registration.getStartDate()));
+            statement.setString(4, formatter.format(registration.getFinalDate()));
             statement.setInt(5, registration.getId());
         } catch (SQLException e) {
             e.printStackTrace();
@@ -133,8 +143,8 @@ public class LibraryQueries {
             statement.setString(1, service.getName());
             statement.setDouble(2, service.getPrice());
             statement.setString(3, service.getSection().toString());
-            statement.setString(4, service.getStartDate().toString());
-            statement.setString(5, service.getFinalDate().toString());
+            statement.setString(4, formatter.format(service.getStartDate()));
+            statement.setString(5, formatter.format(service.getFinalDate()));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -147,8 +157,8 @@ public class LibraryQueries {
             statement = connection.prepareStatement(SET_REGISTRATION);
             statement.setInt(1, registration.getGuestId());
             statement.setInt(2, registration.getRoomId());
-            statement.setString(3, registration.getStartDate().toString());
-            statement.setString(4, registration.getFinalDate().toString());
+            statement.setString(3, formatter.format(registration.getStartDate()));
+            statement.setString(4, formatter.format(registration.getFinalDate()));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -211,6 +221,9 @@ public class LibraryQueries {
     }
 
     public PreparedStatement getAll(String query, Connection connection, SortType type) {
+        if(type == null) {
+            type = SortType.id;
+        }
         PreparedStatement statement = null;
         try {
             statement = connection.prepareStatement(query);

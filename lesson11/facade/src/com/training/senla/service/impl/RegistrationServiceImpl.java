@@ -1,13 +1,16 @@
 package com.training.senla.service.impl;
 
+import com.training.senla.enums.SortType;
 import com.training.senla.model.Registration;
 import com.training.senla.dao.RegistrationDao;
 import com.training.senla.service.RegistrationService;
 import com.training.senla.util.connection.ConnectionManager;
+import com.training.senla.util.db.LibraryQueries;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -18,20 +21,19 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     private static final Logger LOG = LogManager.getLogger(RegistrationServiceImpl.class);
 
-    private RegistrationDao registrationRepository;
+    private RegistrationDao registrationDao;
+    private LibraryQueries library;
 
     public RegistrationServiceImpl() {
-    }
-
-    public RegistrationServiceImpl(RegistrationDao registrationRepository) {
-        this.registrationRepository = registrationRepository;
+        library = new LibraryQueries();
     }
 
     @Override
     public void addRecord(Registration registration) {
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            registrationRepository.set(connection, registration);
+            PreparedStatement statement = library.set(connection, registration);
+            registrationDao.set(statement);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -44,7 +46,8 @@ public class RegistrationServiceImpl implements RegistrationService {
         boolean status = false;
         try {
             connection.setAutoCommit(false);
-            status = registrationRepository.update(connection, registration);
+            PreparedStatement statement = library.update(connection, registration);
+            status = registrationDao.update(statement);
             if (status) {
                 connection.commit();
             }
@@ -63,7 +66,8 @@ public class RegistrationServiceImpl implements RegistrationService {
         Connection connection = ConnectionManager.getInstance().getConnection();
         Registration registration = null;
         try {
-            registration = registrationRepository.get(connection, id);
+            PreparedStatement statement = library.get(library.GET_REGISTRATION, connection, id);
+            registration = registrationDao.get(statement);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -71,18 +75,19 @@ public class RegistrationServiceImpl implements RegistrationService {
     }
 
     @Override
-    public List<Registration> getAll() {
+    public List<Registration> getAll(SortType type) {
         Connection connection = ConnectionManager.getInstance().getConnection();
         List<Registration> registrations = null;
         try {
-            registrations = registrationRepository.getAll(connection);
+            PreparedStatement statement = library.getAll(library.GET_SORT_REGISTRATION, connection, type);
+            registrations = registrationDao.getAll(statement);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
         return registrations;
     }
 
-    public void setRegistrationRepository(RegistrationDao registrationRepository) {
-        this.registrationRepository = registrationRepository;
+    public void setRegistrationRepository(RegistrationDao registrationDao) {
+        this.registrationDao = registrationDao;
     }
 }

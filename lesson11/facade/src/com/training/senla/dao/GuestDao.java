@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by prokop on 13.10.16.
  */
-public interface GuestDao{
+public interface GuestDao extends BaseModelDao<Guest>{
 
     List<Service> getServicesByPrice(Connection connection, Guest guest);
 

@@ -1,16 +1,17 @@
 package com.training.senla.service.impl;
 
-import com.training.senla.enums.ServicesSection;
-import com.training.senla.model.Service;
 import com.training.senla.dao.ServiceDao;
+import com.training.senla.enums.SortType;
+import com.training.senla.model.Service;
 import com.training.senla.service.ServiceService;
 import com.training.senla.util.connection.ConnectionManager;
+import com.training.senla.util.db.LibraryQueries;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,16 +21,19 @@ public class ServiceServiceImpl implements ServiceService {
 
     private static final Logger LOG = LogManager.getLogger(ServiceServiceImpl.class);
 
-    private ServiceDao serviceRepository;
+    private ServiceDao serviceDao;
+    private LibraryQueries library;
 
     public ServiceServiceImpl() {
+        library = new LibraryQueries();
     }
 
     @Override
     public void addService(Service service) {
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            serviceRepository.set(connection, service);
+            PreparedStatement statement = library.set(connection, service);
+            serviceDao.set(statement);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -40,7 +44,8 @@ public class ServiceServiceImpl implements ServiceService {
         Service service = null;
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            service = serviceRepository.get(connection, id);
+            PreparedStatement statement = library.get(library.GET_SERVICE, connection, id);
+            service = serviceDao.get(statement);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -53,7 +58,8 @@ public class ServiceServiceImpl implements ServiceService {
         boolean status = false;
         try {
             connection.setAutoCommit(false);
-            status = serviceRepository.update(connection, service);
+            PreparedStatement statement = library.update(connection, service);
+            status = serviceDao.update(statement);
             if(status) {
                 connection.commit();
             }
@@ -71,61 +77,27 @@ public class ServiceServiceImpl implements ServiceService {
     public void delete(Service service) {
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            serviceRepository.delete(connection, service);
+            PreparedStatement statement = library.delete(connection, service);
+            serviceDao.delete(statement);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
     }
 
     @Override
-    public List<Service> getAll() {
+    public List<Service> getAll(SortType type) {
         List<Service> services = null;
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            services = serviceRepository.getAll(connection);
+            PreparedStatement statement = library.getAll(library.GET_SORT_SERVICE, connection, type);
+            services = serviceDao.getAll(statement);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
         return services;
     }
 
-    @Override
-    public List<Service> getSortedByPrice() {
-        Connection connection = ConnectionManager.getInstance().getConnection();
-        List<Service> services = null;
-        try {
-            services = serviceRepository.getSortedByPrice(connection);
-        } catch (Exception e) {
-            LOG.error(e.getMessage());
-        }
-        return services;
-    }
-
-    @Override
-    public List<Service> getSortedByDate(Date date) {
-        List<Service> services = null;
-        Connection connection = ConnectionManager.getInstance().getConnection();
-        try {
-            services = serviceRepository.getSortedByDate(connection, date);
-        } catch (Exception e) {
-            LOG.error(e.getMessage());
-        }
-        return services;
-    }
-
-    @Override
-    public List<Double> getPriceBySection(ServicesSection section) {
-        Connection connection = ConnectionManager.getInstance().getConnection();
-        List<Double> prices = null;
-        try {
-            prices =  serviceRepository.getPriceBySection(connection, section);
-        } catch (Exception e) {
-            LOG.error(e.getMessage());
-        }
-        return prices;
-    }
-
-    public void setServiceRepository(ServiceDao serviceRepository) {
-        this.serviceRepository = serviceRepository;
+    public void setServiceDao(ServiceDao serviceDao) {
+        this.serviceDao = serviceDao;
     }
 }

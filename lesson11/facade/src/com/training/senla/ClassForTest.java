@@ -1,15 +1,21 @@
 package com.training.senla;
 
 import com.training.senla.di.DependencyInjection;
+import com.training.senla.enums.RoomsSection;
+import com.training.senla.enums.ServicesSection;
 import com.training.senla.facade.Facade;
 import com.training.senla.model.Guest;
 import com.training.senla.model.Registration;
 import com.training.senla.model.Room;
 import com.training.senla.model.Service;
+import com.training.senla.util.connection.ConnectionManager;
 
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.Date;
 
 import static com.training.senla.util.db.ParserResultSet.*;
 
@@ -32,35 +38,16 @@ public class ClassForTest {
         Facade facade = (Facade) DependencyInjection.getInstance(Facade.class);
         facade.init();
 
-        Class.forName("com.mysql.cj.jdbc.Driver");
-
-
-        connection = DriverManager.getConnection(URL, username, password);
+        printRooms(facade.getSortedByPrice());
 
 
 
 
-        Statement statement = null;
-        List<Registration> registrations = new ArrayList<>();
-        try {
-            statement = connection.createStatement();
-            ResultSet set = statement.executeQuery("SELECT * FROM registration ORDER BY id");
-            while (set.next()) {
-                registrations.add(parseRegistration(statement, set));
-            }
-            set.close();
-            statement.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        printRegistrations(registrations);
-
-
+        ConnectionManager.getInstance().closeConnection();
 
     }
 
-    private static final SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+    private static final SimpleDateFormat formatter = new SimpleDateFormat("YYYY-dd-MM");
 
     public static void printGuest(Guest guest) {
         System.out.printf("id:    name:      room:\n");

@@ -3,6 +3,7 @@ package com.training.senla.facade.impl;
 import com.training.senla.ClassSetting;
 import com.training.senla.di.DependencyInjection;
 import com.training.senla.enums.RoomStatus;
+import com.training.senla.enums.SortType;
 import com.training.senla.facade.Facade;
 import com.training.senla.model.Guest;
 import com.training.senla.model.Registration;
@@ -56,15 +57,15 @@ public class FacadeImpl implements Facade {
         guestService.setGuestDao(guestDao);
 
         roomService = (RoomService) DependencyInjection.getInstance(RoomService.class);
-        roomService.setGuestRepository(guestDao);
-        roomService.setRoomRepository(roomDao);
-        roomService.setRegistrationRepository(registrationDao);
+        roomService.setGuestDao(guestDao);
+        roomService.setRoomDao(roomDao);
+        roomService.setRegistrationDao(registrationDao);
 
         registrationService = (RegistrationService) DependencyInjection.getInstance(RegistrationService.class);
         registrationService.setRegistrationRepository(registrationDao);
 
         serviceService = (ServiceService) DependencyInjection.getInstance(ServiceService.class);
-        serviceService.setServiceRepository(serviceDao);
+        serviceService.setServiceDao(serviceDao);
     }
 
     @Override
@@ -156,7 +157,7 @@ public class FacadeImpl implements Facade {
     public List<Guest> getAllGuests() {
         List<Guest> guests = null;
         synchronized (guestService) {
-            guests = guestService.getAll();
+            guests = guestService.getAll(null);
         }
         return guests;
     }
@@ -165,7 +166,7 @@ public class FacadeImpl implements Facade {
     public List<Room> getAllRooms() {
         List<Room> rooms = null;
         synchronized (roomService) {
-            rooms = roomService.getAll();
+            rooms = roomService.getAll(null);
         }
         return rooms;
     }
@@ -174,7 +175,7 @@ public class FacadeImpl implements Facade {
     public List<Room> getSortedByPrice() {
         List<Room> rooms = null;
         synchronized (roomService) {
-            rooms = roomService.getSortedByPrice();
+            rooms = roomService.getAll(SortType.price);
         }
         return rooms;
     }
@@ -183,7 +184,7 @@ public class FacadeImpl implements Facade {
     public List<Room> getSortedByCapacity() {
         List<Room> rooms = null;
         synchronized (roomService) {
-            rooms = roomService.getSortedByCapacity();
+            rooms = roomService.getAll(SortType.capacity);
         }
         return rooms;
     }
@@ -192,7 +193,7 @@ public class FacadeImpl implements Facade {
     public List<Room> getSortedByRating() {
         List<Room> rooms = null;
         synchronized (roomService) {
-            rooms = roomService.getSortedByRating();
+            rooms = roomService.getAll(SortType.rating);
         }
         return rooms;
     }
@@ -201,7 +202,7 @@ public class FacadeImpl implements Facade {
     public List<Room> getAllFreeRooms() {
         List<Room> rooms = null;
         synchronized (roomService) {
-            rooms = roomService.getAll(RoomStatus.FREE);
+            rooms = roomService.getAllFree(null);
         }
         return rooms;
     }
@@ -210,7 +211,7 @@ public class FacadeImpl implements Facade {
     public List<Guest> getGuestsRoom() {
         List<Guest> guests = null;
         synchronized (guestService) {
-            guests = guestService.getAll();
+            guests = guestService.getAll(null);
         }
         return guests;
     }
@@ -276,7 +277,7 @@ public class FacadeImpl implements Facade {
     public List<Service> getAllServices() {
         List<Service> services = null;
         synchronized (serviceService) {
-            services = serviceService.getAll();
+            services = serviceService.getAll(null);
         }
         return services;
     }
@@ -342,7 +343,7 @@ public class FacadeImpl implements Facade {
     public List<Registration> getAllRegistrations() {
         List<Registration> registrations = null;
         synchronized (registrationService) {
-            registrations = registrationService.getAll();
+            registrations = registrationService.getAll(null);
         }
         return registrations;
     }
@@ -350,56 +351,56 @@ public class FacadeImpl implements Facade {
     @Override
     public void importGuests() {
         synchronized (guestService) {
-            importer.importGuests(this.guestService.getAll());
+            importer.importGuests(this.guestService.getAll(null));
         }
     }
 
     @Override
     public void importRegistrations() {
         synchronized (registrationService) {
-            importer.importRegistrations(this.registrationService.getAll());
+            importer.importRegistrations(this.registrationService.getAll(null));
         }
     }
 
     @Override
     public void importRooms() {
         synchronized (roomService) {
-            importer.importRooms(this.roomService.getAll());
+            importer.importRooms(this.roomService.getAll(null));
         }
     }
 
     @Override
     public void importServices() {
         synchronized (serviceService) {
-            importer.importServices(this.serviceService.getAll());
+            importer.importServices(this.serviceService.getAll(null));
         }
     }
 
     @Override
     public void exportGuests() {
         synchronized (guestService) {
-            exporter.exportCollection(this.guestService.getAll(), Guest.class);
+            exporter.exportCollection(this.guestService.getAll(null), Guest.class);
         }
     }
 
     @Override
     public void exportRegistrations() {
         synchronized (registrationService) {
-            exporter.exportCollection(this.registrationService.getAll(), Registration.class);
+            exporter.exportCollection(this.registrationService.getAll(null), Registration.class);
         }
     }
 
     @Override
     public void exportRooms() {
         synchronized (roomService) {
-            exporter.exportCollection(this.roomService.getAll(), Room.class);
+            exporter.exportCollection(this.roomService.getAll(null), Room.class);
         }
     }
 
     @Override
     public void exportServices() {
         synchronized (serviceService) {
-            exporter.exportCollection(this.serviceService.getAll(), Service.class);
+            exporter.exportCollection(this.serviceService.getAll(null), Service.class);
         }
     }
 

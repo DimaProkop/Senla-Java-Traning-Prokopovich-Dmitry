@@ -1,5 +1,6 @@
 package com.training.senla.service;
 
+import com.training.senla.enums.SortType;
 import com.training.senla.model.Guest;
 import com.training.senla.model.Room;
 import com.training.senla.model.Service;
@@ -19,15 +20,15 @@ public interface GuestService {
 
     void delete(Guest guest);
 
+    void addService(Guest guest, Service service);
+
+    void removeService(Guest guest, Service service);
+
     List<Service> getServicesByPrice(Guest guest);
 
     List<Service> getServicesByDate(Guest guest);
 
-    List<Guest> getAll();
-
-    List<Guest> getSortedByFinalDate();
-
-    List<Guest> getSortedByName();
+    List<Guest> getAll(SortType type);
 
     double getSumByRoom(Room room, Guest guest);
 

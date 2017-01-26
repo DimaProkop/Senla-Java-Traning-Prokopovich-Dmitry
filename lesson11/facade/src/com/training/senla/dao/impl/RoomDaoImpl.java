@@ -1,6 +1,5 @@
 package com.training.senla.dao.impl;
 
-import com.training.senla.dao.BaseModelDao;
 import com.training.senla.dao.RoomDao;
 import com.training.senla.enums.RoomsSection;
 import com.training.senla.model.Room;
@@ -14,7 +13,7 @@ import static com.training.senla.util.db.ParserResultSet.parseRoom;
 /**
  * Created by prokop on 13.10.16.
  */
-public class RoomDaoImpl extends BaseModelDao<Room> implements RoomDao {
+public class RoomDaoImpl extends BaseModelDaoImpl<Room> implements RoomDao {
 
     public RoomDaoImpl() {
     }

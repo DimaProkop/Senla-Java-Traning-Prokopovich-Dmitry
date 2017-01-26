@@ -1,5 +1,6 @@
 package com.training.senla.service;
 
+import com.training.senla.enums.SortType;
 import com.training.senla.model.Registration;
 import com.training.senla.dao.RegistrationDao;
 
@@ -15,7 +16,7 @@ public interface RegistrationService {
 
     Registration getRegistration(int id);
 
-    List<Registration> getAll();
+    List<Registration> getAll(SortType type);
 
     void setRegistrationRepository(RegistrationDao registrationRepository);
 }

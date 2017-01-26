@@ -2,6 +2,7 @@ package com.training.senla.service;
 
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
+import com.training.senla.enums.SortType;
 import com.training.senla.model.Guest;
 import com.training.senla.model.Room;
 import com.training.senla.dao.GuestDao;
@@ -29,22 +30,10 @@ public interface RoomService {
 
     Room cloneRoom(int id);
 
-    List<Room> getAll();
-
-    List<Room> getSortedByPrice();
-
-    List<Room> getSortedByCapacity();
-
-    List<Room> getSortedByRating();
+    List<Room> getAll(SortType type);
 
     //for free rooms
-    List<Room> getAll(RoomStatus status);
-
-    List<Room> getSortedByPrice(RoomStatus status);
-
-    List<Room> getSortedByCapacity(RoomStatus status);
-
-    List<Room> getSortedByRating(RoomStatus status);
+    List<Room> getAllFree(SortType type);
 
     int getCountFreeRooms();
 
@@ -54,9 +43,9 @@ public interface RoomService {
 
     List<Double> getPriceBySection(RoomsSection section);
 
-    void setRoomRepository(RoomDao roomRepository);
+    void setRoomDao(RoomDao roomDao);
 
-    void setGuestRepository(GuestDao guestRepository);
+    void setGuestDao(GuestDao guestDao);
 
-    void setRegistrationRepository(RegistrationDao registrationRepository);
+    void setRegistrationDao(RegistrationDao registrationDao);
 }
