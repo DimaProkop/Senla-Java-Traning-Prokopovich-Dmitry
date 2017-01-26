@@ -12,7 +12,7 @@ import java.util.List;
  * Created by prokop on 13.10.16.
  */
 @CsvEntity(filename = "guest.csv", valuesSeparator = ";", entityId = "id")
-public class Guest extends BaseModel implements Serializable{
+public class Guest extends BaseModel{
 
     private static final long serialVersionUID = -4477116269261501412L;
 

@@ -19,10 +19,6 @@ public interface GuestService {
 
     void delete(Guest guest);
 
-    void addService(Guest guest, Service service);
-
-    void removeService(Guest guest, Service service);
-
     List<Service> getServicesByPrice(Guest guest);
 
     List<Service> getServicesByDate(Guest guest);
@@ -37,5 +33,5 @@ public interface GuestService {
 
     int getCount();
 
-    void setGuestRepository(GuestDao guestRepository);
+    void setGuestDao(GuestDao guestDao);
 }

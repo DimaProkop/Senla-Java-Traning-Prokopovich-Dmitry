@@ -1,7 +1,7 @@
 package com.training.senla.dao.impl;
 
+import com.training.senla.dao.BaseModelDao;
 import com.training.senla.dao.RoomDao;
-import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
 import com.training.senla.model.Room;
 
@@ -9,16 +9,20 @@ import java.sql.*;
 import java.util.*;
 import java.util.Date;
 
-import static com.training.senla.util.ParserResultSet.parseRoom;
+import static com.training.senla.util.db.ParserResultSet.parseRoom;
 
 /**
  * Created by prokop on 13.10.16.
  */
-public class RoomDaoImpl implements RoomDao {
+public class RoomDaoImpl extends BaseModelDao<Room> implements RoomDao {
 
     public RoomDaoImpl() {
     }
 
+    @Override
+    public Room assignParser(ResultSet set) {
+        return parseRoom(set);
+    }
 
     @Override
     public int getCountFreeRooms(Connection connection) {

@@ -48,23 +48,23 @@ public class FacadeImpl implements Facade {
     }
 
     private void fillServices() {
-        GuestDao guestRepository = (GuestDao) DependencyInjection.getInstance(GuestDao.class);
-        RoomDao roomRepository = (RoomDao) DependencyInjection.getInstance(RoomDao.class);
-        RegistrationDao registrationRepository = (RegistrationDao) DependencyInjection.getInstance(RegistrationDao.class);
-        ServiceDao serviceRepository = (ServiceDao) DependencyInjection.getInstance(ServiceDao.class);
+        GuestDao guestDao = (GuestDao) DependencyInjection.getInstance(GuestDao.class);
+        RoomDao roomDao = (RoomDao) DependencyInjection.getInstance(RoomDao.class);
+        RegistrationDao registrationDao = (RegistrationDao) DependencyInjection.getInstance(RegistrationDao.class);
+        ServiceDao serviceDao = (ServiceDao) DependencyInjection.getInstance(ServiceDao.class);
         guestService = (GuestService) DependencyInjection.getInstance(GuestService.class);
-        guestService.setGuestRepository(guestRepository);
+        guestService.setGuestDao(guestDao);
 
         roomService = (RoomService) DependencyInjection.getInstance(RoomService.class);
-        roomService.setGuestRepository(guestRepository);
-        roomService.setRoomRepository(roomRepository);
-        roomService.setRegistrationRepository(registrationRepository);
+        roomService.setGuestRepository(guestDao);
+        roomService.setRoomRepository(roomDao);
+        roomService.setRegistrationRepository(registrationDao);
 
         registrationService = (RegistrationService) DependencyInjection.getInstance(RegistrationService.class);
-        registrationService.setRegistrationRepository(registrationRepository);
+        registrationService.setRegistrationRepository(registrationDao);
 
         serviceService = (ServiceService) DependencyInjection.getInstance(ServiceService.class);
-        serviceService.setServiceRepository(serviceRepository);
+        serviceService.setServiceRepository(serviceDao);
     }
 
     @Override

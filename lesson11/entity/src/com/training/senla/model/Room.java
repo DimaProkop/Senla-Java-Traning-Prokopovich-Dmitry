@@ -15,7 +15,7 @@ import java.util.List;
  * Created by prokop on 13.10.16.
  */
 @CsvEntity(filename = "room.csv", valuesSeparator = ";", entityId = "id")
-public class Room extends BaseModel implements Cloneable, Serializable{
+public class Room extends BaseModel implements Cloneable{
     private static final long serialVersionUID = 3950254982747535717L;
 
     private Integer id;

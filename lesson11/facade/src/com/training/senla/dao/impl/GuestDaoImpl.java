@@ -10,8 +10,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.training.senla.util.ParserResultSet.parseGuest;
-import static com.training.senla.util.ParserResultSet.parseService;
+import static com.training.senla.util.db.ParserResultSet.parseGuest;
+import static com.training.senla.util.db.ParserResultSet.parseService;
 
 
 /**

@@ -11,7 +11,7 @@ import java.util.Date;
  * Created by prokop on 13.10.16.
  */
 @CsvEntity(filename = "registration.csv", valuesSeparator = ";", entityId = "id")
-public class Registration extends BaseModel implements Serializable{
+public class Registration extends BaseModel{
     private static final long serialVersionUID = -7389885297471547150L;
 
     private Integer id;

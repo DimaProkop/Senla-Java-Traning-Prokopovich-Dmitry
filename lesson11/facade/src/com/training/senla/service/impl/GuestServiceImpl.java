@@ -1,15 +1,18 @@
 package com.training.senla.service.impl;
 
+import com.training.senla.dao.impl.GuestDaoImpl;
 import com.training.senla.model.Guest;
 import com.training.senla.model.Room;
 import com.training.senla.model.Service;
 import com.training.senla.dao.GuestDao;
 import com.training.senla.service.GuestService;
 import com.training.senla.util.connection.ConnectionManager;
+import com.training.senla.util.db.LibraryQueries;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -20,17 +23,19 @@ public class GuestServiceImpl implements GuestService {
 
     private static final Logger LOG = LogManager.getLogger(GuestServiceImpl.class);
 
-    private GuestDao guestRepository;
+    private GuestDaoImpl guestDao;
+    private LibraryQueries library;
 
     public GuestServiceImpl() {
+        guestDao = new GuestDaoImpl();
     }
 
     @Override
     public void addGuest(Guest guest) {
-        Connection connection = null;
+        Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            connection = ConnectionManager.getInstance().getConnection();
-            guestRepository.set(connection, guest);
+            PreparedStatement statement = library.set(connection, guest);
+            guestDao.get(statement);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -39,10 +44,10 @@ public class GuestServiceImpl implements GuestService {
     @Override
     public Guest getGuest(int id) {
         Guest guest = null;
-        Connection connection = null;
+        Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            connection = ConnectionManager.getInstance().getConnection();
-            guest = guestRepository.get(connection, id);
+            PreparedStatement statement = library.get(library.GET_GUEST, connection, guest.getId());
+            guest = guestDao.get(statement);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -55,15 +60,16 @@ public class GuestServiceImpl implements GuestService {
         boolean status = false;
         try {
             connection.setAutoCommit(false);
-            status = guestRepository.update(connection, guest);
-            if(status) {
+            PreparedStatement statement = library.update(connection, guest);
+            status = guestDao.update(statement);
+            if (status) {
                 connection.commit();
             }
         } catch (Exception e) {
             try {
                 connection.rollback();
-            } catch (SQLException e1) {
-                e1.printStackTrace();
+            } catch (SQLException sql) {
+                sql.printStackTrace();
             }
             LOG.error(e.getMessage());
         }
@@ -73,7 +79,8 @@ public class GuestServiceImpl implements GuestService {
     public void delete(Guest guest) {
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            guestRepository.delete(connection, guest);
+            PreparedStatement statement = library.delete(connection, guest);
+            guestDao.delete(statement);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -92,7 +99,7 @@ public class GuestServiceImpl implements GuestService {
         List<Service> services = null;
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            services = guestRepository.getServicesByPrice(connection, guest);
+            services = guestDao.getServicesByPrice(connection, guest);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -104,7 +111,7 @@ public class GuestServiceImpl implements GuestService {
         List<Service> services = null;
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            services = guestRepository.getServicesByDate(connection, guest);
+            services = guestDao.getServicesByDate(connection, guest);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -116,7 +123,7 @@ public class GuestServiceImpl implements GuestService {
         Connection connection = ConnectionManager.getInstance().getConnection();
         List<Guest> guests = null;
         try {
-            guests = guestRepository.getAll(connection);
+            guests = guestDao.getAll(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -128,7 +135,7 @@ public class GuestServiceImpl implements GuestService {
         Connection connection = ConnectionManager.getInstance().getConnection();
         List<Guest> guests = null;
         try {
-            guests = guestRepository.getSortedByFinalDate(connection);
+            guests = guestDao.getSortedByFinalDate(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -140,7 +147,7 @@ public class GuestServiceImpl implements GuestService {
         List<Guest> guests = null;
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            guests = guestRepository.getSortedByName(connection);
+            guests = guestDao.getSortedByName(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -152,7 +159,7 @@ public class GuestServiceImpl implements GuestService {
         double sum = 0;
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            sum = guestRepository.getSumByRoom(connection, room, guest);
+            sum = guestDao.getSumByRoom(connection, room, guest);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -164,14 +171,14 @@ public class GuestServiceImpl implements GuestService {
         int count = 0;
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            count = guestRepository.getCount(connection);
+            count = guestDao.getCount(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
         return count;
     }
 
-    public void setGuestRepository(GuestDao guestRepository) {
-        this.guestRepository = guestRepository;
+    public void setGuestDao(GuestDao guestDao) {
+        this.guestDao = guestDao;
     }
 }

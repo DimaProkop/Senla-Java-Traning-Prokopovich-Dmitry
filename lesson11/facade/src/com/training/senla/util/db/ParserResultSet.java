@@ -1,4 +1,4 @@
-package com.training.senla.util;
+package com.training.senla.util.db;
 
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
@@ -19,7 +19,6 @@ import java.util.List;
  */
 public class ParserResultSet {
 
-    private static String TOKEN = "'";
 
     public static Guest parseGuest(ResultSet set) {
         Guest guest = new Guest();

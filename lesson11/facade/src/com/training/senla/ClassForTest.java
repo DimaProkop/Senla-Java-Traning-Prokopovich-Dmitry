@@ -11,7 +11,7 @@ import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import static com.training.senla.util.ParserResultSet.*;
+import static com.training.senla.util.db.ParserResultSet.*;
 
 /**
  * Created by prokop on 12.10.16.

@@ -12,7 +12,7 @@ import java.util.Date;
  * Created by prokop on 13.10.16.
  */
 @CsvEntity(filename = "service.csv", valuesSeparator = ";", entityId = "id")
-public class Service extends BaseModel implements Serializable{
+public class Service extends BaseModel{
     private static final long serialVersionUID = 1069546016452590380L;
 
     private Integer id;

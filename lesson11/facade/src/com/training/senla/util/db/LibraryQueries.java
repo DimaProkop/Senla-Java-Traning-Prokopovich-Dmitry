@@ -1,4 +1,4 @@
-package com.training.senla.dao;
+package com.training.senla.util.db;
 
 import com.training.senla.enums.SortType;
 import com.training.senla.model.Guest;
@@ -27,19 +27,19 @@ public class LibraryQueries {
     private final String SET_SERVICE = "INSERT service(name, price, section, startDate, finalDate) VALUES (?,?,?,?,?) ";
     private final String SET_REGISTRATION = "INSERT registration(guestId, roomId, startDate, finalDate) VALUES (?,?,?,?) ";
     //get
-    private final String GET_GUEST = "SELECT * FROM guest WHERE id = ?";
-    private final String GET_ROOM = "SELECT * FROM room WHERE id = ?";
-    private final String GET_SERVICE = "SELECT * FROM service WHERE id = ?";
-    private final String GET_REGISTRATION = "SELECT * FROM registration WHERE id = ?";
+    public final String GET_GUEST = "SELECT * FROM guest WHERE id = ?";
+    public final String GET_ROOM = "SELECT * FROM room WHERE id = ?";
+    public final String GET_SERVICE = "SELECT * FROM service WHERE id = ?";
+    public final String GET_REGISTRATION = "SELECT * FROM registration WHERE id = ?";
     //delete
     private final String DELETE_GUEST = "DELETE * FROM guest WHERE id = ?";
     private final String DELETE_ROOM = "DELETE * FROM room WHERE id = ?";
     private final String DELETE_SERVICE = "DELETE * FROM service WHERE id = ?";
     private final String DELETE_REGISTRATION = "DELETE * FROM registration WHERE id = ?";
     //get by sort
-    private final String GET_SORT_GUEST = "SELECT * FROM guest ORDER BY ?";
-    private final String GET_SORT_ROOM = "SELECT * FROM room ORDER BY ?";
-    private final String GET_SORT_SERVICE = "SELECT * FROM service ORDER BY ?";
+    public final String GET_SORT_GUEST = "SELECT * FROM guest ORDER BY ?";
+    public final String GET_SORT_ROOM = "SELECT * FROM room ORDER BY ?";
+    public final String GET_SORT_SERVICE = "SELECT * FROM service ORDER BY ?";
 
     public PreparedStatement update(Connection connection, Guest guest) {
         PreparedStatement statement = null;
@@ -149,6 +149,50 @@ public class LibraryQueries {
             statement.setInt(2, registration.getRoomId());
             statement.setString(3, registration.getStartDate().toString());
             statement.setString(4, registration.getFinalDate().toString());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return statement;
+    }
+
+    public PreparedStatement delete(Connection connection, Guest guest) {
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(DELETE_GUEST);
+            statement.setInt(1, guest.getId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return statement;
+    }
+
+    public PreparedStatement delete(Connection connection, Room room) {
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(DELETE_ROOM);
+            statement.setInt(1, room.getId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return statement;
+    }
+
+    public PreparedStatement delete(Connection connection, Registration registration) {
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(DELETE_REGISTRATION);
+            statement.setInt(1, registration.getId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return statement;
+    }
+
+    public PreparedStatement delete(Connection connection, Service service) {
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(DELETE_SERVICE);
+            statement.setInt(1, service.getId());
         } catch (SQLException e) {
             e.printStackTrace();
         }
