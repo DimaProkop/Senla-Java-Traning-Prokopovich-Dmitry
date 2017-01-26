@@ -179,15 +179,7 @@ public class RoomServiceImpl implements RoomService {
         Connection connection = ConnectionManager.getInstance().getConnection();
         List<Room> rooms = new ArrayList<>();
         try {
-//            List<Integer> roomIds = registrationDao.getAll(connection).stream()
-//                    .filter(x->x.getFinalDate().getTime() < date.getTime())
-//                    .map(Registration::getRoomId)
-//                    .distinct()
-//                    .collect(Collectors.toList());
-//            for (int i = 0; i < roomDao.getAll(connection).size(); i++) {
-//                Room room = roomDao.get(connection, roomIds.get(i));
-//                rooms.add(room);
-//            }
+            roomDao.getReleasedInFuture(connection, date);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }

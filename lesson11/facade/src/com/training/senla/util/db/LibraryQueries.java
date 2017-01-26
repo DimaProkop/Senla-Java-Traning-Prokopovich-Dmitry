@@ -38,13 +38,13 @@ public class LibraryQueries {
     private final String DELETE_SERVICE = "DELETE * FROM service WHERE id = ?";
     private final String DELETE_REGISTRATION = "DELETE * FROM registration WHERE id = ?";
     //get by sort
-    public final String GET_SORT_GUEST = "SELECT * FROM guest ORDER BY ?";
-    public final String GET_SORT_ROOM_FREE = "SELECT * FROM room WHERE status = 'free' ORDER BY ?";
-    public final String GET_SORT_ROOM = "SELECT * FROM room ORDER BY ?";
-    public final String GET_SORT_SERVICE = "SELECT * FROM service ORDER BY ?";
-    public final String GET_SORT_REGISTRATION = "SELECT * FROM registration ORDER BY ?";
+    public final String GET_SORT_GUEST = "SELECT * FROM guest ORDER BY ";
+    public final String GET_SORT_ROOM_FREE = "SELECT * FROM room WHERE status = 'free' ORDER BY ";
+    public final String GET_SORT_ROOM = "SELECT * FROM room ORDER BY ";
+    public final String GET_SORT_SERVICE = "SELECT * FROM service ORDER BY ";
+    public final String GET_SORT_REGISTRATION = "SELECT * FROM registration ORDER BY ";
 
-    private final SimpleDateFormat formatter = new SimpleDateFormat("YYYY-dd-MM");
+    public final SimpleDateFormat formatter = new SimpleDateFormat("YYYY-dd-MM");
 
     public PreparedStatement update(Connection connection, Guest guest) {
         PreparedStatement statement = null;
@@ -226,8 +226,7 @@ public class LibraryQueries {
         }
         PreparedStatement statement = null;
         try {
-            statement = connection.prepareStatement(query);
-            statement.setString(1, type.toString());
+            statement = connection.prepareStatement(query + type.toString());
         } catch (SQLException e) {
             e.printStackTrace();
         }

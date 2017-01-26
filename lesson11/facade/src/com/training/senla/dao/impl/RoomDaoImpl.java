@@ -3,6 +3,7 @@ package com.training.senla.dao.impl;
 import com.training.senla.dao.RoomDao;
 import com.training.senla.enums.RoomsSection;
 import com.training.senla.model.Room;
+import com.training.senla.util.db.LibraryQueries;
 
 import java.sql.*;
 import java.util.*;
@@ -15,7 +16,9 @@ import static com.training.senla.util.db.ParserResultSet.parseRoom;
  */
 public class RoomDaoImpl extends BaseModelDaoImpl<Room> implements RoomDao {
 
+    private LibraryQueries library;
     public RoomDaoImpl() {
+        library = new LibraryQueries();
     }
 
     @Override
@@ -29,8 +32,10 @@ public class RoomDaoImpl extends BaseModelDaoImpl<Room> implements RoomDao {
         int count = 0;
         try {
             statement = connection.createStatement();
-            ResultSet set = statement.executeQuery("SELECT COUNT(id) FROM room WHERE status = 'free'");
-            set.close();
+            ResultSet set = statement.executeQuery("SELECT COUNT(*) FROM room WHERE status = 'free'");
+            while (set.next()) {
+                count = set.getInt(1);
+            }
             statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -49,13 +54,12 @@ public class RoomDaoImpl extends BaseModelDaoImpl<Room> implements RoomDao {
         PreparedStatement statement = null;
         List<Room> rooms = new ArrayList<>();
         try {
-            statement = connection.prepareStatement("SELECT * FROM room JOIN registration ON room.id = registration.roomId WHERE finalDate < ?");
-            statement.setString(1, date.toLocaleString());
+            String currentDate = library.formatter.format(date);
+            statement = connection.prepareStatement("SELECT * FROM room JOIN registration ON room.id = registration.roomId WHERE finalDate < " + currentDate);
             ResultSet set = statement.executeQuery();
             while (set.next()) {
                 rooms.add(parseRoom(set));
             }
-            set.close();
             statement.close();
         } catch (SQLException e) {
             e.printStackTrace();

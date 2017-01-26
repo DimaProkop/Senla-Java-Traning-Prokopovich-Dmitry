@@ -9,6 +9,7 @@ import com.training.senla.model.Registration;
 import com.training.senla.model.Room;
 import com.training.senla.model.Service;
 import com.training.senla.util.connection.ConnectionManager;
+import com.training.senla.util.db.LibraryQueries;
 
 import java.sql.*;
 import java.text.DateFormat;
@@ -38,8 +39,24 @@ public class ClassForTest {
         Facade facade = (Facade) DependencyInjection.getInstance(Facade.class);
         facade.init();
 
-        printRooms(facade.getSortedByPrice());
+        LibraryQueries libraryQueries = new LibraryQueries();
+//        System.out.println(facade.getReleasedRoomsInFuture(new Date(117, 6, 2)));
 
+        connection = ConnectionManager.getInstance().getConnection();
+        PreparedStatement statement = null;
+        List<Room> rooms = new ArrayList<>();
+        try {
+            String currentDate = libraryQueries.formatter.format(new Date(117, 6, 2));
+            statement = connection.prepareStatement("SELECT COUNT(*) FROM registration WHERE finalDate < STR_TO_DATE('2017-02-03', '%Y-%m-%d')");
+            ResultSet set = statement.executeQuery();
+            int count = 0;
+            while (set.next()) {
+                count = set.getInt(1);
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
 
