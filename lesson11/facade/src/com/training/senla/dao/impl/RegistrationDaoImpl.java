@@ -53,7 +53,7 @@ public class RegistrationDaoImpl extends BaseModelDaoImpl<Registration> implemen
 
     @Override
     protected String getGetAllQuery(SortType type, RoomStatus status) {
-        return GET_SORT_REGISTRATION;
+        return GET_SORT_REGISTRATION + type.toString();
     }
 
     @Override

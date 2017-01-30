@@ -57,7 +57,7 @@ public class GuestDaoImpl extends BaseModelDaoImpl<Guest> implements GuestDao{
 
     @Override
     protected String getGetAllQuery(SortType type, RoomStatus status) {
-        return GET_SORT_GUEST;
+        return GET_SORT_GUEST + type.toString();
     }
 
     @Override

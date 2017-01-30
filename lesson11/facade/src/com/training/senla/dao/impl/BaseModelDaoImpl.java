@@ -89,6 +89,9 @@ public abstract class BaseModelDaoImpl<E extends BaseModel> implements BaseModel
         List<E> list = new ArrayList<E>();
         PreparedStatement statement = null;
         ResultSet set = null;
+        if(type == null) {
+            type = SortType.id;
+        }
         try {
             statement = connection.prepareStatement(getGetAllQuery(type, status));
             set = statement.executeQuery();

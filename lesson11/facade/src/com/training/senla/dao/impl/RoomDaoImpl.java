@@ -59,9 +59,9 @@ public class RoomDaoImpl extends BaseModelDaoImpl<Room> implements RoomDao {
     @Override
     protected String getGetAllQuery(SortType type, RoomStatus status) {
         if(status != null) {
-            return GET_SORT_ROOM_FREE;
+            return GET_SORT_ROOM_FREE  + type.toString();
         }else {
-            return GET_SORT_ROOM;
+            return GET_SORT_ROOM  + type.toString();
         }
     }
 

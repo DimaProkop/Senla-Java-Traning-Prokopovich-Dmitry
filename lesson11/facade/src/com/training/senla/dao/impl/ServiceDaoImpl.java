@@ -56,7 +56,7 @@ public class ServiceDaoImpl extends BaseModelDaoImpl<Service> implements Service
 
     @Override
     protected String getGetAllQuery(SortType type, RoomStatus status) {
-        return GET_SORT_SERVICE;
+        return GET_SORT_SERVICE + type.toString();
     }
 
     @Override
