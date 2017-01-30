@@ -7,7 +7,6 @@ import com.training.senla.model.Service;
 import com.training.senla.dao.GuestDao;
 import com.training.senla.service.GuestService;
 import com.training.senla.util.connection.ConnectionManager;
-import com.training.senla.util.db.LibraryQueries;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -24,18 +23,15 @@ public class GuestServiceImpl implements GuestService {
     private static final Logger LOG = LogManager.getLogger(GuestServiceImpl.class);
 
     private GuestDao guestDao;
-    private LibraryQueries library;
 
     public GuestServiceImpl() {
-        library = new LibraryQueries();
     }
 
     @Override
     public void addGuest(Guest guest) {
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            PreparedStatement statement = library.set(connection, guest);
-            guestDao.set(statement);
+            guestDao.add(connection, guest);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -46,8 +42,7 @@ public class GuestServiceImpl implements GuestService {
         Guest guest = null;
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            PreparedStatement statement = library.get(library.GET_GUEST, connection, id);
-            guest = guestDao.get(statement);
+            guest = guestDao.getById(connection, id);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -60,8 +55,7 @@ public class GuestServiceImpl implements GuestService {
         boolean status = false;
         try {
             connection.setAutoCommit(false);
-            PreparedStatement statement = library.update(connection, guest);
-            status = guestDao.update(statement);
+            status = guestDao.update(connection ,guest);
             if (status) {
                 connection.commit();
             }
@@ -79,8 +73,7 @@ public class GuestServiceImpl implements GuestService {
     public void delete(Guest guest) {
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            PreparedStatement statement = library.delete(connection, guest);
-            guestDao.delete(statement);
+            guestDao.delete(connection, guest);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -95,23 +88,11 @@ public class GuestServiceImpl implements GuestService {
     }
 
     @Override
-    public List<Service> getServicesByPrice(Guest guest) {
+    public List<Service> getServices(Guest guest, SortType type) {
         List<Service> services = null;
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            services = guestDao.getServicesByPrice(connection, guest);
-        } catch (Exception e) {
-            LOG.error(e.getMessage());
-        }
-        return services;
-    }
-
-    @Override
-    public List<Service> getServicesByDate(Guest guest) {
-        List<Service> services = null;
-        Connection connection = ConnectionManager.getInstance().getConnection();
-        try {
-            services = guestDao.getServicesByDate(connection, guest);
+            services = guestDao.getServices(connection, guest, type);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -123,8 +104,7 @@ public class GuestServiceImpl implements GuestService {
         Connection connection = ConnectionManager.getInstance().getConnection();
         List<Guest> guests = null;
         try {
-            PreparedStatement statement = library.getAll(library.GET_SORT_GUEST, connection, type);
-            guests = guestDao.getAll(statement);
+            guests = guestDao.getAll(connection, type, null);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }

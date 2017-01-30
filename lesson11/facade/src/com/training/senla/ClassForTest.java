@@ -1,24 +1,17 @@
 package com.training.senla;
 
 import com.training.senla.di.DependencyInjection;
-import com.training.senla.enums.RoomsSection;
-import com.training.senla.enums.ServicesSection;
 import com.training.senla.facade.Facade;
 import com.training.senla.model.Guest;
 import com.training.senla.model.Registration;
 import com.training.senla.model.Room;
 import com.training.senla.model.Service;
 import com.training.senla.util.connection.ConnectionManager;
-import com.training.senla.util.db.LibraryQueries;
 
 import java.sql.*;
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.Date;
-
-import static com.training.senla.util.db.ParserResultSet.*;
 
 /**
  * Created by prokop on 12.10.16.

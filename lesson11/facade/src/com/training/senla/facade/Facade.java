@@ -63,8 +63,6 @@ public interface Facade {
 
     List<Service> getGuestServices(Guest guest);
 
-    List<Double> getPricesService();
-
     List<Service> getAllServices();
 
     List<Double> getPricesRoom();

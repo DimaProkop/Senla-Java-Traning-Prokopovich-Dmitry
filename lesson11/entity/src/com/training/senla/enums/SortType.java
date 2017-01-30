@@ -8,5 +8,6 @@ public enum SortType {
     name,
     price,
     rating,
-    capacity
+    capacity,
+    finalDate
 }

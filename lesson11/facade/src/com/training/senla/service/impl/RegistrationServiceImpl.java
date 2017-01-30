@@ -5,7 +5,6 @@ import com.training.senla.model.Registration;
 import com.training.senla.dao.RegistrationDao;
 import com.training.senla.service.RegistrationService;
 import com.training.senla.util.connection.ConnectionManager;
-import com.training.senla.util.db.LibraryQueries;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -22,18 +21,15 @@ public class RegistrationServiceImpl implements RegistrationService {
     private static final Logger LOG = LogManager.getLogger(RegistrationServiceImpl.class);
 
     private RegistrationDao registrationDao;
-    private LibraryQueries library;
 
     public RegistrationServiceImpl() {
-        library = new LibraryQueries();
     }
 
     @Override
     public void addRecord(Registration registration) {
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            PreparedStatement statement = library.set(connection, registration);
-            registrationDao.set(statement);
+            registrationDao.add(connection, registration);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -46,8 +42,7 @@ public class RegistrationServiceImpl implements RegistrationService {
         boolean status = false;
         try {
             connection.setAutoCommit(false);
-            PreparedStatement statement = library.update(connection, registration);
-            status = registrationDao.update(statement);
+            status = registrationDao.update(connection, registration);
             if (status) {
                 connection.commit();
             }
@@ -66,8 +61,7 @@ public class RegistrationServiceImpl implements RegistrationService {
         Connection connection = ConnectionManager.getInstance().getConnection();
         Registration registration = null;
         try {
-            PreparedStatement statement = library.get(library.GET_REGISTRATION, connection, id);
-            registration = registrationDao.get(statement);
+            registration = registrationDao.getById(connection, id);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -79,8 +73,7 @@ public class RegistrationServiceImpl implements RegistrationService {
         Connection connection = ConnectionManager.getInstance().getConnection();
         List<Registration> registrations = null;
         try {
-            PreparedStatement statement = library.getAll(library.GET_SORT_REGISTRATION, connection, type);
-            registrations = registrationDao.getAll(statement);
+            registrations = registrationDao.getAll(connection, type, null);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }

@@ -22,5 +22,7 @@ public interface ServiceService {
 
     List<Service> getAll(SortType type);
 
+    List<Double> getPricesBySection(ServicesSection section);
+
     void setServiceDao(ServiceDao serviceDao);
 }
