@@ -24,6 +24,8 @@ public class Main {
         Facade facade = (Facade) DependencyInjection.getInstance(Facade.class);
         facade.init();
 
+        System.out.print(facade.getAllGuests().size());
+
     }
 
 }

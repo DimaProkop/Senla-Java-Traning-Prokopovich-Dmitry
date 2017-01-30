@@ -37,6 +37,7 @@
     <orderEntry type="module" module-name="api" />
     <orderEntry type="module" module-name="facade" />
     <orderEntry type="module" module-name="property" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.6" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-core:2.7" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.7" level="project" />
   </component>
