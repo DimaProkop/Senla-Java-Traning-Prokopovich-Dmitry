@@ -1,5 +1,6 @@
 package com.training.senla.dao;
 
+import com.training.senla.enums.SortType;
 import com.training.senla.model.Guest;
 import com.training.senla.model.Room;
 import com.training.senla.model.Service;
@@ -12,9 +13,7 @@ import java.util.List;
  */
 public interface GuestDao extends BaseModelDao<Guest>{
 
-    List<Service> getServicesByPrice(Connection connection, Guest guest);
-
-    List<Service> getServicesByDate(Connection connection, Guest guest);
+    List<Service> getServices(Connection connection, Guest guest, SortType type);
 
     List<Guest> getSortedByFinalDate(Connection connection);
 

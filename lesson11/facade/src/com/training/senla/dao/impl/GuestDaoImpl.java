@@ -1,9 +1,12 @@
 package com.training.senla.dao.impl;
 
+import com.training.senla.enums.RoomStatus;
+import com.training.senla.enums.SortType;
 import com.training.senla.model.Guest;
 import com.training.senla.model.Room;
 import com.training.senla.model.Service;
 import com.training.senla.dao.GuestDao;
+import com.training.senla.util.connection.ConnectionManager;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -18,6 +21,12 @@ import static com.training.senla.util.db.ParserResultSet.parseService;
  */
 public class GuestDaoImpl extends BaseModelDaoImpl<Guest> implements GuestDao{
 
+    private final String UPDATE_GUEST = "UPDATE guest SET name = ?, roomId = ? WHERE id = ?";
+    private final String SET_GUEST = "INSERT guest(name) VALUES (?) ";
+    private final String GET_GUEST = "SELECT * FROM guest WHERE id = ?";
+    private final String DELETE_GUEST = "DELETE * FROM guest WHERE id = ?";
+    private final String GET_SORT_GUEST = "SELECT * FROM guest ORDER BY ";
+
     public GuestDaoImpl() {
     }
 
@@ -27,32 +36,54 @@ public class GuestDaoImpl extends BaseModelDaoImpl<Guest> implements GuestDao{
     }
 
     @Override
-    public List<Service> getServicesByPrice(Connection connection, Guest guest) {
-        PreparedStatement statement = null;
-        List<Service> services = new ArrayList<>();
-        try {
-            statement = connection.prepareStatement("SELECT * FROM service WHERE guestId = ? ORDER BY price");
-            statement.setInt(1, guest.getId());
-            ResultSet set = statement.executeQuery();
-            while (set.next()) {
-                services.add(parseService(set));
-            }
-            set.close();
-            statement.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return services;
+    protected String getInsertQuery() {
+        return SET_GUEST;
     }
 
     @Override
-    public List<Service> getServicesByDate(Connection connection, Guest guest) {
+    protected String getUpdateQuery() {
+        return UPDATE_GUEST;
+    }
+
+    @Override
+    protected String getDeleteQuery() {
+        return DELETE_GUEST;
+    }
+
+    @Override
+    protected String getGetByIdQuery() {
+        return GET_GUEST;
+    }
+
+    @Override
+    protected String getGetAllQuery(SortType type, RoomStatus status) {
+        return GET_SORT_GUEST;
+    }
+
+    @Override
+    protected void setPreparedStatementForInsert(PreparedStatement statement, Guest entity) throws SQLException {
+        statement.setString(1, entity.getName());
+    }
+
+    @Override
+    protected void setPreparedStatementForUpdate(PreparedStatement statement, Guest entity) throws SQLException {
+            statement.setString(1, entity.getName());
+            if(entity.getRoom() == null) {
+                statement.setString(2, null);
+            }else {
+                statement.setInt(2, entity.getRoom().getId());
+            }
+            statement.setInt(3, entity.getId());
+    }
+
+    @Override
+    public List<Service> getServices(Connection connection, Guest guest, SortType type) {
         PreparedStatement statement = null;
         List<Service> services = new ArrayList<>();
         try {
-            statement = connection.prepareStatement("SELECT * FROM service WHERE guestId = ? ORDER BY finalDate");
+            statement = connection.prepareStatement("SELECT * FROM service WHERE guestId = ? ORDER BY ?");
             statement.setInt(1, guest.getId());
+            statement.setString(2, type.toString());
             ResultSet set = statement.executeQuery();
             while (set.next()) {
                 services.add(parseService(set));
@@ -61,6 +92,8 @@ public class GuestDaoImpl extends BaseModelDaoImpl<Guest> implements GuestDao{
             statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            ConnectionManager.getInstance().closeStatement(statement);
         }
 
         return services;
@@ -78,9 +111,10 @@ public class GuestDaoImpl extends BaseModelDaoImpl<Guest> implements GuestDao{
                 guests.add(parseGuest(set));
             }
             set.close();
-            statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            ConnectionManager.getInstance().closeStatement(statement);
         }
 
         return guests;
@@ -103,6 +137,8 @@ public class GuestDaoImpl extends BaseModelDaoImpl<Guest> implements GuestDao{
             sum = count * room.getPrice();
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            ConnectionManager.getInstance().closeStatement(statement);
         }
         return sum;
     }
@@ -116,8 +152,11 @@ public class GuestDaoImpl extends BaseModelDaoImpl<Guest> implements GuestDao{
             ResultSet set = statement.executeQuery("SELECT COUNT(id) FROM guest");
             while (set.next()) {
                 count = set.getInt(1);
-            }        } catch (SQLException e) {
+            }
+        } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            ConnectionManager.getInstance().closeStatement(statement);
         }
 
         return count;

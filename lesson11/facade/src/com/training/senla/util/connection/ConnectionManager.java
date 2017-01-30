@@ -4,9 +4,7 @@ import com.training.senla.ClassSetting;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
  * Created by dmitry on 22.1.17.
@@ -52,6 +50,14 @@ public class ConnectionManager {
             } catch (SQLException e) {
                 LOG.error(e.getMessage());
             }
+        }
+    }
+
+    public void closeStatement(Statement statement) {
+        try {
+            statement.close();
+        } catch (SQLException e) {
+            LOG.error(e.getMessage());
         }
     }
 }

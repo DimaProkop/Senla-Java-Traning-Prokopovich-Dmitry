@@ -1,5 +1,6 @@
 package com.training.senla.service.impl;
 
+import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
 import com.training.senla.enums.SortType;
 import com.training.senla.model.Guest;
@@ -10,7 +11,6 @@ import com.training.senla.dao.RegistrationDao;
 import com.training.senla.dao.RoomDao;
 import com.training.senla.service.RoomService;
 import com.training.senla.util.connection.ConnectionManager;
-import com.training.senla.util.db.LibraryQueries;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -20,7 +20,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Created by prokop on 13.10.16.
@@ -32,19 +31,16 @@ public class RoomServiceImpl implements RoomService {
     private RoomDao roomDao;
     private GuestDao guestDao;
     private RegistrationDao registrationDao;
-    private LibraryQueries library;
 
 
     public RoomServiceImpl() {
-        library = new LibraryQueries();
     }
 
     @Override
     public void addRoom(Room room) {
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            PreparedStatement statement = library.set(connection, room);
-            roomDao.set(statement);
+            roomDao.add(connection, room);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -55,8 +51,7 @@ public class RoomServiceImpl implements RoomService {
         Room room = null;
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            PreparedStatement statement = library.get(library.GET_ROOM, connection, id);
-            room = roomDao.get(statement);
+            room = roomDao.getById(connection, id);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -69,8 +64,7 @@ public class RoomServiceImpl implements RoomService {
         boolean status = false;
         try {
             connection.setAutoCommit(false);
-            PreparedStatement statement = library.update(connection, room);
-            status = roomDao.update(statement);
+            status = roomDao.update(connection, room);
             if(status) {
                 connection.commit();
             }
@@ -88,8 +82,7 @@ public class RoomServiceImpl implements RoomService {
     public void delete(Room room) {
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            PreparedStatement statement = library.delete(connection, room);
-            roomDao.delete(statement);
+            roomDao.delete(connection, room);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -100,11 +93,9 @@ public class RoomServiceImpl implements RoomService {
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
             guest.setRoom(room);
-            PreparedStatement preparedStatement = library.update(connection, guest);
-            guestDao.update(preparedStatement);
+            guestDao.update(connection, guest);
             Registration registration = new Registration(guest.getId(), room.getId(), startDate, finalDate);
-            PreparedStatement statement = library.set(connection, registration);
-            registrationDao.set(statement);
+            registrationDao.add(connection, registration);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -115,8 +106,7 @@ public class RoomServiceImpl implements RoomService {
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
             guest.setRoom(null);
-            PreparedStatement statement = library.update(connection, guest);
-            guestDao.update(statement);
+            guestDao.update(connection, guest);
         }catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -125,8 +115,7 @@ public class RoomServiceImpl implements RoomService {
     @Override
     public Room cloneRoom(int id) {
         Connection connection = ConnectionManager.getInstance().getConnection();
-        PreparedStatement statement = library.get(library.GET_ROOM, connection, id);
-        Room room = roomDao.get(statement);
+        Room room = roomDao.getById(connection, id);
         Room clone = null;
         try {
             clone = (Room) room.clone();
@@ -141,8 +130,7 @@ public class RoomServiceImpl implements RoomService {
         Connection connection = ConnectionManager.getInstance().getConnection();
         List<Room> rooms = null;
         try {
-            PreparedStatement statement = library.getAll(library.GET_SORT_ROOM, connection, type);
-            rooms = roomDao.getAll(statement);
+            rooms = roomDao.getAll(connection, type, null);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -154,8 +142,7 @@ public class RoomServiceImpl implements RoomService {
         Connection connection = ConnectionManager.getInstance().getConnection();
         List<Room> rooms = null;
         try {
-            PreparedStatement statement = library.getAll(library.GET_SORT_ROOM_FREE, connection, type);
-            rooms = roomDao.getAll(statement);
+            rooms = roomDao.getAll(connection, type, RoomStatus.FREE);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }

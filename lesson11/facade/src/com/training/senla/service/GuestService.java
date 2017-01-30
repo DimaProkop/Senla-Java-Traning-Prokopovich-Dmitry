@@ -24,9 +24,7 @@ public interface GuestService {
 
     void removeService(Guest guest, Service service);
 
-    List<Service> getServicesByPrice(Guest guest);
-
-    List<Service> getServicesByDate(Guest guest);
+    List<Service> getServices(Guest guest, SortType type);
 
     List<Guest> getAll(SortType type);
 

@@ -264,14 +264,9 @@ public class FacadeImpl implements Facade {
     public List<Service> getGuestServices(Guest guest) {
         List<Service> services = null;
         synchronized (guestService) {
-            services = guestService.getServicesByPrice(guest);
+            services = guestService.getServices(guest, SortType.price);
         }
         return services;
-    }
-
-    @Override
-    public List<Double> getPricesService() {
-        return null;
     }
 
     @Override

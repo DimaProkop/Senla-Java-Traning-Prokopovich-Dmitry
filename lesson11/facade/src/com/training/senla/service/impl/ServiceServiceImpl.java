@@ -1,11 +1,11 @@
 package com.training.senla.service.impl;
 
 import com.training.senla.dao.ServiceDao;
+import com.training.senla.enums.ServicesSection;
 import com.training.senla.enums.SortType;
 import com.training.senla.model.Service;
 import com.training.senla.service.ServiceService;
 import com.training.senla.util.connection.ConnectionManager;
-import com.training.senla.util.db.LibraryQueries;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -22,18 +22,15 @@ public class ServiceServiceImpl implements ServiceService {
     private static final Logger LOG = LogManager.getLogger(ServiceServiceImpl.class);
 
     private ServiceDao serviceDao;
-    private LibraryQueries library;
 
     public ServiceServiceImpl() {
-        library = new LibraryQueries();
     }
 
     @Override
     public void addService(Service service) {
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            PreparedStatement statement = library.set(connection, service);
-            serviceDao.set(statement);
+            serviceDao.add(connection, service);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -44,8 +41,7 @@ public class ServiceServiceImpl implements ServiceService {
         Service service = null;
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            PreparedStatement statement = library.get(library.GET_SERVICE, connection, id);
-            service = serviceDao.get(statement);
+            service = serviceDao.getById(connection, id);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -58,8 +54,7 @@ public class ServiceServiceImpl implements ServiceService {
         boolean status = false;
         try {
             connection.setAutoCommit(false);
-            PreparedStatement statement = library.update(connection, service);
-            status = serviceDao.update(statement);
+            status = serviceDao.update(connection, service);
             if(status) {
                 connection.commit();
             }
@@ -77,8 +72,7 @@ public class ServiceServiceImpl implements ServiceService {
     public void delete(Service service) {
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            PreparedStatement statement = library.delete(connection, service);
-            serviceDao.delete(statement);
+            serviceDao.delete(connection, service);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -89,12 +83,23 @@ public class ServiceServiceImpl implements ServiceService {
         List<Service> services = null;
         Connection connection = ConnectionManager.getInstance().getConnection();
         try {
-            PreparedStatement statement = library.getAll(library.GET_SORT_SERVICE, connection, type);
-            services = serviceDao.getAll(statement);
+            services = serviceDao.getAll(connection, type, null);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
         return services;
+    }
+
+    @Override
+    public List<Double> getPricesBySection(ServicesSection section) {
+        Connection connection = ConnectionManager.getInstance().getConnection();
+        List<Double> prices = null;
+        try {
+            prices = serviceDao.getPriceBySection(connection, section);
+        } catch (Exception e) {
+            LOG.error(e.getMessage());
+        }
+        return prices;
     }
 
     public void setServiceDao(ServiceDao serviceDao) {
