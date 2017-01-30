@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inheritJdk="true">
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<levels>
+		<level name="api" value="project"/>
+		<level name="facade" value="project"/>
+		<level name="jdbc" value="project"/>
+		<level name="log4j" value="project"/>
+		<level name="model" value="project"/>
+		<level name="property" value="project"/>
+		<level name="ui" value="project"/>
+	</levels>
+</component>
