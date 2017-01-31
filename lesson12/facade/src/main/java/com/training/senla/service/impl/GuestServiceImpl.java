@@ -6,12 +6,11 @@ import com.training.senla.model.Room;
 import com.training.senla.model.Service;
 import com.training.senla.dao.GuestDao;
 import com.training.senla.service.GuestService;
-import com.training.senla.util.connection.ConnectionManager;
+import com.training.senla.util.connection.SessionManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -29,7 +28,7 @@ public class GuestServiceImpl implements GuestService {
 
     @Override
     public void addGuest(Guest guest) {
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         try {
             guestDao.add(connection, guest);
         } catch (Exception e) {
@@ -40,7 +39,7 @@ public class GuestServiceImpl implements GuestService {
     @Override
     public Guest getGuest(int id) {
         Guest guest = null;
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         try {
             guest = guestDao.getById(connection, id);
         } catch (Exception e) {
@@ -51,7 +50,7 @@ public class GuestServiceImpl implements GuestService {
 
     @Override
     public void update(Guest guest) {
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         boolean status = false;
         try {
             connection.setAutoCommit(false);
@@ -71,7 +70,7 @@ public class GuestServiceImpl implements GuestService {
 
     @Override
     public void delete(Guest guest) {
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         try {
             guestDao.delete(connection, guest);
         } catch (Exception e) {
@@ -90,7 +89,7 @@ public class GuestServiceImpl implements GuestService {
     @Override
     public List<Service> getServices(Guest guest, SortType type) {
         List<Service> services = null;
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         try {
             services = guestDao.getServices(connection, guest, type);
         } catch (Exception e) {
@@ -101,7 +100,7 @@ public class GuestServiceImpl implements GuestService {
 
     @Override
     public List<Guest> getAll(SortType type) {
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         List<Guest> guests = null;
         try {
             guests = guestDao.getAll(connection, type, null);
@@ -114,7 +113,7 @@ public class GuestServiceImpl implements GuestService {
     @Override
     public double getSumByRoom(Room room, Guest guest) {
         double sum = 0;
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         try {
             sum = guestDao.getSumByRoom(connection, room, guest);
         } catch (Exception e) {
@@ -126,7 +125,7 @@ public class GuestServiceImpl implements GuestService {
     @Override
     public int getCount() {
         int count = 0;
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         try {
             count = guestDao.getCount(connection);
         } catch (Exception e) {

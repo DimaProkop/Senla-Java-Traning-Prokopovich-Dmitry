@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.training.senla.util.connection.ConnectionManager;
+import com.training.senla.util.connection.SessionManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -23,7 +23,7 @@ public abstract class BaseModelDaoImpl<E extends BaseModel> implements BaseModel
 
     private static final Logger LOG = LogManager.getLogger(BaseModelDaoImpl.class);
 
-    protected abstract E assignParser(ResultSet set);
+    protected abstract E assignParser(ResultSet set) throws SQLException;
 
     protected abstract String getInsertQuery();
 
@@ -50,7 +50,7 @@ public abstract class BaseModelDaoImpl<E extends BaseModel> implements BaseModel
         } catch (SQLException e) {
             LOG.error(e.getMessage());
         } finally {
-            ConnectionManager.getInstance().closeStatement(statement);
+            SessionManager.getInstance().closeStatement(statement);
         }
         return status;
     }
@@ -66,7 +66,7 @@ public abstract class BaseModelDaoImpl<E extends BaseModel> implements BaseModel
         } catch (SQLException e) {
             LOG.error(e.getMessage());
         } finally {
-            ConnectionManager.getInstance().closeStatement(statement);
+            SessionManager.getInstance().closeStatement(statement);
         }
         return entity;
     }
@@ -81,7 +81,7 @@ public abstract class BaseModelDaoImpl<E extends BaseModel> implements BaseModel
         } catch (SQLException e) {
             LOG.error(e.getMessage());
         } finally {
-            ConnectionManager.getInstance().closeStatement(statement);
+            SessionManager.getInstance().closeStatement(statement);
         }
     }
 
@@ -89,6 +89,9 @@ public abstract class BaseModelDaoImpl<E extends BaseModel> implements BaseModel
         List<E> list = new ArrayList<E>();
         PreparedStatement statement = null;
         ResultSet set = null;
+        if(type == null) {
+            type = SortType.id;
+        }
         try {
             statement = connection.prepareStatement(getGetAllQuery(type, status));
             set = statement.executeQuery();
@@ -98,7 +101,7 @@ public abstract class BaseModelDaoImpl<E extends BaseModel> implements BaseModel
         } catch (SQLException e) {
             LOG.error(e.getMessage());
         } finally {
-            ConnectionManager.getInstance().closeStatement(statement);
+            SessionManager.getInstance().closeStatement(statement);
         }
         return list;
     }
@@ -112,7 +115,7 @@ public abstract class BaseModelDaoImpl<E extends BaseModel> implements BaseModel
         } catch (SQLException e) {
             LOG.error(e.getMessage());
         } finally {
-            ConnectionManager.getInstance().closeStatement(statement);
+            SessionManager.getInstance().closeStatement(statement);
         }
     }
 }

@@ -6,7 +6,7 @@ import com.training.senla.model.Guest;
 import com.training.senla.model.Room;
 import com.training.senla.model.Service;
 import com.training.senla.dao.GuestDao;
-import com.training.senla.util.connection.ConnectionManager;
+import com.training.senla.util.connection.SessionManager;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -31,8 +31,12 @@ public class GuestDaoImpl extends BaseModelDaoImpl<Guest> implements GuestDao{
     }
 
     @Override
-    public Guest assignParser(ResultSet set) {
-        return parseGuest(set);
+    public Guest assignParser(ResultSet set) throws SQLException {
+        Guest guest = null;
+        while (set.next()) {
+            guest = parseGuest(set);
+        }
+        return guest;
     }
 
     @Override
@@ -57,7 +61,7 @@ public class GuestDaoImpl extends BaseModelDaoImpl<Guest> implements GuestDao{
 
     @Override
     protected String getGetAllQuery(SortType type, RoomStatus status) {
-        return GET_SORT_GUEST;
+        return GET_SORT_GUEST + type.toString();
     }
 
     @Override
@@ -93,7 +97,7 @@ public class GuestDaoImpl extends BaseModelDaoImpl<Guest> implements GuestDao{
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-            ConnectionManager.getInstance().closeStatement(statement);
+            SessionManager.getInstance().closeStatement(statement);
         }
 
         return services;
@@ -114,7 +118,7 @@ public class GuestDaoImpl extends BaseModelDaoImpl<Guest> implements GuestDao{
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-            ConnectionManager.getInstance().closeStatement(statement);
+            SessionManager.getInstance().closeStatement(statement);
         }
 
         return guests;
@@ -138,7 +142,7 @@ public class GuestDaoImpl extends BaseModelDaoImpl<Guest> implements GuestDao{
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-            ConnectionManager.getInstance().closeStatement(statement);
+            SessionManager.getInstance().closeStatement(statement);
         }
         return sum;
     }
@@ -156,7 +160,7 @@ public class GuestDaoImpl extends BaseModelDaoImpl<Guest> implements GuestDao{
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-            ConnectionManager.getInstance().closeStatement(statement);
+            SessionManager.getInstance().closeStatement(statement);
         }
 
         return count;

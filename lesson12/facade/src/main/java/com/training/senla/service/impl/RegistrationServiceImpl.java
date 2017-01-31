@@ -4,12 +4,11 @@ import com.training.senla.enums.SortType;
 import com.training.senla.model.Registration;
 import com.training.senla.dao.RegistrationDao;
 import com.training.senla.service.RegistrationService;
-import com.training.senla.util.connection.ConnectionManager;
+import com.training.senla.util.connection.SessionManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -27,7 +26,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     @Override
     public void addRecord(Registration registration) {
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         try {
             registrationDao.add(connection, registration);
         } catch (Exception e) {
@@ -38,7 +37,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     @Override
     public void update(Registration registration) {
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         boolean status = false;
         try {
             connection.setAutoCommit(false);
@@ -58,7 +57,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     @Override
     public Registration getRegistration(int id) {
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         Registration registration = null;
         try {
             registration = registrationDao.getById(connection, id);
@@ -70,7 +69,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     @Override
     public List<Registration> getAll(SortType type) {
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         List<Registration> registrations = null;
         try {
             registrations = registrationDao.getAll(connection, type, null);

@@ -7,6 +7,7 @@ import com.training.senla.enums.PropertyType;
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,27 +15,40 @@ import java.util.List;
 /**
  * Created by prokop on 13.10.16.
  */
+@Entity
+@Table(name = "room")
 @CsvEntity(filename = "room.csv", valuesSeparator = ";", entityId = "id")
 public class Room extends BaseModel implements Cloneable{
     private static final long serialVersionUID = 3950254982747535717L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
     private Integer id;
 
+    @Column
     @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 5, escape = true)
     private double price;
 
+    @Column
     @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 3, escape = false)
     private int capacity;
 
+    @Column
+    @Enumerated(EnumType.STRING)
     @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 2, escape = true)
     private RoomStatus status;
 
+    @Column
+    @Enumerated(EnumType.STRING)
     @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 1, escape = false)
     private RoomsSection section;
 
+    @Column
     @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 4, escape = true)
     private int rating;
 
+    @OneToMany(mappedBy = "room", fetch = FetchType.LAZY)
     @CsvPropertyLink(propertyType = PropertyType.CompositeProperty, keyField = "id")
     private List<Guest> guests;
 

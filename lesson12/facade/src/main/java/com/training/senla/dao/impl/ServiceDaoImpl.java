@@ -5,7 +5,7 @@ import com.training.senla.enums.ServicesSection;
 import com.training.senla.enums.SortType;
 import com.training.senla.model.Service;
 import com.training.senla.dao.ServiceDao;
-import com.training.senla.util.connection.ConnectionManager;
+import com.training.senla.util.connection.SessionManager;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
@@ -30,8 +30,12 @@ public class ServiceDaoImpl extends BaseModelDaoImpl<Service> implements Service
     }
 
     @Override
-    public Service assignParser(ResultSet set) {
-        return parseService(set);
+    public Service assignParser(ResultSet set) throws SQLException {
+        Service service = null;
+        while (set.next()) {
+            service = parseService(set);
+        }
+        return service;
     }
 
     @Override
@@ -56,7 +60,7 @@ public class ServiceDaoImpl extends BaseModelDaoImpl<Service> implements Service
 
     @Override
     protected String getGetAllQuery(SortType type, RoomStatus status) {
-        return GET_SORT_SERVICE;
+        return GET_SORT_SERVICE + type.toString();
     }
 
     @Override
@@ -93,7 +97,7 @@ public class ServiceDaoImpl extends BaseModelDaoImpl<Service> implements Service
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-            ConnectionManager.getInstance().closeStatement(statement);
+            SessionManager.getInstance().closeStatement(statement);
         }
 
         return prices;

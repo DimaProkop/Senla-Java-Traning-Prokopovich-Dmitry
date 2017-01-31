@@ -5,7 +5,7 @@ import com.training.senla.enums.ServicesSection;
 import com.training.senla.enums.SortType;
 import com.training.senla.model.Service;
 import com.training.senla.service.ServiceService;
-import com.training.senla.util.connection.ConnectionManager;
+import com.training.senla.util.connection.SessionManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -27,7 +27,7 @@ public class ServiceServiceImpl implements ServiceService {
 
     @Override
     public void addService(Service service) {
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         try {
             serviceDao.add(connection, service);
         } catch (Exception e) {
@@ -38,7 +38,7 @@ public class ServiceServiceImpl implements ServiceService {
     @Override
     public Service getService(int id) {
         Service service = null;
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         try {
             service = serviceDao.getById(connection, id);
         } catch (Exception e) {
@@ -49,7 +49,7 @@ public class ServiceServiceImpl implements ServiceService {
 
     @Override
     public void update(Service service) {
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         boolean status = false;
         try {
             connection.setAutoCommit(false);
@@ -69,7 +69,7 @@ public class ServiceServiceImpl implements ServiceService {
 
     @Override
     public void delete(Service service) {
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         try {
             serviceDao.delete(connection, service);
         } catch (Exception e) {
@@ -80,7 +80,7 @@ public class ServiceServiceImpl implements ServiceService {
     @Override
     public List<Service> getAll(SortType type) {
         List<Service> services = null;
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         try {
             services = serviceDao.getAll(connection, type, null);
         } catch (Exception e) {
@@ -91,7 +91,7 @@ public class ServiceServiceImpl implements ServiceService {
 
     @Override
     public List<Double> getPricesBySection(ServicesSection section) {
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         List<Double> prices = null;
         try {
             prices = serviceDao.getPriceBySection(connection, section);

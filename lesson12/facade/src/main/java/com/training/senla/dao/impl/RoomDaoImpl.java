@@ -5,7 +5,7 @@ import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
 import com.training.senla.enums.SortType;
 import com.training.senla.model.Room;
-import com.training.senla.util.connection.ConnectionManager;
+import com.training.senla.util.connection.SessionManager;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
@@ -32,8 +32,12 @@ public class RoomDaoImpl extends BaseModelDaoImpl<Room> implements RoomDao {
     }
 
     @Override
-    public Room assignParser(ResultSet set) {
-        return parseRoom(set);
+    public Room assignParser(ResultSet set) throws SQLException {
+        Room room = null;
+        while (set.next()) {
+            room = parseRoom(set);
+        }
+        return room;
     }
 
     @Override
@@ -59,9 +63,9 @@ public class RoomDaoImpl extends BaseModelDaoImpl<Room> implements RoomDao {
     @Override
     protected String getGetAllQuery(SortType type, RoomStatus status) {
         if(status != null) {
-            return GET_SORT_ROOM_FREE;
+            return GET_SORT_ROOM_FREE + type.toString();
         }else {
-            return GET_SORT_ROOM;
+            return GET_SORT_ROOM + type.toString();
         }
     }
 
@@ -97,7 +101,7 @@ public class RoomDaoImpl extends BaseModelDaoImpl<Room> implements RoomDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-            ConnectionManager.getInstance().closeStatement(statement);
+            SessionManager.getInstance().closeStatement(statement);
         }
 
         return count;
@@ -124,7 +128,7 @@ public class RoomDaoImpl extends BaseModelDaoImpl<Room> implements RoomDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-            ConnectionManager.getInstance().closeStatement(statement);
+            SessionManager.getInstance().closeStatement(statement);
         }
         return rooms;
     }
@@ -143,7 +147,7 @@ public class RoomDaoImpl extends BaseModelDaoImpl<Room> implements RoomDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-            ConnectionManager.getInstance().closeStatement(statement);
+            SessionManager.getInstance().closeStatement(statement);
         }
 
         return rooms;
@@ -164,7 +168,7 @@ public class RoomDaoImpl extends BaseModelDaoImpl<Room> implements RoomDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-            ConnectionManager.getInstance().closeStatement(statement);
+            SessionManager.getInstance().closeStatement(statement);
         }
 
         return prices;

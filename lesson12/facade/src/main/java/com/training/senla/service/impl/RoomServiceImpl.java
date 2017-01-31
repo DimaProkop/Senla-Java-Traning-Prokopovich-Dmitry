@@ -10,7 +10,7 @@ import com.training.senla.dao.GuestDao;
 import com.training.senla.dao.RegistrationDao;
 import com.training.senla.dao.RoomDao;
 import com.training.senla.service.RoomService;
-import com.training.senla.util.connection.ConnectionManager;
+import com.training.senla.util.connection.SessionManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -37,7 +37,7 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public void addRoom(Room room) {
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         try {
             roomDao.add(connection, room);
         } catch (Exception e) {
@@ -48,7 +48,7 @@ public class RoomServiceImpl implements RoomService {
     @Override
     public Room getRoom(int id) {
         Room room = null;
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         try {
             room = roomDao.getById(connection, id);
         } catch (Exception e) {
@@ -59,7 +59,7 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public void update(Room room) {
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         boolean status = false;
         try {
             connection.setAutoCommit(false);
@@ -79,7 +79,7 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public void delete(Room room) {
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         try {
             roomDao.delete(connection, room);
         } catch (Exception e) {
@@ -89,7 +89,7 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public void registerGuest(Guest guest, Room room, Date startDate, Date finalDate) {
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         try {
             guest.setRoom(room);
             guestDao.update(connection, guest);
@@ -102,7 +102,7 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public void evictGuest(Guest guest) {
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         try {
             guest.setRoom(null);
             guestDao.update(connection, guest);
@@ -113,7 +113,7 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public Room cloneRoom(int id) {
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         Room room = roomDao.getById(connection, id);
         Room clone = null;
         try {
@@ -126,7 +126,7 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public List<Room> getAll(SortType type) {
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         List<Room> rooms = null;
         try {
             rooms = roomDao.getAll(connection, type, null);
@@ -138,7 +138,7 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public List<Room> getAllFree(SortType type) {
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         List<Room> rooms = null;
         try {
             rooms = roomDao.getAll(connection, type, RoomStatus.FREE);
@@ -150,7 +150,7 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public int getCountFreeRooms() {
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         int count = 0;
         try {
             count = roomDao.getCountFreeRooms(connection);
@@ -162,7 +162,7 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public List<Room> getReleasedInFuture(Date date) {
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         List<Room> rooms = new ArrayList<>();
         try {
             roomDao.getReleasedInFuture(connection, date);
@@ -174,7 +174,7 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public List<Room> getLatestGuests(int count) {
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         List<Room> rooms = null;
         try {
             rooms = roomDao.getLatestGuests(connection, count);
@@ -186,7 +186,7 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public List<Double> getPriceBySection(RoomsSection section) {
-        Connection connection = ConnectionManager.getInstance().getConnection();
+        Connection connection = SessionManager.getInstance().getConnection();
         List<Double> prices = null;
         try {
             prices = roomDao.getPriceBySection(connection, section);

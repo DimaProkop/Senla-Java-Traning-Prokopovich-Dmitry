@@ -9,12 +9,12 @@ import java.sql.*;
 /**
  * Created by dmitry on 22.1.17.
  */
-public class ConnectionManager {
+public class SessionManager {
 
-    private static final Logger LOG = LogManager.getLogger(ConnectionManager.class);
+    private static final Logger LOG = LogManager.getLogger(SessionManager.class);
 
 
-    private static ConnectionManager connectionManager;
+    private static SessionManager sessionManager;
     private static Connection connection;
     private static String URL = ClassSetting.getProps().getUrlToDB();
     private static String DRIVER = ClassSetting.getProps().getPathToDriverJDBC();
@@ -22,11 +22,11 @@ public class ConnectionManager {
     private static String PASSWORD = ClassSetting.getProps().getPasswordToDB();
 
 
-    public static ConnectionManager getInstance() {
-        if (connectionManager == null) {
-            connectionManager = new ConnectionManager();
+    public static SessionManager getInstance() {
+        if (sessionManager == null) {
+            sessionManager = new SessionManager();
         }
-        return connectionManager;
+        return sessionManager;
     }
 
     public Connection getConnection() {

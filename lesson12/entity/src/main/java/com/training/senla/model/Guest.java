@@ -5,25 +5,36 @@ import com.training.senla.annotation.CsvProperty;
 import com.training.senla.annotation.CsvPropertyLink;
 import com.training.senla.enums.PropertyType;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by prokop on 13.10.16.
  */
+@Entity
+@Table(name = "guest")
 @CsvEntity(filename = "guest.csv", valuesSeparator = ";", entityId = "id")
 public class Guest extends BaseModel{
 
     private static final long serialVersionUID = -4477116269261501412L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
     private Integer id;
 
+    @Column
     @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 1, escape = true)
     private String name;
 
+    @ManyToOne
+    @JoinColumn(name = "roomId")
     @CsvPropertyLink(propertyType = PropertyType.CompositeProperty, keyField = "id")
     private Room room;
 
+    @OneToMany(targetEntity = Service.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "guestId")
     @CsvPropertyLink(propertyType = PropertyType.CompositeProperty, keyField = "id")
     private List<Service> serviceList;
 

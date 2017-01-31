@@ -27,8 +27,12 @@ public class RegistrationDaoImpl extends BaseModelDaoImpl<Registration> implemen
     }
 
     @Override
-    public Registration assignParser(ResultSet set) {
-        return parseRegistration(set);
+    public Registration assignParser(ResultSet set) throws SQLException {
+        Registration registration = null;
+        while (set.next()) {
+            registration = parseRegistration(set);
+        }
+        return registration;
     }
 
     @Override
@@ -53,7 +57,7 @@ public class RegistrationDaoImpl extends BaseModelDaoImpl<Registration> implemen
 
     @Override
     protected String getGetAllQuery(SortType type, RoomStatus status) {
-        return GET_SORT_REGISTRATION;
+        return GET_SORT_REGISTRATION + type.toString();
     }
 
     @Override
