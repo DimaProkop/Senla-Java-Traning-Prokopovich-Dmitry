@@ -7,6 +7,8 @@ import com.training.senla.service.RegistrationService;
 import com.training.senla.util.connection.SessionManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -26,55 +28,56 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     @Override
     public void addRecord(Registration registration) {
-        Connection connection = SessionManager.getInstance().getConnection();
+        Session session = SessionManager.getInstance().getSession();
         try {
-            registrationDao.add(connection, registration);
+            registrationDao.add(session, registration);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            SessionManager.getInstance().closeSession(session);
         }
 
     }
 
     @Override
     public void update(Registration registration) {
-        Connection connection = SessionManager.getInstance().getConnection();
-        boolean status = false;
+        Session session = SessionManager.getInstance().getSession();
+        Transaction transaction = null;
         try {
-            connection.setAutoCommit(false);
-            status = registrationDao.update(connection, registration);
-            if (status) {
-                connection.commit();
-            }
-        } catch (Exception e) {
-            try {
-                connection.rollback();
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
+            transaction = session.beginTransaction();
+            registrationDao.update(session, registration);
+            transaction.commit();
+        }catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            SessionManager.getInstance().closeSession(session);
         }
     }
 
     @Override
     public Registration getRegistration(int id) {
-        Connection connection = SessionManager.getInstance().getConnection();
+        Session session = SessionManager.getInstance().getSession();
         Registration registration = null;
         try {
-            registration = registrationDao.getById(connection, id);
+            registration = registrationDao.getById(session, id);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            SessionManager.getInstance().closeSession(session);
         }
         return registration;
     }
 
     @Override
     public List<Registration> getAll(SortType type) {
-        Connection connection = SessionManager.getInstance().getConnection();
+        Session session = SessionManager.getInstance().getSession();
         List<Registration> registrations = null;
         try {
-            registrations = registrationDao.getAll(connection, type, null);
+            registrations = registrationDao.getAll(session, SortType.id, null);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            SessionManager.getInstance().closeSession(session);
         }
         return registrations;
     }

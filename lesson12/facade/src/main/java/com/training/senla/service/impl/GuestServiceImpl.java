@@ -9,6 +9,8 @@ import com.training.senla.service.GuestService;
 import com.training.senla.util.connection.SessionManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -28,58 +30,60 @@ public class GuestServiceImpl implements GuestService {
 
     @Override
     public void addGuest(Guest guest) {
-        Connection connection = SessionManager.getInstance().getConnection();
+        Session session = SessionManager.getInstance().getSession();
         try {
-            guestDao.add(connection, guest);
+            guestDao.add(session, guest);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            SessionManager.getInstance().closeSession(session);
         }
     }
 
     @Override
     public Guest getGuest(int id) {
+        Session session = SessionManager.getInstance().getSession();
         Guest guest = null;
-        Connection connection = SessionManager.getInstance().getConnection();
         try {
-            guest = guestDao.getById(connection, id);
+            guest = guestDao.getById(session, id);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            SessionManager.getInstance().closeSession(session);
         }
         return guest;
     }
 
     @Override
     public void update(Guest guest) {
-        Connection connection = SessionManager.getInstance().getConnection();
-        boolean status = false;
+        Session session = SessionManager.getInstance().getSession();
+        Transaction transaction = null;
         try {
-            connection.setAutoCommit(false);
-            status = guestDao.update(connection ,guest);
-            if (status) {
-                connection.commit();
-            }
-        } catch (Exception e) {
-            try {
-                connection.rollback();
-            } catch (SQLException sql) {
-                sql.printStackTrace();
-            }
+            transaction = session.beginTransaction();
+            guestDao.update(session, guest);
+            transaction.commit();
+        }catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            SessionManager.getInstance().closeSession(session);
         }
     }
 
     @Override
     public void delete(Guest guest) {
-        Connection connection = SessionManager.getInstance().getConnection();
+        Session session = SessionManager.getInstance().getSession();
         try {
-            guestDao.delete(connection, guest);
+            guestDao.delete(session, guest);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            SessionManager.getInstance().closeSession(session);
         }
     }
 
     @Override
     public void addService(Guest guest, Service service) {
+
     }
 
     @Override
@@ -89,9 +93,7 @@ public class GuestServiceImpl implements GuestService {
     @Override
     public List<Service> getServices(Guest guest, SortType type) {
         List<Service> services = null;
-        Connection connection = SessionManager.getInstance().getConnection();
         try {
-            services = guestDao.getServices(connection, guest, type);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -100,12 +102,14 @@ public class GuestServiceImpl implements GuestService {
 
     @Override
     public List<Guest> getAll(SortType type) {
-        Connection connection = SessionManager.getInstance().getConnection();
+        Session session = SessionManager.getInstance().getSession();
         List<Guest> guests = null;
         try {
-            guests = guestDao.getAll(connection, type, null);
+            guests = guestDao.getAll(session, SortType.id, null);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            SessionManager.getInstance().closeSession(session);
         }
         return guests;
     }
@@ -113,9 +117,7 @@ public class GuestServiceImpl implements GuestService {
     @Override
     public double getSumByRoom(Room room, Guest guest) {
         double sum = 0;
-        Connection connection = SessionManager.getInstance().getConnection();
         try {
-            sum = guestDao.getSumByRoom(connection, room, guest);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
@@ -125,9 +127,7 @@ public class GuestServiceImpl implements GuestService {
     @Override
     public int getCount() {
         int count = 0;
-        Connection connection = SessionManager.getInstance().getConnection();
         try {
-            count = guestDao.getCount(connection);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }

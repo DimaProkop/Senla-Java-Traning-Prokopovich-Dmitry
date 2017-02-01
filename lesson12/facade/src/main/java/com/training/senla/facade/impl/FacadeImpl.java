@@ -403,7 +403,6 @@ public class FacadeImpl implements Facade {
     @Override
     public void exportAll() {
         exporter.exportAll(this.getAllGuests(), this.getAllRegistrations(), this.getAllRooms(), this.getAllServices());
-        SessionManager.getInstance().closeConnection();
     }
 
     public StreamService getStreamService() {

@@ -18,75 +18,12 @@ import static com.training.senla.util.db.ParserResultSet.parseRoom;
  * Created by prokop on 13.10.16.
  */
 public class RoomDaoImpl extends BaseModelDaoImpl<Room> implements RoomDao {
-
-    private final String UPDATE_ROOM = "UPDATE room SET price = ?, capacity = ?, status = ?, section = ?, rating = ? WHERE id = ?";
-    private final String SET_ROOM = "INSERT room(price, capacity, status, section, rating) VALUES (?,?,?,?,?) ";
-    private final String GET_ROOM = "SELECT * FROM room WHERE id = ?";
-    private final String DELETE_ROOM = "DELETE * FROM room WHERE id = ?";
-    private final String GET_SORT_ROOM_FREE = "SELECT * FROM room WHERE status = 'free' ORDER BY ";
-    private final String GET_SORT_ROOM = "SELECT * FROM room ORDER BY ";
     private final SimpleDateFormat formatter = new SimpleDateFormat("YYYY-dd-MM");
 
     public RoomDaoImpl() {
 
     }
 
-    @Override
-    public Room assignParser(ResultSet set) throws SQLException {
-        Room room = null;
-        while (set.next()) {
-            room = parseRoom(set);
-        }
-        return room;
-    }
-
-    @Override
-    protected String getInsertQuery() {
-        return SET_ROOM;
-    }
-
-    @Override
-    protected String getUpdateQuery() {
-        return UPDATE_ROOM;
-    }
-
-    @Override
-    protected String getDeleteQuery() {
-        return DELETE_ROOM;
-    }
-
-    @Override
-    protected String getGetByIdQuery() {
-        return GET_ROOM;
-    }
-
-    @Override
-    protected String getGetAllQuery(SortType type, RoomStatus status) {
-        if(status != null) {
-            return GET_SORT_ROOM_FREE + type.toString();
-        }else {
-            return GET_SORT_ROOM + type.toString();
-        }
-    }
-
-    @Override
-    protected void setPreparedStatementForInsert(PreparedStatement statement, Room entity) throws SQLException {
-        statement.setDouble(1, entity.getPrice());
-        statement.setInt(2, entity.getCapacity());
-        statement.setString(3, entity.getStatus().toString());
-        statement.setString(4, entity.getSection().toString());
-        statement.setInt(5, entity.getRating());
-    }
-
-    @Override
-    protected void setPreparedStatementForUpdate(PreparedStatement statement, Room entity) throws SQLException {
-        statement.setDouble(1, entity.getPrice());
-        statement.setInt(2, entity.getCapacity());
-        statement.setString(3, entity.getStatus().toString());
-        statement.setString(4, entity.getSection().toString());
-        statement.setInt(5, entity.getRating());
-        statement.setInt(6, entity.getId());
-    }
 
     @Override
     public int getCountFreeRooms(Connection connection) {
@@ -101,7 +38,6 @@ public class RoomDaoImpl extends BaseModelDaoImpl<Room> implements RoomDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-            SessionManager.getInstance().closeStatement(statement);
         }
 
         return count;
@@ -128,7 +64,6 @@ public class RoomDaoImpl extends BaseModelDaoImpl<Room> implements RoomDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-            SessionManager.getInstance().closeStatement(statement);
         }
         return rooms;
     }
@@ -147,7 +82,6 @@ public class RoomDaoImpl extends BaseModelDaoImpl<Room> implements RoomDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-            SessionManager.getInstance().closeStatement(statement);
         }
 
         return rooms;
@@ -168,10 +102,13 @@ public class RoomDaoImpl extends BaseModelDaoImpl<Room> implements RoomDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-            SessionManager.getInstance().closeStatement(statement);
         }
 
         return prices;
     }
 
+    @Override
+    protected Class assignClass() throws SQLException {
+        return Room.class;
+    }
 }

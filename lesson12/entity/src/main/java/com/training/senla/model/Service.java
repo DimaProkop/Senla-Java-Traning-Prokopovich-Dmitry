@@ -34,11 +34,11 @@ public class Service extends BaseModel{
     private double price;
 
     @Column
+    @Enumerated(EnumType.STRING)
     @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 1, escape = true)
     private ServicesSection section;
 
     @Column
-    @Enumerated(EnumType.STRING)
     @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 4, escape = true)
     private Date startDate;
 

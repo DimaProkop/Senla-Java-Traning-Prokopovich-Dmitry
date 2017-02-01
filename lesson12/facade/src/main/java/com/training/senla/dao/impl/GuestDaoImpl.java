@@ -21,63 +21,7 @@ import static com.training.senla.util.db.ParserResultSet.parseService;
  */
 public class GuestDaoImpl extends BaseModelDaoImpl<Guest> implements GuestDao{
 
-    private final String UPDATE_GUEST = "UPDATE guest SET name = ?, roomId = ? WHERE id = ?";
-    private final String SET_GUEST = "INSERT guest(name) VALUES (?) ";
-    private final String GET_GUEST = "SELECT * FROM guest WHERE id = ?";
-    private final String DELETE_GUEST = "DELETE * FROM guest WHERE id = ?";
-    private final String GET_SORT_GUEST = "SELECT * FROM guest ORDER BY ";
-
     public GuestDaoImpl() {
-    }
-
-    @Override
-    public Guest assignParser(ResultSet set) throws SQLException {
-        Guest guest = null;
-        while (set.next()) {
-            guest = parseGuest(set);
-        }
-        return guest;
-    }
-
-    @Override
-    protected String getInsertQuery() {
-        return SET_GUEST;
-    }
-
-    @Override
-    protected String getUpdateQuery() {
-        return UPDATE_GUEST;
-    }
-
-    @Override
-    protected String getDeleteQuery() {
-        return DELETE_GUEST;
-    }
-
-    @Override
-    protected String getGetByIdQuery() {
-        return GET_GUEST;
-    }
-
-    @Override
-    protected String getGetAllQuery(SortType type, RoomStatus status) {
-        return GET_SORT_GUEST + type.toString();
-    }
-
-    @Override
-    protected void setPreparedStatementForInsert(PreparedStatement statement, Guest entity) throws SQLException {
-        statement.setString(1, entity.getName());
-    }
-
-    @Override
-    protected void setPreparedStatementForUpdate(PreparedStatement statement, Guest entity) throws SQLException {
-            statement.setString(1, entity.getName());
-            if(entity.getRoom() == null) {
-                statement.setString(2, null);
-            }else {
-                statement.setInt(2, entity.getRoom().getId());
-            }
-            statement.setInt(3, entity.getId());
     }
 
     @Override
@@ -97,7 +41,6 @@ public class GuestDaoImpl extends BaseModelDaoImpl<Guest> implements GuestDao{
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-            SessionManager.getInstance().closeStatement(statement);
         }
 
         return services;
@@ -118,7 +61,6 @@ public class GuestDaoImpl extends BaseModelDaoImpl<Guest> implements GuestDao{
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-            SessionManager.getInstance().closeStatement(statement);
         }
 
         return guests;
@@ -142,7 +84,6 @@ public class GuestDaoImpl extends BaseModelDaoImpl<Guest> implements GuestDao{
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-            SessionManager.getInstance().closeStatement(statement);
         }
         return sum;
     }
@@ -160,9 +101,13 @@ public class GuestDaoImpl extends BaseModelDaoImpl<Guest> implements GuestDao{
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-            SessionManager.getInstance().closeStatement(statement);
         }
 
         return count;
+    }
+
+    @Override
+    protected Class assignClass() throws SQLException {
+        return Guest.class;
     }
 }

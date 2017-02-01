@@ -8,6 +8,8 @@ import com.training.senla.service.ServiceService;
 import com.training.senla.util.connection.SessionManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -27,74 +29,75 @@ public class ServiceServiceImpl implements ServiceService {
 
     @Override
     public void addService(Service service) {
-        Connection connection = SessionManager.getInstance().getConnection();
+        Session session = SessionManager.getInstance().getSession();
         try {
-            serviceDao.add(connection, service);
+            serviceDao.add(session, service);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            SessionManager.getInstance().closeSession(session);
         }
     }
 
     @Override
     public Service getService(int id) {
+        Session session = SessionManager.getInstance().getSession();
         Service service = null;
-        Connection connection = SessionManager.getInstance().getConnection();
         try {
-            service = serviceDao.getById(connection, id);
-        } catch (Exception e) {
+            service = serviceDao.getById(session, id);
+        }catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            SessionManager.getInstance().closeSession(session);
         }
         return service;
     }
 
     @Override
     public void update(Service service) {
-        Connection connection = SessionManager.getInstance().getConnection();
-        boolean status = false;
+        Session session = SessionManager.getInstance().getSession();
+        Transaction transaction = null;
         try {
-            connection.setAutoCommit(false);
-            status = serviceDao.update(connection, service);
-            if(status) {
-                connection.commit();
-            }
-        } catch (Exception e) {
-            try {
-                connection.rollback();
-            } catch (SQLException sql) {
-                LOG.error(sql.getMessage());
-            }
+            transaction = session.beginTransaction();
+            serviceDao.update(session, service);
+            transaction.commit();
+        }catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            SessionManager.getInstance().closeSession(session);
         }
     }
 
     @Override
     public void delete(Service service) {
-        Connection connection = SessionManager.getInstance().getConnection();
+        Session session = SessionManager.getInstance().getSession();
         try {
-            serviceDao.delete(connection, service);
+            serviceDao.delete(session, service);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            SessionManager.getInstance().closeSession(session);
         }
     }
 
     @Override
     public List<Service> getAll(SortType type) {
+        Session session = SessionManager.getInstance().getSession();
         List<Service> services = null;
-        Connection connection = SessionManager.getInstance().getConnection();
         try {
-            services = serviceDao.getAll(connection, type, null);
+            services = serviceDao.getAll(session, SortType.id, null);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            SessionManager.getInstance().closeSession(session);
         }
         return services;
     }
 
     @Override
     public List<Double> getPricesBySection(ServicesSection section) {
-        Connection connection = SessionManager.getInstance().getConnection();
         List<Double> prices = null;
         try {
-            prices = serviceDao.getPriceBySection(connection, section);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }

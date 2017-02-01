@@ -19,68 +19,11 @@ import static com.training.senla.util.db.ParserResultSet.parseService;
  */
 public class ServiceDaoImpl extends BaseModelDaoImpl<Service> implements ServiceDao {
 
-    private final String UPDATE_SERVICE = "UPDATE guest SET name = ?, price = ?, section = ?, startDate = ?, finalDate = ? WHERE id = ?";
-    private final String SET_SERVICE = "INSERT service(name, price, section, startDate, finalDate) VALUES (?,?,?,?,?) ";
-    private final String GET_SERVICE = "SELECT * FROM service WHERE id = ?";
-    private final String DELETE_SERVICE = "DELETE * FROM service WHERE id = ?";
-    private final String GET_SORT_SERVICE = "SELECT * FROM service ORDER BY ";
     private final SimpleDateFormat formatter = new SimpleDateFormat("YYYY-dd-MM");
 
     public ServiceDaoImpl() {
     }
 
-    @Override
-    public Service assignParser(ResultSet set) throws SQLException {
-        Service service = null;
-        while (set.next()) {
-            service = parseService(set);
-        }
-        return service;
-    }
-
-    @Override
-    protected String getInsertQuery() {
-        return SET_SERVICE;
-    }
-
-    @Override
-    protected String getUpdateQuery() {
-        return UPDATE_SERVICE;
-    }
-
-    @Override
-    protected String getDeleteQuery() {
-        return DELETE_SERVICE;
-    }
-
-    @Override
-    protected String getGetByIdQuery() {
-        return GET_SERVICE;
-    }
-
-    @Override
-    protected String getGetAllQuery(SortType type, RoomStatus status) {
-        return GET_SORT_SERVICE + type.toString();
-    }
-
-    @Override
-    protected void setPreparedStatementForInsert(PreparedStatement statement, Service entity) throws SQLException {
-        statement.setString(1, entity.getName());
-        statement.setDouble(2, entity.getPrice());
-        statement.setString(3, entity.getSection().toString());
-        statement.setString(4, formatter.format(entity.getStartDate()));
-        statement.setString(5, formatter.format(entity.getFinalDate()));
-    }
-
-    @Override
-    protected void setPreparedStatementForUpdate(PreparedStatement statement, Service entity) throws SQLException {
-        statement.setString(1, entity.getName());
-        statement.setDouble(2, entity.getPrice());
-        statement.setString(3, entity.getSection().toString());
-        statement.setString(4, formatter.format(entity.getStartDate()));
-        statement.setString(5, formatter.format(entity.getFinalDate()));
-        statement.setInt(6, entity.getId());
-    }
 
     @Override
     public List<Double> getPriceBySection(Connection connection, ServicesSection section) {
@@ -97,9 +40,13 @@ public class ServiceDaoImpl extends BaseModelDaoImpl<Service> implements Service
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-            SessionManager.getInstance().closeStatement(statement);
         }
 
         return prices;
+    }
+
+    @Override
+    protected Class assignClass() throws SQLException {
+        return Service.class;
     }
 }

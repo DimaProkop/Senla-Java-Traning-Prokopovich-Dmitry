@@ -2,18 +2,20 @@ package com.training.senla.dao;
 
 import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.SortType;
+import org.hibernate.Session;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
  * Created by dmitry on 26.1.17.
  */
 public interface BaseModelDao<E> {
-    boolean update(Connection connection, E entity);
-    E getById(Connection connection, int id);
-    void add(Connection connection, E entity);
-    List<E> getAll(Connection connection, SortType type, RoomStatus status);
-    void delete(Connection connection, E entity);
+    void update(Session session, E entity);
+    E getById(Session session, int id) throws SQLException;
+    void add(Session session, E entity);
+    List<E> getAll(Session session, SortType type, RoomStatus status) throws SQLException;
+    void delete(Session session, E entity);
 }

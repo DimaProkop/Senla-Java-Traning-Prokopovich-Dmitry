@@ -3,6 +3,10 @@ package com.training.senla.util.connection;
 import com.training.senla.ClassSetting;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 import java.sql.*;
 
@@ -15,11 +19,7 @@ public class SessionManager {
 
 
     private static SessionManager sessionManager;
-    private static Connection connection;
-    private static String URL = ClassSetting.getProps().getUrlToDB();
-    private static String DRIVER = ClassSetting.getProps().getPathToDriverJDBC();
-    private static String USERNAME = ClassSetting.getProps().getUsernameToDB();
-    private static String PASSWORD = ClassSetting.getProps().getPasswordToDB();
+    private static SessionFactory sessionFactory;
 
 
     public static SessionManager getInstance() {
@@ -29,34 +29,24 @@ public class SessionManager {
         return sessionManager;
     }
 
-    public Connection getConnection() {
-        if(connection != null) {
-            return connection;
-        }else {
-            try {
-                Class.forName(DRIVER);
-                connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            } catch (ClassNotFoundException | SQLException e) {
-                LOG.error(e.getMessage());
-            }
+    public Session getSession() {
+        if (sessionFactory != null) {
+            return sessionFactory.openSession();
+        } else {
+            Configuration configuration = new Configuration();
+            configuration.configure();
+
+            sessionFactory = configuration.buildSessionFactory();
         }
-        return connection;
+        return sessionFactory.openSession();
     }
 
-    public void closeConnection() {
-        if (connection != null) {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                LOG.error(e.getMessage());
-            }
-        }
-    }
-
-    public void closeStatement(Statement statement) {
+    public void closeSession(Session session) {
         try {
-            statement.close();
-        } catch (SQLException e) {
+            if (session != null) {
+                session.close();
+            }
+        } catch (HibernateException e) {
             LOG.error(e.getMessage());
         }
     }
