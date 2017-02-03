@@ -1,9 +1,0 @@
-com/training/senla/template/ReadTemplate.class
-com/training/senla/manager/EntityManager.class
-com/training/senla/annotation/CsvEntity.class
-com/training/senla/comparator/ColumnNumberComparator.class
-com/training/senla/annotation/CsvPropertyLink.class
-com/training/senla/enums/PropertyType.class
-com/training/senla/annotation/CsvProperty.class
-com/training/senla/manager/impl/EntityManagerImpl.class
-com/training/senla/template/WriteTemplate.class

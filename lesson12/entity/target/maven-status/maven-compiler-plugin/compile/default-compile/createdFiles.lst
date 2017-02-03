@@ -1,9 +1,0 @@
-com/training/senla/enums/ServicesSection.class
-com/training/senla/model/Service.class
-com/training/senla/enums/RoomsSection.class
-com/training/senla/enums/RoomStatus.class
-com/training/senla/model/BaseModel.class
-com/training/senla/model/Room.class
-com/training/senla/model/Guest.class
-com/training/senla/model/Registration.class
-com/training/senla/enums/SortType.class

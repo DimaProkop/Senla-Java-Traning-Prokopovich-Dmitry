@@ -1,9 +1,0 @@
-/home/dmitry/Senla-Java-Traning-Prokopovich-Dmitry/lesson12/annotation/src/main/java/com/training/senla/template/WriteTemplate.java
-/home/dmitry/Senla-Java-Traning-Prokopovich-Dmitry/lesson12/annotation/src/main/java/com/training/senla/template/ReadTemplate.java
-/home/dmitry/Senla-Java-Traning-Prokopovich-Dmitry/lesson12/annotation/src/main/java/com/training/senla/comparator/ColumnNumberComparator.java
-/home/dmitry/Senla-Java-Traning-Prokopovich-Dmitry/lesson12/annotation/src/main/java/com/training/senla/manager/EntityManager.java
-/home/dmitry/Senla-Java-Traning-Prokopovich-Dmitry/lesson12/annotation/src/main/java/com/training/senla/annotation/CsvEntity.java
-/home/dmitry/Senla-Java-Traning-Prokopovich-Dmitry/lesson12/annotation/src/main/java/com/training/senla/annotation/CsvPropertyLink.java
-/home/dmitry/Senla-Java-Traning-Prokopovich-Dmitry/lesson12/annotation/src/main/java/com/training/senla/annotation/CsvProperty.java
-/home/dmitry/Senla-Java-Traning-Prokopovich-Dmitry/lesson12/annotation/src/main/java/com/training/senla/enums/PropertyType.java
-/home/dmitry/Senla-Java-Traning-Prokopovich-Dmitry/lesson12/annotation/src/main/java/com/training/senla/manager/impl/EntityManagerImpl.java
