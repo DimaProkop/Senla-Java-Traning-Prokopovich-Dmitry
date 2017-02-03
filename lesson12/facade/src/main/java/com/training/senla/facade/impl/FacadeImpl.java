@@ -253,8 +253,8 @@ public class FacadeImpl implements Facade {
     @Override
     public double getSumPaymentRoom(Guest guest, Room room) {
         double sum = 0;
-        synchronized (guestService) {
-            sum = guestService.getSumByRoom(room, guest);
+        synchronized (registrationService) {
+            sum = registrationService.getSumByRoom(room, guest);
         }
         return sum;
     }
@@ -262,8 +262,8 @@ public class FacadeImpl implements Facade {
     @Override
     public List<Service> getGuestServices(Guest guest) {
         List<Service> services = null;
-        synchronized (guestService) {
-            services = guestService.getServices(guest, SortType.price);
+        synchronized (serviceService) {
+            services = serviceService.getServices(guest, SortType.price);
         }
         return services;
     }
@@ -275,6 +275,15 @@ public class FacadeImpl implements Facade {
             services = serviceService.getAll(null);
         }
         return services;
+    }
+
+    @Override
+    public List<Guest> getSortedByFinalDate() {
+        List<Guest> guests = null;
+        synchronized (registrationService) {
+            guests = registrationService.getSortedByFinalDate();
+        }
+        return guests;
     }
 
     @Override

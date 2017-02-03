@@ -65,6 +65,8 @@ public interface Facade {
 
     List<Service> getAllServices();
 
+    List<Guest> getSortedByFinalDate();
+
     List<Double> getPricesRoom();
 
     void registerGuest(Guest guest, Room room, Date startDate, Date finalDate);

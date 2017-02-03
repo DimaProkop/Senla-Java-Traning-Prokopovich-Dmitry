@@ -6,7 +6,6 @@ import com.training.senla.annotation.CsvPropertyLink;
 import com.training.senla.enums.PropertyType;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 /**

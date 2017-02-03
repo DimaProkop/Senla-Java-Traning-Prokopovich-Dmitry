@@ -13,11 +13,5 @@ import java.util.List;
  */
 public interface GuestDao extends BaseModelDao<Guest>{
 
-    List<Service> getServices(Session session, Guest guest, SortType type);
-
-    List<Guest> getSortedByFinalDate(Session session);
-
-    double getSumByRoom(Session session, Room room, Guest guest);
-
     int getCount(Session session);
 }

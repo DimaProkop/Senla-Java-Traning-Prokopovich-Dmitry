@@ -2,6 +2,7 @@ package com.training.senla.service.impl;
 
 import com.training.senla.enums.SortType;
 import com.training.senla.model.Guest;
+import com.training.senla.model.Registration;
 import com.training.senla.model.Room;
 import com.training.senla.model.Service;
 import com.training.senla.dao.GuestDao;
@@ -9,11 +10,15 @@ import com.training.senla.service.GuestService;
 import com.training.senla.util.connection.SessionManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Restrictions;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.ZoneId;
 import java.util.List;
 
 /**
@@ -86,20 +91,6 @@ public class GuestServiceImpl implements GuestService {
 
 
     @Override
-    public List<Service> getServices(Guest guest, SortType type) {
-        Session session = SessionManager.getInstance().getSession();
-        List<Service> services = null;
-        try {
-            services = guestDao.getServices(session, guest, type);
-        } catch (Exception e) {
-            LOG.error(e.getMessage());
-        }finally {
-            SessionManager.getInstance().closeSession(session);
-        }
-        return services;
-    }
-
-    @Override
     public List<Guest> getAll(SortType type) {
         Session session = SessionManager.getInstance().getSession();
         List<Guest> guests = null;
@@ -111,20 +102,6 @@ public class GuestServiceImpl implements GuestService {
             SessionManager.getInstance().closeSession(session);
         }
         return guests;
-    }
-
-    @Override
-    public double getSumByRoom(Room room, Guest guest) {
-        Session session = SessionManager.getInstance().getSession();
-        double sum = 0;
-        try {
-            sum = guestDao.getSumByRoom(session, room, guest);
-        } catch (Exception e) {
-            LOG.error(e.getMessage());
-        }finally {
-            SessionManager.getInstance().closeSession(session);
-        }
-        return sum;
     }
 
     @Override

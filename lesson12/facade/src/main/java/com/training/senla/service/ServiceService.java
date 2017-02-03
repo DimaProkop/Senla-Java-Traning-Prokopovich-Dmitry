@@ -20,6 +20,8 @@ public interface ServiceService {
 
     Service getService(int id);
 
+    List<Service> getServices(Guest guest, SortType type);
+
     void update(Service service);
 
     void delete(Service service);

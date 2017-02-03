@@ -1,8 +1,10 @@
 package com.training.senla.service.impl;
 
 import com.training.senla.enums.SortType;
+import com.training.senla.model.Guest;
 import com.training.senla.model.Registration;
 import com.training.senla.dao.RegistrationDao;
+import com.training.senla.model.Room;
 import com.training.senla.service.RegistrationService;
 import com.training.senla.util.connection.SessionManager;
 import org.apache.logging.log4j.LogManager;
@@ -55,6 +57,34 @@ public class RegistrationServiceImpl implements RegistrationService {
         }finally {
             SessionManager.getInstance().closeSession(session);
         }
+    }
+
+    @Override
+    public double getSumByRoom(Room room, Guest guest) {
+        Session session = SessionManager.getInstance().getSession();
+        double sum = 0;
+        try {
+            sum = registrationDao.getSumByRoom(session, room, guest);
+        } catch (Exception e) {
+            LOG.error(e.getMessage());
+        }finally {
+            SessionManager.getInstance().closeSession(session);
+        }
+        return sum;
+    }
+
+    @Override
+    public List<Guest> getSortedByFinalDate() {
+        Session session = SessionManager.getInstance().getSession();
+        List<Guest> guests = null;
+        try {
+            guests = registrationDao.getSortedByFinalDate(session);
+        }catch (Exception e) {
+            LOG.error(e.getMessage());
+        }finally {
+            SessionManager.getInstance().closeSession(session);
+        }
+        return guests;
     }
 
     @Override

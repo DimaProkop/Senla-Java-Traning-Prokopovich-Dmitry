@@ -26,58 +26,15 @@ public class GuestDaoImpl extends BaseModelDaoImpl<Guest> implements GuestDao{
 
 
     public GuestDaoImpl() {
+        super(Guest.class);
     }
 
-    @Override
-    public List<Service> getServices(Session session, Guest guest, SortType type) {
-        List<Service> services = new ArrayList<>();
-        try {
-            Criteria criteria = session.createCriteria(Service.class);
-            services = criteria.add(Restrictions.eq("guestId", guest.getId()))
-                    .addOrder(Order.asc(type.toString())).list();
-        } catch (Exception e) {
-            LOG.error(e.getMessage());
-        }
-
-        return services;
-    }
-
-
-    @Override
-    public List<Guest> getSortedByFinalDate(Session session) {
-        List<Guest> guests = new ArrayList<>();
-        try {
-            guests = session.createQuery("select g from Guest g inner join Registration reg ON reg.guestId = g.id order by reg.finalDate")
-                    .list();
-        }catch (Exception e) {
-            LOG.error(e.getMessage());
-        }
-        return guests;
-    }
-
-    @SuppressWarnings("deprecation")
-    @Override
-    public double getSumByRoom(Session session, Room room, Guest guest) {
-        double sum = 0;
-        try {
-            Criteria criteria = session.createCriteria(Registration.class);
-            Criterion guestId = Restrictions.eq("guestId", guest.getId());
-            Criterion roomId = Restrictions.eq("roomId", room.getId());
-            List<Registration> registrations = criteria.add(Restrictions.and(guestId, roomId)).list();
-            int finalDate = registrations.get(0).getFinalDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().getDayOfYear();
-            int startDate = registrations.get(0).getStartDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().getDayOfYear();
-            sum = (finalDate - startDate) * room.getPrice();
-        } catch (Exception e) {
-            LOG.error(e.getMessage());
-        }
-        return sum;
-    }
 
     @Override
     public int getCount(Session session) {
         int count = 0;
         try {
-            count = ((Long) session.createCriteria(Guest.class)
+            count = ((Long) getCriteria(session)
                     .setProjection(Projections.rowCount())
                     .uniqueResult()).intValue();
         } catch (Exception e) {
@@ -86,8 +43,4 @@ public class GuestDaoImpl extends BaseModelDaoImpl<Guest> implements GuestDao{
         return count;
     }
 
-    @Override
-    protected Class assignClass() throws SQLException {
-        return Guest.class;
-    }
 }

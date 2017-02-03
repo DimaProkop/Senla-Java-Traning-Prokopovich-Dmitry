@@ -29,7 +29,7 @@ public class RoomDaoImpl extends BaseModelDaoImpl<Room> implements RoomDao {
 
 
     public RoomDaoImpl() {
-
+        super(Room.class);
     }
 
 
@@ -37,7 +37,7 @@ public class RoomDaoImpl extends BaseModelDaoImpl<Room> implements RoomDao {
     public int getCountFreeRooms(Session session) {
         int count = 0;
         try {
-            count = ((Long) session.createCriteria(Room.class)
+            count = ((Long) getCriteria(session)
                     .add(Restrictions.eq("status", RoomStatus.FREE))
                     .setProjection(Projections.rowCount())
                     .uniqueResult()).intValue();
@@ -54,7 +54,7 @@ public class RoomDaoImpl extends BaseModelDaoImpl<Room> implements RoomDao {
             DetachedCriteria ownerCriteria = DetachedCriteria.forClass(Registration.class);
             ownerCriteria.setProjection(Projections.property("roomId"));
 
-            Criteria criteria = session.createCriteria(Room.class);
+            Criteria criteria = getCriteria(session);
             criteria.add(Property.forName("id").in(ownerCriteria));
 
             Criteria rowsRoom = session.createCriteria(Registration.class);
@@ -96,8 +96,4 @@ public class RoomDaoImpl extends BaseModelDaoImpl<Room> implements RoomDao {
         return prices;
     }
 
-    @Override
-    protected Class assignClass() throws SQLException {
-        return Room.class;
-    }
 }

@@ -22,14 +22,18 @@ public abstract class BaseModelDaoImpl<E extends BaseModel> implements BaseModel
 
     private static final Logger LOG = LogManager.getLogger(BaseModelDaoImpl.class);
 
-    protected abstract Class assignClass() throws SQLException;
+    private Class clazz;
+
+    protected BaseModelDaoImpl(Class clazz) {
+        this.clazz = clazz;
+    }
 
     public void update(Session session, E entity) {
         session.update(entity);
     }
 
     public E getById(Session session, int id) throws SQLException {
-        return (E) session.get(assignClass(), id);
+        return (E) session.get(clazz, id);
     }
 
     public void add(Session session, E entity) {
@@ -40,7 +44,7 @@ public abstract class BaseModelDaoImpl<E extends BaseModel> implements BaseModel
         if(type == null) {
             type = SortType.id;
         }
-        Criteria criteria = session.createCriteria(assignClass())
+        Criteria criteria = getCriteria(session)
                 .addOrder(Order.asc(type.toString()));
         if(status != null) {
             criteria.add(Restrictions.like("status", status));
@@ -51,5 +55,9 @@ public abstract class BaseModelDaoImpl<E extends BaseModel> implements BaseModel
 
     public void delete(Session session, E entity) {
         session.delete(entity);
+    }
+
+    public Criteria getCriteria(Session session) {
+        return session.createCriteria(clazz);
     }
 }

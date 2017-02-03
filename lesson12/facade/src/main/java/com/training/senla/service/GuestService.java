@@ -20,11 +20,7 @@ public interface GuestService {
 
     void delete(Guest guest);
 
-    List<Service> getServices(Guest guest, SortType type);
-
     List<Guest> getAll(SortType type);
-
-    double getSumByRoom(Room room, Guest guest);
 
     int getCount();
 

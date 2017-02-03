@@ -111,6 +111,20 @@ public class ServiceServiceImpl implements ServiceService {
     }
 
     @Override
+    public List<Service> getServices(Guest guest, SortType type) {
+        Session session = SessionManager.getInstance().getSession();
+        List<Service> services = null;
+        try {
+            services = serviceDao.getServices(session, guest, type);
+        } catch (Exception e) {
+            LOG.error(e.getMessage());
+        }finally {
+            SessionManager.getInstance().closeSession(session);
+        }
+        return services;
+    }
+
+    @Override
     public List<Service> getAll(SortType type) {
         Session session = SessionManager.getInstance().getSession();
         List<Service> services = null;
