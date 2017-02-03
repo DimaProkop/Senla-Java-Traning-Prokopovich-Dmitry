@@ -3,6 +3,7 @@ package com.training.senla.service.impl;
 import com.training.senla.dao.ServiceDao;
 import com.training.senla.enums.ServicesSection;
 import com.training.senla.enums.SortType;
+import com.training.senla.model.Guest;
 import com.training.senla.model.Service;
 import com.training.senla.service.ServiceService;
 import com.training.senla.util.connection.SessionManager;
@@ -33,6 +34,32 @@ public class ServiceServiceImpl implements ServiceService {
         try {
             serviceDao.add(session, service);
         } catch (Exception e) {
+            LOG.error(e.getMessage());
+        }finally {
+            SessionManager.getInstance().closeSession(session);
+        }
+    }
+
+    @Override
+    public void addServiceToGuest(Guest guest, Service service) {
+        Session session = SessionManager.getInstance().getSession();
+        try {
+            service.setGuest(guest);
+            serviceDao.update(session, service);
+        }catch (Exception e) {
+            LOG.error(e.getMessage());
+        }finally {
+            SessionManager.getInstance().closeSession(session);
+        }
+    }
+
+    @Override
+    public void removeServiceOfGuest(Guest guest, Service service) {
+        Session session = SessionManager.getInstance().getSession();
+        try {
+            service.setGuest(null);
+            serviceDao.update(session, service);
+        }catch (Exception e) {
             LOG.error(e.getMessage());
         }finally {
             SessionManager.getInstance().closeSession(session);
@@ -85,7 +112,7 @@ public class ServiceServiceImpl implements ServiceService {
         Session session = SessionManager.getInstance().getSession();
         List<Service> services = null;
         try {
-            services = serviceDao.getAll(session, SortType.id, null);
+            services = serviceDao.getAll(session, type, null);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }finally {
@@ -96,10 +123,14 @@ public class ServiceServiceImpl implements ServiceService {
 
     @Override
     public List<Double> getPricesBySection(ServicesSection section) {
+        Session session = SessionManager.getInstance().getSession();
         List<Double> prices = null;
         try {
+            prices = serviceDao.getPriceBySection(session, section);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            SessionManager.getInstance().closeSession(session);
         }
         return prices;
     }

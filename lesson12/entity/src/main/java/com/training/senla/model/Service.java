@@ -2,6 +2,7 @@ package com.training.senla.model;
 
 import com.training.senla.annotation.CsvEntity;
 import com.training.senla.annotation.CsvProperty;
+import com.training.senla.annotation.CsvPropertyLink;
 import com.training.senla.enums.PropertyType;
 import com.training.senla.enums.ServicesSection;
 import org.hibernate.annotations.Type;
@@ -46,6 +47,11 @@ public class Service extends BaseModel{
     @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 5, escape = true)
     private Date finalDate;
 
+    @ManyToOne
+    @JoinColumn(name = "guestId")
+    @CsvPropertyLink(propertyType = PropertyType.CompositeProperty, keyField = "id")
+    private Guest guest;
+
     public Service() {
 
     }
@@ -56,6 +62,7 @@ public class Service extends BaseModel{
         this.section = section;
         this.startDate = startDate;
         this.finalDate = finalDate;
+        this.guest = null;
     }
 
     public String getName() {
@@ -106,5 +113,13 @@ public class Service extends BaseModel{
     @Override
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Guest getGuest() {
+        return guest;
+    }
+
+    public void setGuest(Guest guest) {
+        this.guest = guest;
     }
 }

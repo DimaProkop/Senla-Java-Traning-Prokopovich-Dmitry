@@ -1,10 +1,9 @@
 package com.training.senla.dao;
 
-import com.training.senla.enums.RoomStatus;
 import com.training.senla.enums.RoomsSection;
 import com.training.senla.model.Room;
+import org.hibernate.Session;
 
-import java.sql.Connection;
 import java.util.Date;
 import java.util.List;
 
@@ -13,11 +12,11 @@ import java.util.List;
  */
 public interface RoomDao extends BaseModelDao<Room>{
 
-    int getCountFreeRooms(Connection connection);
+    int getCountFreeRooms(Session session);
 
-    List<Room> getLatestGuests(Connection connection, int count);
+    List<Room> getLatestGuests(Session session, int count);
 
-    List<Room> getReleasedInFuture(Connection connection, Date date);
+    List<Room> getReleasedInFuture(Session session, Date date);
 
-    List<Double> getPriceBySection(Connection connection, RoomsSection section);
+    List<Double> getPriceBySection(Session session, RoomsSection section);
 }

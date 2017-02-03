@@ -17,7 +17,6 @@ import com.training.senla.service.GuestService;
 import com.training.senla.service.RegistrationService;
 import com.training.senla.service.RoomService;
 import com.training.senla.service.ServiceService;
-import com.training.senla.util.connection.SessionManager;
 import com.training.senla.util.io.exporter.Exporter;
 import com.training.senla.util.io.exporter.impl.ExporterImpl;
 import com.training.senla.util.io.importer.Importer;

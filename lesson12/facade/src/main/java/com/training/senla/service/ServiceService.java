@@ -2,10 +2,10 @@ package com.training.senla.service;
 
 import com.training.senla.enums.ServicesSection;
 import com.training.senla.enums.SortType;
+import com.training.senla.model.Guest;
 import com.training.senla.model.Service;
 import com.training.senla.dao.ServiceDao;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -13,6 +13,10 @@ import java.util.List;
  */
 public interface ServiceService {
     void addService(Service service);
+
+    void addServiceToGuest(Guest guest, Service service);
+
+    void removeServiceOfGuest(Guest guest, Service service);
 
     Service getService(int id);
 

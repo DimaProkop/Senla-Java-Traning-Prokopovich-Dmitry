@@ -31,7 +31,7 @@ public class SessionManager {
 
     public Session getSession() {
         if (sessionFactory != null) {
-            return sessionFactory.openSession();
+            return sessionFactory.getCurrentSession();
         } else {
             Configuration configuration = new Configuration();
             configuration.configure();

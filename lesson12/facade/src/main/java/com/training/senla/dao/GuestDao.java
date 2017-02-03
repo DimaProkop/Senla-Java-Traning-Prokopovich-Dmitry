@@ -4,8 +4,8 @@ import com.training.senla.enums.SortType;
 import com.training.senla.model.Guest;
 import com.training.senla.model.Room;
 import com.training.senla.model.Service;
+import org.hibernate.Session;
 
-import java.sql.Connection;
 import java.util.List;
 
 /**
@@ -13,11 +13,11 @@ import java.util.List;
  */
 public interface GuestDao extends BaseModelDao<Guest>{
 
-    List<Service> getServices(Connection connection, Guest guest, SortType type);
+    List<Service> getServices(Session session, Guest guest, SortType type);
 
-    List<Guest> getSortedByFinalDate(Connection connection);
+    List<Guest> getSortedByFinalDate(Session session);
 
-    double getSumByRoom(Connection connection, Room room, Guest guest);
+    double getSumByRoom(Session session, Room room, Guest guest);
 
-    int getCount(Connection connection);
+    int getCount(Session session);
 }

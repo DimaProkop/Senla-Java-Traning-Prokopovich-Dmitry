@@ -33,8 +33,7 @@ public class Guest extends BaseModel{
     @CsvPropertyLink(propertyType = PropertyType.CompositeProperty, keyField = "id")
     private Room room;
 
-    @OneToMany(targetEntity = Service.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "guestId")
+    @OneToMany(mappedBy = "guest", fetch = FetchType.LAZY)
     @CsvPropertyLink(propertyType = PropertyType.CompositeProperty, keyField = "id")
     private List<Service> serviceList;
 

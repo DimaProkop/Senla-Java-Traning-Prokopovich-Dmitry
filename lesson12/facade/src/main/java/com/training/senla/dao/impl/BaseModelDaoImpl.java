@@ -12,6 +12,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 
 /**
  * Created by dmitry on 22.1.17.
@@ -35,7 +37,15 @@ public abstract class BaseModelDaoImpl<E extends BaseModel> implements BaseModel
     }
 
     public List<E> getAll(Session session, SortType type, RoomStatus status) throws SQLException {
-        Criteria criteria = session.createCriteria(assignClass());
+        if(type == null) {
+            type = SortType.id;
+        }
+        Criteria criteria = session.createCriteria(assignClass())
+                .addOrder(Order.asc(type.toString()));
+        if(status != null) {
+            criteria.add(Restrictions.like("status", status));
+        }
+
         return criteria.list();
     }
 

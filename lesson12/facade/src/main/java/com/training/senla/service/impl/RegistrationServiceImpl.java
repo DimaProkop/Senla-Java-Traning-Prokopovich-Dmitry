@@ -73,7 +73,7 @@ public class RegistrationServiceImpl implements RegistrationService {
         Session session = SessionManager.getInstance().getSession();
         List<Registration> registrations = null;
         try {
-            registrations = registrationDao.getAll(session, SortType.id, null);
+            registrations = registrationDao.getAll(session, type, null);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }finally {

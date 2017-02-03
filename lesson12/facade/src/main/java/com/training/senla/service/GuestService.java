@@ -20,10 +20,6 @@ public interface GuestService {
 
     void delete(Guest guest);
 
-    void addService(Guest guest, Service service);
-
-    void removeService(Guest guest, Service service);
-
     List<Service> getServices(Guest guest, SortType type);
 
     List<Guest> getAll(SortType type);

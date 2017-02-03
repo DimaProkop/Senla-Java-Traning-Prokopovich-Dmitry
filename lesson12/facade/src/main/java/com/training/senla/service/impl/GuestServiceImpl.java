@@ -81,21 +81,17 @@ public class GuestServiceImpl implements GuestService {
         }
     }
 
-    @Override
-    public void addService(Guest guest, Service service) {
-
-    }
-
-    @Override
-    public void removeService(Guest guest, Service service) {
-    }
 
     @Override
     public List<Service> getServices(Guest guest, SortType type) {
+        Session session = SessionManager.getInstance().getSession();
         List<Service> services = null;
         try {
+            services = guestDao.getServices(session, guest, type);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            SessionManager.getInstance().closeSession(session);
         }
         return services;
     }
@@ -105,7 +101,7 @@ public class GuestServiceImpl implements GuestService {
         Session session = SessionManager.getInstance().getSession();
         List<Guest> guests = null;
         try {
-            guests = guestDao.getAll(session, SortType.id, null);
+            guests = guestDao.getAll(session, type, null);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }finally {
@@ -116,20 +112,28 @@ public class GuestServiceImpl implements GuestService {
 
     @Override
     public double getSumByRoom(Room room, Guest guest) {
+        Session session = SessionManager.getInstance().getSession();
         double sum = 0;
         try {
+            sum = guestDao.getSumByRoom(session, room, guest);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            SessionManager.getInstance().closeSession(session);
         }
         return sum;
     }
 
     @Override
     public int getCount() {
+        Session session = SessionManager.getInstance().getSession();
         int count = 0;
         try {
+            count = guestDao.getCount(session);
         } catch (Exception e) {
             LOG.error(e.getMessage());
+        }finally {
+            SessionManager.getInstance().closeSession(session);
         }
         return count;
     }
