@@ -70,7 +70,9 @@ public class RoomServiceImpl implements RoomService {
             roomDao.update(session, room);
             transaction.commit();
         }catch (Exception e) {
-            transaction.rollback();
+            if (transaction != null) {
+                transaction.rollback();
+            }
             LOG.error(e.getMessage());
         }finally {
             SessionManager.getInstance().closeSession(session);

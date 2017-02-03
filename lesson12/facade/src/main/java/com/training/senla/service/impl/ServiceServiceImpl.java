@@ -89,7 +89,9 @@ public class ServiceServiceImpl implements ServiceService {
             serviceDao.update(session, service);
             transaction.commit();
         }catch (Exception e) {
-            transaction.rollback();
+            if (transaction != null) {
+                transaction.rollback();
+            }
             LOG.error(e.getMessage());
         }finally {
             SessionManager.getInstance().closeSession(session);

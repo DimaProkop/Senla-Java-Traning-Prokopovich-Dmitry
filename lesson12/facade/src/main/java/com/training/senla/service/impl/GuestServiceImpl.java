@@ -63,7 +63,9 @@ public class GuestServiceImpl implements GuestService {
             guestDao.update(session, guest);
             transaction.commit();
         }catch (Exception e) {
-            transaction.rollback();
+            if (transaction != null) {
+                transaction.rollback();
+            }
             LOG.error(e.getMessage());
         }finally {
             SessionManager.getInstance().closeSession(session);

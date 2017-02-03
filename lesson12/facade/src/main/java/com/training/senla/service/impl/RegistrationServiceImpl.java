@@ -48,7 +48,9 @@ public class RegistrationServiceImpl implements RegistrationService {
             registrationDao.update(session, registration);
             transaction.commit();
         }catch (Exception e) {
-            transaction.rollback();
+            if (transaction != null) {
+                transaction.rollback();
+            }
             LOG.error(e.getMessage());
         }finally {
             SessionManager.getInstance().closeSession(session);
