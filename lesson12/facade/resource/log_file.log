@@ -1,0 +1,1938 @@
+2016-10-27 01:48:11,576 [main] INFO  (GuestModel.java:69) - Services is empty
+2016-10-27 01:48:11,580 [main] ERROR (GuestModel.java:79) - java.lang.NullPointerException
+2016-10-27 01:48:11,582 [main] INFO  (GuestModel.java:80) - Service not found
+2016-11-03 05:37:55,571 [main] ERROR (DataServiceImpl.java:35) - java.io.EOFException
+2016-11-03 05:37:55,575 [main] ERROR (ConverterImpl.java:43) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-11-08 00:33:15,835 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 00:33:15,852 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:28:35,071 [main] ERROR (GuestModelServiceImpl.java:49) - -1
+2016-11-08 02:30:47,458 [main] ERROR (GuestModelServiceImpl.java:49) - -1
+2016-11-08 02:32:32,135 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:32:32,140 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:35:40,982 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:35:40,995 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:36:18,690 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:36:18,696 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:36:39,634 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:36:39,639 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:37:29,343 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:37:29,357 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:38:12,806 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:38:12,811 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:38:19,150 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:38:19,155 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:38:54,129 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:38:54,139 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:48:18,296 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:48:18,304 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:50:00,845 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:50:00,853 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:51:28,986 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:51:28,996 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:51:44,950 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:51:44,959 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:53:11,186 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:53:11,199 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:53:28,555 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:53:28,559 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:53:54,742 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-08 02:53:54,751 [main] INFO  (RoomModel.java:95) - Is full
+2016-11-11 15:51:28,428 [main] ERROR (GuestModelServiceImpl.java:49) - -1
+2016-11-11 15:51:28,432 [main] ERROR (ImportGuestsAction.java:21) -
+2016-11-11 15:54:39,410 [main] ERROR (GuestModelServiceImpl.java:49) - -1
+2016-11-11 15:54:39,416 [main] ERROR (ImportGuestsAction.java:21) -
+2016-11-11 15:54:39,418 [main] ERROR (Reader.java:37) - java.util.NoSuchElementException
+2016-11-11 16:04:31,237 [main] INFO  (RoomModel.java:96) - Is full
+2016-11-11 16:04:31,245 [main] INFO  (RoomModel.java:96) - Is full
+2016-11-11 16:04:41,366 [main] INFO  (RoomModel.java:96) - Is full
+2016-11-11 16:04:41,370 [main] INFO  (RoomModel.java:96) - Is full
+2016-11-11 16:05:02,763 [main] INFO  (RoomModel.java:96) - Is full
+2016-11-11 16:05:02,767 [main] INFO  (RoomModel.java:96) - Is full
+2016-11-11 16:05:20,609 [main] INFO  (RoomModel.java:96) - Is full
+2016-11-11 16:05:20,614 [main] INFO  (RoomModel.java:96) - Is full
+2016-11-11 16:05:39,330 [main] INFO  (RoomModel.java:96) - Is full
+2016-11-11 16:05:39,334 [main] INFO  (RoomModel.java:96) - Is full
+2016-11-11 16:10:46,329 [main] INFO  (RoomModel.java:96) - Is full
+2016-11-11 16:10:46,335 [main] INFO  (RoomModel.java:96) - Is full
+2016-11-11 16:13:36,288 [main] INFO  (RoomModel.java:96) - Is full
+2016-11-11 16:13:36,293 [main] INFO  (RoomModel.java:96) - Is full
+2016-11-11 16:33:49,883 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException
+2016-11-11 17:00:11,586 [main] ERROR (GuestModelServiceImpl.java:49) - -1
+2016-11-11 17:00:40,905 [main] ERROR (DataServiceImpl.java:35) - java.io.EOFException
+2016-11-11 17:00:46,263 [main] ERROR (DataServiceImpl.java:35) - java.io.StreamCorruptedException: invalid stream header: EFBFBDEF
+2016-11-11 17:00:49,100 [main] ERROR (DataServiceImpl.java:35) - java.io.StreamCorruptedException: invalid stream header: EFBFBDEF
+2016-11-11 17:00:51,511 [main] ERROR (DataServiceImpl.java:35) - java.io.StreamCorruptedException: invalid stream header: EFBFBDEF
+2016-11-11 17:01:10,609 [main] ERROR (DataServiceImpl.java:35) - java.io.StreamCorruptedException: invalid stream header: EFBFBDEF
+2016-11-11 17:04:10,565 [main] ERROR (DataServiceImpl.java:35) - java.io.StreamCorruptedException: invalid stream header: EFBFBDEF
+2016-11-11 17:04:35,638 [main] ERROR (DataServiceImpl.java:35) - java.io.StreamCorruptedException: invalid stream header: EFBFBDEF
+2016-11-11 17:35:43,499 [main] ERROR (DataServiceImpl.java:35) - java.io.StreamCorruptedException: invalid stream header: EFBFBDEF
+2016-11-11 17:36:10,681 [main] ERROR (DataServiceImpl.java:35) - java.io.StreamCorruptedException: invalid stream header: EFBFBDEF
+2016-11-11 17:38:13,624 [main] ERROR (DataServiceImpl.java:35) - java.io.StreamCorruptedException: invalid stream header: EFBFBDEF
+2016-11-11 18:10:28,033 [main] ERROR (DataServiceImpl.java:35) - java.io.StreamCorruptedException: invalid stream header: EFBFBDEF
+2016-11-11 18:11:41,385 [main] ERROR (DataServiceImpl.java:35) - java.io.StreamCorruptedException: invalid stream header: EFBFBDEF
+2016-11-11 18:44:50,702 [main] ERROR (DataServiceImpl.java:36) - java.io.StreamCorruptedException: invalid stream header: BFBDEFBF
+2016-11-11 18:46:03,416 [main] ERROR (DataServiceImpl.java:36) - java.io.StreamCorruptedException: invalid stream header: BFBDEFBF
+2016-11-11 18:46:15,434 [main] ERROR (DataServiceImpl.java:35) - invalid stream header: EFBFBDEF
+2016-11-11 18:46:43,371 [main] ERROR (DataServiceImpl.java:35) - invalid stream header: EFBFBDEF
+2016-11-11 18:48:22,164 [main] ERROR (DataServiceImpl.java:38) - invalid stream header: EFBFBDEF
+2016-11-11 18:49:33,956 [main] ERROR (DataServiceImpl.java:38) -
+2016-11-11 18:50:02,630 [main] ERROR (DataServiceImpl.java:38) -
+2016-11-11 18:50:34,731 [main] ERROR (DataServiceImpl.java:38) -
+2016-11-11 18:58:19,057 [main] ERROR (DataServiceImpl.java:38) -
+2016-11-11 19:40:50,145 [main] ERROR (DataServiceImpl.java:38) -
+2016-11-11 21:31:16,964 [main] ERROR (DataServiceImpl.java:38) -
+2016-11-11 21:31:41,552 [main] ERROR (DataServiceImpl.java:38) -
+2016-11-11 21:32:31,262 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-11 21:32:31,270 [main] ERROR (Initializer.java:83) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-11-11 22:06:47,833 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-11 22:06:47,836 [main] ERROR (Initializer.java:83) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-11-11 22:06:47,845 [main] ERROR (ServiceModelServiceImpl.java:73) -
+2016-11-11 22:06:47,850 [main] ERROR (RoomModelServiceImpl.java:115) -
+2016-11-11 22:08:14,468 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-11 22:08:14,471 [main] ERROR (Initializer.java:83) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-11-11 22:08:14,482 [main] ERROR (ServiceModelServiceImpl.java:73) -
+2016-11-11 22:08:14,488 [main] ERROR (RoomModelServiceImpl.java:115) -
+2016-11-11 22:09:48,128 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-11 22:09:48,133 [main] ERROR (Initializer.java:83) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-11-11 22:09:48,141 [main] ERROR (ServiceModelServiceImpl.java:73) -
+2016-11-11 22:09:48,141 [main] ERROR (RoomModelServiceImpl.java:115) -
+2016-11-11 22:09:53,488 [main] ERROR (GuestModelServiceImpl.java:118) -
+2016-11-11 22:09:57,133 [main] ERROR (RoomModelServiceImpl.java:115) -
+2016-11-11 22:14:41,310 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-11 22:14:41,314 [main] ERROR (Initializer.java:83) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-11-11 22:14:41,324 [main] ERROR (ServiceModelServiceImpl.java:73) -
+2016-11-11 22:14:41,324 [main] ERROR (RoomModelServiceImpl.java:115) -
+2016-11-11 22:14:47,294 [main] ERROR (GuestModelServiceImpl.java:39) -
+2016-11-11 22:14:49,213 [main] ERROR (GuestModelServiceImpl.java:118) -
+2016-11-11 22:14:55,429 [main] ERROR (GuestModelServiceImpl.java:39) -
+2016-11-11 22:14:56,173 [main] ERROR (GuestModelServiceImpl.java:118) -
+2016-11-11 22:16:20,280 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-11 22:16:20,283 [main] ERROR (Initializer.java:83) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-11-11 22:16:20,292 [main] ERROR (ServiceModelServiceImpl.java:73) -
+2016-11-11 22:16:20,292 [main] ERROR (RoomModelServiceImpl.java:115) -
+2016-11-11 22:16:22,711 [main] ERROR (RoomModelServiceImpl.java:115) -
+2016-11-11 22:16:34,328 [main] ERROR (RoomModelServiceImpl.java:42) -
+2016-11-11 22:16:35,378 [main] ERROR (RoomModelServiceImpl.java:115) -
+2016-11-11 22:20:52,718 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-11 22:20:52,722 [main] ERROR (Initializer.java:83) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-11-11 22:20:52,729 [main] ERROR (ServiceModelServiceImpl.java:73) -
+2016-11-11 22:20:52,732 [main] ERROR (RoomModelServiceImpl.java:115) -
+2016-11-11 22:21:28,426 [main] ERROR (GuestModelServiceImpl.java:39) -
+2016-11-11 22:21:28,431 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException
+2016-11-11 22:23:13,000 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-11 22:23:19,277 [main] ERROR (Initializer.java:83) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-11-11 22:23:19,293 [main] ERROR (ServiceModelServiceImpl.java:73) -
+2016-11-11 22:23:19,298 [main] ERROR (RoomModelServiceImpl.java:115) -
+2016-11-11 22:25:51,372 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-11 22:25:51,375 [main] ERROR (Initializer.java:83) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-11-11 23:23:19,717 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-11 23:24:01,287 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 12:08:42,050 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 15:54:07,605 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 15:54:19,155 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 15:54:56,422 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 15:56:38,366 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 17:16:48,092 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 17:18:30,162 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 17:22:31,080 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 17:24:57,562 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 17:26:37,142 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 17:28:02,982 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 17:28:47,614 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 17:31:44,866 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 17:31:52,966 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 17:36:14,657 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 17:36:19,969 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 17:37:09,202 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 17:37:17,290 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 17:37:43,147 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 17:38:34,175 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 17:40:11,694 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 17:40:24,063 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:09:29,231 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:10:06,966 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:10:27,479 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:11:48,679 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:13:34,571 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:14:16,118 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:16:42,044 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:16:46,226 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:17:32,273 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:20:06,336 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:20:28,571 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:21:36,778 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:21:56,861 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:22:23,790 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:23:14,824 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:23:31,526 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:23:47,709 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:24:59,964 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:25:21,230 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:26:06,412 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:26:39,656 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:27:55,910 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:28:55,951 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:29:11,381 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:29:46,227 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:30:21,537 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:32:39,573 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:34:15,299 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:34:40,466 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:35:16,110 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:35:50,982 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:35:58,606 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:36:22,424 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:37:43,377 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:42:12,944 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:45:14,642 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:45:25,024 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:45:49,009 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:46:26,236 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:46:49,623 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:47:53,801 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:48:27,939 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:48:45,642 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:49:26,951 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:51:18,732 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:51:50,319 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:52:35,342 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:53:58,344 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:54:11,038 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:54:30,822 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:55:50,825 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:57:48,122 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 18:59:44,101 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 19:01:21,077 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 22:28:55,818 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 22:29:19,678 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 22:35:34,877 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 22:36:21,158 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 22:36:48,649 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 22:41:26,579 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 22:41:38,185 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 22:44:33,143 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 22:44:46,507 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 22:46:03,239 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 22:47:39,188 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 22:48:03,975 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 22:49:23,806 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 22:49:38,792 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 22:52:57,226 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 22:53:07,417 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 22:53:21,778 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:00:31,069 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:01:55,823 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:02:29,664 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:02:55,530 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:03:51,227 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:04:00,198 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:13:00,677 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:13:12,442 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:13:17,067 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:13:22,562 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:14:07,671 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:14:45,475 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:15:27,530 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:19:37,024 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:25:59,600 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:31:04,840 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:33:37,256 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:33:47,064 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:34:28,433 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:34:37,080 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:35:07,205 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:35:59,899 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:39:03,677 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:39:46,593 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:40:53,241 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:42:09,479 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:42:24,432 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:44:44,334 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:45:16,432 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:47:02,800 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:47:38,415 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-13 23:54:20,884 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 00:49:21,370 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 00:50:35,193 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 01:12:53,058 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:10:34,404 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:11:44,241 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:13:00,637 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:15:57,751 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:18:08,114 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:18:44,586 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:19:16,100 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:19:31,857 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:20:29,533 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:22:11,490 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:22:32,895 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:22:36,035 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:22:52,244 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:23:19,918 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:24:14,328 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:24:38,367 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:25:08,883 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:26:46,809 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:26:55,735 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:34:00,567 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:34:07,110 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:34:22,553 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:39:07,707 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:39:16,639 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:39:22,698 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:40:05,584 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 02:40:25,880 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 16:22:20,063 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 16:22:49,158 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 16:23:29,961 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 16:23:49,368 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 16:24:02,743 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 16:24:26,122 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 16:24:45,966 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 16:25:00,947 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-14 16:25:15,408 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 22:15:29,846 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 22:15:39,988 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 22:31:36,964 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 22:32:38,990 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 22:33:47,666 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 22:34:13,367 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 22:36:15,299 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 22:56:33,762 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 22:57:03,247 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 22:57:33,393 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 22:58:00,386 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 22:58:39,912 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 22:59:14,275 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 23:02:07,190 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 23:04:09,760 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 23:05:17,479 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 23:05:51,953 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 23:06:43,423 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 23:07:09,989 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 23:07:35,061 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 23:08:47,532 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 23:09:43,476 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 23:12:45,583 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 23:18:38,591 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 23:34:05,052 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 23:34:32,469 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 23:35:21,140 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-16 23:39:05,587 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-17 16:16:36,574 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:17:08,708 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:17:24,497 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:18:38,974 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:19:54,588 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:28:37,452 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:28:51,319 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:29:26,341 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:29:43,706 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:30:01,513 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:30:08,080 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:35:49,848 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:36:07,732 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:38:15,347 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:38:17,707 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:38:22,188 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:41:03,066 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:46:15,879 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:46:32,491 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:46:42,084 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:47:19,230 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:47:46,595 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:49:24,583 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:51:31,261 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:51:54,830 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:52:28,949 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:54:08,773 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:54:11,200 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:54:51,552 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 16:55:15,184 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 17:01:35,617 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 17:02:06,308 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 23:08:49,007 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-17 23:09:23,810 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 13:40:36,543 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 13:41:21,400 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 13:41:50,538 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 13:43:46,421 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 13:52:13,611 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 13:52:38,353 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 13:52:52,075 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 13:53:38,826 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 13:55:03,239 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 13:58:04,712 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 13:58:50,626 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 13:59:11,011 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 13:59:57,029 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 14:00:32,862 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 14:00:51,776 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 14:01:07,489 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 14:02:14,282 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 14:10:29,227 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 14:11:48,124 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 14:13:24,915 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 14:34:58,062 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 14:35:33,985 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 15:24:56,984 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 15:39:52,884 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 15:40:25,062 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 18:23:45,838 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 18:23:59,357 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 18:27:31,687 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 18:28:19,473 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 18:40:54,037 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 18:40:59,070 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 18:45:30,881 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 18:45:50,979 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 18:47:47,592 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 18:48:20,488 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:03:44,627 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:12:15,868 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:16:12,340 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:18:21,627 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:19:39,015 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:19:48,383 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:20:52,735 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:22:17,538 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:23:51,695 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:26:37,268 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:32:14,316 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:32:37,205 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:33:12,291 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:34:40,328 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:35:31,576 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:35:42,886 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:37:02,230 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:37:17,444 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:37:28,896 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:39:38,478 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:39:47,757 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:40:41,273 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:40:58,831 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:48:17,849 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:48:55,507 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:50:07,235 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 19:53:04,252 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 20:06:57,825 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 20:08:23,461 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 20:12:31,379 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 20:13:44,120 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 20:19:08,710 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 20:20:54,759 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 20:28:45,641 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 20:28:47,544 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 20:38:29,820 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 20:49:41,678 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 21:06:32,513 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 21:07:24,334 [main] ERROR (DataServiceImpl.java:33) -
+2016-11-19 21:18:36,998 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-19 21:18:37,002 [main] ERROR (Initializer.java:78) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-11-19 21:19:18,581 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-19 21:19:18,585 [main] ERROR (Initializer.java:78) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-11-19 21:25:13,328 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-19 21:30:25,678 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-19 21:30:35,851 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-19 21:32:08,573 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-19 21:35:49,788 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-19 21:58:57,459 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-19 22:01:18,834 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-19 22:23:14,178 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-19 22:23:34,958 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-19 22:24:02,059 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-19 22:38:33,612 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-19 22:47:30,545 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-19 22:50:28,011 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-19 22:51:28,947 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-19 22:51:50,541 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-19 22:52:09,366 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-19 22:53:08,885 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-20 02:16:18,837 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-20 02:16:34,200 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-20 02:22:27,794 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-20 02:25:21,291 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-21 12:43:08,182 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-21 12:43:26,872 [main] INFO  (RoomModel.java:114) - Is full
+2016-11-21 12:43:26,873 [main] INFO  (RoomModel.java:114) - Is full
+2016-11-21 12:43:36,614 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-21 12:46:37,603 [main] INFO  (RoomModel.java:114) - Is full
+2016-11-21 12:46:37,603 [main] INFO  (RoomModel.java:114) - Is full
+2016-11-21 12:47:15,082 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-21 12:47:51,415 [main] INFO  (RoomModel.java:114) - Is full
+2016-11-21 12:48:14,319 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-21 12:48:52,741 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-21 12:49:33,625 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-21 13:33:47,026 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-21 13:34:44,714 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-21 14:21:48,986 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-21 14:22:04,834 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-21 15:09:24,815 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-21 15:09:53,032 [main] ERROR (GuestModelServiceImpl.java:49) - -1
+2016-11-21 16:17:07,194 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-21 16:17:11,730 [main] ERROR (GuestModelServiceImpl.java:49) - -1
+2016-11-21 16:17:33,519 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-23 21:19:00,282 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-23 21:19:12,641 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-23 21:19:20,734 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-23 23:30:27,251 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-23 23:30:44,168 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-23 23:31:06,304 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-24 14:26:32,106 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-24 14:27:39,119 [main] ERROR (GuestModelServiceImpl.java:49) - -1
+2016-11-24 14:27:58,272 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-24 14:28:24,100 [main] ERROR (GuestModelServiceImpl.java:49) - -1
+2016-11-24 14:33:51,801 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-24 14:33:58,843 [main] ERROR (GuestModelServiceImpl.java:49) - -1
+2016-11-24 15:32:11,652 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-24 15:32:28,844 [main] ERROR (GuestModelServiceImpl.java:49) - -1
+2016-11-24 16:00:34,686 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-24 16:00:47,733 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-24 16:04:58,684 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-24 16:05:08,198 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-24 16:05:08,271 [main] ERROR (RoomModelServiceImpl.java:55) - Index: 2, Size: 2
+2016-11-24 16:05:08,273 [main] ERROR (RoomModelServiceImpl.java:55) - Index: 2, Size: 2
+2016-11-24 16:05:08,273 [main] ERROR (GuestModelServiceImpl.java:47) - -1
+2016-11-28 12:54:30,290 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 12:56:52,920 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 12:57:25,929 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 12:58:41,087 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 12:59:10,233 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException
+2016-11-28 13:16:04,988 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 13:16:19,974 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 13:16:48,185 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException
+2016-11-28 13:27:56,802 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 14:46:36,342 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 15:20:30,138 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 15:21:14,759 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 15:21:39,870 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 15:21:48,683 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException
+2016-11-28 15:24:03,917 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 15:24:29,865 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 15:25:08,203 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 15:25:37,660 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 15:26:39,889 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 15:27:45,323 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 15:28:43,261 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 15:42:05,440 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 15:47:03,310 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 15:49:19,823 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 15:50:39,088 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 15:53:49,194 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 15:54:33,786 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 15:55:20,328 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 15:58:44,691 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 16:02:59,551 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 16:04:02,451 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 16:07:22,823 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 16:09:55,402 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 16:17:30,616 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 16:21:37,479 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 16:21:40,436 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 16:43:48,415 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 16:43:51,830 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 16:47:28,498 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 16:48:18,760 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 16:49:47,746 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 16:49:53,735 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 17:00:53,797 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 17:00:55,865 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 17:01:22,681 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 17:01:42,677 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 17:02:47,297 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 17:02:50,812 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 17:02:54,880 [Thread-0] ERROR (DataServiceImpl.java:32) -
+2016-11-28 17:04:28,233 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-28 17:04:34,141 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 14:21:29,214 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 14:21:31,911 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 14:22:36,461 [Thread-1] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,265 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,289 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,294 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,296 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,299 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,301 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,304 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,306 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,309 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,311 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,314 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,316 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,319 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,321 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,324 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,327 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,332 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,335 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,338 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,340 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,343 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,345 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,347 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,350 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,352 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,355 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,357 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,359 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,361 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,363 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,366 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,369 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,376 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,379 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,382 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,384 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,386 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,388 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,390 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,393 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,395 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,397 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,399 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,402 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,404 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,409 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,411 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,413 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,416 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,418 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,420 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,423 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,425 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,428 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,430 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,433 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,435 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,437 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,439 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,441 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,443 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,445 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,447 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,449 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,451 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,454 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,457 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,459 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,462 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,463 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,465 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,468 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,471 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,473 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,476 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,479 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,482 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,484 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,487 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,490 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,493 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,496 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,498 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,501 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,504 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,506 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,509 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,512 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,515 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,518 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,521 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,523 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,526 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,529 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,532 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,535 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,537 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,547 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,549 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,552 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,555 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,557 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,560 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,563 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,565 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,568 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,569 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,571 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,573 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,574 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,576 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,578 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,580 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,581 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,583 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,585 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,587 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,588 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,590 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,591 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,593 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,595 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,596 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,598 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,600 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,602 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,604 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,607 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,610 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,611 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,613 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,614 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,616 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,617 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,619 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,621 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,623 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,625 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,627 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,629 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,632 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,634 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,637 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,639 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,648 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,653 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,656 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,659 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,661 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,664 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,666 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,669 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,671 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,674 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,676 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,679 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,681 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,684 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,686 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,691 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,693 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,696 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,699 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,701 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,704 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,706 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,709 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,711 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,714 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,716 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,720 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,722 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,725 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,728 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,736 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,742 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,744 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,746 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,749 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,751 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,754 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,756 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,758 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,761 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,763 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,766 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,768 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,771 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,773 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,777 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,779 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,782 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,786 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,788 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,791 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,793 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,795 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,798 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,800 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,803 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,805 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,808 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,810 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,812 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,815 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,817 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,820 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,822 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,825 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,834 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,836 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,839 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,850 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,861 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,863 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,871 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,874 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,881 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,884 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,887 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,890 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,895 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,898 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,901 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,903 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,908 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,910 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,913 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,915 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,918 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,921 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,923 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,926 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,929 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,931 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,934 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,937 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,940 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,942 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,944 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,947 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,950 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,953 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,955 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,959 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,961 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,964 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,968 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,971 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,978 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,981 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,991 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:50,998 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,005 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,011 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,026 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,037 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,047 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,054 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,060 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,062 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,066 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,069 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,086 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,088 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,102 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,105 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,117 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,125 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,128 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,131 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,133 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,136 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,151 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,156 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,159 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,165 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,168 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,171 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,173 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,176 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,180 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,188 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,190 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,210 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,214 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,217 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,219 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,232 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,239 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,246 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,248 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,257 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,264 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,267 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,275 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,282 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,284 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,295 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,304 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,311 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,317 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,320 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,322 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,325 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,327 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,330 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,334 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,346 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,349 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,370 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,372 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,375 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,377 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,380 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,382 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,385 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,387 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,389 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,392 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,395 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,398 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,400 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,403 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,405 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,408 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,410 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,412 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,422 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,427 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,435 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,443 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,454 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,457 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,459 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,462 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,464 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,466 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,469 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,471 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,475 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,477 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,480 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,482 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,485 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,487 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,489 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,492 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,494 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,497 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,499 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,501 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,504 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,506 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,508 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,511 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,513 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,516 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,518 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,520 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,523 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,525 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,528 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,530 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,532 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,534 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,537 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,539 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,542 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,544 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,546 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,549 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,551 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,553 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,556 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,558 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,560 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,563 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,565 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,567 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,569 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,571 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,580 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,588 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,593 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,596 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,598 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,601 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,604 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,606 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,608 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,611 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,613 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,617 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,619 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,622 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,624 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,626 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,629 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,631 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,633 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,636 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,638 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,640 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,643 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,645 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,648 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,650 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,652 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,655 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,657 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,660 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,662 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,664 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,667 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,669 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,671 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,674 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,676 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,678 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,681 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,683 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,685 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,688 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,690 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,693 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,695 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,697 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,700 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,702 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,704 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,707 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,709 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,711 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,714 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,716 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,718 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,721 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,723 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,725 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,727 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,730 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,732 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,735 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,737 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,739 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,742 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,744 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,746 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,749 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,751 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,753 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,755 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,758 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,760 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,763 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,765 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,767 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,770 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,772 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,774 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,777 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,779 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:42:51,781 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,260 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,277 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,280 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,283 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,285 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,287 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,289 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,292 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,294 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,297 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,303 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,310 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,313 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,315 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,317 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,319 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,322 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,325 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,327 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,329 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,331 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,333 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,335 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,338 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,340 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,346 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,350 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,352 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,354 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,358 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,360 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,361 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,365 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,369 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,374 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,376 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,390 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,392 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,393 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,395 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,399 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,402 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,404 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,406 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,408 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,409 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,411 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,412 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,414 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,415 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,417 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,418 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,420 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,421 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,423 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,425 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,427 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,428 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,430 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,432 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,433 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,435 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,437 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,438 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,440 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,441 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,443 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,445 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,447 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,450 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,453 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,455 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,458 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,461 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,463 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,466 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,469 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,471 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,474 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,477 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,479 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,482 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,484 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,487 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,489 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,492 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,495 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,498 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,500 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,503 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,505 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,508 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,511 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,513 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,516 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,519 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,521 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,524 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,527 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,529 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,532 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,534 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,536 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,538 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,540 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,543 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,545 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,548 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,550 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,553 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,555 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,558 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,560 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,563 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,565 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,568 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,570 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,573 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,575 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,578 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,580 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,583 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,585 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,588 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,590 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,592 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,594 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,596 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,597 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,599 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,600 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,602 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,604 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,607 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,608 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,610 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,611 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,613 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,615 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,617 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,619 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,622 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,624 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,627 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,630 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,632 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,634 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,637 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,639 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,642 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,644 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,646 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,648 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,651 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,653 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,655 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,658 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,660 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,663 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,665 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,668 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,670 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,673 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,675 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,678 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,680 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,683 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,685 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,688 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,690 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,693 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,695 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,698 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,700 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,703 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,705 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,708 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,710 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,713 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,715 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,718 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,720 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,723 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,725 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,728 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,730 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,733 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,736 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,738 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,740 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,743 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,745 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,750 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,752 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,755 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,757 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,760 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,762 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,765 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,767 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,770 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,772 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,775 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,777 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,779 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,782 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,785 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,787 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,791 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,797 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,803 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,805 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,811 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,817 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,825 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,831 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,835 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,842 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,844 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,849 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,851 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,854 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,856 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,859 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,861 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,864 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,867 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,869 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,872 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,874 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,877 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,880 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,884 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,887 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,890 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,893 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,895 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,898 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,900 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,903 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,906 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,908 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,911 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,914 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,916 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,919 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,921 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,924 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,932 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,936 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,938 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,944 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,947 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,950 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,955 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,958 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,961 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,964 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,969 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,971 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,974 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,976 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,979 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,982 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,991 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,994 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,996 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:52,999 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,001 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,003 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,006 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,008 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,011 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,013 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,016 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,019 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,021 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,023 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,026 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,028 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,031 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,033 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,036 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,043 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,046 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,048 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,051 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,053 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,056 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,058 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,061 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,063 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,065 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,068 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,070 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,072 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,075 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,077 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,079 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,082 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,084 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,087 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,089 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,091 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,094 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,096 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,098 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,101 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,103 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,106 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,108 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,110 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,112 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,115 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,117 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,119 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,122 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,124 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,126 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,129 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,132 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,134 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,136 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,139 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,141 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,143 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,146 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,148 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,150 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,153 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,155 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,157 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,159 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,162 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,164 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,167 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,169 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,175 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,178 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,180 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,190 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,199 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,201 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,203 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,210 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,212 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,218 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,221 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,230 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,232 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,238 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,240 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,247 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,253 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,256 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,262 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,264 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,268 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,287 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,289 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,291 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,294 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,296 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,308 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,310 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,313 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,315 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,327 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,330 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,332 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,334 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,336 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,339 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,341 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,343 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,361 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,364 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,366 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,368 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,371 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,373 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,375 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,378 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,383 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,396 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,398 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,400 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,403 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,405 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,412 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,414 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,417 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,419 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,421 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,423 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,425 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,428 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,430 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,432 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,434 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,437 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,440 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,442 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,444 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,446 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,449 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,451 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,453 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,455 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,458 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,460 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,462 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,464 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,467 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,469 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,471 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,474 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,476 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,478 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,480 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,482 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,485 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,487 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,489 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,492 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,494 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,496 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,498 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,501 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,503 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,505 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,507 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,510 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,512 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,514 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,517 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,519 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,521 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,523 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,526 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,528 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,530 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,532 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,534 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,537 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,539 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,541 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,543 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,546 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,548 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,550 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,552 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,566 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,568 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,570 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,573 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,575 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,577 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,580 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,591 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,593 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,595 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,610 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,613 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,616 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,618 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,621 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,630 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,633 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,635 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,650 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,652 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,655 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,657 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,671 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,673 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,675 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,678 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,680 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,682 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,685 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,687 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,701 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,703 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,706 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,708 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,710 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,723 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,726 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,732 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,734 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,736 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,745 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,747 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,749 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,759 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,762 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,764 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,766 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,768 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,772 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,775 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,777 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,779 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,782 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,784 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,786 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,788 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,790 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,793 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,802 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,807 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,810 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,813 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,815 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,817 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,819 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,821 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,824 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,826 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,828 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,830 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:44:53,832 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:46:32,544 [main] ERROR (DataServiceImpl.java:32) -
+2016-11-30 22:47:35,272 [main] ERROR (DataServiceImpl.java:32) -
+2016-12-01 12:08:38,324 [Thread-0] ERROR (DataServiceImpl.java:32) -
+2016-12-01 12:08:38,366 [main] ERROR (AllGuestsAction.java:31) - GuestModel cannot be cast to com.training.senla.model.Guest
+2016-12-01 12:16:02,429 [Thread-0] ERROR (DataServiceImpl.java:32) -
+2016-12-01 12:16:24,748 [main] ERROR (AllGuestsAction.java:31) - GuestModel cannot be cast to com.training.senla.model.Guest
+2016-12-01 12:19:09,631 [Thread-0] ERROR (DataServiceImpl.java:32) -
+2016-12-01 12:19:22,297 [main] ERROR (AllGuestsAction.java:31) - GuestModel cannot be cast to com.training.senla.model.Guest
+2016-12-01 12:19:32,287 [main] ERROR (AllGuestsAction.java:31) - GuestModel cannot be cast to com.training.senla.model.Guest
+2016-12-01 12:20:41,794 [main] ERROR (AllGuestsAction.java:31) - GuestModel cannot be cast to com.training.senla.model.Guest
+2016-12-01 12:20:41,800 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException
+2016-12-01 12:21:10,768 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException
+2016-12-01 12:21:38,938 [main] ERROR (AllRoomsAction.java:30) - RoomModel cannot be cast to com.training.senla.model.Room
+2016-12-01 12:21:38,944 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException
+2016-12-01 12:22:23,459 [Thread-0] ERROR (DataServiceImpl.java:32) -
+2016-12-01 12:22:41,538 [main] ERROR (AllGuestsAction.java:31) - GuestModel cannot be cast to com.training.senla.model.Guest
+2016-12-01 12:22:41,546 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException
+2016-12-01 12:33:34,735 [Thread-0] ERROR (DataServiceImpl.java:32) -
+2016-12-01 12:36:27,580 [main] ERROR (AllGuestsAction.java:31) - GuestModel cannot be cast to com.training.senla.model.Guest
+2016-12-01 12:36:27,585 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException
+2016-12-01 12:38:30,628 [main] ERROR (AllGuestsAction.java:31) - GuestModel cannot be cast to com.training.senla.model.Guest
+2016-12-01 12:38:30,631 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException
+2016-12-01 12:38:44,425 [main] ERROR (AllGuestsAction.java:32) - GuestModel cannot be cast to com.training.senla.model.Guest
+2016-12-01 12:38:44,429 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException
+2016-12-01 12:40:31,495 [main] ERROR (AllGuestsAction.java:32) - GuestModel cannot be cast to com.training.senla.model.Guest
+2016-12-01 12:40:31,499 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException
+2016-12-01 12:41:15,738 [main] ERROR (AllGuestsAction.java:31) - GuestModel cannot be cast to com.training.senla.model.Guest
+2016-12-01 12:41:15,743 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException
+2016-12-01 13:33:25,055 [main] ERROR (AllGuestsAction.java:31) - GuestModel cannot be cast to com.training.senla.model.Guest
+2016-12-01 13:33:25,060 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException
+2016-12-01 15:39:22,217 [main] ERROR (DataServiceImpl.java:32) - invalid stream header: EFBFBDEF
+2016-12-01 15:39:22,220 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 15:47:34,077 [Thread-0] ERROR (DataServiceImpl.java:32) - invalid stream header: EFBFBDEF
+2016-12-01 15:47:34,079 [Thread-0] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 15:54:56,706 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException
+2016-12-01 15:55:51,787 [Thread-0] ERROR (DataServiceImpl.java:32) - invalid stream header: EFBFBDEF
+2016-12-01 15:55:51,793 [Thread-0] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 15:56:00,710 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException
+2016-12-01 15:56:07,120 [Thread-0] ERROR (DataServiceImpl.java:32) - invalid stream header: EFBFBDEF
+2016-12-01 15:56:07,124 [Thread-0] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 15:57:46,359 [main] ERROR (DataServiceImpl.java:32) - invalid stream header: EFBFBDEF
+2016-12-01 15:57:46,363 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:05:00,406 [main] ERROR (DataServiceImpl.java:32) - invalid stream header: EFBFBDEF
+2016-12-01 16:05:00,409 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:05:10,723 [main] ERROR (DataServiceImpl.java:32) - invalid stream header: EFBFBDEF
+2016-12-01 16:05:10,727 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:06:03,319 [main] ERROR (DataServiceImpl.java:32) - invalid stream header: EFBFBDEF
+2016-12-01 16:06:03,322 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:06:24,090 [main] ERROR (DataServiceImpl.java:32) - invalid stream header: EFBFBDEF
+2016-12-01 16:06:24,094 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:09:19,538 [main] ERROR (DataServiceImpl.java:32) - invalid stream header: EFBFBDEF
+2016-12-01 16:09:19,542 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:10:19,797 [main] ERROR (DataServiceImpl.java:32) - invalid stream header: EFBFBDEF
+2016-12-01 16:10:19,812 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:11:15,076 [main] ERROR (DataServiceImpl.java:32) - invalid stream header: EFBFBDEF
+2016-12-01 16:11:27,857 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:11:29,543 [main] ERROR (DataServiceImpl.java:32) - invalid stream header: EFBFBDEF
+2016-12-01 16:11:59,895 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:12:30,018 [main] ERROR (DataServiceImpl.java:32) - invalid stream header: EFBFBDEF
+2016-12-01 16:12:30,023 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:15:41,820 [main] ERROR (DataServiceImpl.java:32) - invalid stream header: EFBFBDEF
+2016-12-01 16:15:41,826 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:15:45,694 [main] ERROR (DataServiceImpl.java:32) - invalid stream header: EFBFBDEF
+2016-12-01 16:15:45,697 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:16:23,513 [main] ERROR (DataServiceImpl.java:32) - invalid stream header: EFBFBDEF
+2016-12-01 16:16:23,516 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:16:57,268 [main] ERROR (DataServiceImpl.java:32) - invalid stream header: EFBFBDEF
+2016-12-01 16:16:57,271 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:19:00,932 [main] ERROR (DataServiceImpl.java:38) - invalid stream header: EFBFBDEF
+2016-12-01 16:19:04,232 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:22:30,823 [main] ERROR (DataServiceImpl.java:45) - invalid stream header: EFBFBDEF
+2016-12-01 16:22:30,830 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:38:42,061 [main] ERROR (DataServiceImpl.java:45) - invalid stream header: EFBFBDEF
+2016-12-01 16:38:42,064 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:39:46,135 [main] ERROR (DataServiceImpl.java:41) - invalid stream header: EFBFBDEF
+2016-12-01 16:39:46,142 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:41:32,200 [main] ERROR (DataServiceImpl.java:74) - invalid stream header: EFBFBDEF
+2016-12-01 16:41:32,205 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:42:04,067 [main] ERROR (DataServiceImpl.java:74) - invalid stream header: EFBFBDEF
+2016-12-01 16:42:04,078 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:42:45,799 [main] ERROR (DataServiceImpl.java:74) -
+2016-12-01 16:42:45,805 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:43:05,737 [main] ERROR (DataServiceImpl.java:74) -
+2016-12-01 16:43:12,886 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:43:44,160 [main] ERROR (DataServiceImpl.java:74) - invalid stream header: EFBFBDEF
+2016-12-01 16:44:06,183 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:50:15,800 [main] ERROR (DataServiceImpl.java:32) -
+2016-12-01 16:50:44,495 [main] ERROR (DataServiceImpl.java:32) -
+2016-12-01 16:52:01,943 [main] ERROR (DataServiceImpl.java:32) - invalid stream header: EFBFBDEF
+2016-12-01 16:52:01,947 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:52:38,480 [main] ERROR (DataServiceImpl.java:32) - invalid stream header: EFBFBDEF
+2016-12-01 16:52:38,485 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:53:08,516 [main] ERROR (DataServiceImpl.java:32) - invalid stream header: EFBFBDEF
+2016-12-01 16:53:08,520 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:53:25,079 [main] ERROR (DataServiceImpl.java:32) - invalid stream header: EFBFBDEF
+2016-12-01 16:53:25,086 [main] ERROR (Initializer.java:84) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+2016-12-01 16:55:25,222 [main] ERROR (DataServiceImpl.java:32) -
+2016-12-01 16:58:15,254 [Thread-0] ERROR (DataServiceImpl.java:32) -
+2016-12-01 16:59:50,764 [Thread-0] ERROR (DataServiceImpl.java:32) -
+2016-12-01 16:59:51,631 [Thread-0] ERROR (DataServiceImpl.java:32) -
+2016-12-01 17:01:58,814 [Thread-0] ERROR (DataServiceImpl.java:32) -
+2016-12-01 17:02:01,495 [Thread-1] ERROR (DataServiceImpl.java:32) -
+2016-12-01 17:02:04,979 [Thread-0] ERROR (DataServiceImpl.java:32) -
+2016-12-01 17:02:07,130 [Thread-0] ERROR (DataServiceImpl.java:32) -
+2016-12-04 14:04:20,836 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-04 14:04:25,420 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-04 14:04:26,228 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-04 15:09:52,574 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-04 21:11:38,045 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-04 21:11:58,316 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-04 21:12:50,367 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-04 21:55:22,538 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-04 21:55:41,382 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-04 21:56:04,463 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-04 21:56:30,464 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-04 22:06:27,347 [main] ERROR (DataServiceImpl.java:30) -
+2016-12-04 22:08:38,963 [main] ERROR (DataServiceImpl.java:30) -
+2016-12-04 22:16:50,999 [main] ERROR (DataServiceImpl.java:30) -
+2016-12-04 22:16:57,371 [main] ERROR (DataServiceImpl.java:30) -
+2016-12-05 03:01:32,059 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException
+2016-12-05 03:01:53,203 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException
+2016-12-05 03:06:43,091 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException
+2016-12-05 03:09:41,936 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 03:11:04,489 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 03:13:59,807 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException
+2016-12-05 03:15:01,548 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 03:15:05,838 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 03:15:06,944 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 03:19:46,057 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 03:32:53,871 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 03:32:59,101 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 03:33:15,475 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 03:33:16,373 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 03:33:22,677 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 03:33:23,081 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 04:17:13,479 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 04:18:31,880 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 04:19:02,409 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 04:45:48,054 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 04:46:58,337 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 04:50:21,722 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 04:50:32,402 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 04:50:58,001 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 05:36:51,959 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 05:37:38,854 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 05:37:56,183 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 05:38:48,360 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 05:39:13,365 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 05:43:29,580 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 05:43:49,165 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 05:43:59,700 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 05:52:55,918 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 06:19:32,257 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 06:19:54,269 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 06:23:32,969 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 06:25:45,904 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 06:26:40,898 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 06:27:47,080 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 06:28:24,696 [Thread-0] ERROR (RoomModelServiceImpl.java:55) - Index: 1, Size: 1
+2016-12-05 06:28:51,817 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 06:29:15,951 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 06:30:09,352 [Thread-0] ERROR (RoomModelServiceImpl.java:55) - Index: 1, Size: 1
+2016-12-05 06:31:48,446 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 06:32:42,171 [Thread-0] ERROR (RoomModelServiceImpl.java:55) - Index: 1, Size: 1
+2016-12-05 06:33:00,067 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 06:33:20,723 [Thread-0] ERROR (RoomModelServiceImpl.java:55) - Index: 1, Size: 1
+2016-12-05 06:33:29,916 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 06:33:40,743 [Thread-0] ERROR (RoomModelServiceImpl.java:55) - Index: 1, Size: 1
+2016-12-05 06:34:30,225 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 06:35:46,457 [Thread-0] ERROR (RoomModelServiceImpl.java:55) - Index: 1, Size: 1
+2016-12-05 06:50:07,918 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 06:51:21,298 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 06:53:17,913 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 06:55:56,178 [main] ERROR (DataServiceImpl.java:30) -
+2016-12-05 06:58:00,027 [main] ERROR (DataServiceImpl.java:30) -
+2016-12-05 06:58:00,057 [main] ERROR (RoomModelServiceImpl.java:55) - -1
+2016-12-05 06:58:00,058 [main] ERROR (RoomModelServiceImpl.java:85) -
+2016-12-05 06:58:29,670 [main] ERROR (DataServiceImpl.java:30) -
+2016-12-05 06:59:34,132 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 07:02:19,691 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 07:08:07,536 [Thread-1] ERROR (DataServiceImpl.java:30) -
+2016-12-05 07:08:59,705 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 07:15:09,757 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 07:19:13,015 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 07:19:13,083 [main] ERROR (AllGuestsAction.java:32) - GuestModel cannot be cast to com.training.senla.models.GuestModel
+2016-12-05 07:21:57,306 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 07:21:57,350 [main] ERROR (AllGuestsAction.java:32) - GuestModel cannot be cast to com.training.senla.models.GuestModel
+2016-12-05 07:22:27,422 [main] ERROR (AllGuestsAction.java:32) - GuestModel cannot be cast to com.training.senla.models.GuestModel
+2016-12-05 07:23:13,042 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 07:23:13,200 [main] ERROR (AllGuestsAction.java:32) - GuestModel cannot be cast to com.training.senla.models.GuestModel
+2016-12-05 07:43:35,411 [main] ERROR (AllGuestsAction.java:32) - GuestModel cannot be cast to com.training.senla.models.GuestModel
+2016-12-05 07:43:35,413 [main] ERROR (Reader.java:34) - java.util.NoSuchElementException
+2016-12-05 07:47:54,433 [Thread-0] ERROR (DataServiceImpl.java:30) -
+2016-12-05 15:51:20,316 [main] ERROR (DataServiceImpl.java:30) -
+2016-12-05 15:52:01,337 [main] ERROR (DataServiceImpl.java:30) -
+2016-12-05 15:53:15,573 [main] ERROR (DataServiceImpl.java:30) -
+2016-12-05 15:54:01,338 [main] ERROR (DataServiceImpl.java:30) -
+2016-12-05 15:55:23,981 [main] ERROR (DataServiceImpl.java:30) -
+2016-12-05 15:57:51,477 [main] ERROR (DataServiceImpl.java:30) -
+2016-12-05 16:00:10,705 [main] ERROR (DataServiceImpl.java:30) -
+2016-12-05 16:00:23,810 [main] ERROR (DataServiceImpl.java:30) -
+2016-12-05 16:00:45,882 [main] ERROR (DataServiceImpl.java:30) -
+2016-12-05 16:01:10,891 [main] ERROR (DataServiceImpl.java:30) -
+2016-12-05 16:13:25,550 [main] ERROR (DataServiceImpl.java:30) -
+2016-12-05 16:14:31,584 [main] ERROR (DataServiceImpl.java:30) -
+2016-12-05 16:21:44,549 [main] ERROR (DataServiceImpl.java:30) -
+2016-12-05 16:22:45,290 [main] ERROR (DataServiceImpl.java:30) -
+2016-12-05 16:22:45,315 [main] ERROR (RoomModelServiceImpl.java:65) - -1
+2016-12-05 16:34:58,562 [main] ERROR (DataServiceImpl.java:30) -
+2016-12-05 16:34:58,590 [main] ERROR (DataServiceImpl.java:30) -
+2017-01-18 16:51:08,604 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-18 19:26:54,650 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-18 19:27:30,506 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-18 19:27:39,957 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-18 19:27:44,233 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-18 19:27:52,486 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-19 18:37:44,925 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-19 18:37:58,984 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-19 18:38:14,296 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-19 18:38:14,339 [main] ERROR (GuestModelServiceImpl.java:47) - -1 
+2017-01-19 18:38:20,253 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-19 18:38:27,230 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-19 18:38:45,834 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-20 23:06:52,424 [main] ERROR (DataServiceImpl.java:30) - invalid stream header: EFBFBDEF 
+2017-01-20 23:06:52,428 [main] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-20 23:10:53,203 [main] ERROR (DataServiceImpl.java:30) - invalid stream header: EFBFBDEF 
+2017-01-20 23:10:53,206 [main] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-20 23:11:02,961 [main] ERROR (DataServiceImpl.java:30) - invalid stream header: EFBFBDEF 
+2017-01-20 23:11:02,964 [main] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-20 23:27:04,004 [main] ERROR (DataServiceImpl.java:30) - invalid stream header: EFBFBDEF 
+2017-01-20 23:27:04,006 [main] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-20 23:27:17,101 [main] ERROR (DataServiceImpl.java:30) - invalid stream header: EFBFBDEF 
+2017-01-20 23:27:17,104 [main] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-20 23:50:58,860 [main] ERROR (DataServiceImpl.java:30) - invalid stream header: EFBFBDEF 
+2017-01-20 23:50:58,864 [main] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-20 23:51:11,476 [main] ERROR (DataServiceImpl.java:30) - invalid stream header: EFBFBDEF 
+2017-01-20 23:51:11,480 [main] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-20 23:51:11,504 [main] ERROR (GuestModelServiceImpl.java:47) - -1 
+2017-01-20 23:53:35,312 [main] ERROR (DataServiceImpl.java:30) - invalid stream header: EFBFBDEF 
+2017-01-20 23:53:35,316 [main] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-20 23:53:51,003 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-20 23:53:51,033 [main] ERROR (GuestModelServiceImpl.java:47) - -1 
+2017-01-20 23:55:58,205 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-20 23:56:52,850 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-20 23:57:21,588 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-20 23:57:27,379 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-20 23:57:27,403 [main] ERROR (GuestModelServiceImpl.java:47) - -1 
+2017-01-20 23:57:38,976 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-20 23:57:53,375 [main] ERROR (DataServiceImpl.java:30) - com.training.senla.model.Guest
+2017-01-20 23:57:53,381 [main] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-20 23:58:47,384 [main] ERROR (DataServiceImpl.java:30) - com.training.senla.model.Guest
+2017-01-20 23:58:47,388 [main] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-21 00:22:16,048 [main] ERROR (DataServiceImpl.java:30) - com.training.senla.model.Guest
+2017-01-21 00:22:16,051 [main] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-21 00:23:41,743 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 00:28:17,139 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 00:28:38,110 [main] ERROR (DataServiceImpl.java:30) - com.training.senla.model.Guest
+2017-01-21 00:28:38,113 [main] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-21 00:32:02,441 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 01:59:48,322 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 02:06:02,944 [main] ERROR (DataServiceImpl.java:30) - com.training.senla.model.Guest
+2017-01-21 02:06:02,948 [main] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-21 02:32:07,247 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 02:32:32,796 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 02:35:01,201 [main] ERROR (DataServiceImpl.java:30) - com.training.senla.model.Guest
+2017-01-21 02:35:01,204 [main] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-21 02:41:20,275 [main] ERROR (DataServiceImpl.java:30) - com.training.senla.model.Guest
+2017-01-21 02:41:20,278 [main] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-21 02:42:03,138 [main] ERROR (DataServiceImpl.java:30) - com.training.senla.model.Guest
+2017-01-21 02:42:03,141 [main] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-21 02:45:26,084 [main] ERROR (DataServiceImpl.java:30) - com.training.senla.model.Guest
+2017-01-21 02:45:26,089 [main] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-21 02:45:41,015 [main] ERROR (DataServiceImpl.java:30) - com.training.senla.model.Guest
+2017-01-21 02:45:41,018 [main] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-21 03:03:53,678 [main] ERROR (DataServiceImpl.java:30) - com.training.senla.model.Guest
+2017-01-21 03:03:53,681 [main] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-21 03:04:53,747 [main] ERROR (DataServiceImpl.java:30) - com.training.senla.model.Guest
+2017-01-21 03:04:53,751 [main] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-21 03:13:03,687 [main] ERROR (DataServiceImpl.java:30) - com.training.senla.model.Guest
+2017-01-21 03:13:03,691 [main] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-21 03:20:14,224 [main] ERROR (DataServiceImpl.java:30) - com.training.senla.model.Guest
+2017-01-21 03:20:14,229 [main] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-21 03:41:56,824 [main] ERROR (DataServiceImpl.java:30) - com.training.senla.model.Guest
+2017-01-21 03:41:56,828 [main] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-21 03:42:40,466 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 03:48:30,620 [Thread-0] ERROR (DataServiceImpl.java:30) - com.training.senla.model.Guest
+2017-01-21 03:48:30,622 [Thread-0] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-21 03:49:30,601 [Thread-0] ERROR (DataServiceImpl.java:30) - com.training.senla.model.Guest
+2017-01-21 03:49:30,603 [Thread-0] ERROR (Initializer.java:88) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0 
+2017-01-21 03:49:54,927 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 03:57:37,594 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 03:57:40,311 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 04:01:02,703 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 04:13:06,190 [Thread-1] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 04:13:18,003 [Thread-1] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 14:22:23,426 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 14:22:26,661 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 16:17:03,072 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 16:18:35,293 [Thread-1] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 16:18:53,050 [Thread-2] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 16:20:25,137 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 16:20:28,207 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 16:22:35,085 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 16:30:34,333 [Thread-1] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 16:30:40,218 [Thread-1] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 16:30:52,357 [Thread-1] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 16:35:17,299 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 16:35:54,438 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 17:07:18,041 [Thread-1] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 17:07:22,038 [Thread-1] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 17:07:26,260 [Thread-1] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 17:07:29,517 [Thread-1] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 17:07:31,069 [Thread-1] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 17:07:44,489 [Thread-1] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 19:01:40,383 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 19:02:06,080 [Thread-1] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 19:06:23,894 [Thread-2] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 19:06:55,403 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 19:07:03,646 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 19:20:30,418 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 19:35:39,256 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 19:36:17,507 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 20:03:07,864 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 20:32:16,779 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 20:40:31,489 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 20:42:12,552 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 21:05:11,599 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 21:05:13,856 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 21:05:15,015 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 21:05:32,773 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 21:05:33,561 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 21:10:24,935 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 22:48:51,100 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 22:49:49,257 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 22:51:05,486 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 22:57:07,370 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 22:57:56,618 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 22:58:02,204 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 23:04:57,238 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 23:04:57,301 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 23:05:01,519 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 23:05:03,680 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 23:05:03,725 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 23:05:03,728 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 23:06:29,694 [main] ERROR (DataServiceImpl.java:30) -  
+2017-01-21 23:07:07,417 [Thread-0] ERROR (DataServiceImpl.java:30) -  
+2017-01-23 04:47:44,549 [Thread-0] ERROR (ConnectionManager.java:33) - com.mysql.cj.jdbc.Driver 
+2017-01-23 04:47:44,552 [Thread-0] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 04:47:50,212 [Thread-0] ERROR (ConnectionManager.java:33) - com.mysql.cj.jdbc.Driver 
+2017-01-23 04:47:50,213 [Thread-0] ERROR (GuestModelServiceImpl.java:41) -  
+2017-01-23 04:47:57,368 [Thread-0] ERROR (ConnectionManager.java:33) - com.mysql.cj.jdbc.Driver 
+2017-01-23 04:47:57,368 [Thread-0] ERROR (GuestModelServiceImpl.java:41) -  
+2017-01-23 04:50:55,367 [Thread-0] ERROR (ConnectionManager.java:33) - com.mysql.cj.jdbc.Driver 
+2017-01-23 04:50:55,372 [Thread-0] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 04:52:40,174 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 04:53:37,133 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 04:55:02,652 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 04:56:37,969 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 04:56:48,218 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 04:57:02,366 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 04:57:22,429 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 04:59:09,074 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:00:25,256 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:00:36,003 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:00:45,834 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:00:59,939 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:01:10,520 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:01:30,442 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:01:39,217 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:01:41,857 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:01:52,353 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:02:05,098 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:03:59,115 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:04:15,320 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:04:22,820 [main] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 05:07:42,499 [Thread-0] ERROR (ConnectionManager.java:33) - com.mysql.cj.jdbc.Driver 
+2017-01-23 05:07:42,501 [Thread-0] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 14:50:36,469 [Thread-0] ERROR (ConnectionManager.java:33) - com.mysql.cj.jdbc.Driver 
+2017-01-23 14:50:36,477 [Thread-0] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-23 14:57:57,700 [Thread-0] ERROR (ConnectionManager.java:33) - com.mysql.cj.jdbc.Driver 
+2017-01-23 14:57:57,709 [Thread-0] ERROR (GuestModelServiceImpl.java:139) -  
+2017-01-26 22:44:30,730 [main] ERROR (BaseModelDaoImpl.java:54) - Can not issue data manipulation statements with executeQuery(). 
+2017-01-26 22:44:44,164 [main] ERROR (BaseModelDaoImpl.java:54) - Can not issue data manipulation statements with executeQuery(). 
+2017-01-26 22:48:56,227 [main] ERROR (BaseModelDaoImpl.java:30) - Data truncation: Incorrect date value: 'Sun Jun 06 00:00:00 MSK 3915' for column 'startDate' at row 1 
+2017-01-26 22:54:59,288 [main] ERROR (BaseModelDaoImpl.java:30) - Data truncation: Incorrect date value: 'Sun Jun 06 00:00:00 MSK 3915' for column 'startDate' at row 1 
+2017-01-26 22:55:00,759 [main] ERROR (BaseModelDaoImpl.java:30) - Data truncation: Incorrect date value: 'Sun Jun 06 00:00:00 MSK 3915' for column 'startDate' at row 1 
+2017-01-26 22:58:06,189 [main] ERROR (RegistrationServiceImpl.java:37) -  
+2017-01-26 23:09:22,219 [main] ERROR (RegistrationServiceImpl.java:71) -  
+2017-01-26 23:10:21,720 [main] ERROR (RegistrationServiceImpl.java:71) -  
+2017-01-26 23:22:12,607 [main] ERROR (BaseModelDaoImpl.java:30) - Data truncation: Incorrect date value: 'Jun 6, 3915 12:00:00 AM' for column 'startDate' at row 1 
+2017-01-26 23:23:18,609 [main] ERROR (BaseModelDaoImpl.java:30) - Data truncation: Incorrect date value: 'Jun 6, 3915 12:00:00 AM' for column 'startDate' at row 1 
+2017-01-26 23:23:35,208 [main] ERROR (BaseModelDaoImpl.java:30) - Data truncation: Incorrect date value: 'Jun 6, 3915 12:00:00 AM' for column 'startDate' at row 1 
+2017-01-26 23:24:46,564 [main] ERROR (BaseModelDaoImpl.java:30) - Data truncation: Incorrect date value: 'Jun 6, 3915 12:00:00 AM' for column 'startDate' at row 1 
+2017-01-26 23:27:18,652 [main] ERROR (BaseModelDaoImpl.java:30) - Data truncation: Incorrect date value: 'Jun 6, 3915 12:00:00 AM' for column 'startDate' at row 1 
+2017-01-26 23:28:18,757 [main] ERROR (BaseModelDaoImpl.java:30) - Data truncation: Incorrect date value: 'Jun 6, 3915 12:00:00 AM' for column 'startDate' at row 1 
+2017-01-26 23:28:18,764 [main] ERROR (BaseModelDaoImpl.java:30) - Data truncation: Incorrect date value: 'Sun Jun 06 00:00:00 MSK 3915' for column 'startDate' at row 1 
+2017-01-26 23:28:34,127 [main] ERROR (BaseModelDaoImpl.java:30) - Data truncation: Incorrect date value: 'Jun 6, 3915 12:00:00 AM' for column 'startDate' at row 1 
+2017-01-26 23:28:34,143 [main] ERROR (BaseModelDaoImpl.java:30) - Data truncation: Incorrect date value: 'Sun Jun 06 00:00:00 MSK 3915' for column 'startDate' at row 1 
+2017-01-26 23:29:00,956 [main] ERROR (BaseModelDaoImpl.java:30) - Data truncation: Incorrect date value: 'Sun Jun 06 00:00:00 MSK 3915' for column 'startDate' at row 1 
+2017-01-27 00:04:50,656 [main] ERROR (BaseModelDaoImpl.java:30) - Data truncation: Incorrect date value: '3916-20-10' for column 'finalDate' at row 1 
+2017-01-27 00:05:30,778 [main] ERROR (BaseModelDaoImpl.java:30) - Data truncation: Incorrect date value: '3916-20-10' for column 'finalDate' at row 1 
+2017-01-27 00:05:45,189 [main] ERROR (BaseModelDaoImpl.java:30) - Data truncation: Incorrect date value: '2016-20-10' for column 'finalDate' at row 1 
