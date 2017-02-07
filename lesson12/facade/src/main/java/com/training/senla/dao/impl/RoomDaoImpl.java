@@ -34,65 +34,48 @@ public class RoomDaoImpl extends BaseModelDaoImpl<Room> implements RoomDao {
 
 
     @Override
-    public int getCountFreeRooms(Session session) {
-        int count = 0;
-        try {
-            count = ((Long) getCriteria(session)
-                    .add(Restrictions.eq("status", RoomStatus.FREE))
-                    .setProjection(Projections.rowCount())
-                    .uniqueResult()).intValue();
-        } catch (Exception e) {
-            LOG.error(e.getMessage());
-        }
-        return count;
+    public int getCountFreeRooms(Session session) throws Exception {
+        return ((Long) getCriteria(session)
+                .add(Restrictions.eq("status", RoomStatus.FREE))
+                .setProjection(Projections.rowCount())
+                .uniqueResult()).intValue();
     }
 
     @Override
-    public List<Room> getLatestGuests(Session session, int count) {
+    public List<Room> getLatestGuests(Session session, int count) throws Exception {
         List<Room> rooms = new ArrayList<>();
-        try {
-            DetachedCriteria ownerCriteria = DetachedCriteria.forClass(Registration.class);
-            ownerCriteria.setProjection(Projections.property("roomId"));
 
-            Criteria criteria = getCriteria(session);
-            criteria.add(Property.forName("id").in(ownerCriteria));
+        DetachedCriteria ownerCriteria = DetachedCriteria.forClass(Registration.class);
+        ownerCriteria.setProjection(Projections.property("roomId"));
 
-            Criteria rowsRoom = session.createCriteria(Registration.class);
-            rowsRoom.setProjection(Projections.property("roomId"));
-            int max = ((Long) rowsRoom.setProjection(Projections.rowCount()).uniqueResult()).intValue();
+        Criteria criteria = getCriteria(session);
+        criteria.add(Property.forName("id").in(ownerCriteria));
 
-            rooms = criteria.setFirstResult(max-count).setMaxResults(count).list();
-        } catch (Exception e) {
-            LOG.error(e.getMessage());
-        }
+        Criteria rowsRoom = session.createCriteria(Registration.class);
+        rowsRoom.setProjection(Projections.property("roomId"));
+        int max = ((Long) rowsRoom.setProjection(Projections.rowCount()).uniqueResult()).intValue();
+
+        rooms = criteria.setFirstResult(max - count).setMaxResults(count).list();
+
         return rooms;
     }
 
     @Override
-    public List<Room> getReleasedInFuture(Session session, Date date) {
+    public List<Room> getReleasedInFuture(Session session, Date date) throws Exception{
         List<Room> rooms = new ArrayList<>();
-        try {
             rooms = session.createQuery("select r from Room r, Registration reg where reg.roomId = r.id and reg.finalDate <:currentDate")
                     .setParameter("currentDate", date)
                     .list();
-
-        } catch (Exception e) {
-            LOG.error(e.getMessage());
-        }
         return rooms;
     }
 
     @Override
-    public List<Double> getPriceBySection(Session session, RoomsSection section) {
+    public List<Double> getPriceBySection(Session session, RoomsSection section) throws Exception{
         List<Double> prices = new ArrayList<>();
-        try {
             Criteria criteria = session.createCriteria(Room.class);
             prices = criteria.setProjection(Projections.groupProperty("price"))
                     .add(Restrictions.eq("section", section))
                     .list();
-        } catch (Exception e) {
-            LOG.error(e.getMessage());
-        }
         return prices;
     }
 

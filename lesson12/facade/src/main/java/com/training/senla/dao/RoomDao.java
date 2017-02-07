@@ -12,11 +12,11 @@ import java.util.List;
  */
 public interface RoomDao extends BaseModelDao<Room>{
 
-    int getCountFreeRooms(Session session);
+    int getCountFreeRooms(Session session) throws Exception;
 
-    List<Room> getLatestGuests(Session session, int count);
+    List<Room> getLatestGuests(Session session, int count) throws Exception;
 
-    List<Room> getReleasedInFuture(Session session, Date date);
+    List<Room> getReleasedInFuture(Session session, Date date) throws Exception;
 
-    List<Double> getPriceBySection(Session session, RoomsSection section);
+    List<Double> getPriceBySection(Session session, RoomsSection section) throws Exception;
 }

@@ -31,32 +31,24 @@ public class RegistrationDaoImpl extends BaseModelDaoImpl<Registration> implemen
 
     @SuppressWarnings("deprecation")
     @Override
-    public double getSumByRoom(Session session, Room room, Guest guest) {
-        double sum = 0;
-        try {
-            Criteria criteria = getCriteria(session);
-            Criterion guestId = Restrictions.eq("guestId", guest.getId());
-            Criterion roomId = Restrictions.eq("roomId", room.getId());
-            List<Registration> registrations = criteria.add(Restrictions.and(guestId, roomId)).list();
-            int finalDate = registrations.get(0).getFinalDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().getDayOfYear();
-            int startDate = registrations.get(0).getStartDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().getDayOfYear();
-            sum = (finalDate - startDate) * room.getPrice();
-        } catch (Exception e) {
-            LOG.error(e.getMessage());
-        }
-        return sum;
+    public double getSumByRoom(Session session, Room room, Guest guest) throws Exception{
+
+        Criteria criteria = getCriteria(session);
+        Criterion guestId = Restrictions.eq("guestId", guest.getId());
+        Criterion roomId = Restrictions.eq("roomId", room.getId());
+        List<Registration> registrations = criteria.add(Restrictions.and(guestId, roomId)).list();
+        int finalDate = registrations.get(0).getFinalDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().getDayOfYear();
+        int startDate = registrations.get(0).getStartDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().getDayOfYear();
+        return (finalDate - startDate) * room.getPrice();
     }
 
 
     @Override
-    public List<Guest> getSortedByFinalDate(Session session) {
+    public List<Guest> getSortedByFinalDate(Session session) throws Exception{
         List<Guest> guests = new ArrayList<>();
-        try {
             guests = session.createQuery("select g from Guest g inner join Registration reg ON reg.guestId = g.id order by reg.finalDate")
                     .list();
-        }catch (Exception e) {
-            LOG.error(e.getMessage());
-        }
+
         return guests;
     }
 }

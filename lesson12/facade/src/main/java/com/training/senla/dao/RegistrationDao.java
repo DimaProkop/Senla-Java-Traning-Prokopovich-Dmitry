@@ -13,8 +13,8 @@ import java.util.List;
  */
 public interface RegistrationDao extends BaseModelDao<Registration>{
 
-    List<Guest> getSortedByFinalDate(Session session);
+    List<Guest> getSortedByFinalDate(Session session) throws Exception;
 
-    double getSumByRoom(Session session, Room room, Guest guest);
+    double getSumByRoom(Session session, Room room, Guest guest) throws Exception;
 
 }

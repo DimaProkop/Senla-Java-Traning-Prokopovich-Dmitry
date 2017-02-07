@@ -31,16 +31,10 @@ public class GuestDaoImpl extends BaseModelDaoImpl<Guest> implements GuestDao{
 
 
     @Override
-    public int getCount(Session session) {
-        int count = 0;
-        try {
-            count = ((Long) getCriteria(session)
+    public int getCount(Session session) throws Exception{
+        return ((Long) getCriteria(session)
                     .setProjection(Projections.rowCount())
                     .uniqueResult()).intValue();
-        } catch (Exception e) {
-            LOG.error(e.getMessage());
-        }
-        return count;
     }
 
 }

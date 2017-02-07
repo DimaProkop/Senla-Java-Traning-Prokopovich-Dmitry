@@ -3,7 +3,9 @@ package com.training.senla;
 import com.training.senla.di.DependencyInjection;
 import com.training.senla.enums.ServicesSection;
 import com.training.senla.facade.Facade;
+import com.training.senla.model.Guest;
 import com.training.senla.model.Registration;
+import com.training.senla.model.Room;
 import com.training.senla.model.Service;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
@@ -54,6 +56,11 @@ public class Main {
         Facade facade = (Facade) DependencyInjection.getInstance(Facade.class);
         facade.init();
 
+        Room room = facade.getRoom(2);
+        Guest guest = facade.getGuest(5);
+
+        facade.registerGuest(guest, room, new Date(117, 6, 8), new Date(118, 3, 2));
+        System.out.print("ok");
     }
 
 }

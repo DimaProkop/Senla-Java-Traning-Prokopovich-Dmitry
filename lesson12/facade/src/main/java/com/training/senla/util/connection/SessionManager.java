@@ -30,14 +30,12 @@ public class SessionManager {
     }
 
     public Session getSession() {
-        if (sessionFactory != null) {
-            return sessionFactory.getCurrentSession();
-        } else {
-            Configuration configuration = new Configuration();
-            configuration.configure();
 
-            sessionFactory = configuration.buildSessionFactory();
-        }
+        Configuration configuration = new Configuration();
+        configuration.configure();
+
+        sessionFactory = configuration.buildSessionFactory();
+
         return sessionFactory.openSession();
     }
 

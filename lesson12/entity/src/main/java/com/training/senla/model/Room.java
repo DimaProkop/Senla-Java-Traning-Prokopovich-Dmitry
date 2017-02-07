@@ -28,11 +28,11 @@ public class Room extends BaseModel implements Cloneable{
 
     @Column
     @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 5, escape = true)
-    private double price;
+    private Double price;
 
     @Column
     @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 3, escape = false)
-    private int capacity;
+    private Integer capacity;
 
     @Column
     @Enumerated(EnumType.STRING)
@@ -46,7 +46,7 @@ public class Room extends BaseModel implements Cloneable{
 
     @Column
     @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 4, escape = true)
-    private int rating;
+    private Integer rating;
 
     @OneToMany(mappedBy = "room", fetch = FetchType.LAZY)
     @CsvPropertyLink(propertyType = PropertyType.CompositeProperty, keyField = "id")
@@ -55,7 +55,7 @@ public class Room extends BaseModel implements Cloneable{
     public Room() {
     }
 
-    public Room(double price, int capacity, RoomsSection section, int rating) {
+    public Room(Double price, Integer capacity, RoomsSection section, Integer rating) {
         this.price = price;
         this.capacity = capacity;
         this.status = RoomStatus.FREE;
@@ -68,7 +68,7 @@ public class Room extends BaseModel implements Cloneable{
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -76,7 +76,7 @@ public class Room extends BaseModel implements Cloneable{
         return capacity;
     }
 
-    public void setCapacity(int capacity) {
+    public void setCapacity(Integer capacity) {
         this.capacity = capacity;
     }
 
@@ -100,7 +100,7 @@ public class Room extends BaseModel implements Cloneable{
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(Integer rating) {
         this.rating = rating;
     }
 

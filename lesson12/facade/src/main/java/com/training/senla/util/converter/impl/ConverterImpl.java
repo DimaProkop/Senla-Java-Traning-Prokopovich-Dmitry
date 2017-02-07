@@ -63,7 +63,7 @@ public class ConverterImpl implements Converter{
         String[] params = string.split(template.getSeparator());
         room.setId(Integer.parseInt(params[0]));
         if(!escapeMaps.get(orders.get(0))) {
-            room.setPrice(0);
+            room.setPrice(null);
         }else {
             room.setPrice(Double.parseDouble(params[orders.get(0)]));
         }
@@ -119,7 +119,7 @@ public class ConverterImpl implements Converter{
         }
 
         if(!escapeMaps.get(orders.get(1))) {
-            service.setPrice(0);
+            service.setPrice(null);
         }else {
             service.setPrice(Double.parseDouble(params[orders.get(1)]));
         }
@@ -149,6 +149,7 @@ public class ConverterImpl implements Converter{
     @SuppressWarnings("deprecation")
     @Override
     public Registration convertStringToRegistration(String string, ReadTemplate template) {
+        Facade facade = (Facade) DependencyInjection.getInstance(Facade.class);
         Registration registration = new Registration();
         List<Integer> orders = template.getOrderList();
         int max = Collections.max(orders);
@@ -156,15 +157,15 @@ public class ConverterImpl implements Converter{
         String[] params = string.split(template.getSeparator());
         registration.setId(Integer.parseInt(params[0]));
         if(!escapeMaps.get(orders.get(0))) {
-            registration.setGuestId(0);
+            registration.setGuest(null);
         }else {
-            registration.setGuestId(Integer.parseInt(params[orders.get(0)]));
+            registration.setGuest(facade.getGuest(Integer.parseInt(params[orders.get(0)])));
         }
 
         if(!escapeMaps.get(orders.get(1))) {
-            registration.setRoomId(0);
+            registration.setRoom(null);
         }else {
-            registration.setRoomId(Integer.parseInt(params[orders.get(1)]));
+            registration.setRoom(facade.getRoom(Integer.parseInt(params[orders.get(1)])));
         }
 
         if(!escapeMaps.get(orders.get(2))) {

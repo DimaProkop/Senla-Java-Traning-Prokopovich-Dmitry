@@ -30,31 +30,23 @@ public class ServiceDaoImpl extends BaseModelDaoImpl<Service> implements Service
 
 
     @Override
-    public List<Service> getServices(Session session, Guest guest, SortType type) {
+    public List<Service> getServices(Session session, Guest guest, SortType type) throws Exception{
         List<Service> services = new ArrayList<>();
-        try {
             Criteria criteria = getCriteria(session);
             services = criteria.add(Restrictions.eq("guestId", guest.getId()))
                     .addOrder(Order.asc(type.toString())).list();
-        } catch (Exception e) {
-            LOG.error(e.getMessage());
-        }
 
         return services;
     }
 
 
     @Override
-    public List<Double> getPriceBySection(Session session, ServicesSection section) {
+    public List<Double> getPriceBySection(Session session, ServicesSection section) throws Exception{
         List<Double> prices = new ArrayList<>();
-        try {
             Criteria criteria = getCriteria(session);
             prices = criteria.setProjection(Projections.groupProperty("price"))
                     .add(Restrictions.eq("section", section))
                     .list();
-        } catch (Exception e) {
-            LOG.error(e.getMessage());
-        }
         return prices;
     }
 

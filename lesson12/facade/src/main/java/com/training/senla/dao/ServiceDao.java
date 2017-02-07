@@ -12,7 +12,7 @@ import java.util.List;
  * Created by prokop on 13.10.16.
  */
 public interface ServiceDao extends BaseModelDao<Service>{
-    List<Double> getPriceBySection(Session session, ServicesSection section);
+    List<Double> getPriceBySection(Session session, ServicesSection section) throws Exception;
 
-    List<Service> getServices(Session session, Guest guest, SortType type);
+    List<Service> getServices(Session session, Guest guest, SortType type) throws Exception;
 }

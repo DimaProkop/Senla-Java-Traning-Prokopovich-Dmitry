@@ -97,7 +97,7 @@ public class RoomServiceImpl implements RoomService {
         try {
             guest.setRoom(room);
             guestDao.update(session, guest);
-            Registration registration = new Registration(guest.getId(), room.getId(), startDate, finalDate);
+            Registration registration = new Registration(guest, room, startDate, finalDate);
             registrationDao.add(session, registration);
         } catch (Exception e) {
             LOG.error(e.getMessage());

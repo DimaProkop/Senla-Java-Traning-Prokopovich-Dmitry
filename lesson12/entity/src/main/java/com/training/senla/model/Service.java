@@ -32,7 +32,7 @@ public class Service extends BaseModel{
 
     @Column
     @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 3, escape = true)
-    private double price;
+    private Double price;
 
     @Column
     @Enumerated(EnumType.STRING)
@@ -56,7 +56,7 @@ public class Service extends BaseModel{
 
     }
 
-    public Service(String name, double price, ServicesSection section, Date startDate, Date finalDate) {
+    public Service(String name, Double price, ServicesSection section, Date startDate, Date finalDate) {
         this.name = name;
         this.price = price;
         this.section = section;
@@ -77,7 +77,7 @@ public class Service extends BaseModel{
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

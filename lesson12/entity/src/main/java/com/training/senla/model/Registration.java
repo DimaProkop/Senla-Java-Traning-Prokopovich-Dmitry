@@ -24,11 +24,11 @@ public class Registration extends BaseModel{
 
     @Column
     @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 1, escape = true)
-    private int guestId;
+    private Guest guest;
 
     @Column
     @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 3, escape = true)
-    private int roomId;
+    private Room room;
 
     @Column
     @CsvProperty(propertyType = PropertyType.SimpleProperty, columnNumber = 4, escape = true)
@@ -41,28 +41,13 @@ public class Registration extends BaseModel{
     public Registration() {
     }
 
-    public Registration(int guestId, int roomId, Date startDate, Date finalDate) {
-        this.guestId = guestId;
-        this.roomId = roomId;
+    public Registration(Guest guest, Room room, Date startDate, Date finalDate) {
+        this.guest = guest;
+        this.room = room;
         this.startDate = startDate;
         this.finalDate = finalDate;
     }
 
-    public int getGuestId() {
-        return guestId;
-    }
-
-    public void setGuestId(int guestId) {
-        this.guestId = guestId;
-    }
-
-    public int getRoomId() {
-        return roomId;
-    }
-
-    public void setRoomId(int roomId) {
-        this.roomId = roomId;
-    }
 
     public Date getStartDate() {
         return startDate;
@@ -88,5 +73,21 @@ public class Registration extends BaseModel{
     @Override
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Guest getGuest() {
+        return guest;
+    }
+
+    public void setGuest(Guest guest) {
+        this.guest = guest;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
     }
 }

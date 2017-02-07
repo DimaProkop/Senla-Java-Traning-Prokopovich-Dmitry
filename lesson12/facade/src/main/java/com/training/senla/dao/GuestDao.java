@@ -13,5 +13,5 @@ import java.util.List;
  */
 public interface GuestDao extends BaseModelDao<Guest>{
 
-    int getCount(Session session);
+    int getCount(Session session) throws Exception;
 }
